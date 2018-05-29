@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script type="text/javascript"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/article.js"></script>
+<link rel="stylesheet" type="text/css" href="ourtake.css">
+<link rel="shortcut icon" href="#" />
+</head>
+<body>
+
+<h2>
+OurTake
+</h2>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Read')" id="defaultOpen">Read</button>
+  <button class="tablinks" onclick="openTab(event, 'Review')">Review</button>
+  <button class="tablinks" onclick="openTab(event, 'Contribute')">Contribute</button>
+</div>
+
+<div id="Read" class="tabcontent">
+  <h3>Read</h3>
+  <div id="ReadText"></div>
+</div>
+
+<div id="Review" class="tabcontent">
+  <h3>Review</h3>
+  <p id="ReviewText"></p>
+</div>
+
+<div id="Contribute" class="tabcontent">
+  <h3>Contribute</h3>
+  <p id="ContributeText"></p>
+</div>
+
+<!-- <button type="button">Click Me!</button>
+<div id="edit" contenteditable="true">
+Here is the element's original content
+</div> -->
+
+
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAOCrsdOewIQmGh0XDS1wYGqTbrJKGVwY0",
+    authDomain: "ourtake-9cc32.firebaseapp.com",
+    databaseURL: "https://ourtake-9cc32.firebaseio.com",
+    projectId: "ourtake-9cc32",
+    storageBucket: "ourtake-9cc32.appspot.com",
+    messagingSenderId: "130022120774"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
+</script>
+
+<script>
+  var url_string = document.location.href;
+  var url = new URL(url_string);
+  var article = url.searchParams.get("article");
+  loadText(article);
+</script>
+
+<script>
+	document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

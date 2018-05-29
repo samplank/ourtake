@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<meta name="google-signin-client_id" content="352857312638-3gblbu3s3ktjppdimgo43udfmjd7p4n6.apps.googleusercontent.com">
+<script type="text/javascript"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/frontpage.js"></script>
+<link rel="stylesheet" type="text/css" href="ourtake.css">
+<link rel="shortcut icon" href="#" />
+</head>
+<body>
+
+<h2>
+OurTake
+</h2>
+
+<!-- <div>
+	<li id="login"><a href="login.html" id="login">Login</a></li>
+<div> -->
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<div id="existingArticle">
+</div>
+
+<div id="addArticle">
+</div>
+
+
+
+<!-- <button type="button">Click Me!</button>
+<div id="edit" contenteditable="true">
+Here is the element's original content
+</div> -->
+
+
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAOCrsdOewIQmGh0XDS1wYGqTbrJKGVwY0",
+    authDomain: "ourtake-9cc32.firebaseapp.com",
+    databaseURL: "https://ourtake-9cc32.firebaseio.com",
+    projectId: "ourtake-9cc32",
+    storageBucket: "ourtake-9cc32.appspot.com",
+    messagingSenderId: "130022120774"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
+</script>
+
+<script>
+	loadArticles();
+	addButton();
+</script>
+
+</body>
+</html>

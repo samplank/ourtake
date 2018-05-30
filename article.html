@@ -94,9 +94,8 @@ function start() {
     });
   }).then(function(response) {
     console.log(response.result["names"][0]["displayName"]);
-    console.log(myname);
     myname = response.result["names"][0]["displayName"];
-    console.log(myname);
+    getName(myname);
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
   });
@@ -104,7 +103,6 @@ function start() {
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
 
-console.log("myname: " + String(myname));
 </script>
 
 

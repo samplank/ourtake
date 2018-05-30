@@ -1,3 +1,9 @@
+var name = ''
+
+function getName(myname) {
+  name = myname;
+}
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -140,7 +146,7 @@ function submitText(i,articleID) {
 
     var now = new Date().getTime();
 
-    var contributionID = writeNewContribution(textInput,0,0,false,"Sam Plank",now,articleID);
+    var contributionID = writeNewContribution(textInput,0,0,false,name,now,articleID);
 
     loadText(articleID);
 }

@@ -82,18 +82,7 @@ function start() {
     // clientId and scope are optional if auth is not required.
     'clientId': '130022120774-65r3j5ausqf2q02ng7ac4moe335oboh5.apps.googleusercontent.com',
     'scope': 'profile',
-  }).then(function() {
-      console.log(gapi.client.people.people);
-    // 3. Initialize and make the API request.
-    return gapi.client.people.people.get({
-      'resourceName': 'people/me',
-      'requestMask.includeField': 'person.names'
-    });
-  }).then(function(response) {
-    console.log(response.result);
-  }, function(reason) {
-    console.log('Error: ' + reason.result.error.message);
-  });
+  })
 };
 // 1. Load the JavaScript client library.
 gapi.load('client', start);

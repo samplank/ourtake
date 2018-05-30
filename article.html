@@ -96,6 +96,7 @@ function start() {
     console.log(response.result["names"][0]["displayName"]);
     console.log(myname);
     myname = response.result["names"][0]["displayName"];
+    console.log(myname);
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
   });

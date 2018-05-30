@@ -76,15 +76,18 @@ Here is the element's original content
 function start() {
   // 2. Initialize the JavaScript client library.
   gapi.client.init({
-    'apiKey': "AIzaSyA4ZsZ_SJzs9IJ4Lz-yemewp8VYdOJfe20",
+    'apiKey': 'AIzaSyA4ZsZ_SJzs9IJ4Lz-yemewp8VYdOJfe20',
+    // Your API key will be automatically added to the Discovery Document URLs.
+    'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
     // clientId and scope are optional if auth is not required.
-    'clientId': "66162230510-hpeul3cnbc9b3oddeeer2ivotf6ov7ip.apps.googleusercontent.com",
+    'clientId': '66162230510-hpeul3cnbc9b3oddeeer2ivotf6ov7ip.apps.googleusercontent.com',
     'scope': 'profile',
   }).then(function() {
     // 3. Initialize and make the API request.
-    return gapi.client.request({
-      'path': "https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names",
-    })
+    return gapi.client.people.people.get({
+      'resourceName': 'people/me',
+      'requestMask.includeField': 'person.names'
+    });
   }).then(function(response) {
     console.log(response.result);
   }, function(reason) {

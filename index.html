@@ -25,6 +25,9 @@ OurTake
 <div id="addArticle">
 </div>
 
+<a href="#" onclick="signOut();">Sign out</a>
+
+
 
 <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 <script>
@@ -57,8 +60,26 @@ OurTake
 </script>
 
 <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+<script>
   loadArticles();
   addButton(name);
+</script>
+
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 </script>
 
 </body>

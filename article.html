@@ -71,5 +71,16 @@ Here is the element's original content
 	document.getElementById("defaultOpen").click();
 </script>
 
+<script type="text/javascript">
+  gapi.client.load('plus','v1', function(){
+   var request = gapi.client.plus.people.get({
+     'userId': 'me'
+   });
+   request.execute(function(resp) {
+     console.log('Retrieved profile for:' + resp.displayName);
+   });
+  });
+</script>
+
 </body>
 </html>

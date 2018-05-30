@@ -20,10 +20,10 @@ function loadArticles() {
     });
 }
 
-function addButton() {
+function addButton(name) {
     var contributeButton = document.createElement("button");
     contributeButton.innerHTML = "Add a new article!";
-    contributeButton.setAttribute('onclick','addTextBox()');
+    contributeButton.setAttribute('onclick','addTextBox(' + name + ')');
     var textDiv = document.getElementById("addArticle");
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
@@ -32,7 +32,7 @@ function addButton() {
 
 }
 
-function addTextBox() {
+function addTextBox(name) {
 	var txtBox = document.createElement("input");
 
     txtBox.setAttribute("type", "text");
@@ -43,11 +43,11 @@ function addTextBox() {
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
-    undoButton.setAttribute('onclick','addButton()');
+    undoButton.setAttribute('onclick','addButton(' + name + ')');
 
     var submitButton = document.createElement("button");
     submitButton.innerHTML = "Submit";
-    submitButton.setAttribute('onclick','submitText()');
+    submitButton.setAttribute('onclick','submitText(' + name + ')');
 
     var textDiv = document.getElementById("addArticle");
     while (textDiv.firstChild) {
@@ -59,14 +59,14 @@ function addTextBox() {
 }
 
 
-function submitText() {
+function submitText(name) {
 
     var title = document.getElementById("txtbox").value;
     console.log(title);
 
     var now = new Date().getTime();
 
-    var contributionID = writeNewPost(title,"Sam Plank",now);
+    var contributionID = writeNewPost(title,name,now);
 
     addButton();
 

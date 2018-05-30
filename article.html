@@ -91,7 +91,7 @@ function start() {
       'requestMask.includeField': 'person.names'
     });
   }).then(function(response) {
-    console.log(response.result);
+    console.log(response.result["names"]);
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
   });

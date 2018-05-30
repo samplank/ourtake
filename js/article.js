@@ -27,6 +27,8 @@ function openTab(evt, tabName) {
 
 function loadText(articleID) {
 
+    console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
+
     var read = document.getElementById("ReadText");
     read.innerHTML = '';
     var review = document.getElementById("ReviewText");

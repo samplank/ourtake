@@ -91,7 +91,7 @@ function start() {
       'requestMask.includeField': 'person.names'
     });
   }).then(function(response) {
-    console.log(response.result["names"]);
+    myname = response.result["names"][0]["displayName"];
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
   });
@@ -107,6 +107,10 @@ gapi.client.load('plus','v1', function(){
    console.log('Retrieved profile for:' + resp.displayName);
  });
 });
+</script>
+
+<script>
+  console.log("my name: " + myname);
 </script>
 
 </body>

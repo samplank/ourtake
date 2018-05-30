@@ -57,29 +57,6 @@ OurTake
 </script>
 
 <script>
-function start() {
-  // 2. Initialize the JavaScript client library.
-  gapi.client.init({
-    'apiKey': 'AIzaSyA4ZsZ_SJzs9IJ4Lz-yemewp8VYdOJfe20',
-    // clientId and scope are optional if auth is not required.
-    'clientId': '66162230510-2imucggv04ilejkksq198amua9m29j9j.apps.googleusercontent.com',
-    'scope': 'profile',
-  }).then(function() {
-    // 3. Initialize and make the API request.
-    return gapi.client.request({
-      'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
-    })
-  }).then(function(response) {
-    console.log(response.result);
-  }, function(reason) {
-    console.log('Error: ' + reason.result.error.message);
-  });
-};
-// 1. Load the JavaScript client library.
-gapi.load('client', start);
-</script>
-
-<script>
   loadArticles();
   addButton(name);
 </script>

@@ -62,17 +62,6 @@ Here is the element's original content
 </script>
 
 <script>
-  var url_string = document.location.href;
-  var url = new URL(url_string);
-  var article = url.searchParams.get("article");
-  loadText(article);
-</script>
-
-<script>
-	document.getElementById("defaultOpen").click();
-</script>
-
-<script>
 var myname = 'dog';
 </script>
 <script>
@@ -101,6 +90,17 @@ function start() {
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
 
+</script>
+
+<script>
+  var url_string = document.location.href;
+  var url = new URL(url_string);
+  var article = url.searchParams.get("article");
+  loadText(article);
+</script>
+
+<script>
+  document.getElementById("defaultOpen").click();
 </script>
 
 

@@ -73,6 +73,7 @@ Here is the element's original content
 </script>
 
 <script>
+var myname = '';
 function start() {
   // 2. Initialize the JavaScript client library.
   gapi.client.init({
@@ -97,17 +98,15 @@ function start() {
 };
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
-</script>
 
-<script type="text/javascript">
-  gapi.client.load('plus','v1', function(){
-   var request = gapi.client.plus.people.get({
-     'userId': 'me'
-   });
-   request.execute(function(resp) {
-     console.log('Retrieved profile for:' + resp.displayName);
-   });
-  });
+gapi.client.load('plus','v1', function(){
+ var request = gapi.client.plus.people.get({
+   'userId': 'me'
+ });
+ request.execute(function(resp) {
+   console.log('Retrieved profile for:' + resp.displayName);
+ });
+});
 </script>
 
 </body>

@@ -73,7 +73,7 @@ Here is the element's original content
 </script>
 
 <script>
-var myname = '';
+var myname = 'dog';
 </script>
 <script>
 function start() {
@@ -94,6 +94,7 @@ function start() {
     });
   }).then(function(response) {
     console.log(response.result["names"][0]["displayName"]);
+    console.log(myname);
     myname = response.result["names"][0]["displayName"];
   }, function(reason) {
     console.log('Error: ' + reason.result.error.message);
@@ -102,7 +103,7 @@ function start() {
 // 1. Load the JavaScript client library.
 gapi.load('client', start);
 
-console.log("myname: " + myname);
+console.log("myname: " + String(myname));
 </script>
 
 

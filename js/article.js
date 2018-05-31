@@ -49,17 +49,17 @@ function loadText(articleID) {
 
             console.log(name);
 
-            if (name != ''){
+            var newReviewPara = document.createElement("h4");
+            newReviewPara.innerHTML = contribution.body;
+            var reviewInfoName = document.createElement("p");
+            reviewInfoName.innerHTML = "Author: " + contribution.author;
+            var reviewInfoDateVotes = document.createElement("p");
+            reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
+            newReviewPara.appendChild(reviewInfoName);
+            newReviewPara.appendChild(reviewInfoDateVotes);
+            review.appendChild(newReviewPara);
 
-              var newReviewPara = document.createElement("h4");
-              newReviewPara.innerHTML = contribution.body;
-              var reviewInfoName = document.createElement("p");
-              reviewInfoName.innerHTML = "Author: " + contribution.author;
-              var reviewInfoDateVotes = document.createElement("p");
-              reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
-              newReviewPara.appendChild(reviewInfoName);
-              newReviewPara.appendChild(reviewInfoDateVotes);
-              review.appendChild(newReviewPara);
+            if (name != ''){
 
               var newContributePara = document.createElement("p");
               newContributePara.innerHTML = contribution.body;
@@ -96,7 +96,15 @@ function loadText(articleID) {
 
       });
     i--;
-    addButton(i, articleID);
+
+    if (name == ''){
+      var contributeAlert = document.createElement("p");
+      newContributePara.innerHTML = "Please Sign In to Contribute"
+      contribute.appendChild(contributeAlert);
+    }
+    else {
+      addButton(i, articleID);
+    }
     });
 }
 

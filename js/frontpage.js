@@ -63,14 +63,14 @@ function addTextBox(name) {
     undoButton.innerHTML = "Cancel";
     console.log("hit");
     console.log(typeof(name));
-    undoButton.setAttribute('onclick','addButton(' + name + ')');
+    undoButton.setAttribute('onclick','addButton(' + '"' +  name + '"' + ')');
     console.log("hit");
 
     var submitButton = document.createElement("button");
     console.log("hit");
     submitButton.innerHTML = "Submit";
     console.log("hit");
-    submitButton.setAttribute('onclick','submitText(' + name + ')');
+    submitButton.setAttribute('onclick','submitText(' + '"' +  name + '"' + ')');
     console.log("hit");
 
     var textDiv = document.getElementById("addArticle");

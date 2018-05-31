@@ -23,17 +23,12 @@ function loadArticles() {
 function addButton(name) {
 	console.log(name);
     var contributeButton = document.createElement("button");
-    console.log("hit");
 
     contributeButton.innerHTML = "Add a new article!";
 
-    console.log("hit");
-
     contributeButton.setAttribute('onclick','addTextBox(' + name + ')');
-    console.log("hit");
     var textDiv = document.getElementById("addArticle");
 
-    console.log("hit");
 
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
@@ -43,21 +38,37 @@ function addButton(name) {
 }
 
 function addTextBox(name) {
+	console.log("hit");
+
 	var txtBox = document.createElement("input");
 
+	console.log("hit");
+
     txtBox.setAttribute("type", "text");
+
+    console.log("hit");
     txtBox.setAttribute("value", "");
+    console.log("hit");
     txtBox.setAttribute("name", "Test Name");
+    console.log("hit");
     txtBox.maxLength = 100;
+    console.log("hit");
     txtBox.id = "txtbox";
+    console.log("hit");
 
     var undoButton = document.createElement("button");
+    console.log("hit");
     undoButton.innerHTML = "Cancel";
+    console.log("hit");
     undoButton.setAttribute('onclick','addButton(' + name + ')');
+    console.log("hit");
 
     var submitButton = document.createElement("button");
+    console.log("hit");
     submitButton.innerHTML = "Submit";
+    console.log("hit");
     submitButton.setAttribute('onclick','submitText(' + name + ')');
+    console.log("hit");
 
     var textDiv = document.getElementById("addArticle");
     while (textDiv.firstChild) {

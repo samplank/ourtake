@@ -47,6 +47,8 @@ function loadText(articleID) {
             newReadPara.innerHTML = contribution.body;
             read.appendChild(newReadPara);
 
+            console.log(name);
+
             if (name != ''){
 
               var newReviewPara = document.createElement("h4");

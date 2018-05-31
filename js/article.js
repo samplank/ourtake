@@ -1,7 +1,5 @@
-var name = ''
-
 function getName(myname) {
-  name = myname;
+  var name = myname;
 }
 
 function openTab(evt, tabName) {
@@ -59,7 +57,7 @@ function loadText(articleID) {
             newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            if (name != ''){
+            if (name){
 
               var newContributePara = document.createElement("p");
               newContributePara.innerHTML = contribution.body;
@@ -77,7 +75,7 @@ function loadText(articleID) {
 
             i++;
         }
-        else if (contribution.accepted == false && name != '') {
+        else if (contribution.accepted == false && name) {
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
             para.className = "conditional";
@@ -97,7 +95,7 @@ function loadText(articleID) {
       });
     i--;
 
-    if (name == ''){
+    if (!name){
       var contributeAlert = document.createElement("p");
       contributeAlert.innerHTML = "Sign In to Contribute!"
       contribute.appendChild(contributeAlert);

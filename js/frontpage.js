@@ -61,6 +61,7 @@ function addTextBox(name) {
     console.log("hit");
     undoButton.innerHTML = "Cancel";
     console.log("hit");
+    console.log(typeof(name));
     undoButton.setAttribute('onclick','addButton(' + name + ')');
     console.log("hit");
 

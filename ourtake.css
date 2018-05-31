@@ -70,7 +70,7 @@ h4 {
     position:absolute;
     width:0;
     height:0;
-    padding: 6px 12px;
+    /*padding: 6px 12px;*/
 }
 
 #login {
@@ -105,9 +105,9 @@ h4 {
     position: relative;
 }
 
-#signout {
+/*#signout {
     float: right;
-}
+}*/
 
 
 

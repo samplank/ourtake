@@ -68,9 +68,9 @@ h4 {
 
 .topright{
     position:absolute;
-    width:0;
-    height:0;
-    /*padding: 6px 12px;*/
+    top:0;
+    right:0;
+    padding: 6px 12px;
 }
 
 #login {
@@ -105,9 +105,9 @@ h4 {
     position: relative;
 }
 
-/*#signout {
+#signout {
     float: right;
-}*/
+}
 
 
 

@@ -117,6 +117,7 @@ gapi.load('client', start);
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     name = String(profile.getName());
+    location.reload(true);
 }
 </script>
 
@@ -125,6 +126,7 @@ gapi.load('client', start);
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
+      location.reload(true);
     });
   }
 </script>

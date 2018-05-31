@@ -67,9 +67,9 @@ h4 {
 }
 
 .topright{
-    position:absolute;
-    top:0;
-    right:0;
+    position:relative;
+    width:95%;
+    height:95%;
 }
 
 #login {

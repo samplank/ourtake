@@ -66,10 +66,14 @@ h4 {
     height: 100px;
 }
 
-.topright{
+.topright {
     position:absolute;
     top:0;
     right:0;
+    padding: 6px 12px;
+}
+
+.front {
     padding: 6px 12px;
 }
 

@@ -18,6 +18,10 @@
 OurTake
 </h2>
 
+<div class="topright">
+  <div class="g-signin2" data-onsuccess="onSignIn" id="googlesignin"></div>
+</div>
+
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Read')" id="defaultOpen">Read</button>
   <button class="tablinks" onclick="openTab(event, 'Review')">Review</button>
@@ -105,6 +109,26 @@ gapi.load('client', start);
   document.getElementById("defaultOpen").click();
 </script>
 
+<script type="text/javascript">
+  var name = '';
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    name = String(profile.getName());
+}
+</script>
+
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 
 </body>
 </html>

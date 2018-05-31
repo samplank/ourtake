@@ -92,7 +92,7 @@ function submitText(name) {
 
     var contributionID = writeNewPost(title,name,now);
 
-    addButton();
+    location.reload(true);
 
 }
 
@@ -114,6 +114,8 @@ function writeNewPost(title,author,timestamp) {
 
 	var datRef = firebase.database().ref();
 	datRef.update(updates);
+
+	location.reload(true);
 
 	return newPostKey;
 }

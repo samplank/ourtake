@@ -1,3 +1,11 @@
+var user = firebase.auth().currentUser;
+
+if (user) {
+  console.log(user);
+} else {
+  console.log("no user signed in");
+}
+
 function getName(myname) {
   var name = myname;
 }

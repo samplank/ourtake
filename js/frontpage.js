@@ -1,4 +1,5 @@
 function loadArticles() {
+	var articleArray = [];
 	var textDiv = document.getElementById("existingArticle");
 
 	var rootRef = database.ref();
@@ -15,9 +16,18 @@ function loadArticles() {
         aref.href = "article.html?article=" + String(key);
         aref.innerHTML = contribution.title;
 
-        textDiv.appendChild(link);
+        articleArray.push(link);
 
-      });
+    });
+
+    var arrayLength = articleArray.length;
+	for (var i = 0; i < arrayLength; i++) {
+
+		var link = articleArray.pop();
+
+        textDiv.appendChild(link);
+    }
+
     });
 }
 

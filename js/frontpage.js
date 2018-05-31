@@ -10,8 +10,9 @@ function loadArticles() {
         var key = child.key;
         
         var link = document.createElement("div");
-        link.className = "front";
+        link.className = "frontHolder"
         var aref = document.createElement("a");
+        aref.className = "front";
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
         aref.innerHTML = contribution.title;

@@ -69,7 +69,10 @@
 
 <script>
   loadArticles();
-  addButton(name);
+  if (name != ''){
+    console.log(name);
+    addButton(name);
+  }
 </script>
 
 </body>

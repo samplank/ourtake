@@ -29,11 +29,12 @@ function addButton(name) {
     contributeButton.setAttribute('onclick','addTextBox(' + name + ')');
     var textDiv = document.getElementById("addArticle");
 
-
+    console.log("hit");
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
     }
     textDiv.appendChild(contributeButton);
+    console.log("hit");
 
 }
 

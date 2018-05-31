@@ -99,7 +99,7 @@ function loadText(articleID) {
 
     if (name == ''){
       var contributeAlert = document.createElement("p");
-      newContributePara.innerHTML = "Please Sign In to Contribute"
+      contributeAlert.innerHTML = "Please Sign In to Contribute"
       contribute.appendChild(contributeAlert);
     }
     else {

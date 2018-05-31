@@ -26,7 +26,8 @@ function addButton(name) {
 
     contributeButton.innerHTML = "Add a new article!";
     console.log(typeof(name));
-    contributeButton.setAttribute('onclick','addTextBox(' + name + ')');
+    contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
+
     var textDiv = document.getElementById("addArticle");
 
     console.log("hit");

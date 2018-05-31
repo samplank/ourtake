@@ -68,6 +68,16 @@ Here is the element's original content
 </script>
 
 <script>
+var user = firebase.auth().currentUser;
+
+if (user) {
+  console.log(user);
+} else {
+  console.log("no user signed in");
+}
+</script>
+
+<script>
 var myname = '';
 </script>
 <script>

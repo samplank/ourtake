@@ -9,7 +9,7 @@ function loadArticles() {
         var contribution = child.val();
         var key = child.key;
         
-        var link = document.createElement("li");
+        var link = document.createElement("div");
         link.className = "front";
         var aref = document.createElement("a");
         link.appendChild(aref);

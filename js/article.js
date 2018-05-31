@@ -27,8 +27,6 @@ function openTab(evt, tabName) {
 
 function loadText(articleID) {
 
-    console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
-
     var read = document.getElementById("ReadText");
     read.innerHTML = '';
     var review = document.getElementById("ReviewText");
@@ -43,36 +41,41 @@ function loadText(articleID) {
       snapshot.forEach(function(child) {
         var contribution = child.val();
         var key = child.key;
+
         if (contribution.accepted == true) {
             var newReadPara = document.createElement("p");
             newReadPara.innerHTML = contribution.body;
             read.appendChild(newReadPara);
 
-            var newReviewPara = document.createElement("h4");
-            newReviewPara.innerHTML = contribution.body;
-            var reviewInfoName = document.createElement("p");
-            reviewInfoName.innerHTML = "Author: " + contribution.author;
-            var reviewInfoDateVotes = document.createElement("p");
-            reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
-            newReviewPara.appendChild(reviewInfoName);
-            newReviewPara.appendChild(reviewInfoDateVotes);
-            review.appendChild(newReviewPara);
+            if (name != ''){
 
-            var newContributePara = document.createElement("p");
-            newContributePara.innerHTML = contribution.body;
-            contribute.appendChild(newContributePara);
+              var newReviewPara = document.createElement("h4");
+              newReviewPara.innerHTML = contribution.body;
+              var reviewInfoName = document.createElement("p");
+              reviewInfoName.innerHTML = "Author: " + contribution.author;
+              var reviewInfoDateVotes = document.createElement("p");
+              reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
+              newReviewPara.appendChild(reviewInfoName);
+              newReviewPara.appendChild(reviewInfoDateVotes);
+              review.appendChild(newReviewPara);
 
-            var replaceDiv = document.createElement("div");
-            replaceDiv.id = "div" + String(i);
-            contribute.appendChild(replaceDiv);
+              var newContributePara = document.createElement("p");
+              newContributePara.innerHTML = contribution.body;
+              contribute.appendChild(newContributePara);
 
-            var newlineDiv = document.createElement("div");
-            newlineDiv.id = "newline";
-            contribute.appendChild(newlineDiv);
+              var replaceDiv = document.createElement("div");
+              replaceDiv.id = "div" + String(i);
+              contribute.appendChild(replaceDiv);
+
+              var newlineDiv = document.createElement("div");
+              newlineDiv.id = "newline";
+              contribute.appendChild(newlineDiv);
+
+            }
 
             i++;
         }
-        else if (contribution.accepted == false) {
+        else if (contribution.accepted == false && name != '') {
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
             para.className = "conditional";

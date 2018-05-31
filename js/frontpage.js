@@ -23,9 +23,18 @@ function loadArticles() {
 function addButton(name) {
 	console.log(name);
     var contributeButton = document.createElement("button");
+    console.log("hit");
+
     contributeButton.innerHTML = "Add a new article!";
+
+    console.log("hit");
+
     contributeButton.setAttribute('onclick','addTextBox(' + name + ')');
+    console.log("hit");
     var textDiv = document.getElementById("addArticle");
+
+    console.log("hit");
+
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
     }

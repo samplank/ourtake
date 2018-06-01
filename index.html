@@ -36,46 +36,6 @@
   // Get a reference to the database service
   var database = firebase.database();
 
-  initApp = function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var uid = user.uid;
-        var phoneNumber = user.phoneNumber;
-        var providerData = user.providerData;
-        user.getIdToken().then(function(accessToken) {
-          document.getElementById('sign-in-status').textContent = 'Signed in';
-          document.getElementById('sign-in').textContent = 'Sign out';
-          document.getElementById('account-details').textContent = JSON.stringify({
-            displayName: displayName,
-            email: email,
-            emailVerified: emailVerified,
-            phoneNumber: phoneNumber,
-            photoURL: photoURL,
-            uid: uid,
-            accessToken: accessToken,
-            providerData: providerData
-          }, null, '  ');
-        });
-      } else {
-        // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
-        document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
-      }
-    }, function(error) {
-      console.log(error);
-    });
-  };
-
-window.addEventListener('load', function() {
-  initApp()
-});
-
 </script>
 
 <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
@@ -91,9 +51,6 @@ window.addEventListener('load', function() {
   <!-- <div class="g-signin2" data-onsuccess="onSignIn" id="googlesignin"></div>
   <a href="#" id="signout" onclick="signOut();" style="text-decoration: none";>Sign out</a> -->
   <!-- <a href='email-password.html'>sign in</a> -->
-  <div id="sign-in-status"></div>
-  <div id="sign-in"></div>
-  <div id="account-details"></div>
   <div id="firebaseui-auth-container"></div>
 <div id="loader">Loading...</div>
 </div>
@@ -152,18 +109,18 @@ ui.start('#firebaseui-auth-container', {
 //   // ...
 // });
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   loadArticles()
-//   if (user) {
-//     // User is signed in.
-//     var displayName = user.displayName;
-//     addButton(displayName);
-//     // ...
-//   } else {
-//     // User is signed out.
-//     // ...
-//   }
-// });
+firebase.auth().onAuthStateChanged(function(user) {
+  loadArticles()
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    addButton(displayName);
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 
 firebase.auth().signOut().then(function() {
   // Sign-out successful.

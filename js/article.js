@@ -1,5 +1,11 @@
-function getName(myname) {
-  var name = myname;
+function isLoggedIn() {
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    return user;
+  } else {
+    return false;
+  }
+});
 }
 
 function openTab(evt, tabName) {
@@ -45,7 +51,7 @@ function loadText(articleID) {
             newReadPara.innerHTML = contribution.body;
             read.appendChild(newReadPara);
 
-            console.log(name);
+            
 
             var newReviewPara = document.createElement("h4");
             newReviewPara.innerHTML = contribution.body;
@@ -57,7 +63,7 @@ function loadText(articleID) {
             newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            if (name){
+            if (isLoggedIn()){
 
               var newContributePara = document.createElement("p");
               newContributePara.innerHTML = contribution.body;
@@ -95,7 +101,7 @@ function loadText(articleID) {
       });
     i--;
 
-    if (!name){
+    if (!isLoggedIn()){
       var contributeAlert = document.createElement("p");
       contributeAlert.innerHTML = "Sign In to Contribute!"
       contribute.appendChild(contributeAlert);

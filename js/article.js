@@ -33,7 +33,7 @@ function loadText(articleID) {
     contribute.innerHTML = '';
 
     var i = 0;
-    var rootRef = database.ref();
+    var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {

@@ -57,9 +57,8 @@ function removeButton() {
 
 	if (textDiv) {
 		while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
-    textDiv.appendChild(contributeButton);
+        	textDiv.removeChild(textDiv.firstChild);
+    	}
 	}
 }
 

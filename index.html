@@ -117,7 +117,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    console.log(displayName);
+    console.log(JSON.Stringify(user));
     console.log(typeof(user));
     // ...
   } else {

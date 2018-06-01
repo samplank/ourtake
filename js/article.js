@@ -63,7 +63,9 @@ function loadText(articleID) {
             newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            if (isLoggedIn()){
+            var loginStatus = isLoggedIn();
+            console.log(loginStatus);
+            if (loginStatus){
 
               var newContributePara = document.createElement("p");
               newContributePara.innerHTML = contribution.body;
@@ -101,7 +103,8 @@ function loadText(articleID) {
       });
     i--;
 
-    if (!isLoggedIn()){
+    console.log(!loginStatus);
+    if (!loginStatus){
       var contributeAlert = document.createElement("p");
       contributeAlert.innerHTML = "Sign In to Contribute!"
       contribute.appendChild(contributeAlert);

@@ -11,6 +11,37 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <link rel="stylesheet" type="text/css" href="ourtake.css">
 <link rel="shortcut icon" href="#" />
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAOCrsdOewIQmGh0XDS1wYGqTbrJKGVwY0",
+    authDomain: "ourtake-9cc32.firebaseapp.com",
+    databaseURL: "https://ourtake-9cc32.firebaseio.com",
+    projectId: "ourtake-9cc32",
+    storageBucket: "ourtake-9cc32.appspot.com",
+    messagingSenderId: "130022120774"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+
+</script>
+
+<script>
+var user = firebase.auth().currentUser;
+
+if (user) {
+  console.log(user);
+} else {
+  console.log("no user signed in");
+}
+</script>
+
 </head>
 <body>
 
@@ -43,27 +74,6 @@
   <p id="ContributeText"></p>
 </div>
 
-<!-- <button type="button">Click Me!</button>
-<div id="edit" contenteditable="true">
-Here is the element's original content
-</div> -->
-
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-  var textDiv = document.getElementById("existingArticle");
-  while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
-<script>
-var user = firebase.auth().currentUser;
-
-if (user) {
-  console.log(user);
-} else {
-  console.log("no user signed in");
-}
-</script>
 
 <script>
 var myname = '';

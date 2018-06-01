@@ -37,7 +37,6 @@ function loadArticles() {
 }
 
 function addButton(name) {
-	console.log(name);
     var contributeButton = document.createElement("button");
 
     contributeButton.innerHTML = "Add a new article!";

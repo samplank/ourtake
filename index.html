@@ -76,6 +76,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     loadArticles();
     addButton();
   } else {
+    console.log("peace")
     loadArticles();
   }
 });

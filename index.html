@@ -29,9 +29,21 @@
     storageBucket: "ourtake-9cc32.appspot.com",
     messagingSenderId: "130022120774"
   };
-  firebase.initializeApp(config);
 
-  console.log(firebase.name);
+  $('a.button').click(function(){
+    if (condition == 'true'){
+        firebase.initializeApp(config, function() {
+          console.log(firebase.name);
+        });
+    }
+    else {
+        console.log("failed");
+    }
+});
+
+  // firebase.initializeApp(config);
+
+  // console.log(firebase.name);
 
   // Get a reference to the database service
   var database = firebase.database();

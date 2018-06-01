@@ -36,13 +36,6 @@
   // Get a reference to the database service
   var database = firebase.database();
 
-</script>
-
-<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-</head>
-
-<script type="text/javascript">
   initApp = function() {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -79,13 +72,15 @@
     });
   };
 
-  window.addEventListener('load', function() {
-    initApp()
-  });
+window.addEventListener('load', function() {
+  initApp()
+});
+
 </script>
 
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
-
 
 <body>
 
@@ -93,9 +88,11 @@
 
 
 <div class="topright">
-  <div id="sign-in-status"></div>
-  <div id="sign-in"></div>
-  <div id="account-details"></div>
+  <!-- <div class="g-signin2" data-onsuccess="onSignIn" id="googlesignin"></div>
+  <a href="#" id="signout" onclick="signOut();" style="text-decoration: none";>Sign out</a> -->
+  <!-- <a href='email-password.html'>sign in</a> -->
+  <div id="firebaseui-auth-container"></div>
+<div id="loader">Loading...</div>
 </div>
 
 <div id="existingArticle">
@@ -125,7 +122,7 @@
   }
 </script> -->
 
-<!-- <script>
+<script>
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
@@ -137,6 +134,20 @@ ui.start('#firebaseui-auth-container', {
   ],
   // Other config options...
 });
+
+// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
+
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 // firebase.auth().onAuthStateChanged(function(user) {
 //   loadArticles()
@@ -185,7 +196,7 @@ var uiConfig = {
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
-</script> -->
+</script>
 
 <script>
   loadArticles();

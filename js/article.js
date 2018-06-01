@@ -102,7 +102,7 @@ function loadText(articleID) {
 
       });
     i--;
-
+    var loginStatus = isLoggedIn();
     console.log(!loginStatus);
     if (!loginStatus){
       var contributeAlert = document.createElement("p");

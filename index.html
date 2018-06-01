@@ -163,5 +163,15 @@ ui.start('#firebaseui-auth-container', uiConfig);
   // }
 </script>
 
+<script>
+var user = firebase.auth().currentUser;
+
+if (user) {
+  console.log(user);
+} else {
+  console.log("no user signed in");
+}
+</script>
+
 </body>
 </html>

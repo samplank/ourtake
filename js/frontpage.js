@@ -1,9 +1,5 @@
 function loadArticles() {
 	var articleArray = [];
-	var textDiv = document.getElementById("existingArticle");
-	while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
 
 	var rootRef = database.ref();
     var urlRef = rootRef.child("posts");
@@ -23,6 +19,11 @@ function loadArticles() {
         articleArray.push(link);
 
     });
+
+    var textDiv = document.getElementById("existingArticle");
+	while (textDiv.firstChild) {
+        textDiv.removeChild(textDiv.firstChild);
+    }
 
     var arrayLength = articleArray.length;
 	for (var i = 0; i < arrayLength; i++) {

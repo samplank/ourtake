@@ -31,13 +31,9 @@
   };
 
   $('a.button').click(function(){
-    if (condition == 'true'){
         firebase.initializeApp(config, function() {
           console.log(firebase.name);
         });
-    }
-    else {
-        console.log("failed");
     }
 });
 

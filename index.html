@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="ourtake.css">
 <link rel="shortcut icon" href="#" />
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
@@ -71,6 +70,15 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start('#firebaseui-auth-container', uiConfig);
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    loadArticles();
+    addButton();
+  } else {
+    loadArticles();
+  }
+});
+
 
 </script>
 
@@ -112,9 +120,6 @@ ui.start('#firebaseui-auth-container', uiConfig);
     location.reload(true);
   }
 </script> -->
-
-      ui.start('#firebaseui-auth-container', uiConfig);
-
 
 <script>
   loadArticles();

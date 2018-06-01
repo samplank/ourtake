@@ -72,6 +72,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    console.log(user);
     loadArticles();
     addButton();
   } else {
@@ -91,7 +92,15 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 <div class="topright">
   <div id="firebaseui-auth-container"></div>
-<div id="loader">Loading...</div>
+  <div id="loader">Loading...</div>
+  <button id="signOut">Sign Out</button>
+
+<script>
+  document.getElementById('signOut').addEventListener('click', function(event) {
+    firebase.auth().signOut();
+  });
+</script>
+
 </div>
 
 <div id="existingArticle">

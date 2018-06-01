@@ -51,7 +51,7 @@ Here is the element's original content
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-<script>
+<!-- <script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAOCrsdOewIQmGh0XDS1wYGqTbrJKGVwY0",
@@ -66,7 +66,7 @@ Here is the element's original content
   // Get a reference to the database service
   var database = firebase.database();
 
-</script>
+</script> -->
 
 <script>
 var user = firebase.auth().currentUser;
@@ -81,33 +81,6 @@ if (user) {
 <script>
 var myname = '';
 </script>
-<script>
-function start() {
-  // 2. Initialize the JavaScript client library.
-  gapi.client.init({
-    'apiKey': 'AIzaSyA_qipIVb3FK8v56oBUwSd2e2Hdmz7XJOg',
-    // Your API key will be automatically added to the Discovery Document URLs.
-    'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
-    // clientId and scope are optional if auth is not required.
-    'clientId': '130022120774-65r3j5ausqf2q02ng7ac4moe335oboh5.apps.googleusercontent.com',
-    'scope': 'profile',
-  }).then(function() {
-    // 3. Initialize and make the API request.
-    return gapi.client.people.people.get({
-      'resourceName': 'people/me',
-      'requestMask.includeField': 'person.names'
-    });
-  }).then(function(response) {
-    myname = response.result["names"][0]["displayName"];
-    getName(myname);
-  }, function(reason) {
-    console.log('Error: ' + reason.result.error.message);
-  });
-};
-// 1. Load the JavaScript client library.
-gapi.load('client', start);
-
-</script>
 
 <script>
   var url_string = document.location.href;
@@ -118,29 +91,6 @@ gapi.load('client', start);
 
 <script>
   document.getElementById("defaultOpen").click();
-</script>
-
-<script type="text/javascript">
-  var name = '';
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    name = String(profile.getName());
-    loadText(article);
-}
-</script>
-
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-      location.reload(true);
-    });
-  }
 </script>
 
 </body>

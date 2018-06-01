@@ -31,12 +31,14 @@
 </script>
 
 <script>
-var user = firebase.auth().currentUser;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user);
+  } else {
+    console.log("peace")
 
-if (user) {
-  console.log(user);
-} else {
-  console.log("no user signed in");
+  }
+});og("no user signed in");
 }
 </script>
 

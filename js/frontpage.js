@@ -1,6 +1,9 @@
 function loadArticles() {
 	var articleArray = [];
 	var textDiv = document.getElementById("existingArticle");
+	while (textDiv.firstChild) {
+        textDiv.removeChild(textDiv.firstChild);
+    }
 
 	var rootRef = database.ref();
     var urlRef = rootRef.child("posts");

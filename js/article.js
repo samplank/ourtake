@@ -52,55 +52,52 @@ function loadText(articleID) {
         // Find the distance between now an the count down date
         var distance = countDownDate - now;
 
-        if (distance > 0) {
+        if (contribution.accepted == true) {
+            var newReadPara = document.createElement("p");
+            newReadPara.innerHTML = contribution.body;
+            read.appendChild(newReadPara);
 
-          if (contribution.accepted == true) {
-              var newReadPara = document.createElement("p");
-              newReadPara.innerHTML = contribution.body;
-              read.appendChild(newReadPara);
+            var newReviewPara = document.createElement("h4");
+            newReviewPara.innerHTML = contribution.body;
+            var reviewInfoName = document.createElement("p");
+            reviewInfoName.innerHTML = "Author: " + contribution.author;
+            var reviewInfoDateVotes = document.createElement("p");
+            reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
+            newReviewPara.appendChild(reviewInfoName);
+            newReviewPara.appendChild(reviewInfoDateVotes);
+            review.appendChild(newReviewPara);
 
-              var newReviewPara = document.createElement("h4");
-              newReviewPara.innerHTML = contribution.body;
-              var reviewInfoName = document.createElement("p");
-              reviewInfoName.innerHTML = "Author: " + contribution.author;
-              var reviewInfoDateVotes = document.createElement("p");
-              reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
-              newReviewPara.appendChild(reviewInfoName);
-              newReviewPara.appendChild(reviewInfoDateVotes);
-              review.appendChild(newReviewPara);
+            var newContributePara = document.createElement("p");
+            newContributePara.innerHTML = contribution.body;
+            contribute.appendChild(newContributePara);
 
-              var newContributePara = document.createElement("p");
-              newContributePara.innerHTML = contribution.body;
-              contribute.appendChild(newContributePara);
+            var replaceDiv = document.createElement("div");
+            replaceDiv.id = "div" + String(i);
+            contribute.appendChild(replaceDiv);
 
-              var replaceDiv = document.createElement("div");
-              replaceDiv.id = "div" + String(i);
-              contribute.appendChild(replaceDiv);
+            var newlineDiv = document.createElement("div");
+            newlineDiv.id = "newline";
+            contribute.appendChild(newlineDiv);
 
-              var newlineDiv = document.createElement("div");
-              newlineDiv.id = "newline";
-              contribute.appendChild(newlineDiv);
+            i++;
 
-              i++;
+        }
 
-          }
+        else if (contribution.accepted == false && user && distance > 0) {
+            var para = document.createElement("div");
+            para.id = "leftjustify" + String(key);
+            para.className = "conditional";
+            var t = document.createTextNode(contribution.body);
+            para.appendChild(t);
 
-          else if (contribution.accepted == false && user) {
-              var para = document.createElement("div");
-              para.id = "leftjustify" + String(key);
-              para.className = "conditional";
-              var t = document.createTextNode(contribution.body);
-              para.appendChild(t);
+            var submitInfo = document.createElement("div");
+            submitInfo.id = "rightjustify"
 
-              var submitInfo = document.createElement("div");
-              submitInfo.id = "rightjustify"
+            contribute.appendChild(para);
+            contribute.appendChild(submitInfo);
 
-              contribute.appendChild(para);
-              contribute.appendChild(submitInfo);
-
-              addCountdown(submitInfo, contribution.timestamp, contribution.author);
-              addCounter(submitInfo, key, articleID);
-          }
+            addCountdown(submitInfo, contribution.timestamp, contribution.author);
+            addCounter(submitInfo, key, articleID);
         }
       });
     i--;

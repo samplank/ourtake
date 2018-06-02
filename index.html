@@ -75,7 +75,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     addButton();
     writeUserData(user.uid, user.displayName, user.email);
 
-    var authDiv = document.getElementsByClassName("topright")[0];
+    var authDiv = document.getElementId("topright");
     console.log(authDiv);
     if (authDiv) {
       while (authDiv.firstChild) {
@@ -97,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("peace")
     removeButton();
     loadArticles();
-    var authDiv = document.getElementsByClassName("topright")[0];
+    var authDiv = document.getElementId("topright");
     console.log(authDiv);
     if (authDiv) {
       while (authDiv.firstChild) {
@@ -123,7 +123,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 <a href="https://samplank.github.io/ourtake" style="text-decoration: none; color:black"><h2>OurTake</h2></a>
 
 
-<div class="topright">
+<div id="topright">
 holder
 <!--   <div id="firebaseui-auth-container"></div>
   <button id="signOut">Sign Out</button> -->

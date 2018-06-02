@@ -41,6 +41,7 @@ function loadText(articleID) {
       snapshot.forEach(function(child) {
         var contribution = child.val();
         var key = child.key;
+        console.log(contribution.body);
 
         if (contribution.accepted == true) {
             var newReadPara = document.createElement("p");

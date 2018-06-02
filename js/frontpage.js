@@ -1,3 +1,9 @@
+var user = null;
+
+function updateUser(userUpdate) {
+  user = userUpdate;
+}
+
 function loadArticles() {
 	var articleArray = [];
 
@@ -135,6 +141,18 @@ function writeUserData(userId, name, email) {
     username: name,
     email: email
 	});
+}
+
+function increaseCredits() {
+	var databaseRef = firebase.database().ref('users').child(user.uid).child('credits');
+
+	databaseRef.transaction(function(credits) {
+	  if (credits) {
+	    credits = credits + 1;
+	  }
+	  return credits;
+	});
+
 }
 
 

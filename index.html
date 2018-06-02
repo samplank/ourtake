@@ -76,7 +76,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 <div id="topcontainer">
   <div id="addCredit">
-    <button type="button" class="topButton">Add Credits</button>
+    <button type="button" class="topButton" onclick="increaseCredits();">Add Credits</button>
   </div>
   <div id="topright">
   </div>
@@ -98,17 +98,14 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log(user);
     loadArticles();
     addButton();
     writeUserData(user.uid, user.displayName, user.email);
+    updateUser(fbuser.displayName);
 
     var authDiv = document.getElementById("topright");
-    console.log(authDiv);
-    if (authDiv) {
-      while (authDiv.firstChild) {
+    while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
-      }
     }
     else {
       var authDiv = document.createElement("div");
@@ -124,11 +121,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     authDiv.appendChild(signOutButton);
 
   } else {
-    console.log("peace")
     removeButton();
     loadArticles();
+    updateUser(null);
+
     var authDiv = document.getElementById("topright");
-    console.log(authDiv);
+
     while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
       }

@@ -172,6 +172,7 @@ function increaseCredits() {
 	console.log(databaseRef);
 
 	databaseRef.transaction(function(credits) {
+	  console.log(credits);
 	  if (credits) {
 	  	console.log(credits);
 	    credits = credits + 50;

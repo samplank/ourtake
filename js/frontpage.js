@@ -145,14 +145,14 @@ function writeUserData(userId, name, email) {
 }
 
 function increaseCredits() {
-	var databaseRef = firebase.database().ref('users/' + user.key + '/credits');
+	console.log(user.key);
+	var databaseRef = firebase.database().ref('users/' + user.key).child("value");
 
-	databaseRef.transaction(function(credits) {
-	  if (credits) {
-	  	console.log("hit");
-	    credits = credits + 1;
+	databaseRef.transaction(function(value) {
+	  if (value.credits) {
+	    value.credits = value.credits + 1;
 	  }
-	  return credits;
+	  return value.credits;
 	});
 
 }

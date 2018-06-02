@@ -43,54 +43,65 @@ function loadText(articleID) {
         var key = child.key;
         console.log(contribution.body);
 
-        if (contribution.accepted == true) {
-            var newReadPara = document.createElement("p");
-            newReadPara.innerHTML = contribution.body;
-            read.appendChild(newReadPara);
+        var dateTimestamp = new Date(contribution.timestamp);
+        var countDownDate = dateTimestamp.addHours(3).getTime();
+        var subtext = document.createElement("div");
 
-            var newReviewPara = document.createElement("h4");
-            newReviewPara.innerHTML = contribution.body;
-            var reviewInfoName = document.createElement("p");
-            reviewInfoName.innerHTML = "Author: " + contribution.author;
-            var reviewInfoDateVotes = document.createElement("p");
-            reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
-            newReviewPara.appendChild(reviewInfoName);
-            newReviewPara.appendChild(reviewInfoDateVotes);
-            review.appendChild(newReviewPara);
+        var now = new Date().getTime();
 
-            var newContributePara = document.createElement("p");
-            newContributePara.innerHTML = contribution.body;
-            contribute.appendChild(newContributePara);
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
 
-            var replaceDiv = document.createElement("div");
-            replaceDiv.id = "div" + String(i);
-            contribute.appendChild(replaceDiv);
+        if (distance > 0) {
 
-            var newlineDiv = document.createElement("div");
-            newlineDiv.id = "newline";
-            contribute.appendChild(newlineDiv);
+          if (contribution.accepted == true) {
+              var newReadPara = document.createElement("p");
+              newReadPara.innerHTML = contribution.body;
+              read.appendChild(newReadPara);
 
-            i++;
+              var newReviewPara = document.createElement("h4");
+              newReviewPara.innerHTML = contribution.body;
+              var reviewInfoName = document.createElement("p");
+              reviewInfoName.innerHTML = "Author: " + contribution.author;
+              var reviewInfoDateVotes = document.createElement("p");
+              reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
+              newReviewPara.appendChild(reviewInfoName);
+              newReviewPara.appendChild(reviewInfoDateVotes);
+              review.appendChild(newReviewPara);
 
+              var newContributePara = document.createElement("p");
+              newContributePara.innerHTML = contribution.body;
+              contribute.appendChild(newContributePara);
+
+              var replaceDiv = document.createElement("div");
+              replaceDiv.id = "div" + String(i);
+              contribute.appendChild(replaceDiv);
+
+              var newlineDiv = document.createElement("div");
+              newlineDiv.id = "newline";
+              contribute.appendChild(newlineDiv);
+
+              i++;
+
+          }
+
+          else if (contribution.accepted == false && user) {
+              var para = document.createElement("div");
+              para.id = "leftjustify" + String(key);
+              para.className = "conditional";
+              var t = document.createTextNode(contribution.body);
+              para.appendChild(t);
+
+              var submitInfo = document.createElement("div");
+              submitInfo.id = "rightjustify"
+
+              contribute.appendChild(para);
+              contribute.appendChild(submitInfo);
+
+              addCountdown(submitInfo, contribution.timestamp, contribution.author);
+              addCounter(submitInfo, key, articleID);
+          }
         }
-
-        else if (contribution.accepted == false && user) {
-            var para = document.createElement("div");
-            para.id = "leftjustify" + String(key);
-            para.className = "conditional";
-            var t = document.createTextNode(contribution.body);
-            para.appendChild(t);
-
-            var submitInfo = document.createElement("div");
-            submitInfo.id = "rightjustify"
-
-            contribute.appendChild(para);
-            contribute.appendChild(submitInfo);
-
-            addCountdown(submitInfo, contribution.timestamp, contribution.author);
-            addCounter(submitInfo, key, articleID);
-        }
-
       });
     i--;
 

@@ -138,10 +138,16 @@ function writeNewPost(title,author,timestamp) {
 
 // maybe this should be an update call instead
 function writeUserData(userId, name, email) {
-  firebase.database().ref('users/' + userId).set({
+  var userRef = firebase.database().ref('users/' + userId);
+  if userRef {
+  	console.log(userRef);
+  }
+  else {
+  	firebase.database().ref('users/' + userId).set({
     username: name,
     email: email
 	});
+  }
 }
 
 function increaseCredits() {

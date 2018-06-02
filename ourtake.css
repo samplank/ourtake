@@ -122,9 +122,9 @@ h4 {
     color: #444;
     width: 190px;
     border-radius: 5px;
-    border: thin solid #888;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
+    padding: 10px;
 }
 
 

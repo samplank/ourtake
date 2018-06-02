@@ -97,14 +97,13 @@ firebase.auth().onAuthStateChanged(function(user) {
   <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
   <button id="signOut">Sign Out</button>
+</div>
 
 <script>
   document.getElementById('signOut').addEventListener('click', function(event) {
     firebase.auth().signOut();
   });
 </script>
-
-</div>
 
 <div id="existingArticle">
 </div>

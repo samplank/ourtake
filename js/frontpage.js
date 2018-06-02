@@ -164,6 +164,7 @@ userRef.once("value").then((snapshot) => {
 	});
   }
 }
+}
 
 function increaseCredits() {
 	console.log(user);

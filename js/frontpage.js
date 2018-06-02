@@ -168,13 +168,13 @@ function writeUserData(userId, name, email) {
 
 function increaseCredits() {
 	console.log(user);
-	var databaseRef = firebase.database().ref('users/' + user.uid);
+	var databaseRef = firebase.database().ref('users/' + user.uid + '/credits');
 	console.log(databaseRef);
 
 	databaseRef.transaction(function(credits) {
 	  if (credits) {
 	  	console.log(credits);
-	    credits = credits + 1;
+	    credits = credits + 50;
 	  }
 	  return credits;
 	});

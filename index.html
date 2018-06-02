@@ -73,6 +73,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(user);
     loadArticles();
     addButton();
+    writeUserData(user.uid, user.displayName, user.email);
+
   } else {
     console.log("peace")
     removeButton();
@@ -110,30 +112,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 <div id="addArticle">
 </div>
 
-
-
-<!-- <script type="text/javascript">
-  var name = '';
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    name = String(profile.getName());
-    addButton(name);
-}
-</script> -->
-
-<!-- <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    location.reload(true);
-  }
-</script> -->
-
-<!-- <script>
-  loadArticles();
-</script> -->
 
 
 </body>

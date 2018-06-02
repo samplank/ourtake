@@ -58,27 +58,27 @@ function loadText(articleID) {
             newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            console.log(user);
-            if (user){
-              console.log("hit");
-
-              var newContributePara = document.createElement("p");
-              newContributePara.innerHTML = contribution.body;
-              contribute.appendChild(newContributePara);
-
-              var replaceDiv = document.createElement("div");
-              replaceDiv.id = "div" + String(i);
-              contribute.appendChild(replaceDiv);
-
-              var newlineDiv = document.createElement("div");
-              newlineDiv.id = "newline";
-              contribute.appendChild(newlineDiv);
-
-            }
-
             i++;
+
+          }
+
+        else if (contribution.accepted == false && user){
+
+          var newContributePara = document.createElement("p");
+          newContributePara.innerHTML = contribution.body;
+          contribute.appendChild(newContributePara);
+
+          var replaceDiv = document.createElement("div");
+          replaceDiv.id = "div" + String(i);
+          contribute.appendChild(replaceDiv);
+
+          var newlineDiv = document.createElement("div");
+          newlineDiv.id = "newline";
+          contribute.appendChild(newlineDiv);
+
         }
-        else if (contribution.accepted == false && name) {
+
+        else if (contribution.accepted == false && !user) {
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
             para.className = "conditional";

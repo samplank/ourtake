@@ -45,11 +45,12 @@ function addButton(name) {
 
     var textDiv = document.getElementById("addArticle");
 
-    while (textDiv.firstChild) {
+    if (textDiv) {
+    	while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
     }
     textDiv.appendChild(contributeButton);
-
+    }
 }
 
 function removeButton() {

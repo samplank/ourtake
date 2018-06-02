@@ -114,6 +114,7 @@ h4 {
     top:0;
     right:0;
     padding: 6px 12px;
+    overflow: hidden;
 }
 
 #topright {

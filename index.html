@@ -75,7 +75,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     addButton();
     writeUserData(user.uid, user.displayName, user.email);
 
-    var authDiv = document.getElementId("topright");
+    var authDiv = document.getElementById("topright");
     console.log(authDiv);
     if (authDiv) {
       while (authDiv.firstChild) {
@@ -97,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("peace")
     removeButton();
     loadArticles();
-    var authDiv = document.getElementId("topright");
+    var authDiv = document.getElementById("topright");
     console.log(authDiv);
     if (authDiv) {
       while (authDiv.firstChild) {

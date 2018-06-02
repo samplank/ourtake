@@ -149,6 +149,7 @@ function increaseCredits() {
 
 	databaseRef.transaction(function(credits) {
 	  if (credits) {
+	  	console.log("hit");
 	    credits = credits + 1;
 	  }
 	  return credits;

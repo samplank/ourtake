@@ -30,16 +30,16 @@
 
 </script>
 
-<!-- <script>
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    console.log(user);
+<script>
+firebase.auth().onAuthStateChanged(function(fbuser) {
+  if (fbuser) {
+    updateUser(fbuser.displayName);
   } else {
-    console.log("peace")
+    updateUser(null);
 
   }
 });
-</script> -->
+</script>
 
 </head>
 <body>
@@ -73,10 +73,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   <p id="ContributeText"></p>
 </div>
 
-
-<script>
-var myname = '';
-</script>
 
 <script>
   var url_string = document.location.href;

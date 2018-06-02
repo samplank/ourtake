@@ -96,11 +96,11 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 <script>
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
+firebase.auth().onAuthStateChanged(function(fbuser) {
+  if (fbuser) {
     loadArticles();
     addButton();
-    writeUserData(user.uid, user.displayName, user.email);
+    writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser.displayName);
 
     var authDiv = document.getElementById("topright");
@@ -127,7 +127,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
       }
-      
+
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";
     authDiv.appendChild(signInButton);

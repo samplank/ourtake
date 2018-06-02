@@ -143,9 +143,11 @@ function writeUserData(userId, name, email) {
   	console.log(userRef);
   }
   else {
+  	console.log("new user");
   	firebase.database().ref('users/' + userId).set({
     username: name,
-    email: email
+    email: email,
+    credits: 0
 	});
   }
 }

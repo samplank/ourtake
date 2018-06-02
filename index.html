@@ -50,7 +50,6 @@ var uiConfig = {
     uiShown: function() {
       // The widget is rendered.
       // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
     }
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
@@ -163,6 +162,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
     var signOutButton = document.createElement("button");
     signOutButton.id = "signOut";
+    signOutButton.innerHTML = "Sign Out"
     signOutButton.addEventListener('click', function(event) {
       firebase.auth().signOut();
     });

@@ -107,10 +107,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
     }
-    else {
-      var authDiv = document.createElement("div");
-      authDiv.className = "topright";
-    }
+
     var signOutButton = document.createElement("button");
     signOutButton.id = "signOut";
     signOutButton.className = "topButton";
@@ -130,6 +127,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
       }
+      
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";
     authDiv.appendChild(signInButton);

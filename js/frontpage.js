@@ -169,10 +169,8 @@ function writeUserData(userId, name, email) {
 function increaseCredits() {
 	console.log(user);
 	var databaseRef = firebase.database().ref('users').child(user.uid).child('credits');
-	console.log(databaseRef);
 
 	databaseRef.transaction(function(credits) {
-	  console.log(credits);
 	  if (credits != null) {
 	  	console.log(credits);
 	    credits = credits + 50;

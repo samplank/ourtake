@@ -139,7 +139,7 @@ function writeNewPost(title,author,timestamp) {
 // maybe this should be an update call instead
 function writeUserData(userId, name, email) {
   var userRef = firebase.database().ref('users/' + userId);
-  if userRef {
+  if (userRef) {
   	console.log(userRef);
   }
   else {

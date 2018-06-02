@@ -65,7 +65,7 @@ var uiConfig = {
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-ui.start('#firebaseui-auth-container', uiConfig);
+// ui.start('#firebaseui-auth-container', uiConfig);
 
 // firebase.auth().onAuthStateChanged(function(user) {
 //   if (user) {
@@ -174,18 +174,14 @@ firebase.auth().onAuthStateChanged(function(user) {
     loadArticles();
     var authDiv = document.getElementById("topright");
     console.log(authDiv);
-    if (authDiv) {
-      while (authDiv.firstChild) {
+    while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
       }
-    }
-    else {
-      var authDiv = document.createElement("div");
-      authDiv.className = "topright";
     }
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";
     authDiv.appendChild(signInButton);
+    ui.start('#firebaseui-auth-container', uiConfig);
   }
 });
 

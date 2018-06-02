@@ -114,17 +114,15 @@ h4 {
     top:0;
     right:0;
     padding: 6px 12px;
-    overflow: hidden;
+    display: flex;
 }
 
 #topright {
-    width: 300px;
-    float: left;
+    flex-grow: 1;
 }
 
 #addCredits {
     width: 300px;
-    float: right;
 }
 
 .topButton {

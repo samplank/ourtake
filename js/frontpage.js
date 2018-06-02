@@ -136,6 +136,7 @@ function writeNewPost(title,author,timestamp) {
 	return newPostKey;
 }
 
+// maybe this should be an update call instead
 function writeUserData(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
     username: name,

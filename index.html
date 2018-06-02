@@ -177,7 +177,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
       }
-    }
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";
     authDiv.appendChild(signInButton);

@@ -76,8 +76,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     writeUserData(user.uid, user.displayName, user.email);
 
     authDiv = document.getElementsByClassName("topright")[0];
-    while (authDiv.firstChild) {
+    if (authDiv) {
+      while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
+      }
     }
     var signOutButton = document.createElement("button");
     signOutButton.id = "signOut";
@@ -91,8 +93,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     removeButton();
     loadArticles();
     authDiv = document.getElementsByClassName("topright")[0];
-    while (authDiv.firstChild) {
+    if (authDiv) {
+      while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
+      }
     }
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";

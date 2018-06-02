@@ -144,7 +144,7 @@ function writeUserData(userId, name, email) {
 }
 
 function increaseCredits() {
-	var databaseRef = firebase.database().ref('users').child(user.uid).child('credits');
+	var databaseRef = firebase.database().ref('users/' + user.key + '/credits');
 
 	databaseRef.transaction(function(credits) {
 	  if (credits) {

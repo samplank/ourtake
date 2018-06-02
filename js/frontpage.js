@@ -106,7 +106,7 @@ function submitText(name) {
 
     var now = new Date().getTime();
 
-    var contributionID = writeNewPost(title,name,now);
+    var contributionID = writeNewPost(title,user.displayName,now);
 
     location.reload(true);
 

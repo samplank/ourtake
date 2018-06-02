@@ -75,7 +75,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     addButton();
     writeUserData(user.uid, user.displayName, user.email);
 
-    authDiv = document.getElementsByClassName("topright")[0];
+    var authDiv = document.getElementsByClassName("topright")[0];
     if (authDiv) {
       while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
@@ -92,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("peace")
     removeButton();
     loadArticles();
-    authDiv = document.getElementsByClassName("topright")[0];
+    var authDiv = document.getElementsByClassName("topright")[0];
     if (authDiv) {
       while (authDiv.firstChild) {
       authDiv.removeChild(authDiv.firstChild);
@@ -119,11 +119,11 @@ firebase.auth().onAuthStateChanged(function(user) {
   <button id="signOut">Sign Out</button> -->
 </div>
 
-<script>
+<!-- <script>
   document.getElementById('signOut').addEventListener('click', function(event) {
     firebase.auth().signOut();
   });
-</script>
+</script> -->
 
 <div id="existingArticle">
 </div>

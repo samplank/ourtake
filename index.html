@@ -68,6 +68,81 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start('#firebaseui-auth-container', uiConfig);
 
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     console.log(user);
+//     loadArticles();
+//     addButton();
+//     writeUserData(user.uid, user.displayName, user.email);
+
+//     var authDiv = document.getElementById("topright");
+//     console.log(authDiv);
+//     if (authDiv) {
+//       while (authDiv.firstChild) {
+//       authDiv.removeChild(authDiv.firstChild);
+//       }
+//     }
+//     else {
+//       var authDiv = document.createElement("div");
+//       authDiv.className = "topright";
+//     }
+//     var signOutButton = document.createElement("button");
+//     signOutButton.id = "signOut";
+//     signOutButton.addEventListener('click', function(event) {
+//       firebase.auth().signOut();
+//     });
+//     authDiv.appendChild(signOutButton);
+
+//   } else {
+//     console.log("peace")
+//     removeButton();
+//     loadArticles();
+//     var authDiv = document.getElementById("topright");
+//     console.log(authDiv);
+//     if (authDiv) {
+//       while (authDiv.firstChild) {
+//       authDiv.removeChild(authDiv.firstChild);
+//       }
+//     }
+//     else {
+//       var authDiv = document.createElement("div");
+//       authDiv.className = "topright";
+//     }
+//     var signInButton = document.createElement("div");
+//     signInButton.id = "firebaseui-auth-container";
+//     authDiv.appendChild(signInButton);
+//   }
+// });
+
+</script>
+
+</head>
+
+<body>
+
+<a href="https://samplank.github.io/ourtake" style="text-decoration: none; color:black"><h2>OurTake</h2></a>
+
+
+<div id="topright">
+holder
+<!--   <div id="firebaseui-auth-container"></div>
+  <button id="signOut">Sign Out</button> -->
+</div>
+
+<!-- <script>
+  document.getElementById('signOut').addEventListener('click', function(event) {
+    firebase.auth().signOut();
+  });
+</script> -->
+
+<div id="existingArticle">
+</div>
+
+<div id="addArticle">
+</div>
+
+<script>
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log(user);
@@ -115,33 +190,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 </script>
-
-</head>
-
-<body>
-
-<a href="https://samplank.github.io/ourtake" style="text-decoration: none; color:black"><h2>OurTake</h2></a>
-
-
-<div id="topright">
-holder
-<!--   <div id="firebaseui-auth-container"></div>
-  <button id="signOut">Sign Out</button> -->
-</div>
-
-<!-- <script>
-  document.getElementById('signOut').addEventListener('click', function(event) {
-    firebase.auth().signOut();
-  });
-</script> -->
-
-<div id="existingArticle">
-</div>
-
-<div id="addArticle">
-</div>
-
-
 
 </body>
 </html>

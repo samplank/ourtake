@@ -30,15 +30,37 @@
 
 </script>
 
-<script>
-firebase.auth().onAuthStateChanged(function(fbuser) {
-  if (fbuser) {
-    updateUser(fbuser.displayName);
-  } else {
-    updateUser(null);
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-  }
-});
+<script>
+
+var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: 'popup',
+  signInSuccessUrl: 'https://samplank.github.io/ourtake',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ],
+  // Terms of service url.
+  tosUrl: 'https://samplank.github.io/ourtake'
+};
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 </script>
 
 </head>
@@ -46,10 +68,12 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
 
 <a href="https://samplank.github.io/ourtake" style="text-decoration: none; color:black"><h2>OurTake</h2></a>
 
-<div class="topright">
-  <!-- <a href='email-password.html'>sign in</a> -->
-  <!-- <div class="g-signin2" data-onsuccess="onSignIn" id="googlesignin"></div>
-  <a href="#" id="signout" onclick="signOut();" style="text-decoration: none";>Sign out</a> -->
+<div id="topcontainer">
+  <div id="addCredit">
+    <button type="button" class="topButton" onclick="increaseCredits();">Add Credits</button>
+  </div>
+  <div id="topright">
+  </div>
 </div>
 
 <div class="tab">
@@ -83,6 +107,42 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
 
 <script>
   document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+firebase.auth().onAuthStateChanged(function(fbuser) {
+  if (fbuser) {
+    updateUser(fbuser.displayName);
+
+    var authDiv = document.getElementById("topright");
+    while (authDiv.firstChild) {
+      authDiv.removeChild(authDiv.firstChild);
+    }
+
+    var signOutButton = document.createElement("button");
+    signOutButton.id = "signOut";
+    signOutButton.className = "topButton";
+    signOutButton.innerHTML = "Sign Out"
+    signOutButton.addEventListener('click', function(event) {
+      firebase.auth().signOut();
+    });
+    authDiv.appendChild(signOutButton);
+  } else {
+    updateUser(null);
+
+    var authDiv = document.getElementById("topright");
+
+    while (authDiv.firstChild) {
+      authDiv.removeChild(authDiv.firstChild);
+      }
+
+    var signInButton = document.createElement("div");
+    signInButton.id = "firebaseui-auth-container";
+    authDiv.appendChild(signInButton);
+    ui.start('#firebaseui-auth-container', uiConfig);
+
+  }
+});
 </script>
 
 </body>

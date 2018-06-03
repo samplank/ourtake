@@ -152,24 +152,22 @@ function addTextBox(i,articleID) {
 }
 
 function addButton(i,articleID) {
-      var contributeButton = document.createElement("button");
-      contributeButton.innerHTML = "Contribute to this article!";
-      contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
-      var textDiv = document.getElementById("div" + String(i));
-      if(textDiv){
-        while (textDiv.firstChild) {
-          textDiv.removeChild(textDiv.firstChild);
-        }
+    var contributeButton = document.createElement("button");
+    contributeButton.innerHTML = "Contribute to this article!";
+    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
+    var textDiv = document.getElementById("div" + String(i));
+    if(textDiv){
+      while (textDiv.firstChild) {
+        textDiv.removeChild(textDiv.firstChild);
       }
-      else {
-        var contribute = document.getElementById("ContributeText");
-        var textDiv = document.createElement("div");
-        textDiv.id = "div" + String(-1);
-        contribute.appendChild(textDiv);
-      }
-      textDiv.appendChild(contributeButton);
     }
-
+    else {
+      var contribute = document.getElementById("ContributeText");
+      var textDiv = document.createElement("div");
+      textDiv.id = "div" + String(-1);
+      contribute.appendChild(textDiv);
+    }
+    textDiv.appendChild(contributeButton);
 }
 
 function submitText(i,articleID) {

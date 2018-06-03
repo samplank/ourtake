@@ -92,6 +92,8 @@ function loadText(articleID) {
         }
 
         else if (contribution.accepted == false && user && distance > 0) {
+            console.log("this is: ");
+            console.log(user);
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
             para.className = "conditional";

@@ -114,6 +114,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
     updateUser(fbuser.displayName);
     loadText(article);
+    console.log("logged in");
 
     var authDiv = document.getElementById("topright");
     while (authDiv.firstChild) {
@@ -131,6 +132,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
   } else {
     updateUser(null);
     loadText(article);
+    console.log("logged out");
 
     var authDiv = document.getElementById("topright");
 

@@ -113,6 +113,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
     updateUser(fbuser.displayName);
+    loadText(article);
 
     var authDiv = document.getElementById("topright");
     while (authDiv.firstChild) {
@@ -129,6 +130,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     authDiv.appendChild(signOutButton);
   } else {
     updateUser(null);
+    loadText(article);
 
     var authDiv = document.getElementById("topright");
 

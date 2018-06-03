@@ -139,18 +139,6 @@ function writeNewPost(title,author,timestamp) {
 // maybe this should be an update call instead
 function writeUserData(userId, name, email) {
 	var userRef = firebase.database().ref('users/' + userId);
-//   if (userRef) {
-//   	console.log(userRef.childExists());
-//   }
-//   else {
-//   	console.log("new user");
-//   	firebase.database().ref('users/' + userId).set({
-//     username: name,
-//     email: email,
-//     credits: 0
-// 	});
-//   }
-// }
 
 	userRef.once("value").then((snapshot) => {
 	  if (snapshot.exists()) { 
@@ -160,7 +148,8 @@ function writeUserData(userId, name, email) {
 	  	firebase.database().ref('users/' + userId).set({
 	    username: name,
 	    email: email,
-	    credits: 0
+	    credits: 0,
+	    votes: 0
 		});
 	  }
 	});

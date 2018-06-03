@@ -152,6 +152,37 @@ function addTextBox(i,articleID) {
 }
 
 function addButton(i,articleID) {
+    var databaseRef = firebase.database().ref('users').child(user.uid).child('votes');
+
+    databaseRef.transaction(function(votes) {
+    if (votes >= 5) {
+      var contributeButton = document.createElement("button");
+      contributeButton.innerHTML = "Contribute to this article!";
+      contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
+      var textDiv = document.getElementById("div" + String(i));
+      if(textDiv){
+        while (textDiv.firstChild) {
+          textDiv.removeChild(textDiv.firstChild);
+        }
+      }
+      else {
+        var contribute = document.getElementById("ContributeText");
+        var textDiv = document.createElement("div");
+        textDiv.id = "div" + String(-1);
+        contribute.appendChild(textDiv);
+
+      }
+      textDiv.appendChild(contributeButton);
+      votes = 0;
+    }
+    else {
+      alert("To add a contribution, you must have voted at least 5 times since your last contribution.")
+    }
+    return votes;
+    });
+
+}
+
     var contributeButton = document.createElement("button");
     contributeButton.innerHTML = "Contribute to this article!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
@@ -278,22 +309,55 @@ function addCounter(subinfo, contributionID, articleID) {
 
 function onClick(direction, contributionID, articleID) {
 
-    //need to update the value in the database here
-    var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-    ref.transaction(function(currentClicks) {
-  // If node/clicks has never been set, currentRank will be `null`.
-      var newValue = (currentClicks || 0) + 1;
-      if (newValue >= 10) {
-        if (direction == 'upvotes') {
-            integrateText(contributionID, articleID);
-        }
-        else if (direction == 'downvotes') {
-            removeText(contributionID, articleID);
-        }
-        return newValue; // abort the transaction
+    var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
+    creditRef.transaction(function(currentCredits){
+      // if null or 0 credits, ask user to add more
+      if (!currentCredits){
+        alert("Add credits to vote on contributions");
       }
-      return newValue;
+      else {
+        var newCredits = currentCredits - 1;
+
+        var voteRef = firebase.database().ref('users/' + user.uid + '/votes');
+        voteRef.transaction(function(currentVotes){
+          var newVotes = (currentVotes || 0) + 1;
+          return newVotes;
+        });
+
+        var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+        ref.transaction(function(currentClicks) {
+        // If node/clicks has never been set, currentRank will be `null`.
+        var newValue = (currentClicks || 0) + 1;
+        if (newValue >= 10) {
+          if (direction == 'upvotes') {
+              integrateText(contributionID, articleID);
+          }
+          else if (direction == 'downvotes') {
+              removeText(contributionID, articleID);
+          }
+        }
+        return newValue;
+        });
+      return newCredits;
+    }
     });
+}
+    //need to update the value in the database here
+  //   var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+  //   ref.transaction(function(currentClicks) {
+  // // If node/clicks has never been set, currentRank will be `null`.
+  //     var newValue = (currentClicks || 0) + 1;
+  //     if (newValue >= 10) {
+  //       if (direction == 'upvotes') {
+  //           integrateText(contributionID, articleID);
+  //       }
+  //       else if (direction == 'downvotes') {
+  //           removeText(contributionID, articleID);
+  //       }
+  //       return newValue; // abort the transaction
+  //     }
+  //     return newValue;
+  //   });
 
 };
 

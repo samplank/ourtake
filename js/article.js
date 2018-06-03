@@ -28,11 +28,20 @@ function openTab(evt, tabName) {
 function loadText(articleID) {
 
     var read = document.getElementById("ReadText");
-    read.innerHTML = '';
+    // read.innerHTML = '';
+    while (read.firstChild) {
+      read.removeChild(read.firstChild);
+    }
     var review = document.getElementById("ReviewText");
-    review.innerHTML = '';
+    // review.innerHTML = '';
+    while (review.firstChild) {
+      review.removeChild(review.firstChild);
+    }
     var contribute = document.getElementById("ContributeText");
-    contribute.innerHTML = '';
+    // contribute.innerHTML = '';
+    while (contribute.firstChild) {
+      contribute.removeChild(contribute.firstChild);
+    }
 
     var i = 0;
     var rootRef = firebase.database().ref();

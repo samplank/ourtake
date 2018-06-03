@@ -152,10 +152,6 @@ function addTextBox(i,articleID) {
 }
 
 function addButton(i,articleID) {
-    var databaseRef = firebase.database().ref('users').child(user.uid).child('votes');
-
-    databaseRef.transaction(function(votes) {
-    if (votes >= 5) {
       var contributeButton = document.createElement("button");
       contributeButton.innerHTML = "Contribute to this article!";
       contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
@@ -170,47 +166,34 @@ function addButton(i,articleID) {
         var textDiv = document.createElement("div");
         textDiv.id = "div" + String(-1);
         contribute.appendChild(textDiv);
-
       }
       textDiv.appendChild(contributeButton);
-      votes = 0;
     }
-    else {
-      alert("To add a contribution, you must have voted at least 5 times since your last contribution.")
-    }
-    return votes;
-    });
-
-}
-
-    var contributeButton = document.createElement("button");
-    contributeButton.innerHTML = "Contribute to this article!";
-    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
-    var textDiv = document.getElementById("div" + String(i));
-    if(textDiv){
-      while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-      }
-    }
-    else {
-      var contribute = document.getElementById("ContributeText");
-      var textDiv = document.createElement("div");
-      textDiv.id = "div" + String(-1);
-      contribute.appendChild(textDiv);
-
-    }
-    textDiv.appendChild(contributeButton);
 
 }
 
 function submitText(i,articleID) {
-    var textInput = document.getElementById("txtbox" + String(i)).value;
 
-    var now = new Date().getTime();
+    var databaseRef = firebase.database().ref('users').child(user.uid).child('votes');
 
-    var contributionID = writeNewContribution(textInput,0,0,false,user,now,articleID);
+    databaseRef.transaction(function(votes) {
+    if (votes >= 5) {
 
-    loadText(articleID);
+      var textInput = document.getElementById("txtbox" + String(i)).value;
+
+      var now = new Date().getTime();
+
+      var contributionID = writeNewContribution(textInput,0,0,false,user,now,articleID);
+
+      loadText(articleID);
+
+      var newVotes = 0;
+      return newVotes;
+    }
+    else {
+      alert("To contribute, you must have voted at least five times since your last contribution.");
+    }
+  }
 }
 
 Date.prototype.addHours = function(h) {    

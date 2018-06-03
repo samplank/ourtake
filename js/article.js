@@ -193,7 +193,7 @@ function submitText(i,articleID) {
     else {
       alert("To contribute, you must have voted at least five times since your last contribution.");
     }
-  }
+  });
 }
 
 Date.prototype.addHours = function(h) {    

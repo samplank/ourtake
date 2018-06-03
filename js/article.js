@@ -320,7 +320,7 @@ function onClick(direction, contributionID, articleID) {
         return newValue;
         });
       return newCredits;
-    }
+      }
     });
 }
     //need to update the value in the database here
@@ -339,8 +339,6 @@ function onClick(direction, contributionID, articleID) {
   //     }
   //     return newValue;
   //   });
-
-};
 
 function integrateText(contributionID, articleID) {
 

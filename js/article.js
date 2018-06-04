@@ -173,28 +173,27 @@ function addButton(i,articleID) {
 function submitText(i,articleID) {
     console.log(user);
 
-    var databaseRef = firebase.database().ref('users').child(user.uid).child('votes');
+    var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
     console.log(databaseRef);
 
     databaseRef.transaction(function(votes) {
-    console.log(votes);
-    if (votes >= 5) {
+      if (votes) {
 
-      var textInput = document.getElementById("txtbox" + String(i)).value;
+        var textInput = document.getElementById("txtbox" + String(i)).value;
 
-      var now = new Date().getTime();
+        var now = new Date().getTime();
 
-      var contributionID = writeNewContribution(textInput,0,0,false,user,now,articleID);
+        var contributionID = writeNewContribution(textInput,0,0,false,user,now,articleID);
 
-      loadText(articleID);
+        loadText(articleID);
 
-      var newVotes = 0;
-      return newVotes;
-    }
-    else {
-      alert("To contribute, you must have voted at least five times since your last contribution.");
-    }
+        var newVotes = 0;
+        return newVotes;
+      }
+      else {
+        alert("To contribute, you must have voted at least five times since your last contribution.");
+      }
   });
 }
 

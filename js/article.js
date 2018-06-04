@@ -180,8 +180,8 @@ function submitText(i,articleID) {
         console.log(snapshot.val());
     });
 
-    databaseRef.transaction(function(votes) {
-      if (votes >= 5) {
+    databaseRef.transaction(function(currentVotes) {
+      if (currentVotes >= 5) {
 
         var textInput = document.getElementById("txtbox" + String(i)).value;
 

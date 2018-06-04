@@ -172,7 +172,7 @@ function addButton(i,articleID) {
 
 function submitText(i,articleID) {
 
-    var databaseRef = firebase.database().ref('users').child(user.uid).child('votes');
+    var databaseRef = firebase.database().ref('users/' + user.uid).child('votes');
 
     databaseRef.transaction(function(votes) {
     if (votes >= 5) {

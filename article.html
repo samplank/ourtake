@@ -112,7 +112,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 <script>
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
-    updateUser(fbuser.displayName);
+    updateUser(fbuser);
     loadText(article);
     console.log("logged in");
 

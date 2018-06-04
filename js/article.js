@@ -175,10 +175,13 @@ function submitText(i,articleID) {
 
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
-    console.log(databaseRef);
+    databaseRef.on('value', function(snapshot) {
+        // votes = document.getElementById("up" + String(contributionID))
+        console.log(snapshot.val());
+    });
 
     databaseRef.transaction(function(votes) {
-      if (votes) {
+      if (votes >= 5) {
 
         var textInput = document.getElementById("txtbox" + String(i)).value;
 

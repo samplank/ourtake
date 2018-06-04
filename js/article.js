@@ -176,6 +176,7 @@ function submitText(i,articleID) {
     var databaseRef = firebase.database().ref('users/' + user.uid).child('votes');
 
     databaseRef.transaction(function(votes) {
+    console.log(votes);
     if (votes >= 5) {
 
       var textInput = document.getElementById("txtbox" + String(i)).value;

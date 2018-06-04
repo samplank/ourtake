@@ -171,6 +171,7 @@ function addButton(i,articleID) {
 }
 
 function submitText(i,articleID) {
+    console.log(user.uid);
 
     var databaseRef = firebase.database().ref('users/' + user.uid).child('votes');
 

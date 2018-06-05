@@ -177,12 +177,10 @@ function submitText(i,articleID) {
 
     databaseRef.on('value', function(snapshot) {
         // votes = document.getElementById("up" + String(contributionID))
-        console.log(snapshot.val());
+        var votes = snapshot.val();
     });
 
-    databaseRef.transaction(function(currentVotes) {
-      if (currentVotes >= 5) {
-
+    if (votes >= 5) {
         var textInput = document.getElementById("txtbox" + String(i)).value;
 
         var now = new Date().getTime();
@@ -190,14 +188,14 @@ function submitText(i,articleID) {
         var contributionID = writeNewContribution(textInput,0,0,false,user,now,articleID);
 
         loadText(articleID);
+        var updates = {};
+        updates['users/' + user.uid + '/votes'] = 0;
 
-        var newVotes = 0;
-        return newVotes;
-      }
-      else {
+        firebase.database().ref().update(updates);
+    }
+    else {
         alert("To contribute, you must have voted at least five times since your last contribution.");
-      }
-  });
+    }
 }
 
 Date.prototype.addHours = function(h) {    

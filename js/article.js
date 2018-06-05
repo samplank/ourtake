@@ -171,7 +171,6 @@ function addButton(i,articleID) {
 }
 
 function submitText(i,articleID) {
-    console.log(user);
 
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
@@ -180,6 +179,7 @@ function submitText(i,articleID) {
         // votes = document.getElementById("up" + String(contributionID))
         votes = snapshot.val();
     });
+    console.log(votes);
 
     if (votes >= 5) {
         var textInput = document.getElementById("txtbox" + String(i)).value;

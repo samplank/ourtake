@@ -178,6 +178,7 @@ function submitText(i,articleID) {
     databaseRef.on('value', function(snapshot) {
         // votes = document.getElementById("up" + String(contributionID))
         votes = snapshot.val();
+        console.log(votes)
     });
     console.log(votes);
 

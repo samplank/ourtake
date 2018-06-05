@@ -175,9 +175,10 @@ function submitText(i,articleID) {
 
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
+    var votes = 0
     databaseRef.on('value', function(snapshot) {
         // votes = document.getElementById("up" + String(contributionID))
-        var votes = snapshot.val();
+        votes = snapshot.val();
     });
 
     if (votes >= 5) {

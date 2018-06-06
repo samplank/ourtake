@@ -316,10 +316,7 @@ function onClick(direction, contributionID, articleID) {
     var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
     creditRef.transaction(function(currentCredits){
       // if null or 0 credits, ask user to add more
-      if (!currentCredits){
-        alert("Add credits to vote on contributions");
-      }
-      else {
+      if (currentCredits) {
         var newCredits = currentCredits - 1;
 
         var voteRef = firebase.database().ref('users/' + user.uid + '/votes');
@@ -343,6 +340,9 @@ function onClick(direction, contributionID, articleID) {
         return newValue;
         });
       return newCredits;
+      }
+      else {
+        "Add credits to vote on contributions";
       }
     });
 }

@@ -317,6 +317,7 @@ function onClick(direction, contributionID, articleID) {
     creditRef.transaction(function(currentCredits){
       // if null or 0 credits, ask user to add more
       if (currentCredits) {
+        console.log(currentCredits);
         var newCredits = currentCredits - 1;
 
         var voteRef = firebase.database().ref('users/' + user.uid + '/votes');

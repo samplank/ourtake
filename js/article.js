@@ -174,10 +174,10 @@ function submitText(i,articleID) {
 
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
+    // this isn't working right because on listens for changes and we only want to get the value once.
     var votes = 0
-    databaseRef.on('value', function(snapshot) {
-        // votes = document.getElementById("up" + String(contributionID))
-        votes = snapshot.val();
+    firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+      votes = snapshot.val();
         if (votes >= 5) {
             var textInput = document.getElementById("txtbox" + String(i)).value;
 
@@ -194,8 +194,27 @@ function submitText(i,articleID) {
         else {
             alert("To contribute, you must have voted at least five times since your last contribution.");
         }
-
     });
+    // databaseRef.on('value', function(snapshot) {
+    //     votes = snapshot.val();
+    //     if (votes >= 5) {
+    //         var textInput = document.getElementById("txtbox" + String(i)).value;
+
+    //         var now = new Date().getTime();
+
+    //         var contributionID = writeNewContribution(textInput,0,0,false,user.uid,now,articleID);
+
+    //         loadText(articleID);
+    //         var updates = {};
+    //         updates['users/' + user.uid + '/votes'] = 0;
+
+    //         firebase.database().ref().update(updates);
+    //     }
+    //     else {
+    //         alert("To contribute, you must have voted at least five times since your last contribution.");
+    //     }
+
+    // });
 }
 
 Date.prototype.addHours = function(h) {    

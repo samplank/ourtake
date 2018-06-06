@@ -183,7 +183,7 @@ function submitText(i,articleID) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.uid,now,articleID);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,now,articleID);
 
             loadText(articleID);
             var updates = {};

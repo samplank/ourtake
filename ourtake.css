@@ -54,7 +54,9 @@ h4 {
 /* Create an active/current tablink class */
 .tab button.active {
     font-family: Georgia, serif;
+    font-size: 18px;
     background-color: #ffeeb7;
+
 }
 
 /* Style the tab content */

@@ -313,6 +313,8 @@ function addCounter(subinfo, contributionID, articleID) {
 
 function onClick(direction, contributionID, articleID) {
 
+    console.log("click");
+
     var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
     creditRef.transaction(function(currentCredits){
       // if null or 0 credits, ask user to add more

@@ -1,5 +1,23 @@
 var user = null;
 
+function writeUserData(userId, name, email) {
+  var userRef = firebase.database().ref('users/' + userId);
+
+  userRef.once("value").then((snapshot) => {
+    if (snapshot.exists()) { 
+      console.log("exists");
+    } else {
+      console.log("new user");
+      firebase.database().ref('users/' + userId).set({
+      username: name,
+      email: email,
+      credits: 10,
+      votes: 0
+    });
+    }
+  });
+}
+
 function updateUser(userUpdate) {
   user = userUpdate;
 }
@@ -195,26 +213,6 @@ function submitText(i,articleID) {
             alert("To contribute, you must have voted at least five times since your last contribution.");
         }
     });
-    // databaseRef.on('value', function(snapshot) {
-    //     votes = snapshot.val();
-    //     if (votes >= 5) {
-    //         var textInput = document.getElementById("txtbox" + String(i)).value;
-
-    //         var now = new Date().getTime();
-
-    //         var contributionID = writeNewContribution(textInput,0,0,false,user.uid,now,articleID);
-
-    //         loadText(articleID);
-    //         var updates = {};
-    //         updates['users/' + user.uid + '/votes'] = 0;
-
-    //         firebase.database().ref().update(updates);
-    //     }
-    //     else {
-    //         alert("To contribute, you must have voted at least five times since your last contribution.");
-    //     }
-
-    // });
 }
 
 Date.prototype.addHours = function(h) {    

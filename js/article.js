@@ -318,7 +318,48 @@ function onClick(direction, contributionID, articleID) {
     firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
         var currentCredits = snapshot.val();
         console.log(currentCredits);
+        if (currentCredits){
+          var newCredits = currentCredits - 1;
+
+          var newVotes = 1;
+          firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+              var currentVotes = snapshot.val();
+              if (currentVotes) {
+                newVotes = currentVotes + 1;
+              }
+          });
+
+          var updates = {};
+          updates['users/' + user.uid + '/credits'] = newCredits;
+          updates['users/' + user.uid + '/votes'] = newVotes;
+
+
+          firebase.database().ref().update(updates);
+
+        }
+        else {
+          console.log("Add credits to vote on contributions");
+      }
     });
+
+    var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+    ref.transaction(function(currentClicks) {
+    // If node/clicks has never been set, currentRank will be `null`.
+      var newValue = (currentClicks || 0) + 1;
+      if (newValue >= 10) {
+        if (direction == 'upvotes') {
+            integrateText(contributionID, articleID);
+        }
+        else if (direction == 'downvotes') {
+            removeText(contributionID, articleID);
+        }
+      }
+      return newValue;
+    });
+
+
+
+
 
     var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
     creditRef.transaction(function(currentCredits){
@@ -350,7 +391,7 @@ function onClick(direction, contributionID, articleID) {
       return newCredits;
       }
       else {
-        "Add credits to vote on contributions";
+        console.log("Add credits to vote on contributions");
       }
     });
 }

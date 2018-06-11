@@ -15,7 +15,7 @@ function loadArticles() {
         var key = child.key;
         
         var link = document.createElement("div");
-        link.className = "frontHolder"
+        link.className = "panel panel-default"
         var aref = document.createElement("a");
         aref.className = "front";
         link.appendChild(aref);

@@ -325,8 +325,8 @@ function onClick(direction, contributionID, articleID) {
           firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
               var currentVotes = snapshot.val();
               if (currentVotes) {
-                console.log(newVotes);
                 newVotes = currentVotes + 1;
+                console.log(newVotes);
               }
           });
           console.log(newVotes);

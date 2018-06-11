@@ -332,6 +332,7 @@ function onClick(direction, contributionID, articleID) {
           });
           var updates = {};
           updates['users/' + user.uid + '/credits'] = newCredits;
+          console.log(updates['users/' + user.uid + '/votes']);
 
           firebase.database().ref().update(updates);
 

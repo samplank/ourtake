@@ -197,7 +197,6 @@ function submitText(i,articleID) {
 
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
-    // this isn't working right because on listens for changes and we only want to get the value once.
     var votes = 0
     firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
       votes = snapshot.val();

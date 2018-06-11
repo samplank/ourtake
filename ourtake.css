@@ -101,7 +101,7 @@ h4 {
     display: inline-block;
     background: white;
     color: black;
-    width: 250px;
+    width: 200px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
@@ -110,7 +110,7 @@ h4 {
 }
 
 .undoSubmit {
-    ont-family: Georgia, serif;
+    font-family: Georgia, serif;
     font-size: 18px;
     display: inline-block;
     background: white;

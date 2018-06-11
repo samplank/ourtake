@@ -321,20 +321,18 @@ function onClick(direction, contributionID, articleID) {
         if (currentCredits){
           var newCredits = currentCredits - 1;
 
-          var newVotes = 1;
           firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
               var currentVotes = snapshot.val();
               if (currentVotes) {
                 console.log(currentVotes);
-                newVotes = currentVotes + 1;
+                var newVotes = currentVotes + 1;
                 console.log(newVotes);
+                updates['users/' + user.uid + '/votes'] = newVotes;
               }
           });
           console.log(newVotes);
           var updates = {};
           updates['users/' + user.uid + '/credits'] = newCredits;
-          updates['users/' + user.uid + '/votes'] = newVotes;
-
 
           firebase.database().ref().update(updates);
 

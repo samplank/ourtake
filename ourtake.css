@@ -101,7 +101,7 @@ h4 {
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
-    margin: 5px;
+    padding: 12px 24px;
 }
 
 #login {

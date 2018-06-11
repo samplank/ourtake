@@ -74,8 +74,8 @@ h4 {
     background-color: #fff9ea;
     padding: 25px;
     margin: 5px;
-    /*width: 60%;*/
-    /*height: 100px;*/
+    width: 60%;
+    height: 100px;
 }
 
 .front {
@@ -121,7 +121,7 @@ h4 {
     padding: 25px;
     margin: 5px;
     width: 25%;
-    /*height: 100px;*/
+    height: 100px;
 
 }
 

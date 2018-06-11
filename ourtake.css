@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 p {
     font-family: Georgia, serif;
     font-size: 18px;
@@ -119,7 +124,7 @@ h4 {
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
-    margin: 10px;
+    margin: 5px;
 }
 
 #login {

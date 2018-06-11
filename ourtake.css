@@ -188,6 +188,20 @@ h4 {
     overflow: hidden;
 }
 
+#contributeButton {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    display: inline-block;
+    background: white;
+    color: black;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    margin: 0px;
+    height: 50px;
+}
+
 #newArticleButton {
     font-family: Georgia, serif;
     font-size: 18px;
@@ -201,6 +215,8 @@ h4 {
     margin: 10px;
     height: 50px;
 }
+
+
 
 
 

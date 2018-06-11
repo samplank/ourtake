@@ -83,11 +83,11 @@ function loadText(articleID) {
             newReadPara.innerHTML = contribution.body;
             read.appendChild(newReadPara);
 
-            var newReviewPara = document.createElement("p");
+            var newReviewPara = document.createElement("h4");
             newReviewPara.innerHTML = contribution.body;
-            var reviewInfoName = document.createElement("h4");
+            var reviewInfoName = document.createElement("p");
             reviewInfoName.innerHTML = "Author: " + contribution.author;
-            var reviewInfoDateVotes = document.createElement("h4");
+            var reviewInfoDateVotes = document.createElement("p");
             reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
             newReviewPara.appendChild(reviewInfoName);
             newReviewPara.appendChild(reviewInfoDateVotes);

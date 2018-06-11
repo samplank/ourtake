@@ -323,7 +323,7 @@ function onClick(direction, contributionID, articleID) {
 
           firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
               var currentVotes = snapshot.val();
-              if (currentVotes) {
+              if (currentVotes != null) {
                 console.log(currentVotes);
                 var newVotes = currentVotes + 1;
                 console.log(newVotes);

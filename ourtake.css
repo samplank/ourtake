@@ -53,6 +53,8 @@ h4 {
 
 /* Style the tab content */
 .tabcontent {
+    font-size: 18px;
+    font-family: Georgia, serif;
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
@@ -141,6 +143,7 @@ h4 {
 }
 
 #header {
+    font-size: 36px;
     font-family: Georgia, serif;
     text-decoration: none; 
     color:black;

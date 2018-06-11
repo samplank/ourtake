@@ -113,6 +113,7 @@ function loadText(articleID) {
         }
 
         else if (contribution.accepted == false && user && distance > 0) {
+            var containerDiv = document.createElement("div");
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
             para.className = "conditional";
@@ -122,8 +123,9 @@ function loadText(articleID) {
             var submitInfo = document.createElement("div");
             submitInfo.id = "rightjustify"
 
-            contribute.appendChild(para);
-            contribute.appendChild(submitInfo);
+            containerDiv.appendChild(para);
+            containerDiv.appendChild(submitInfo);
+            contribute.appendChild(containerDiv);
 
             addCountdown(submitInfo, contribution.timestamp, contribution.author);
             addCounter(submitInfo, key, articleID);

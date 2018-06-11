@@ -324,7 +324,7 @@ function onClick(direction, contributionID, articleID) {
           firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
 
               var updates = {};
-              
+
               var currentVotes = snapshot.val();
               if (currentVotes != null) {
                 console.log(currentVotes);
@@ -335,11 +335,12 @@ function onClick(direction, contributionID, articleID) {
               else {
                 updates['users/' + user.uid + '/votes'] = 1;
               }
-          });
-          updates['users/' + user.uid + '/credits'] = newCredits;
-          console.log(updates['users/' + user.uid + '/votes']);
+              updates['users/' + user.uid + '/credits'] = newCredits;
+              console.log(updates['users/' + user.uid + '/votes']);
 
-          firebase.database().ref().update(updates);
+              firebase.database().ref().update(updates);
+
+          });
 
         }
         else {

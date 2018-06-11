@@ -330,7 +330,6 @@ function onClick(direction, contributionID, articleID) {
                 updates['users/' + user.uid + '/votes'] = newVotes;
               }
           });
-          console.log(newVotes);
           var updates = {};
           updates['users/' + user.uid + '/credits'] = newCredits;
 

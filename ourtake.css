@@ -36,6 +36,7 @@ h4 {
 /* Style the buttons that are used to open the tab content */
 .tab button {
     font-family: Georgia, serif;
+    font-size: 18px;
     background-color: inherit;
     float: left;
     border: none;
@@ -48,6 +49,7 @@ h4 {
 /* Change background color of buttons on hover */
 .tab button:hover {
     font-family: Georgia, serif;
+    font-size: 18px;
     background-color: #fff4db;
 }
 

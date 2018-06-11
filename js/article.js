@@ -315,6 +315,11 @@ function onClick(direction, contributionID, articleID) {
 
     console.log("click");
 
+    firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
+        var currentCredits = snapshot.val();
+        console.log(currentCredits);
+    });
+
     var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
     creditRef.transaction(function(currentCredits){
       // if null or 0 credits, ask user to add more

@@ -101,12 +101,12 @@ h4 {
     display: inline-block;
     background: white;
     color: black;
-    width: 200px;
+    width: 250px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
     margin: 10px;
-    height: 75px;
+    height: 50px;
 }
 
 .undoSubmit {

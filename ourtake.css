@@ -70,7 +70,8 @@ h4 {
 .conditional {
     float: left;
     /*position: relative;*/
-    border: 5px solid pink;
+    /*border: 5px solid pink;*/
+    background-color: #fff9ea;
     padding: 25px;
     margin: 5px;
     width: 60%;
@@ -115,7 +116,8 @@ h4 {
 #rightjustify {
     float: right;
     /*position: relative;*/
-    border: 5px solid pink;
+    /*border: 5px solid pink;*/
+    background-color: #fff9ea;
     padding: 25px;
     margin: 5px;
     width: 25%;

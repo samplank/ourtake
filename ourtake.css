@@ -81,6 +81,7 @@ h4 {
 }
 
 .topButton {
+    font-family: Georgia, serif;
     display: inline-block;
     background: white;
     color: #444;

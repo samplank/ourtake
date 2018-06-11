@@ -86,9 +86,9 @@ function loadText(articleID) {
             var newReviewPara = document.createElement("h4");
             newReviewPara.innerHTML = contribution.body;
             var reviewInfoName = document.createElement("p");
-            reviewInfoName.innerHTML = "Author: " + contribution.author;
+            reviewInfoName.innerHTML = "<i>Author</i>: " + contribution.author;
             var reviewInfoDateVotes = document.createElement("p");
-            reviewInfoDateVotes.innerHTML = "Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes; 
+            reviewInfoDateVotes.innerHTML = "<i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes; 
             newReviewPara.appendChild(reviewInfoName);
             newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);

@@ -69,7 +69,7 @@ h4 {
 
 .conditional {
     float: left;
-    position: relative;
+    /*position: relative;*/
     border: 5px solid pink;
     padding: 25px;
     margin: 5px;
@@ -114,7 +114,7 @@ h4 {
 
 #rightjustify {
     float: right;
-    position: relative;
+    /*position: relative;*/
     border: 5px solid pink;
     padding: 25px;
     margin: 5px;

@@ -356,6 +356,7 @@ function onClick(direction, contributionID, articleID) {
       }
       return newValue;
     });
+  }
 
 function integrateText(contributionID, articleID) {
 

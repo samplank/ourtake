@@ -14,7 +14,8 @@ h4 {
     font-family: Georgia, serif;
     font-weight: normal;
     font-size: 18px;
-    border: 5px solid green;
+    /*border: 5px solid green;*/
+    background-color: #ffeeb7;
     padding: 25px;
     margin: 25px;
 }
@@ -29,7 +30,7 @@ h4 {
     font-family: Georgia, serif;
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #fff9ea;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -47,13 +48,13 @@ h4 {
 /* Change background color of buttons on hover */
 .tab button:hover {
     font-family: Georgia, serif;
-    background-color: #ddd;
+    background-color: #fff4db;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
     font-family: Georgia, serif;
-    background-color: #ccc;
+    background-color: #ffeeb7;
 }
 
 /* Style the tab content */
@@ -85,7 +86,7 @@ h4 {
 
 .frontHolder {
     padding: 12px 24px;
-    background-color: #ffeeb7 ;
+    background-color: #ffeeb7;
     margin: 10px;
 }
 

@@ -357,61 +357,6 @@ function onClick(direction, contributionID, articleID) {
       return newValue;
     });
 
-
-
-
-
-    var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
-    creditRef.transaction(function(currentCredits){
-      // if null or 0 credits, ask user to add more
-      if (currentCredits) {
-        console.log(currentCredits);
-        var newCredits = currentCredits - 1;
-
-        var voteRef = firebase.database().ref('users/' + user.uid + '/votes');
-        voteRef.transaction(function(currentVotes){
-          var newVotes = (currentVotes || 0) + 1;
-          return newVotes;
-        });
-
-        var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-        ref.transaction(function(currentClicks) {
-        // If node/clicks has never been set, currentRank will be `null`.
-        var newValue = (currentClicks || 0) + 1;
-        if (newValue >= 10) {
-          if (direction == 'upvotes') {
-              integrateText(contributionID, articleID);
-          }
-          else if (direction == 'downvotes') {
-              removeText(contributionID, articleID);
-          }
-        }
-        return newValue;
-        });
-      return newCredits;
-      }
-      else {
-        console.log("Add credits to vote on contributions");
-      }
-    });
-}
-    //need to update the value in the database here
-  //   var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-  //   ref.transaction(function(currentClicks) {
-  // // If node/clicks has never been set, currentRank will be `null`.
-  //     var newValue = (currentClicks || 0) + 1;
-  //     if (newValue >= 10) {
-  //       if (direction == 'upvotes') {
-  //           integrateText(contributionID, articleID);
-  //       }
-  //       else if (direction == 'downvotes') {
-  //           removeText(contributionID, articleID);
-  //       }
-  //       return newValue; // abort the transaction
-  //     }
-  //     return newValue;
-  //   });
-
 function integrateText(contributionID, articleID) {
 
     var updates = {};

@@ -322,6 +322,9 @@ function onClick(direction, contributionID, articleID) {
           var newCredits = currentCredits - 1;
 
           firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+
+              var updates = {};
+              
               var currentVotes = snapshot.val();
               if (currentVotes != null) {
                 console.log(currentVotes);
@@ -329,8 +332,10 @@ function onClick(direction, contributionID, articleID) {
                 console.log(newVotes);
                 updates['users/' + user.uid + '/votes'] = newVotes;
               }
+              else {
+                updates['users/' + user.uid + '/votes'] = 1;
+              }
           });
-          var updates = {};
           updates['users/' + user.uid + '/credits'] = newCredits;
           console.log(updates['users/' + user.uid + '/votes']);
 

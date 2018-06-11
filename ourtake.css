@@ -109,6 +109,19 @@ h4 {
     height: 75px;
 }
 
+.undoSubmit {
+    ont-family: Georgia, serif;
+    font-size: 18px;
+    display: inline-block;
+    background: white;
+    color: black;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    margin: 10px;
+}
+
 #login {
     text-align:right;
 }

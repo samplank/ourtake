@@ -157,10 +157,12 @@ function addTextBox(i,articleID) {
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
     undoButton.setAttribute('onclick','addButton('+String(i)+','+'"'+String(articleID)+'"'+')');
+    undoButton.className = "undoSubmit";
 
     var submitButton = document.createElement("button");
     submitButton.innerHTML = "Submit";
     submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+')');
+    submitButton.className = "undoSubmit";
 
     var textDiv = document.getElementById("div" + String(i));
     while (textDiv.firstChild) {

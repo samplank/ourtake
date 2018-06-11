@@ -175,6 +175,7 @@ function addButton(i,articleID) {
     var contributeButton = document.createElement("button");
     contributeButton.innerHTML = "Contribute to this article!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
+    contributeButton.className = "topButton";
     var textDiv = document.getElementById("div" + String(i));
     if(textDiv){
       while (textDiv.firstChild) {

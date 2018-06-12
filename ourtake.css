@@ -162,10 +162,8 @@ h4 {
 #topcontainer {
     width: 550px;
     position:relative;
-    /*top:50px;
-    right:50px;*/
-    width:10%;
-    height:2%;
+    top:50px;
+    right:50px;
     padding: 6px 12px;
     display: flex;
 }

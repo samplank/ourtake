@@ -161,7 +161,7 @@ h4 {
 
 #topcontainer {
     width: 550px;
-    position:relative;
+    position:absolute;
     top:0;
     right:0;
     padding: 6px 12px;

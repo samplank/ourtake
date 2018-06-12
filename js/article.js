@@ -146,11 +146,11 @@ function loadText(articleID) {
 
 function addTextBox(i,articleID) {
 
-    var txtBox = document.createElement("input");
+    var txtBox = document.createElement("textarea");
 
-    txtBox.setAttribute("type", "text");
-    txtBox.setAttribute("value", "");
-    txtBox.setAttribute("name", "Test Name");
+    // txtBox.setAttribute("type", "text");
+    // txtBox.setAttribute("value", "");
+    // txtBox.setAttribute("name", "Test Name");
     txtBox.maxLength = 500;
     txtBox.className = "txtbox";
 

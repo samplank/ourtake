@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 10px;
 }
 
 p {
@@ -202,7 +202,7 @@ h4 {
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
-    margin: 2px;
+    margin: 1px;
     height: 50px;
 }
 

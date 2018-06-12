@@ -188,7 +188,7 @@ h4 {
     height: 2%;
 }
 
-#ContributeText {
+#ReadText, #ReviewText, #ContributeText {
     overflow: hidden;
 }
 

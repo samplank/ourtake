@@ -153,7 +153,8 @@ function addTextBox(i,articleID) {
     // txtBox.setAttribute("name", "Test Name");
     txtBox.cols = 100;
     txtBox.rows = 5;
-    txtBox.className = "txtbox";
+    txtBox.maxLength = 500;
+    // txtBox.className = "txtbox";
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";

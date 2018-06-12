@@ -152,7 +152,7 @@ function addTextBox(i,articleID) {
     txtBox.setAttribute("value", "");
     txtBox.setAttribute("name", "Test Name");
     txtBox.maxLength = 500;
-    txtBox.id = "txtbox" + String(i);
+    txtBox.className = "txtbox";
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";

@@ -126,6 +126,11 @@ h4 {
     margin: 5px;
 }
 
+.txtbox {
+    height: 50px;
+    width: 250px;
+}
+
 #login {
     text-align:right;
 }

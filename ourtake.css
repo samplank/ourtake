@@ -129,6 +129,7 @@ h4 {
 .txtbox {
     height: 50px;
     width: 250px;
+    overflow-wrap: normal;
 }
 
 #login {

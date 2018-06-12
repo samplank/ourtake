@@ -162,8 +162,8 @@ h4 {
 #topcontainer {
     width: 550px;
     position:absolute;
-    top: 50px;
-    right: 50px;
+    top: 40px;
+    right: 40px;
     padding: 6px 12px;
     display: flex;
 }

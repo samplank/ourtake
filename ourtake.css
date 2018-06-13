@@ -132,6 +132,14 @@ h4 {
     overflow-wrap: normal;
 }
 
+.voteButton {
+    background-color: #fff4db;
+}
+
+.voteText {
+    font-family: Georgia, serif;
+}
+
 #login {
     text-align:right;
 }

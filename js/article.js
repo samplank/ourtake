@@ -278,8 +278,10 @@ function addCounter(subinfo, contributionID, articleID) {
     updown = document.createElement('div');
     upcounter = document.createElement('button');
     upcounter.id = "upper" + String(contributionID);
+    upcounter.className = "voteButton";
     downcounter = document.createElement('button');
     downcounter.id = "downer" + String(contributionID);
+    downcounter.className = "voteButton";
 
     upcounter.innerHTML = "Upvote";
     downcounter.innerHTML = "Downvote";
@@ -291,9 +293,11 @@ function addCounter(subinfo, contributionID, articleID) {
     upcount = document.createElement("p");
     upcount.id = "up" + String(contributionID);
     upcount.innerHTML = "0";
+    upcount.className = "voteText";
     downcount = document.createElement("p");
     downcount.id = "down" + String(contributionID);
     downcount.innerHTML = "0";
+    downcount.className = "voteText";
 
     upcounter.appendChild(upcount);
     updown.appendChild(upcounter);

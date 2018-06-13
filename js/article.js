@@ -156,9 +156,6 @@ function addTextBox(i,articleID) {
     txtBox.maxLength = 500;
     // txtBox.className = "txtbox";
 
-    var imgUpload = document.createElement("input");
-    imgUpload.setAttribute("type", "image");
-
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
     undoButton.setAttribute('onclick','addButton('+String(i)+','+'"'+String(articleID)+'"'+')');
@@ -176,7 +173,6 @@ function addTextBox(i,articleID) {
     textDiv.appendChild(txtBox);
     textDiv.appendChild(undoButton);
     textDiv.appendChild(submitButton);
-    textDiv.appendChild(imgUpload);
 }
 
 function addButton(i,articleID) {

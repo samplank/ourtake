@@ -154,6 +154,7 @@ function addTextBox(i,articleID) {
     txtBox.cols = 100;
     txtBox.rows = 5;
     txtBox.maxLength = 500;
+    txtBox.id = "txtbox" + String(i);
     // txtBox.className = "txtbox";
 
     var undoButton = document.createElement("button");

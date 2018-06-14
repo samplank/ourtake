@@ -131,7 +131,7 @@ function loadText(articleID) {
             addCounter(submitInfo, key, articleID);
         }
       });
-    i--;
+    // i--;
 
     if (!user){
       var contributeAlert = document.createElement("p");

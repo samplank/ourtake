@@ -140,7 +140,7 @@ function loadText(articleID) {
     }
     else {
       contributeButton = addButton(i, articleID);
-      contribution.append(contributeButton);
+      contribute.append(contributeButton);
     }
     });
 }

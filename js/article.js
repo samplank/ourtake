@@ -170,7 +170,7 @@ function addTextBox(i,articleID) {
 
     // var textDiv = document.getElementById("div" + String(i));
     var contribute = document.getElementById("ContributeText");
-    textDiv.removeChild(textDiv.lastChild);
+    contribute.removeChild(contribute.lastChild);
     // while (textDiv.firstChild) {
     //     textDiv.removeChild(textDiv.firstChild);
     // }

@@ -139,8 +139,7 @@ function loadText(articleID) {
       contribute.appendChild(contributeAlert);
     }
     else {
-      contributeButton = addButton(i, articleID);
-      contribute.append(contributeButton);
+      addButton(i, articleID);
     }
     });
 }
@@ -199,6 +198,8 @@ function addButton(i,articleID) {
     //   contribute.appendChild(textDiv);
     // }
     // textDiv.appendChild(contributeButton);
+    var contribute = document.getElementById("ContributeText");
+    contribute.appendChild(contributeButton);
     return contributeButton;
 }
 

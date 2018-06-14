@@ -169,13 +169,16 @@ function addTextBox(i,articleID) {
     submitButton.className = "undoSubmit";
 
     // var textDiv = document.getElementById("div" + String(i));
-    var textDiv = document.getElementById("contributeButton");
-    while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
-    textDiv.appendChild(txtBox);
-    textDiv.appendChild(undoButton);
-    textDiv.appendChild(submitButton);
+    var contribute = document.getElementById("ContributeText");
+    textDiv.removeChild(textDiv.lastChild);
+    // while (textDiv.firstChild) {
+    //     textDiv.removeChild(textDiv.firstChild);
+    // }
+    var txtDiv = document.createElement("div")
+    txtDiv.appendChild(txtBox);
+    txtDiv.appendChild(undoButton);
+    txtDiv.appendChild(submitButton);
+    contribute.appendChild(txtDiv);
 }
 
 function addButton(i,articleID) {

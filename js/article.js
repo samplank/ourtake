@@ -131,7 +131,7 @@ function loadText(articleID) {
             addCounter(submitInfo, key, articleID);
         }
       });
-    // i--;
+    i--;
 
     if (!user){
       var contributeAlert = document.createElement("p");
@@ -139,7 +139,8 @@ function loadText(articleID) {
       contribute.appendChild(contributeAlert);
     }
     else {
-      addButton(i, articleID);
+      contributeButton = addButton(i, articleID);
+      contribution.append(contributeButton);
     }
     });
 }
@@ -181,19 +182,20 @@ function addButton(i,articleID) {
     contributeButton.innerHTML = "Contribute to this article!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
     contributeButton.id = "contributeButton";
-    var textDiv = document.getElementById("div" + String(i));
-    if(textDiv){
-      while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-      }
-    }
-    else {
-      var contribute = document.getElementById("ContributeText");
-      var textDiv = document.createElement("div");
-      textDiv.id = "div" + String(-1);
-      contribute.appendChild(textDiv);
-    }
-    textDiv.appendChild(contributeButton);
+    // var textDiv = document.getElementById("div" + String(i));
+    // if(textDiv){
+    //   while (textDiv.firstChild) {
+    //     textDiv.removeChild(textDiv.firstChild);
+    //   }
+    // }
+    // else {
+    //   var contribute = document.getElementById("ContributeText");
+    //   var textDiv = document.createElement("div");
+    //   textDiv.id = "div" + String(-1);
+    //   contribute.appendChild(textDiv);
+    // }
+    // textDiv.appendChild(contributeButton);
+    return contributeButton;
 }
 
 function submitText(i,articleID) {

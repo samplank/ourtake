@@ -168,7 +168,8 @@ function addTextBox(i,articleID) {
     submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+')');
     submitButton.className = "undoSubmit";
 
-    var textDiv = document.getElementById("div" + String(i));
+    // var textDiv = document.getElementById("div" + String(i));
+    var textDiv = document.getElementById("contributeButton");
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
     }

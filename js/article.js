@@ -111,20 +111,19 @@ function loadText(articleID) {
             i++;
         }
       });
+      if (!user){
+        var contributeAlert = document.createElement("p");
+        contributeAlert.innerHTML = "Sign In to Contribute!"
+        contribute.appendChild(contributeAlert);
+      }
+      else {
+        var instructionsDiv = document.createElement("p");
+        instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
+        instructionsDiv.id = "instructions";
+        contribute.appendChild(instructionsDiv);
+        // addButton(i, articleID);
+      }
     });
-
-    if (!user){
-      var contributeAlert = document.createElement("p");
-      contributeAlert.innerHTML = "Sign In to Contribute!"
-      contribute.appendChild(contributeAlert);
-    }
-    else {
-      var instructionsDiv = document.createElement("p");
-      instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
-      instructionsDiv.id = "instructions";
-      contribute.appendChild(instructionsDiv);
-      // addButton(i, articleID);
-    }
 
     // var i = 0;
     var rootRef = firebase.database().ref();
@@ -162,13 +161,10 @@ function loadText(articleID) {
             i++;
         }
       });
+      if (user) {
+        addButton(i,articleID);
+      }
     });
-    // i--;
-    // i--;
-
-    if (user) {
-      addButton(i,articleID);
-    }
 }
 
 function addTextBox(i,articleID) {

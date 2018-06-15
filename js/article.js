@@ -122,7 +122,7 @@ function loadText(articleID) {
       var instructionsDiv = document.createElement("p");
       instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
       instructionsDiv.id = "instructions";
-      contribution.appendChild(instructionsDiv);
+      contribute.appendChild(instructionsDiv);
       // addButton(i, articleID);
     }
 

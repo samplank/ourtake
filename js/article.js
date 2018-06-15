@@ -109,10 +109,40 @@ function loadText(articleID) {
               }
 
             i++;
-
         }
+      });
 
-        else if (contribution.accepted == false && user && distance > 0) {
+    if (!user){
+      var contributeAlert = document.createElement("p");
+      contributeAlert.innerHTML = "Sign In to Contribute!"
+      contribute.appendChild(contributeAlert);
+    }
+    else {
+      var instructionsDiv = document.createElement("p");
+      instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
+      instructionsDiv.id = "instructions";
+      contribution.appendChild(instructionsDiv);
+      // addButton(i, articleID);
+    }
+    });
+
+    // var i = 0;
+    var rootRef = firebase.database().ref();
+    var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
+    urlRef.once("value", function(snapshot) {
+      snapshot.forEach(function(child) {
+        var contribution = child.val();
+        var key = child.key;
+
+        var dateTimestamp = new Date(contribution.timestamp);
+        var countDownDate = dateTimestamp.addHours(3).getTime();
+        var subtext = document.createElement("div");
+
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+        if (contribution.accepted == false && user && distance > 0) {
             var containerDiv = document.createElement("div");
             var para = document.createElement("div");
             para.id = "leftjustify" + String(key);
@@ -129,19 +159,15 @@ function loadText(articleID) {
 
             addCountdown(submitInfo, contribution.timestamp, contribution.author);
             addCounter(submitInfo, key, articleID);
+            i++;
         }
       });
     // i--;
+    // i--;
 
-    if (!user){
-      var contributeAlert = document.createElement("p");
-      contributeAlert.innerHTML = "Sign In to Contribute!"
-      contribute.appendChild(contributeAlert);
+    if (user) {
+      addButton(i,articleID);
     }
-    else {
-      addButton(i, articleID);
-    }
-    });
 }
 
 function addTextBox(i,articleID) {

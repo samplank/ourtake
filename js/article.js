@@ -111,6 +111,7 @@ function loadText(articleID) {
             i++;
         }
       });
+    });
 
     if (!user){
       var contributeAlert = document.createElement("p");
@@ -124,7 +125,6 @@ function loadText(articleID) {
       contribution.appendChild(instructionsDiv);
       // addButton(i, articleID);
     }
-    });
 
     // var i = 0;
     var rootRef = firebase.database().ref();
@@ -162,6 +162,7 @@ function loadText(articleID) {
             i++;
         }
       });
+    });
     // i--;
     // i--;
 

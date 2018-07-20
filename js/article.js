@@ -223,7 +223,7 @@ function addButton(i,articleID) {
     // textDiv.appendChild(contributeButton);
     var contribute = document.getElementById("ContributeText");
     contribute.appendChild(contributeButton);
-    return contributeButton;
+    // return contributeButton;
 }
 
 function submitText(i,articleID) {
@@ -231,9 +231,9 @@ function submitText(i,articleID) {
     var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
     var votes = 0
-    firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
-      votes = snapshot.val();
-        if (votes >= 5) {
+    firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
+      user_value = snapshot.val();
+        if (user_value.votes >= 5 || user_value.free_contributions == 1) {
             var textInput = document.getElementById("txtbox" + String(i)).value;
 
             var now = new Date().getTime();
@@ -242,7 +242,13 @@ function submitText(i,articleID) {
 
             loadText(articleID);
             var updates = {};
-            updates['users/' + user.uid + '/votes'] = 0;
+
+            if (user_value.free_contributions == 1) {
+              updates['users/' + user.uid + '/free_contributions'] = 0
+            }
+            else {
+              updates['users/' + user.uid + '/votes'] = 0;
+            }
 
             firebase.database().ref().update(updates);
         }

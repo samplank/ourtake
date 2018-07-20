@@ -148,7 +148,8 @@ function writeUserData(userId, name, email) {
 	    username: name,
 	    email: email,
 	    credits: 10,
-	    votes: 0
+	    votes: 0,
+	    free_contributions: 1
 		});
 	  }
 	});

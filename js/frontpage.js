@@ -153,6 +153,7 @@ function writeUserData(userId, name, email) {
 		});
 	  }
 	});
+	console.log("update received");
 }
 
 function increaseCredits() {

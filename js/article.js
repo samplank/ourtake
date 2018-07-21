@@ -183,7 +183,7 @@ function addTextBox(i,articleID) {
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
-    undoButton.setAttribute('onclick','addButton('+String(i)+','+'"'+String(articleID)+'"'+')');
+    undoButton.setAttribute('onclick','addPrompt('+String(i)+','+'"'+String(articleID)+'"'+')');
     undoButton.className = "undoSubmit";
 
     var submitButton = document.createElement("button");
@@ -215,22 +215,23 @@ function addButton(i,articleID) {
     contributeButton.innerHTML = "Contribute to this article!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
     contributeButton.id = "contributeButton";
-    // var textDiv = document.getElementById("div" + String(i));
-    // if(textDiv){
-    //   while (textDiv.firstChild) {
-    //     textDiv.removeChild(textDiv.firstChild);
-    //   }
-    // }
-    // else {
-    //   var contribute = document.getElementById("ContributeText");
-    //   var textDiv = document.createElement("div");
-    //   textDiv.id = "div" + String(-1);
-    //   contribute.appendChild(textDiv);
-    // }
-    // textDiv.appendChild(contributeButton);
+
     var contribute = document.getElementById("ContributeText");
     contribute.appendChild(contributeButton);
-    // return contributeButton;
+}
+
+function addPrompt(i,articleID) {
+    var txtDiv = document.getElementById("addContribution");
+    while (txtDiv.firstChild) {
+      txtDiv.removeChild(txtDiv.firstChild);
+    }
+
+    var contribute = document.getElementById("ContributeText");
+    var instructionsDiv = document.createElement("p");
+    instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
+    instructionsDiv.id = "instructions";
+    contribute.appendChild(instructionsDiv);
+
 }
 
 function submitText(i,articleID) {

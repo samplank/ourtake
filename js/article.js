@@ -223,9 +223,8 @@ function addButton(i,articleID) {
 
 function addPrompt(i,articleID) {
     var txtDiv = document.getElementById("addContribution");
-    while (txtDiv.firstChild) {
-      txtDiv.removeChild(txtDiv.firstChild);
-    }
+    txtDiv.parentNode.removeChild(txtDiv);
+
 
     var contribute = document.getElementById("ContributeText");
     var instructionsDiv = document.createElement("p");

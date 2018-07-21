@@ -170,6 +170,11 @@ function loadText(articleID) {
 
 function addTextBox(i,articleID) {
 
+    var instructions = document.getElementById("instructions");
+    while (instructions.firstChild) {
+      instructions.removeChild(instructions.firstChild);
+    }
+
     var txtBox = document.createElement("textarea");
 
     // txtBox.setAttribute("type", "text");

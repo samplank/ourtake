@@ -116,7 +116,8 @@ function writeNewPost(title,author,timestamp) {
 	var postData = {
 	    title: title,
 	    author: author,
-	    timestamp: timestamp
+	    timestamp: timestamp,
+	    paragraph_count: 0
 	 };
 
 	 console.log(postData);

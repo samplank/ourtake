@@ -100,7 +100,7 @@ function loadText(articleID) {
               var paragraph_count = snapshot.val();
 
             //only show the last three paragraphs.
-            if (user && contribution.paragraph_number >= (paragraph_number - 3)){
+            if (user && contribution.paragraph_number >= (paragraph_count - 3)){
 
                 var newContributePara = document.createElement("p");
                 newContributePara.innerHTML = contribution.body;

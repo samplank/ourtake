@@ -127,10 +127,6 @@ function loadText(articleID) {
         }
       });
 
-      console.log(lastThree);
-      lastThree.sort((a,b) => b);
-      console.log(lastThree);
-
       if (!user){
         var contributeAlert = document.createElement("p");
         contributeAlert.innerHTML = "Sign In to Contribute!"
@@ -142,6 +138,11 @@ function loadText(articleID) {
         instructionsDiv.id = "instructions";
         contribute.appendChild(instructionsDiv);
       }
+      return event.data.ref.set('world!').then(() => {
+        console.log(lastThree);
+        lastThree.sort((a,b) => b);
+        console.log(lastThree);;
+      });
     });
 
     var rootRef = firebase.database().ref();

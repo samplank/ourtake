@@ -129,6 +129,7 @@ function loadText(articleID) {
       resolve()
       })
       .then(function() {
+        console.log(lastThree);
         lastThree.sort((a,b) => b);
         console.log(lastThree);
       })

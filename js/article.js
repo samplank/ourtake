@@ -67,7 +67,7 @@ function loadText(articleID) {
     var i = 0;
     // var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
-    urlRef.once("value");
+    urlRef.once("value")
     .then(function(snapshot) {
       var sorterFunct = function () {
         console.log(lastThree);

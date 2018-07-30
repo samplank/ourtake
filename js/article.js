@@ -107,7 +107,6 @@ function loadText(articleID) {
                   body_number.push(contribution.body);
                   body_number.push(contribution.paragraph_number);
                   lastThree.push(body_number);
-                  console.log(lastThree);
 
                   var newContributePara = document.createElement("p");
                   newContributePara.innerHTML = contribution.body;

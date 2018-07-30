@@ -62,7 +62,7 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
-    // var lastThree = [];
+    var lastThree = [];
 
     var i = 0;
     var rootRef = firebase.database().ref();
@@ -101,7 +101,11 @@ function loadText(articleID) {
 
             //only show the last three paragraphs.
             if (user && contribution.paragraph_number > (paragraph_count - 3)){
-                console.log(contribution.paragraph_number);
+
+                var body_number = [];
+                body_number.push(contribution.body);
+                body_number.push(contribution.paragraph_number);
+                lastThree.push(body_number);
 
                 var newContributePara = document.createElement("p");
                 newContributePara.innerHTML = contribution.body;
@@ -121,6 +125,10 @@ function loadText(articleID) {
             i++;
         }
       });
+
+      lastThree.sort((a,b) => b);
+      console.log(lastThree);
+
       if (!user){
         var contributeAlert = document.createElement("p");
         contributeAlert.innerHTML = "Sign In to Contribute!"

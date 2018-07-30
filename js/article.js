@@ -65,80 +65,66 @@ function loadText(articleID) {
     var lastThree = [];
 
     var i = 0;
-    // var rootRef = firebase.database().ref();
+    var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
-    urlRef.once("value")
-    .then(function(snapshot) {
-      var sorterFunct = function () {
-        console.log(lastThree);
-        lastThree.sort((a,b) => b);
-        console.log(lastThree);
-      }
-      return new Promise(function(resolve, reject) {
-        snapshot.forEach(function(child) {
-          var contribution = child.val();
-          var key = child.key;
+    urlRef.once("value", function(snapshot) {
+      snapshot.forEach(function(child) {
+        var contribution = child.val();
+        var key = child.key;
 
-          var dateTimestamp = new Date(contribution.timestamp);
-          var countDownDate = dateTimestamp.addHours(3).getTime();
-          var subtext = document.createElement("div");
+        var dateTimestamp = new Date(contribution.timestamp);
+        var countDownDate = dateTimestamp.addHours(3).getTime();
+        var subtext = document.createElement("div");
 
-          var now = new Date().getTime();
+        var now = new Date().getTime();
 
-          // Find the distance between now an the count down date
-          var distance = countDownDate - now;
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
 
-          if (contribution.accepted == true) {
-              var newReadPara = document.createElement("p");
-              newReadPara.innerHTML = contribution.body;
-              read.appendChild(newReadPara);
+        if (contribution.accepted == true) {
+            var newReadPara = document.createElement("p");
+            newReadPara.innerHTML = contribution.body;
+            read.appendChild(newReadPara);
 
-              var newReviewPara = document.createElement("h4");
-              newReviewPara.innerHTML = contribution.body;
-              var reviewInfoName = document.createElement("p");
-              reviewInfoName.innerHTML = "<i>Author</i>: " + contribution.author + " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes;;
-              // var reviewInfoDateVotes = document.createElement("p");
-              // reviewInfoDateVotes.innerHTML = " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes; 
-              newReviewPara.appendChild(reviewInfoName);
-              // newReviewPara.appendChild(reviewInfoDateVotes);
-              review.appendChild(newReviewPara);
+            var newReviewPara = document.createElement("h4");
+            newReviewPara.innerHTML = contribution.body;
+            var reviewInfoName = document.createElement("p");
+            reviewInfoName.innerHTML = "<i>Author</i>: " + contribution.author + " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes;;
+            // var reviewInfoDateVotes = document.createElement("p");
+            // reviewInfoDateVotes.innerHTML = " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes; 
+            newReviewPara.appendChild(reviewInfoName);
+            // newReviewPara.appendChild(reviewInfoDateVotes);
+            review.appendChild(newReviewPara);
 
-              firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-                var paragraph_count = snapshot.val();
+            firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+              var paragraph_count = snapshot.val();
 
-              //only show the last three paragraphs.
-              if (user && contribution.paragraph_number > (paragraph_count - 3)){
+            //only show the last three paragraphs.
+            if (user && contribution.paragraph_number > (paragraph_count - 3)){
 
-                  var body_number = [];
-                  body_number.push(contribution.body);
-                  body_number.push(contribution.paragraph_number);
-                  lastThree.push(body_number);
-                  console.log(lastThree);
+                var body_number = [];
+                body_number.push(contribution.body);
+                body_number.push(contribution.paragraph_number);
+                lastThree.push(body_number);
 
-                  var newContributePara = document.createElement("p");
-                  newContributePara.innerHTML = contribution.body;
-                  contribute.appendChild(newContributePara);
+                var newContributePara = document.createElement("p");
+                newContributePara.innerHTML = contribution.body;
+                contribute.appendChild(newContributePara);
 
-                  var replaceDiv = document.createElement("div");
-                  replaceDiv.id = "div" + String(i);
-                  contribute.appendChild(replaceDiv);
+                var replaceDiv = document.createElement("div");
+                replaceDiv.id = "div" + String(i);
+                contribute.appendChild(replaceDiv);
 
-                  var newlineDiv = document.createElement("div");
-                  newlineDiv.id = "newline";
-                  contribute.appendChild(newlineDiv);
+                var newlineDiv = document.createElement("div");
+                newlineDiv.id = "newline";
+                contribute.appendChild(newlineDiv);
 
-                }
-              });
+              }
+            });
 
-              i++;
-          }
-        });
-      resolve(sorterFunct())
-      })
-      .then(function() {
-        console.log(lastThree);
-      })
-
+            i++;
+        }
+      });
       if (!user){
         var contributeAlert = document.createElement("p");
         contributeAlert.innerHTML = "Sign In to Contribute!"

@@ -68,6 +68,11 @@ function loadText(articleID) {
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
     urlRef.once("value", function(snapshot) {
+      var sorterFunct = function () {
+        console.log(lastThree);
+        lastThree.sort((a,b) => b);
+        console.log(lastThree);
+      }
       return new Promise(function(resolve, reject) {
         snapshot.forEach(function(child) {
           var contribution = child.val();
@@ -127,11 +132,9 @@ function loadText(articleID) {
               i++;
           }
         });
-      resolve()
+      resolve(sorterFunct())
       })
       .then(function() {
-        console.log(lastThree);
-        lastThree.sort((a,b) => b);
         console.log(lastThree);
       })
 

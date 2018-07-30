@@ -126,6 +126,7 @@ function loadText(articleID) {
         }
       });
 
+      console.log(lastThree);
       lastThree.sort((a,b) => b);
       console.log(lastThree);
 

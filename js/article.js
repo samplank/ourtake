@@ -62,7 +62,7 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
-    var paragraph_count = 0;
+    // var lastThree = [];
 
     var i = 0;
     var rootRef = firebase.database().ref();
@@ -100,7 +100,8 @@ function loadText(articleID) {
               var paragraph_count = snapshot.val();
 
             //only show the last three paragraphs.
-            if (user && contribution.paragraph_number >= (paragraph_count - 3)){
+            if (user && contribution.paragraph_number > (paragraph_count - 3)){
+                console.log(contribution.paragraph_number);
 
                 var newContributePara = document.createElement("p");
                 newContributePara.innerHTML = contribution.body;

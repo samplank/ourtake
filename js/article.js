@@ -66,7 +66,7 @@ function loadText(articleID) {
 
     var i = 0;
     var rootRef = firebase.database().ref();
-    var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
+    var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions").orderByChild("paragraph_number");
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {
         var contribution = child.val();

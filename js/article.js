@@ -62,6 +62,8 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
+    var paragraph_count = 0;
+
     var i = 0;
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
@@ -94,7 +96,11 @@ function loadText(articleID) {
             // newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            if (user){
+            firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+              var paragraph_count = snapshot.val();
+
+            //only show the last three paragraphs.
+            if (user && contribution.paragraph_number >= (paragraph_number - 3)){
 
                 var newContributePara = document.createElement("p");
                 newContributePara.innerHTML = contribution.body;
@@ -107,7 +113,9 @@ function loadText(articleID) {
                 var newlineDiv = document.createElement("div");
                 newlineDiv.id = "newline";
                 contribute.appendChild(newlineDiv);
+
               }
+            });
 
             i++;
         }
@@ -122,11 +130,9 @@ function loadText(articleID) {
         instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
         instructionsDiv.id = "instructions";
         contribute.appendChild(instructionsDiv);
-        // addButton(i, articleID);
       }
     });
 
-    // var i = 0;
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions");
     urlRef.once("value", function(snapshot) {
@@ -236,7 +242,7 @@ function addPrompt(i,articleID) {
 
 function submitText(i,articleID) {
 
-    var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
+    // var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
     var votes = 0
     firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
@@ -439,6 +445,7 @@ function integrateText(contributionID, articleID) {
 }
 
 function removeText(contributionID, articleID) {
+    //this should be updated at some point so that the content is logged.
     var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID);
     ref.remove();
     loadText(articleID);

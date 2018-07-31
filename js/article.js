@@ -71,6 +71,7 @@ function loadText(articleID) {
       snapshot.forEach(function(child) {
         var contribution = child.val();
         var key = child.key;
+        console.log("start loop: " + String(contribution.body));
 
         var dateTimestamp = new Date(contribution.timestamp);
         var countDownDate = dateTimestamp.addHours(3).getTime();

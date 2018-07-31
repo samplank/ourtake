@@ -104,9 +104,6 @@ function loadText(articleID) {
             // newReviewPara.appendChild(reviewInfoDateVotes);
             review.appendChild(newReviewPara);
 
-            firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-              var paragraph_count = snapshot.val();
-
             //only show the last three paragraphs.
             if (user && contribution.paragraph_number > (paragraph_count - 3)){
 

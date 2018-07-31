@@ -64,6 +64,13 @@ function loadText(articleID) {
 
     var lastThree = [];
 
+    var paragraph_count = 0;
+
+    firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+      paragraph_count = snapshot.val();
+      console.log(paragraph_count);
+    });
+
     var i = 0;
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions").orderByChild("paragraph_number");;
@@ -122,7 +129,6 @@ function loadText(articleID) {
                 contribute.appendChild(newlineDiv);
 
               }
-            });
 
             i++;
         }

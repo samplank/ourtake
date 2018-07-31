@@ -69,6 +69,8 @@ function loadText(articleID) {
       console.log(paragraph_count);
     });
 
+    waitForParaCount();
+
     function waitForParaCount() {
       if (typeof paragraph_count !== "undefined"){
       //variable exists, do what you want

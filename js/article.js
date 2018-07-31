@@ -65,8 +65,8 @@ function loadText(articleID) {
     var paragraph_count = null
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-      var paragraph_count = Number(snapshot.val());
-      console.log(paragraph_count);
+      var paragraph_count = snapshot.val();
+      console.log(typeof(paragraph_count));
     });
 
     waitForParaCount();

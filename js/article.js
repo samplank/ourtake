@@ -69,6 +69,8 @@ function loadText(articleID) {
       console.log(paragraph_count);
     });
 
+    console.log(paragraph_count);
+
     waitForParaCount();
 
     function waitForParaCount() {

@@ -62,7 +62,7 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
-    var paragraph_count = null
+    var paragraph_count = -1
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
       var paragraph_count = snapshot.val();
@@ -72,7 +72,7 @@ function loadText(articleID) {
     waitForParaCount();
 
     function waitForParaCount() {
-      if (typeof paragraph_count == "number"){
+      if (typeof paragraph_count !== -1){
       //variable exists, do what you want
 
         // firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {

@@ -113,6 +113,8 @@ function loadText(articleID) {
 
                 //only show the last three paragraphs.
                 if (user && contribution.paragraph_number > (paragraph_count - 3)){
+                   console.log(typeof(contribution.paragraph_number))
+                   console.log(typeof(paragraph_count))
 
                     var newContributePara = document.createElement("p");
                     newContributePara.innerHTML = contribution.body;

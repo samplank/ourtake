@@ -188,6 +188,7 @@ function loadText(articleID) {
       }
       else {
         setTimeout(waitForParaCount, 250);
+        console.log(typeof paragraph_count);
       }
     }
 }

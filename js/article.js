@@ -69,12 +69,10 @@ function loadText(articleID) {
       console.log(paragraph_count);
     });
 
-    console.log(paragraph_count);
-
     waitForParaCount();
 
     function waitForParaCount() {
-      if (typeof paragraph_count !== -1){
+      if (paragraph_count !== -1){
       //variable exists, do what you want
 
         // firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {

@@ -65,7 +65,7 @@ function loadText(articleID) {
     var paragraph_count = -1
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-      paragraph_count = snapshot.val();
+       paragraph_count = snapshot.val();
       console.log(paragraph_count);
     });
 
@@ -73,11 +73,6 @@ function loadText(articleID) {
 
     function waitForParaCount() {
       if (paragraph_count !== -1){
-      //variable exists, do what you want
-
-        // firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-        //   var paragraph_count = snapshot.val();
-        // });
 
         var i = 0;
         var rootRef = firebase.database().ref();
@@ -458,6 +453,7 @@ function integrateText(contributionID, articleID) {
     });
 
     loadText(articleID);
+    location.reload();
 
 
 

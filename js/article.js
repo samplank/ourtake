@@ -452,7 +452,7 @@ function integrateText(contributionID, articleID) {
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
-      firebase.database().ref().update(updates);,
+      firebase.database().ref().update(updates);
 
       function (error, completed, dataSnapshot) {
         if (error) throw error;

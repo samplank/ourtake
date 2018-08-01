@@ -117,7 +117,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
-    loadText(article);
+    loadText(article, -1);
     console.log("logged in");
 
     var authDiv = document.getElementById("topright");
@@ -135,7 +135,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     authDiv.appendChild(signOutButton);
   } else {
     updateUser(null);
-    loadText(article);
+    loadText(article, -1);
     console.log("logged out");
 
     var authDiv = document.getElementById("topright");

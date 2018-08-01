@@ -446,7 +446,7 @@ function integrateText(contributionID, articleID) {
       console.log(typeof(currentParagraphs));
 
       var newParagraphcount = currentParagraphs + 1;
-      console.log(newValue);
+      console.log(newParagraphcount);
       console.log(typeof(newValue));
 
       var updates = {};

@@ -60,6 +60,7 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
+    var paragraph_count = -1;
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
       paragraph_count = snapshot.val();

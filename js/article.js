@@ -5,9 +5,7 @@ function writeUserData(userId, name, email) {
 
   userRef.once("value").then((snapshot) => {
     if (snapshot.exists()) { 
-      console.log("exists");
     } else {
-      console.log("new user");
       firebase.database().ref('users/' + userId).set({
       username: name,
       email: email,
@@ -66,7 +64,6 @@ function loadText(articleID) {
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
        paragraph_count = snapshot.val();
-      console.log(paragraph_count);
     });
 
     waitForParaCount();
@@ -108,8 +105,6 @@ function loadText(articleID) {
 
                 //only show the last three paragraphs.
                 if (user && contribution.paragraph_number > (paragraph_count - 3)){
-                   console.log(typeof(contribution.paragraph_number))
-                   console.log(paragraph_count)
 
                     var newContributePara = document.createElement("p");
                     newContributePara.innerHTML = contribution.body;
@@ -183,7 +178,6 @@ function loadText(articleID) {
       }
       else {
         setTimeout(waitForParaCount, 250);
-        console.log(paragraph_count);
       }
     }
 }
@@ -386,8 +380,6 @@ function addCounter(subinfo, contributionID, articleID) {
 
 function onClick(direction, contributionID, articleID) {
 
-    console.log("click");
-
     firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
         var currentCredits = snapshot.val();
         console.log(currentCredits);
@@ -400,16 +392,13 @@ function onClick(direction, contributionID, articleID) {
 
               var currentVotes = snapshot.val();
               if (currentVotes != null) {
-                console.log(currentVotes);
                 var newVotes = currentVotes + 1;
-                console.log(newVotes);
                 updates['users/' + user.uid + '/votes'] = newVotes;
               }
               else {
                 updates['users/' + user.uid + '/votes'] = 1;
               }
               updates['users/' + user.uid + '/credits'] = newCredits;
-              console.log(updates['users/' + user.uid + '/votes']);
 
               firebase.database().ref().update(updates);
 
@@ -455,6 +444,8 @@ function integrateText(contributionID, articleID) {
     loadText(articleID);
     location.reload();
     var tabs = document.getElementsByClassName("tab");
+    console.log(tabs.children);
+    console.log(tabs.children[1]);
     tabs.children[1].click();
 
 

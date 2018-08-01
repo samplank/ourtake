@@ -446,7 +446,7 @@ function integrateText(contributionID, articleID) {
     });
 
     loadText(articleID);
-    location.reload();
+    // location.reload();
     var tabs = document.getElementsByClassName("tab");
     console.log(tabs.children);
     console.log(tabs.children[1]);

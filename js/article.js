@@ -435,14 +435,9 @@ function integrateText(contributionID, articleID) {
 
     // var newParagraphCount = -1;
 
-    var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
-    dref.transaction(function(currentParagraphs) {
-      console.log(currentParagraphs);
-      console.log(typeof(currentParagraphs));
-
+    firebase.database().ref('posts/' + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+      var currentParagraphs = snapshot.val();
       var newParagraphCount = currentParagraphs + 1;
-      console.log(newParagraphCount);
-      // console.log(typeof(newValue));
 
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
@@ -451,7 +446,26 @@ function integrateText(contributionID, articleID) {
 
       loadText(articleID);
 
+
     });
+
+    // var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
+    // dref.transaction(function(currentParagraphs) {
+    //   console.log(currentParagraphs);
+    //   console.log(typeof(currentParagraphs));
+
+    //   var newParagraphCount = currentParagraphs + 1;
+    //   console.log(newParagraphCount);
+    //   // console.log(typeof(newValue));
+
+    //   var updates = {};
+    //   updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
+    //   updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
+    //   firebase.database().ref().update(updates);
+
+    //   loadText(articleID);
+
+    // });
 
     // loadText(articleID, newParagraphCount);
 

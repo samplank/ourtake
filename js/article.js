@@ -438,20 +438,20 @@ function onClick(direction, contributionID, articleID) {
 
 function integrateText(contributionID, articleID) {
 
-    // var newParagraphcount = -1;
+    var newParagraphCount = -1;
 
     var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
     dref.transaction(function(currentParagraphs) {
       console.log(currentParagraphs);
       console.log(typeof(currentParagraphs));
 
-      var newParagraphcount = currentParagraphs + 1;
-      console.log(newParagraphcount);
-      console.log(typeof(newValue));
+      newParagraphCount = currentParagraphs + 1;
+      console.log(newParagraphCount);
+      // console.log(typeof(newValue));
 
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
-      updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphcount;
+      updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       firebase.database().ref().update(updates);
 
     });

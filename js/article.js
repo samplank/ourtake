@@ -454,6 +454,8 @@ function integrateText(contributionID, articleID) {
 
     loadText(articleID);
     location.reload();
+    var tabs = document.getElementsByClassName("tab");
+    tabs.children[1].click();
 
 
 

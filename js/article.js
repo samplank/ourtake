@@ -438,7 +438,7 @@ function onClick(direction, contributionID, articleID) {
 
 function integrateText(contributionID, articleID) {
 
-    var newParagraphcount = -1;
+    // var newParagraphcount = -1;
 
     var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
     dref.transaction(function(currentParagraphs) {

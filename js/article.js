@@ -430,8 +430,12 @@ function integrateText(contributionID, articleID) {
 
     var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
     dref.transaction(function(currentParagraphs) {
+      console.log(currentParagraphs);
+      console.log(typeof(currentParagraphs));
 
       var newValue = currentParagraphs + 1;
+      console.log(newValue);
+      console.log(typeof(newValue));
 
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
@@ -447,8 +451,6 @@ function integrateText(contributionID, articleID) {
     console.log(tabs.children);
     console.log(tabs.children[1]);
     tabs.children[1].click();
-
-
 
 }
 

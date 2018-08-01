@@ -105,7 +105,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
   var url_string = document.location.href;
   var url = new URL(url_string);
   var article = url.searchParams.get("article");
-  // loadText(article);
 </script>
 
 <script>
@@ -117,7 +116,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
-    loadText(article, -1);
+    loadText(article);
     console.log("logged in");
 
     var authDiv = document.getElementById("topright");
@@ -135,7 +134,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     authDiv.appendChild(signOutButton);
   } else {
     updateUser(null);
-    loadText(article, -1);
+    loadText(article);
     console.log("logged out");
 
     var authDiv = document.getElementById("topright");

@@ -42,7 +42,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-function loadText(articleID, paragraphCount) {
+function loadText(articleID) {
 
     var read = document.getElementById("ReadText");
     // read.innerHTML = '';
@@ -60,16 +60,10 @@ function loadText(articleID, paragraphCount) {
       contribute.removeChild(contribute.firstChild);
     }
 
-    var paragraph_count = -1;
 
-    if (paragraphCount == -1) {
-      firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-        paragraph_count = snapshot.val();
-      });
-    }
-    else {
-      paragraph_count = paragraphCount;
-    }
+    firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+      paragraph_count = snapshot.val();
+    });
 
     waitForParaCount();
 
@@ -272,7 +266,7 @@ function submitText(i,articleID) {
 
             var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,now,articleID);
 
-            loadText(articleID, -1);
+            loadText(articleID);
             var updates = {};
 
             if (user_value.free_contributions == 1) {
@@ -454,7 +448,7 @@ function integrateText(contributionID, articleID) {
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       firebase.database().ref().update(updates);
 
-      loadText(articleID, newParagraphCount);
+      loadText(articleID);
 
     });
 
@@ -466,7 +460,7 @@ function removeText(contributionID, articleID) {
     //this should be updated at some point so that the content is logged.
     var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID);
     ref.remove();
-    loadText(articleID, -1);
+    loadText(articleID);
 }
 
 

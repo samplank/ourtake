@@ -456,7 +456,7 @@ function integrateText(contributionID, articleID) {
 
     });
 
-    loadText(articleID, newParagraphcount);
+    loadText(articleID, newParagraphCount);
 
 }
 

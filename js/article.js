@@ -225,7 +225,7 @@ function addTextBox(i,articleID) {
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
-    undoButton.setAttribute('onclick','addPrompt('+String(i)+','+'"'+String(articleID)+'"'+')');
+    undoButton.setAttribute('onclick','addButton('+String(i)+','+'"'+String(articleID)+'"'+')');
     undoButton.className = "undoSubmit";
 
     var submitButton = document.createElement("button");

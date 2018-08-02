@@ -60,6 +60,14 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
+    var existingContributions = document.createElement("div");
+    var candidateContributions = document.createElement("div");
+    var buttonSpace = document.createElement("div");
+    buttonSpace.id = "buttonSpace";
+    contribute.appendChild(existingContributions);
+    contribute.appendChild(candidateContributions);
+    contribute.appendChild(buttonSpace);
+
     var paragraph_count = -1;
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
@@ -113,15 +121,15 @@ function loadText(articleID) {
 
                     var newContributePara = document.createElement("p");
                     newContributePara.innerHTML = contribution.body;
-                    contribute.appendChild(newContributePara);
+                    existingContributions.appendChild(newContributePara);
 
                     var replaceDiv = document.createElement("div");
                     replaceDiv.id = "div" + String(i);
-                    contribute.appendChild(replaceDiv);
+                    existingContributions.appendChild(replaceDiv);
 
                     var newlineDiv = document.createElement("div");
                     newlineDiv.id = "newline";
-                    contribute.appendChild(newlineDiv);
+                    existingContributions.appendChild(newlineDiv);
 
                   }
 
@@ -169,7 +177,7 @@ function loadText(articleID) {
 
                 containerDiv.appendChild(para);
                 containerDiv.appendChild(submitInfo);
-                contribute.appendChild(containerDiv);
+                candidateContributions.appendChild(containerDiv);
 
                 addCountdown(submitInfo, contribution.timestamp, contribution.author);
                 addCounter(submitInfo, key, articleID);
@@ -232,12 +240,12 @@ function addTextBox(i,articleID) {
 function addButton(i,articleID) {
 
     var contributeButton = document.createElement("button");
-    contributeButton.innerHTML = "Contribute to this article!";
+    contributeButton.innerHTML = "Write your own contribution to this article!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
     contributeButton.id = "contributeButton";
 
-    var contribute = document.getElementById("ContributeText");
-    contribute.appendChild(contributeButton);
+    var buttonSpace = document.getElementById("buttonSpace");
+    buttonSpace.appendChild(contributeButton);
 }
 
 function addPrompt(i,articleID) {

@@ -259,7 +259,7 @@ function addButton(i,articleID) {
 }
 
 function addPrompt(i,articleID) {
-    var buttonSpace = document.getElementById("addContribution");
+    var buttonSpace = document.getElementById("buttonSpace");
     while (buttonSpace.firstChild) {
       buttonSpace.removeChild(buttonSpace.firstChild);
     }

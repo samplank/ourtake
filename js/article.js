@@ -60,10 +60,14 @@ function loadText(articleID) {
       contribute.removeChild(contribute.firstChild);
     }
 
+    var instructionsSpace = document.createElement("div");
+    instructionsSpace.id = "instructionsSpace";
     var existingContributions = document.createElement("div");
     var candidateContributions = document.createElement("div");
     var buttonSpace = document.createElement("div");
     buttonSpace.id = "buttonSpace";
+
+    contribute.appendChild(instructionsSpace);
     contribute.appendChild(existingContributions);
     contribute.appendChild(candidateContributions);
     contribute.appendChild(buttonSpace);
@@ -78,6 +82,12 @@ function loadText(articleID) {
 
     function waitForParaCount() {
       if (paragraph_count !== -1){
+
+        if paragraph_count > 3 {
+            var dotSpace = document.createElement("p");
+            dotSpace.innerHTML = "...";
+            existingContributions.appendChild(dotSpace);
+        }
 
         var i = 0;
         var rootRef = firebase.database().ref();
@@ -142,10 +152,10 @@ function loadText(articleID) {
             contribute.appendChild(contributeAlert);
           }
           else {
-            var instructionsDiv = document.createElement("p");
-            instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
-            instructionsDiv.id = "instructions";
-            contribute.appendChild(instructionsDiv);
+            var instructions = document.createElement("p");
+            instructions.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
+            instructions.id = "instructions";
+            instructionsSpace.appendChild(instructionsDiv);
           }
         });
 
@@ -240,7 +250,7 @@ function addTextBox(i,articleID) {
 function addButton(i,articleID) {
 
     var contributeButton = document.createElement("button");
-    contributeButton.innerHTML = "Write your own contribution to this article!";
+    contributeButton.innerHTML = "Write your own!";
     contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
     contributeButton.id = "contributeButton";
 

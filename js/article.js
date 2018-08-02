@@ -207,9 +207,9 @@ function loadText(articleID) {
 
 function addTextBox(i,articleID) {
 
-    var instructions = document.getElementById("instructions");
-    while (instructions.firstChild) {
-      instructions.removeChild(instructions.firstChild);
+    var buttonSpace = document.getElementById("buttonSpace");
+    while (buttonSpace.firstChild) {
+      buttonSpace.removeChild(buttonSpace.firstChild);
     }
 
     var txtBox = document.createElement("textarea");
@@ -244,7 +244,7 @@ function addTextBox(i,articleID) {
     txtDiv.appendChild(txtBox);
     txtDiv.appendChild(undoButton);
     txtDiv.appendChild(submitButton);
-    contribute.appendChild(txtDiv);
+    buttonSpace.appendChild(txtDiv);
 }
 
 function addButton(i,articleID) {

@@ -260,7 +260,7 @@ function addButton(i,articleID) {
 
 function addPrompt(i,articleID) {
     var buttonSpace = document.getElementById("addContribution");
-    txtDiv.parentNode.removeChild(txtDiv);
+    buttonSpace.removeChild(txtDiv);
 
 
     // var contribute = document.getElementById("ContributeText");

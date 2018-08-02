@@ -225,7 +225,7 @@ function addTextBox(i,articleID) {
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
-    undoButton.setAttribute('onclick','addButton('+String(i)+','+'"'+String(articleID)+'"'+')');
+    undoButton.setAttribute('onclick','addPrompt('+String(i)+','+'"'+String(articleID)+'"'+')');
     undoButton.className = "undoSubmit";
 
     var submitButton = document.createElement("button");
@@ -259,15 +259,15 @@ function addButton(i,articleID) {
 }
 
 function addPrompt(i,articleID) {
-    var txtDiv = document.getElementById("addContribution");
+    var buttonSpace = document.getElementById("addContribution");
     txtDiv.parentNode.removeChild(txtDiv);
 
 
-    var contribute = document.getElementById("ContributeText");
-    var instructionsDiv = document.createElement("p");
-    instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
-    instructionsDiv.id = "instructions";
-    contribute.appendChild(instructionsDiv);
+    // var contribute = document.getElementById("ContributeText");
+    // var instructionsDiv = document.createElement("p");
+    // instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
+    // instructionsDiv.id = "instructions";
+    // contribute.appendChild(instructionsDiv);
 
 }
 

@@ -208,6 +208,7 @@ function loadText(articleID) {
 function addTextBox(i,articleID) {
 
     var buttonSpace = document.getElementById("buttonSpace");
+    console.log(buttonSpace);
     while (buttonSpace.firstChild) {
       buttonSpace.removeChild(buttonSpace.firstChild);
     }

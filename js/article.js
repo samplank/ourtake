@@ -83,7 +83,7 @@ function loadText(articleID) {
     function waitForParaCount() {
       if (paragraph_count !== -1){
 
-        if paragraph_count > 3 {
+        if (paragraph_count > 3) {
             var dotSpace = document.createElement("p");
             dotSpace.innerHTML = "...";
             existingContributions.appendChild(dotSpace);

@@ -155,7 +155,7 @@ function loadText(articleID) {
             var instructions = document.createElement("p");
             instructions.innerHTML = "Vote on existing contributions to the article. If something is missing, write your own!";
             instructions.id = "instructions";
-            instructionsSpace.appendChild(instructionsDiv);
+            instructionsSpace.appendChild(instructions);
           }
         });
 

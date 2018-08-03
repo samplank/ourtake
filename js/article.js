@@ -448,12 +448,21 @@ function onClick(direction, contributionID, articleID) {
         userUid = snapshot.val();
       });
 
-      firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
-        console.log(userUid);
-        var newCredits = (currentCredits || 0) + 1;
-        return newCredits;
-      });
+      waitforUid();
 
+      function waitforUid() {
+        if (userUid !== ''){
+          firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
+            console.log(userUid);
+            var newCredits = (currentCredits || 0) + 1;
+            return newCredits;
+          });
+        }
+        else {
+          setTimeout(waitforUid, 250);
+        }
+
+      }
     }
   }
 

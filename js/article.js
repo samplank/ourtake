@@ -223,14 +223,10 @@ function addTextBox(i,articleID) {
 
     var txtBox = document.createElement("textarea");
 
-    // txtBox.setAttribute("type", "text");
-    // txtBox.setAttribute("value", "");
-    // txtBox.setAttribute("name", "Test Name");
     txtBox.cols = 100;
     txtBox.rows = 5;
     txtBox.maxLength = 500;
     txtBox.id = "txtbox" + String(i);
-    // txtBox.className = "txtbox";
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
@@ -242,12 +238,6 @@ function addTextBox(i,articleID) {
     submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+')');
     submitButton.className = "undoSubmit";
 
-    // var textDiv = document.getElementById("div" + String(i));
-    // var contribute = document.getElementById("ContributeText");
-    // contribute.removeChild(contribute.lastChild);
-    // while (textDiv.firstChild) {
-    //     textDiv.removeChild(textDiv.firstChild);
-    // }
     var txtDiv = document.createElement("div")
     txtDiv.id = "addContribution";
     txtDiv.appendChild(txtBox);
@@ -274,18 +264,9 @@ function addPrompt(i,articleID) {
     }
     addButton(i,articleID);
 
-
-    // var contribute = document.getElementById("ContributeText");
-    // var instructionsDiv = document.createElement("p");
-    // instructionsDiv.innerHTML = "Vote on existing contributions. If something is missing, write your own!";
-    // instructionsDiv.id = "instructions";
-    // contribute.appendChild(instructionsDiv);
-
 }
 
 function submitText(i,articleID) {
-
-    // var databaseRef = firebase.database().ref('users/' + user.uid + '/votes');
 
     var votes = 0
     firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
@@ -295,7 +276,7 @@ function submitText(i,articleID) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,now,articleID);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID);
 
             loadText(articleID);
             var updates = {};
@@ -449,21 +430,36 @@ function onClick(direction, contributionID, articleID) {
     ref.transaction(function(currentClicks) {
     // If node/clicks has never been set, currentRank will be `null`.
       var newValue = (currentClicks || 0) + 1;
-      if (newValue >= 10) {
-        if (direction == 'upvotes') {
-            integrateText(contributionID, articleID);
-        }
-        else if (direction == 'downvotes') {
-            removeText(contributionID, articleID);
-        }
+      if (direction == 'upvotes') {
+        var userUid = '';
+        firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
+          userUid = snapshot.val();
+        });
+
+        firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
+          var newCredits = (currentCredits || 0) + 1;
+          return newCredits;
+        });
+
       }
+      else if (direction == 'downvotes' && newValue >= 10) {
+            removeText(contributionID, articleID);
+      }
+
+
+      // if (newValue >= 10) {
+      //   if (direction == 'upvotes') {
+      //       integrateText(contributionID, articleID);
+      //   }
+      //   else if (direction == 'downvotes') {
+      //       removeText(contributionID, articleID);
+      //   }
+      // }
       return newValue;
     });
   }
 
 function integrateText(contributionID, articleID) {
-
-    // var newParagraphCount = -1;
 
     firebase.database().ref('posts/' + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
       var currentParagraphs = snapshot.val();
@@ -479,27 +475,6 @@ function integrateText(contributionID, articleID) {
 
 
     });
-
-    // var dref = firebase.database().ref('posts/' + String(articleID) + '/paragraph_count');
-    // dref.transaction(function(currentParagraphs) {
-    //   console.log(currentParagraphs);
-    //   console.log(typeof(currentParagraphs));
-
-    //   var newParagraphCount = currentParagraphs + 1;
-    //   console.log(newParagraphCount);
-    //   // console.log(typeof(newValue));
-
-    //   var updates = {};
-    //   updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
-    //   updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
-    //   firebase.database().ref().update(updates);
-
-    //   loadText(articleID);
-
-    // });
-
-    // loadText(articleID, newParagraphCount);
-
 }
 
 function removeText(contributionID, articleID) {
@@ -510,7 +485,7 @@ function removeText(contributionID, articleID) {
 }
 
 
-function writeNewContribution(body, upvotes, downvotes, accepted, author, timestamp, articleID) {
+function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID) {
   // A post entry.
   var contributionData = {
     body: body,
@@ -518,6 +493,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, timest
     downvotes: downvotes,
     accepted: accepted,
     author: author,
+    uid: uid,
     timestamp: timestamp
   };
 

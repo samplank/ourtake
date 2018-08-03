@@ -2,6 +2,7 @@ var user = null;
 
 function updateUser(userUpdate) {
   user = userUpdate;
+  console.log(user);
 }
 
 function loadArticles() {

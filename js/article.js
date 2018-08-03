@@ -430,33 +430,31 @@ function onClick(direction, contributionID, articleID) {
     ref.transaction(function(currentClicks) {
     // If node/clicks has never been set, currentRank will be `null`.
       var newValue = (currentClicks || 0) + 1;
-      if (direction == 'upvotes') {
-        var userUid = '';
-        firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
-          userUid = snapshot.val();
-        });
 
-        firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
-          var newCredits = (currentCredits || 0) + 1;
-          return newCredits;
-        });
-
-      }
-      else if (direction == 'downvotes' && newValue >= 10) {
+      if (newValue >= 10) {
+        if (direction == 'upvotes') {
+            integrateText(contributionID, articleID);
+        }
+        else if (direction == 'downvotes') {
             removeText(contributionID, articleID);
+        }
       }
-
-
-      // if (newValue >= 10) {
-      //   if (direction == 'upvotes') {
-      //       integrateText(contributionID, articleID);
-      //   }
-      //   else if (direction == 'downvotes') {
-      //       removeText(contributionID, articleID);
-      //   }
-      // }
       return newValue;
     });
+
+    if (direction == 'upvotes') {
+      var userUid = '';
+      firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
+        userUid = snapshot.val();
+      });
+
+      firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
+        console.log(userUid);
+        var newCredits = (currentCredits || 0) + 1;
+        return newCredits;
+      });
+
+    }
   }
 
 function integrateText(contributionID, articleID) {

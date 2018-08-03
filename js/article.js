@@ -72,6 +72,14 @@ function loadText(articleID) {
     contribute.appendChild(candidateContributions);
     contribute.appendChild(buttonSpace);
 
+    firebase.database().ref('posts/'  + String(articleID) + '/title').once('value').then(function(snapshot) {
+      title = snapshot.val();
+      var titleSlot = document.createElement("h2");
+      titleSlot.innerHTML = title;
+      var titleSpace = document.getElementById("titleSpace");
+      titleSpace.appendChild(titleSlot);
+    });
+
     var paragraph_count = -1;
 
     firebase.database().ref('posts/'  + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {

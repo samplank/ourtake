@@ -119,6 +119,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 <script>
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
+    console.log(fbuser)
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
     loadText(article);

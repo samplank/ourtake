@@ -32,7 +32,7 @@ function updateUser(userUpdate) {
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = "<span style='color:#fc643f;'>VoteClout: </span>" + credits;
+      signOutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + credits;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });
@@ -112,7 +112,7 @@ function loadText(articleID) {
     function waitForParaCount() {
       if (paragraph_count !== -1){
 
-        if (paragraph_count > 2) {
+        if (paragraph_count > 1) {
             var dotSpace = document.createElement("p");
             dotSpace.innerHTML = "...";
             existingContributions.appendChild(dotSpace);
@@ -151,7 +151,7 @@ function loadText(articleID) {
                 review.appendChild(newReviewPara);
 
                 //only show the last three paragraphs.
-                if (user && contribution.paragraph_number > (paragraph_count - 2)){
+                if (user && contribution.paragraph_number > (paragraph_count - 1)){
 
                     var newContributePara = document.createElement("p");
                     newContributePara.innerHTML = contribution.body;

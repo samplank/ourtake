@@ -55,7 +55,7 @@ h4 {
 /* Change background color of buttons on hover */
 .tab button:hover {
     font-family: Georgia, serif;
-    font-size: 12px;
+    font-size: 22px;
     background-color: #fff4db;
 }
 

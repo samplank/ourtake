@@ -114,7 +114,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     var signOutButton = document.createElement("button");
     signOutButton.id = "signOut";
     signOutButton.className = "topButton";
-    signOutButton.innerHTML = "Sign Out"
+    signOutButton.innerHTML = fbuser.displayName;
     signOutButton.addEventListener('click', function(event) {
       firebase.auth().signOut();
     });

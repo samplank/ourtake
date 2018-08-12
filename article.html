@@ -125,19 +125,19 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     loadText(article);
     console.log("logged in");
 
-    var authDiv = document.getElementById("topright");
-    while (authDiv.firstChild) {
-      authDiv.removeChild(authDiv.firstChild);
-    }
+    // var authDiv = document.getElementById("topright");
+    // while (authDiv.firstChild) {
+    //   authDiv.removeChild(authDiv.firstChild);
+    // }
 
-    var signOutButton = document.createElement("button");
-    signOutButton.id = "signOut";
-    signOutButton.className = "topButton";
-    signOutButton.innerHTML = fbuser.credits + fbuser.displayName;
-    signOutButton.addEventListener('click', function(event) {
-      firebase.auth().signOut();
-    });
-    authDiv.appendChild(signOutButton);
+    // var signOutButton = document.createElement("button");
+    // signOutButton.id = "signOut";
+    // signOutButton.className = "topButton";
+    // signOutButton.innerHTML = fbuser.credits + fbuser.displayName;
+    // signOutButton.addEventListener('click', function(event) {
+    //   firebase.auth().signOut();
+    // });
+    // authDiv.appendChild(signOutButton);
   } else {
     updateUser(null);
     loadText(article);

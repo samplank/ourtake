@@ -32,7 +32,7 @@ function updateUser(userUpdate) {
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = credits + ': ' + fbuser.displayName;
+      signOutButton.innerHTML = credits + ': ' + user.displayName;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });

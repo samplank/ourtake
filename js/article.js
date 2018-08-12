@@ -32,7 +32,7 @@ function updateUser(userUpdate) {
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = "VoteClout: " + "<span style='color:#b36b00;'>" + credits + "</span>";
+      signOutButton.innerHTML = "<span style='color:#fc643f;'>VoteClout: </span>" + credits;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });

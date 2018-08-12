@@ -112,7 +112,7 @@ function loadText(articleID) {
     function waitForParaCount() {
       if (paragraph_count !== -1){
 
-        if (paragraph_count > 3) {
+        if (paragraph_count > 2) {
             var dotSpace = document.createElement("p");
             dotSpace.innerHTML = "...";
             existingContributions.appendChild(dotSpace);
@@ -151,12 +151,7 @@ function loadText(articleID) {
                 review.appendChild(newReviewPara);
 
                 //only show the last three paragraphs.
-                if (user && contribution.paragraph_number > (paragraph_count - 3)){
-
-
-                    console.log(contribution.paragraph_number);
-                    console.log(paragraph_count - 3);
-                    console.log(contribution.body);
+                if (user && contribution.paragraph_number > (paragraph_count - 2)){
 
                     var newContributePara = document.createElement("p");
                     newContributePara.innerHTML = contribution.body;

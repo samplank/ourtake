@@ -142,6 +142,7 @@ function writeUserData(userId, name, email) {
 
 	userRef.once("value").then((snapshot) => {
 	  if (snapshot.exists()) { 
+	  	
 	    console.log("exists");
 	  } else {
 	    console.log("new user");

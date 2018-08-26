@@ -542,5 +542,7 @@ function increaseCredits() {
 
       return newValue;
     });
+
+    updateUser(user);
 }
 

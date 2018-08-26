@@ -38,7 +38,7 @@ function updateUser(userUpdate) {
       authDiv.appendChild(creditButton);
 
       var cloutButton = document.createElement("button");
-      creditButton.className = "topButton";
+      cloutButton.className = "topButton";
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
         cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();

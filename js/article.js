@@ -536,7 +536,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
 
 function increaseCredits() {
   console.log(String(user.uid))
-    var ref = firebase.database().ref('users/' + String(user.uid) + '/credits');
+    var ref = firebase.database().ref('users/' + user.uid + '/credits');
     ref.transaction(function(currentCredits) {
       console.log(currentCredits);
     // If node/clicks has never been set, currentRank will be `null`.

@@ -19,6 +19,10 @@ function updateUser(userUpdate) {
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });
+      var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
+      creditRef.on('value', function(snapshot) {
+        signOutButton.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
+      });
       authDiv.appendChild(signOutButton);
 
     });

@@ -170,9 +170,9 @@ function writeUserData(userId, name, email) {
 	  	firebase.database().ref('users/' + userId).set({
 	    username: name,
 	    email: email,
-	    credits: 10,
-	    votes: 0,
-	    free_contributions: 1
+        clout: 0,
+        credits: 5,
+        votes: 0
 		});
 	  }
 	});

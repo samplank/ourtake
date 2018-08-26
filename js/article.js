@@ -9,9 +9,9 @@ function writeUserData(userId, name, email) {
       firebase.database().ref('users/' + userId).set({
       username: name,
       email: email,
-      credits: 10,
-      votes: 0,
-      free_contributions: 1
+      clout: 0,
+      credits: 5,
+      votes: 0
     });
     }
   });
@@ -468,10 +468,10 @@ function onClick(direction, contributionID, articleID) {
 
       function waitforUid() {
         if (userUid !== ''){
-          firebase.database().ref('users/' + String(userUid) + '/credits').transaction(function(currentCredits) {
+          firebase.database().ref('users/' + String(userUid) + '/clout').transaction(function(currentClout) {
             console.log(userUid);
-            var newCredits = (currentCredits || 0) + 1;
-            return newCredits;
+            var newClout = (currentClout || 0) + 1;
+            return newClout;
           });
         }
         else {
@@ -532,5 +532,15 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
 
   return newContributionKey;
 
+}
+
+function increaseCredits() {
+    var ref = firebase.database().ref('users/' + String(user.uid) + '/credits');
+    ref.transaction(function(currentCredits) {
+    // If node/clicks has never been set, currentRank will be `null`.
+      var newValue = (currentCredits || 0) + 1;
+
+      return newValue;
+    });
 }
 

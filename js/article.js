@@ -545,6 +545,6 @@ function increaseCredits() {
       return newValue;
     });
 
-    updateUser(user);
+    // updateUser(user);
 }
 

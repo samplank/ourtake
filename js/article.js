@@ -431,73 +431,79 @@ function addCounter(subinfo, contributionID, articleID) {
 
 function onClick(direction, contributionID, articleID) {
 
-    firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
-        var currentCredits = snapshot.val();
-        console.log(currentCredits);
-        if (currentCredits){
-          var newCredits = currentCredits - 1;
-
-          firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
-
-              var updates = {};
-
-              var currentVotes = snapshot.val();
-              if (currentVotes != null) {
-                var newVotes = currentVotes + 1;
-                updates['users/' + user.uid + '/votes'] = newVotes;
-              }
-              else {
-                updates['users/' + user.uid + '/votes'] = 1;
-              }
-              updates['users/' + user.uid + '/credits'] = newCredits;
-
-              firebase.database().ref().update(updates);
-
-          });
-
-        }
-        else {
-          console.log("Add credits to vote on contributions");
-      }
+    var authorUid = '';
+    firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
+      authorUid = snapshot.val();
     });
 
-    var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-    ref.transaction(function(currentClicks) {
-    // If node/clicks has never been set, currentRank will be `null`.
-      var newValue = (currentClicks || 0) + 1;
+    waitforUid();
 
-      if (newValue >= 10) {
-        if (direction == 'upvotes') {
-            integrateText(contributionID, articleID);
-        }
-        else if (direction == 'downvotes') {
-            removeText(contributionID, articleID);
-        }
-      }
-      return newValue;
-    });
+    function waitforUid() {
+      if (authorUid !== ''){
 
-    if (direction == 'upvotes') {
-      var userUid = '';
-      firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
-        userUid = snapshot.val();
+        if (authorUid !== user.uid) {
+
+          firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
+          var currentCredits = snapshot.val();
+          console.log(currentCredits);
+          if (currentCredits){
+            var newCredits = currentCredits - 1;
+
+            firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+
+                var updates = {};
+
+                var currentVotes = snapshot.val();
+                if (currentVotes != null) {
+                  var newVotes = currentVotes + 1;
+                  updates['users/' + user.uid + '/votes'] = newVotes;
+                }
+                else {
+                  updates['users/' + user.uid + '/votes'] = 1;
+                }
+                updates['users/' + user.uid + '/credits'] = newCredits;
+
+                firebase.database().ref().update(updates);
+
+            });
+
+          }
+          else {
+            console.log("Add credits to vote on contributions");
+        }
       });
 
-      waitforUid();
+      var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+      ref.transaction(function(currentClicks) {
+      // If node/clicks has never been set, currentRank will be `null`.
+        var newValue = (currentClicks || 0) + 1;
 
-      function waitforUid() {
-        if (userUid !== ''){
-          firebase.database().ref('users/' + String(userUid) + '/clout').transaction(function(currentClout) {
-            console.log(userUid);
-            var newClout = (currentClout || 0) + 1;
-            return newClout;
-          });
+        if (newValue >= 10) {
+          if (direction == 'upvotes') {
+              integrateText(contributionID, articleID);
+          }
+          else if (direction == 'downvotes') {
+              removeText(contributionID, articleID);
+          }
+        }
+        return newValue;
+      });
+
+          if (direction == 'upvotes') {
+            firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
+              var newClout = (currentClout || 0) + 1;
+              return newClout;
+            });
+          }
         }
         else {
-          setTimeout(waitforUid, 250);
+          alert("You can't vote on your own contributions. Check out what others have written!");
         }
-
       }
+      else {
+        setTimeout(waitforUid, 250);
+      }
+
     }
   }
 

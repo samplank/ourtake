@@ -2,6 +2,27 @@ var user = null;
 
 function updateUser(userUpdate) {
   user = userUpdate;
+
+  if (user) {
+    firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
+      credits = snapshot.val();
+
+      var authDiv = document.getElementById("topright");
+      while (authDiv.firstChild) {
+        authDiv.removeChild(authDiv.firstChild);
+      }
+
+      var signOutButton = document.createElement("button");
+      signOutButton.id = "signOut";
+      signOutButton.className = "topButton";
+      signOutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + credits;
+      signOutButton.addEventListener('click', function(event) {
+        firebase.auth().signOut();
+      });
+      authDiv.appendChild(signOutButton);
+
+    });
+  }
 }
 
 function loadArticles() {

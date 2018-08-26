@@ -36,6 +36,11 @@ function updateUser(userUpdate) {
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });
+
+      var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
+      creditRef.on('value', function(snapshot) {
+        signOutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+    });
       authDiv.appendChild(signOutButton);
 
     });
@@ -535,16 +540,13 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
 }
 
 function increaseCredits() {
-  console.log(String(user.uid))
-    var ref = firebase.database().ref('users/' + user.uid + '/credits');
-    ref.transaction(function(currentCredits) {
-      console.log(currentCredits);
-    // If node/clicks has never been set, currentRank will be `null`.
-      var newValue = (currentCredits || 0) + 1;
+  var ref = firebase.database().ref('users/' + user.uid + '/credits');
+  ref.transaction(function(currentCredits) {
+    console.log(currentCredits);
+  // If node/clicks has never been set, currentRank will be `null`.
+    var newValue = (currentCredits || 0) + 1;
 
-      return newValue;
-    });
-
-    // updateUser(user);
+    return newValue;
+  });
 }
 

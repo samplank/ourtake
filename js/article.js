@@ -114,6 +114,9 @@ function loadText(articleID) {
       var titleSlot = document.createElement("h2");
       titleSlot.innerHTML = title;
       var titleSpace = document.getElementById("titleSpace");
+      while (titleSpace.firstChild){
+        title.removeChild(title.firstChild);
+      }
       titleSpace.appendChild(titleSlot);
     });
 

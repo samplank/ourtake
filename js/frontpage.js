@@ -67,7 +67,7 @@ function loadArticles() {
         });
 
 
-        aref.innerHTML = "<span style='font-weight:bold;'>" + contribution.title "</span>" + '\n' + body;
+        aref.innerHTML = "<span style='font-weight:bold;'>" + contribution.title + "</span>" + '\n' + body;
 
         articleArray.push(link);
 

@@ -46,6 +46,7 @@ function loadArticles() {
 
 	var rootRef = database.ref();
     var urlRef = rootRef.child("posts");
+    console.log(urlRef);
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {
         var contribution = child.val();

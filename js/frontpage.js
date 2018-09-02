@@ -43,11 +43,13 @@ function updateUser(userUpdate) {
 
 function loadArticles() {
 	var articleArray = [];
+    var n = 0;
 
 	var rootRef = database.ref();
     var urlRef = rootRef.child("posts");
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {
+        n++;
         var contribution = child.val();
         var key = child.key;
         
@@ -83,14 +85,14 @@ function loadArticles() {
             }
         }
 
-    });
+      });
 
     });
 
     waitforTitleLoad();
 
     function waitforTitleLoad() {
-        if (articleArray.length !== 0) {
+        if (articleArray.length == n && n !== 0) {
             var textDiv = document.getElementById("existingArticle");
             while (textDiv.firstChild) {
                 textDiv.removeChild(textDiv.firstChild);

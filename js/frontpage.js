@@ -71,7 +71,7 @@ function loadArticles() {
 
         waitForBody();
 
-        function waitforBody() {
+        function waitForBody() {
             if (body != '') {
                 aref.innerHTML = "<span style='font-weight:bold;'>" + contribution.title + "</span>" + '\n' + body;
 

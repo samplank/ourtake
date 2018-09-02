@@ -115,7 +115,7 @@ function loadText(articleID) {
       titleSlot.innerHTML = title;
       var titleSpace = document.getElementById("titleSpace");
       while (titleSpace.firstChild){
-        title.removeChild(title.firstChild);
+        titleSpace.removeChild(titleSpace.firstChild);
       }
       titleSpace.appendChild(titleSlot);
     });
@@ -447,6 +447,7 @@ function onClick(direction, contributionID, articleID) {
           var currentCredits = snapshot.val();
           console.log(currentCredits);
           if (currentCredits){
+            console.log(currentCredits);
             var newCredits = currentCredits - 1;
 
             firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {

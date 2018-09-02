@@ -78,7 +78,7 @@ function loadArticles() {
                 articleArray.push(link);
             }
             else {
-                setTimeout(waitforBody, 250);
+                setTimeout(waitForBody, 250);
             }
         }
 

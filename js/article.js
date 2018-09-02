@@ -260,7 +260,7 @@ function addTextBox(i,articleID) {
 
     txtBox.cols = 100;
     txtBox.rows = 5;
-    txtBox.maxLength = 500;
+    txtBox.maxLength = 1000;
     txtBox.id = "txtbox" + String(i);
 
     var undoButton = document.createElement("button");

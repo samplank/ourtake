@@ -258,9 +258,9 @@ function addTextBox(i,articleID) {
 
     var txtBox = document.createElement("textarea");
 
-    txtBox.cols = 100;
+    txtBox.cols = 75;
     txtBox.rows = 5;
-    txtBox.maxLength = 1000;
+    txtBox.maxLength = 650;
     txtBox.id = "txtbox" + String(i);
 
     var undoButton = document.createElement("button");

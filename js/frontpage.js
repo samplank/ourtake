@@ -58,14 +58,16 @@ function loadArticles() {
         aref.className = "front";
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
-        aref.innerHTML = contribution.title;
 
         postRef = urlRef.child(String(key));
-        console.log(postRef);
 
         postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
-            console.log(snapshot.val());
+            val = snapshot.val();
+            body = val.body;
         });
+
+
+        aref.innerHTML = "<span style='font-weight:bold;'>" + contribution.title "</span>" + '\n' + body;
 
         articleArray.push(link);
 

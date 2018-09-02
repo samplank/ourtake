@@ -468,34 +468,35 @@ function onClick(direction, contributionID, articleID) {
 
             });
 
+            var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+            ref.transaction(function(currentClicks) {
+            // If node/clicks has never been set, currentRank will be `null`.
+              var newValue = (currentClicks || 0) + 1;
+
+              if (newValue >= 10) {
+                if (direction == 'upvotes') {
+                    integrateText(contributionID, articleID);
+                }
+                else if (direction == 'downvotes') {
+                    removeText(contributionID, articleID);
+                }
+              }
+              return newValue;
+            });
+
+                if (direction == 'upvotes') {
+                  firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
+                    var newClout = (currentClout || 0) + 1;
+                    return newClout;
+                  });
+                }
+
           }
           else {
-            console.log("Add credits to vote on contributions");
+            alert("Add credits to vote on contributions");
         }
       });
 
-      var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-      ref.transaction(function(currentClicks) {
-      // If node/clicks has never been set, currentRank will be `null`.
-        var newValue = (currentClicks || 0) + 1;
-
-        if (newValue >= 10) {
-          if (direction == 'upvotes') {
-              integrateText(contributionID, articleID);
-          }
-          else if (direction == 'downvotes') {
-              removeText(contributionID, articleID);
-          }
-        }
-        return newValue;
-      });
-
-          if (direction == 'upvotes') {
-            firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
-              var newClout = (currentClout || 0) + 1;
-              return newClout;
-            });
-          }
         }
         else {
           alert("You can't vote on your own contributions. Check out what others have written!");

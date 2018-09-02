@@ -85,20 +85,29 @@ function loadArticles() {
 
     });
 
-    var textDiv = document.getElementById("existingArticle");
-	while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
-
-    var arrayLength = articleArray.length;
-	for (var i = 0; i < arrayLength; i++) {
-
-		var link = articleArray.pop();
-
-        textDiv.appendChild(link);
-    }
-
     });
+
+    waitforTitleLoad();
+
+    function waitforTitleLoad() {
+        if (articleArray.length !== 0) {
+            var textDiv = document.getElementById("existingArticle");
+            while (textDiv.firstChild) {
+                textDiv.removeChild(textDiv.firstChild);
+            }
+
+            var arrayLength = articleArray.length;
+            for (var i = 0; i < arrayLength; i++) {
+
+                var link = articleArray.pop();
+
+                textDiv.appendChild(link);
+            }
+        }
+        else {
+            setTimeout(waitforTitleLoad, 250);
+        }
+    }
 }
 
 function addButton(name) {

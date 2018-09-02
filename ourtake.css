@@ -85,7 +85,7 @@ h4 {
     padding: 25px;
     margin: 5px;
     width: 60%;
-    /*height: 100px;*/
+    height: 200px;
 }
 
 .front {
@@ -138,6 +138,7 @@ h4 {
 .voteButton {
     background-color: #fff4db;
     font-family: Georgia, serif;
+    font-size: 24px;
 }
 
 .voteText {
@@ -163,7 +164,7 @@ h4 {
     padding: 25px;
     margin: 5px;
     width: 25%;
-    /*height: 100px;*/
+    height: 200px;
 
 }
 

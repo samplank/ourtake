@@ -64,7 +64,7 @@ function loadArticles() {
 
         postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
             val = snapshot.val();
-            console.log(val);
+            console.log(val.key);
             body = val.body;
         });
 

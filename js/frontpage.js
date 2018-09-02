@@ -63,7 +63,7 @@ function loadArticles() {
         var body = '';
 
         postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
-            val = snapshot.val();
+            val = snapshot.val()[0];
             console.log(val);
             body = val.body;
         });

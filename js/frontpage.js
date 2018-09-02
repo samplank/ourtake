@@ -75,7 +75,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold;'>" + contribution.title + "</span><br>" + '\n' + body;
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + "</span><br>" + '\n' + body;
 
                 articleArray.push(link);
                 console.log(link);

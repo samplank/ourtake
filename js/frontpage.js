@@ -63,7 +63,7 @@ function loadArticles() {
         postRef = urlRef.child(String(key));
         console.log(postRef);
 
-        postRef.child('contributions').orderByChild('paragraph_number').equalTo('1').on("value", function(snapshot) {
+        postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
             console.log(snapshot.val());
         });
 

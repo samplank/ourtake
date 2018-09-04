@@ -28,22 +28,65 @@ function updateUser(userUpdate) {
       authDiv.appendChild(increaseCreditButton);
 
 
-      var cloutButton = document.createElement("button");
-      cloutButton.className = "topButton";
+      // var cloutButton = document.createElement("button");
+      // cloutButton.className = "topButton";
+      // var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
+      // cloutRef.on('value', function(snapshot) {
+      //   cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+      // });
+      // authDiv.appendChild(cloutButton);
+
+      // var signOutButton = document.createElement("button");
+      // signOutButton.id = "signOut";
+      // signOutButton.className = "topButton";
+      // signOutButton.innerHTML = "Sign Out";
+      // signOutButton.addEventListener('click', function(event) {
+      //   firebase.auth().signOut();
+      // });
+      // authDiv.appendChild(signOutButton);
+
+      var nameDropDown = document.createElement("div");
+      nameDropDown.className = "dropdown"
+      var dropDownButton = document.createElement("button");
+      dropDownButton.className = "dropbtn";
+      var dropDownContent = document.createElement("div");
+      dropDownContent.className = "dropdown-content";
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
-        cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+        dropDownContent.innerHTML = "<span style='color:#fc643f;'>" + user.displayName + "<br>SlicedClout: " + snapshot.val() + "</span>";
       });
-      authDiv.appendChild(cloutButton);
-
-      var signOutButton = document.createElement("button");
-      signOutButton.id = "signOut";
-      signOutButton.className = "topButton";
+      var rankingsList = document.createElement("a");
+      rankingsList.href = "#";
+      rankingsList.innerHTML = "SlicedClout Rankings"
+      // rankingsList.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')')
+      var votesSince = document.createElement("a");
+      votesSince.href = "#";
+      var voteRef = firebase.database().ref('users/' + user.uid + '/votes');
+      voteRef.on('value', function(snapshot) {
+        votesSince.innerHTML = "Votes Since Contribution: " + snapshot.val();
+      });
+      var signOutButton = document.createElement("a");
+      signOutButton.href = "#";
       signOutButton.innerHTML = "Sign Out";
-      signOutButton.addEventListener('click', function(event) {
-        firebase.auth().signOut();
-      });
-      authDiv.appendChild(signOutButton);
+      signOutButton.setAttribute('onclick', 'firebase.auth().signOut()')
+
+      dropDownButton.appendChild(rankingsList);
+      dropDownButton.appendChild(votesSince);
+      dropDownButton.appendChild(signOutButton);
+      nameDropDown.appendChild(dropDownButton);
+      authDiv.appendChild(nameDropDown);
+
+
+  //     <div class="dropdown">
+  //   <button class="dropbtn">Dropdown 
+  //     <i class="fa fa-caret-down"></i>
+  //   </button>
+  //   <div class="dropdown-content">
+  //     <a href="#">Link 1</a>
+  //     <a href="#">Link 2</a>
+  //     <a href="#">Link 3</a>
+  //   </div>
+  // </div> 
 
     });
   }

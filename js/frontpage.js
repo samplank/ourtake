@@ -23,7 +23,7 @@ function updateUser(userUpdate) {
       var increaseCreditButton = document.createElement("button");
       increaseCreditButton.setAttribute('onclick','increaseCredits()');
       increaseCreditButton.innerHTML = '+';
-      increaseCreditsButton.id = "increaseCreditButton";
+      increaseCreditButton.id = "increaseCreditButton";
 
 
       var cloutButton = document.createElement("button");

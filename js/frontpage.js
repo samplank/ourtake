@@ -237,17 +237,14 @@ function writeUserData(userId, name, email) {
 }
 
 function increaseCredits() {
-	console.log(user);
-	var databaseRef = firebase.database().ref('users').child(user.uid).child('credits');
+  var ref = firebase.database().ref('users/' + user.uid + '/credits');
+  ref.transaction(function(currentCredits) {
+    console.log(currentCredits);
+  // If node/clicks has never been set, currentRank will be `null`.
+    var newValue = (currentCredits || 0) + 1;
 
-	databaseRef.transaction(function(credits) {
-	  if (credits != null) {
-	  	console.log(credits);
-	    credits = credits + 50;
-	  }
-	  return credits;
-	});
-
+    return newValue;
+  });
 }
 
 

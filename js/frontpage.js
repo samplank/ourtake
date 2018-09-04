@@ -24,6 +24,7 @@ function updateUser(userUpdate) {
       increaseCreditButton.setAttribute('onclick','increaseCredits()');
       increaseCreditButton.innerHTML = '+';
       increaseCreditButton.id = "increaseCreditButton";
+      authDiv.appendChild(increaseCreditButton);
 
 
       var cloutButton = document.createElement("button");

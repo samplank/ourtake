@@ -16,7 +16,7 @@ function updateUser(userUpdate) {
       // creditButton.className = "topButton";
       var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
       creditRef.on('value', function(snapshot) {
-        creditButton.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val(); + "+"
+        creditButton.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
       });
       authDiv.appendChild(creditButton);
 

@@ -20,6 +20,12 @@ function updateUser(userUpdate) {
       });
       authDiv.appendChild(creditButton);
 
+      var increaseCreditButton = document.createElement("button");
+      increaseCreditButton.setAttribute('onclick','increaseCredits()');
+      increaseCreditButton.innerHTML = '+';
+      increaseCreditsButton.id = "increaseCreditButton";
+
+
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');

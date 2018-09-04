@@ -29,13 +29,18 @@ function updateUser(userUpdate) {
         authDiv.removeChild(authDiv.firstChild);
       }
 
-      var creditButton = document.createElement("button");
-      creditButton.className = "topButton";
+      var creditButton = document.createElement("p");
+      // creditButton.className = "topButton";
       var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
       creditRef.on('value', function(snapshot) {
         creditButton.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
       });
       authDiv.appendChild(creditButton);
+
+      var increaseCreditButton = document.createElement("button");
+      increaseCreditButton.setAttribute('onclick','increaseCredits()');
+      increaseCreditButton.innerHTML = '+';
+      increaseCreditsButton.id = "increaseCreditButton";
 
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";

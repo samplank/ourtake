@@ -48,7 +48,7 @@ function updateUser(userUpdate) {
       var nameDropDown = document.createElement("div");
       nameDropDown.className = "dropdown"
       var dropDownButton = document.createElement("button");
-      dropDownButton.className = "dropbtn";
+      dropDownButton.className = "topButton";
       var dropDownContent = document.createElement("div");
       dropDownContent.className = "dropdown-content";
       dropDownContent.innerHTML = user.displayName;

@@ -188,6 +188,15 @@ h4 {
     display: flex;
 }
 
+#topleft {
+    width: 30%;
+    position:absolute;
+    top: 4%;
+    right: 98%;
+    padding: 6px 12px;
+    display: flex;
+}
+
 #readcontainer {
     padding: 0px 250px;
 }

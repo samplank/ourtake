@@ -12,20 +12,20 @@ function updateUser(userUpdate) {
       //   authDiv.removeChild(authDiv.firstChild);
       // }
 
-      var creditCount = document.createElement("p");
-      // creditButton.className = "topButton";
-      creditCount.id = "creditCount";
-      var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
-      creditRef.on('value', function(snapshot) {
-        creditCount.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
-      });
-      authDiv.appendChild(creditCount);
+      // var creditCount = document.createElement("p");
+      // // creditButton.className = "topButton";
+      // creditCount.id = "creditCount";
+      // var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
+      // creditRef.on('value', function(snapshot) {
+      //   creditCount.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
+      // });
+      // authDiv.appendChild(creditCount);
 
-      var increaseCreditButton = document.createElement("button");
-      increaseCreditButton.setAttribute('onclick','increaseCredits()');
-      increaseCreditButton.innerHTML = '+';
-      increaseCreditButton.id = "increaseCreditButton";
-      authDiv.appendChild(increaseCreditButton);
+      // var increaseCreditButton = document.createElement("button");
+      // increaseCreditButton.setAttribute('onclick','increaseCredits()');
+      // increaseCreditButton.innerHTML = '+';
+      // increaseCreditButton.id = "increaseCreditButton";
+      // authDiv.appendChild(increaseCreditButton);
 
 
       var cloutButton = document.createElement("button");
@@ -39,7 +39,7 @@ function updateUser(userUpdate) {
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = "Sign Out";
+      signOutButton.innerHTML = user.displayName;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });

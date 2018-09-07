@@ -32,7 +32,7 @@ function updateUser(userUpdate) {
       cloutCount.id = "cloutCount";
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
-        cloutRef.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+        cloutCount.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
       });
       authDiv.appendChild(cloutCount);
 

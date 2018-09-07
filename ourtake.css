@@ -108,7 +108,7 @@ h4 {
     display: inline-block;
     background: white;
     color: black;
-    width: 150px;
+    width: 8%;
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;
@@ -179,7 +179,7 @@ h4 {
 }
 
 #topcontainer {
-    width: 40%;
+    width: 50%;
     position:absolute;
     top: 4%;
     right: 2%;

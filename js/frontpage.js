@@ -4,8 +4,8 @@ function updateUser(userUpdate) {
   user = userUpdate;
 
   if (user) {
-    firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
-      credits = snapshot.val();
+    firebase.database().ref('users/' + user.uid + '/clout').once('value').then(function(snapshot) {
+      // credits = snapshot.val();
 
       var authDiv = document.getElementById("topright");
       // while (authDiv.firstChild) {

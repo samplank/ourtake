@@ -27,13 +27,19 @@ function updateUser(userUpdate) {
       // increaseCreditButton.id = "increaseCreditButton";
       // authDiv.appendChild(increaseCreditButton);
 
+      var cloutCount = document.createElement("p");
+      // creditButton.className = "topButton";
+      cloutCount.id = "cloutCount";
+      var creditRef = firebase.database().ref('users/' + user.uid + '/clout');
+      cloutRef.on('value', function(snapshot) {
+        cloutRef.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+      });
+      authDiv.appendChild(cloutCount);
+
 
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";
-      var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
-      cloutRef.on('value', function(snapshot) {
-        cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
-      });
+      cloutButton.innerHTML = "Leaderboard";
       authDiv.appendChild(cloutButton);
 
       var signOutButton = document.createElement("button");

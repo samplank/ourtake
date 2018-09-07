@@ -51,6 +51,7 @@ function updateUser(userUpdate) {
       dropDownButton.className = "dropbtn";
       var dropDownContent = document.createElement("div");
       dropDownContent.className = "dropdown-content";
+      dropDownContent.innerHTML = user.displayName;
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
         dropDownContent.innerHTML = "<span style='color:#fc643f;'>" + user.displayName + "<br>SlicedClout: " + snapshot.val() + "</span>";

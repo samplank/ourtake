@@ -70,23 +70,12 @@ function updateUser(userUpdate) {
       signOutButton.innerHTML = "Sign Out";
       signOutButton.setAttribute('onclick', 'firebase.auth().signOut()')
 
-      dropDownButton.appendChild(rankingsList);
-      dropDownButton.appendChild(votesSince);
-      dropDownButton.appendChild(signOutButton);
+      dropDownContent.appendChild(rankingsList);
+      dropDownContent.appendChild(votesSince);
+      dropDownContent.appendChild(signOutButton);
       nameDropDown.appendChild(dropDownButton);
+      nameDropDown.appendChild(dropDownContent);
       authDiv.appendChild(nameDropDown);
-
-
-  //     <div class="dropdown">
-  //   <button class="dropbtn">Dropdown 
-  //     <i class="fa fa-caret-down"></i>
-  //   </button>
-  //   <div class="dropdown-content">
-  //     <a href="#">Link 1</a>
-  //     <a href="#">Link 2</a>
-  //     <a href="#">Link 3</a>
-  //   </div>
-  // </div> 
 
     });
   }
@@ -284,7 +273,7 @@ function increaseCredits() {
   ref.transaction(function(currentCredits) {
     console.log(currentCredits);
   // If node/clicks has never been set, currentRank will be `null`.
-    var newValue = (currentCredits || 0) + 1;
+    var newValue = (currentCredits || 0) + 5;
 
     return newValue;
   });

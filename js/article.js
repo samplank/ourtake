@@ -571,7 +571,7 @@ function increaseCredits() {
   ref.transaction(function(currentCredits) {
     console.log(currentCredits);
   // If node/clicks has never been set, currentRank will be `null`.
-    var newValue = (currentCredits || 0) + 1;
+    var newValue = (currentCredits || 0) + 5;
 
     return newValue;
   });

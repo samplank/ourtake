@@ -30,7 +30,7 @@ function updateUser(userUpdate) {
       var cloutCount = document.createElement("p");
       // creditButton.className = "topButton";
       cloutCount.id = "cloutCount";
-      var creditRef = firebase.database().ref('users/' + user.uid + '/clout');
+      var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
         cloutRef.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
       });

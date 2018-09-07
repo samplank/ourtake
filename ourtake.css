@@ -135,6 +135,7 @@ h4 {
     height: 100px;
     width: 500px;
     overflow-wrap: normal;
+    width: 50%;
 }
 
 .voteButton {
@@ -193,7 +194,7 @@ h4 {
     width: 30%;
     position:absolute;
     top: 4%;
-    right: 55%;
+    right: 34%;
     padding: 6px 12px;
     display: flex;
 }

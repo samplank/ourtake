@@ -186,13 +186,14 @@ h4 {
     right: 2%;
     padding: 6px 12px;
     display: flex;
+    float: right;
 }
 
 #topleft {
     width: 30%;
     position:absolute;
     top: 4%;
-    right: 60%;
+    right: 55%;
     padding: 6px 12px;
     display: flex;
 }

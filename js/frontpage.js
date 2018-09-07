@@ -28,55 +28,22 @@ function updateUser(userUpdate) {
       authDiv.appendChild(increaseCreditButton);
 
 
-      // var cloutButton = document.createElement("button");
-      // cloutButton.className = "topButton";
-      // var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
-      // cloutRef.on('value', function(snapshot) {
-      //   cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
-      // });
-      // authDiv.appendChild(cloutButton);
-
-      // var signOutButton = document.createElement("button");
-      // signOutButton.id = "signOut";
-      // signOutButton.className = "topButton";
-      // signOutButton.innerHTML = "Sign Out";
-      // signOutButton.addEventListener('click', function(event) {
-      //   firebase.auth().signOut();
-      // });
-      // authDiv.appendChild(signOutButton);
-
-      var nameDropDown = document.createElement("div");
-      nameDropDown.className = "dropdown"
-      var dropDownButton = document.createElement("button");
-      dropDownButton.className = "topButton";
-      var dropDownContent = document.createElement("div");
-      dropDownContent.className = "dropdown-content";
-      dropDownContent.innerHTML = user.displayName;
+      var cloutButton = document.createElement("button");
+      cloutButton.className = "topButton";
       var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
       cloutRef.on('value', function(snapshot) {
-        dropDownContent.innerHTML = "<span style='color:#fc643f;'>" + user.displayName + "<br>SlicedClout: " + snapshot.val() + "</span>";
+        cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
       });
-      var rankingsList = document.createElement("a");
-      rankingsList.href = "#";
-      rankingsList.innerHTML = "SlicedClout Rankings"
-      // rankingsList.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')')
-      var votesSince = document.createElement("a");
-      votesSince.href = "#";
-      var voteRef = firebase.database().ref('users/' + user.uid + '/votes');
-      voteRef.on('value', function(snapshot) {
-        votesSince.innerHTML = "Votes Since Contribution: " + snapshot.val();
-      });
-      var signOutButton = document.createElement("a");
-      signOutButton.href = "#";
-      signOutButton.innerHTML = "Sign Out";
-      signOutButton.setAttribute('onclick', 'firebase.auth().signOut()')
+      authDiv.appendChild(cloutButton);
 
-      dropDownContent.appendChild(rankingsList);
-      dropDownContent.appendChild(votesSince);
-      dropDownContent.appendChild(signOutButton);
-      nameDropDown.appendChild(dropDownButton);
-      nameDropDown.appendChild(dropDownContent);
-      authDiv.appendChild(nameDropDown);
+      var signOutButton = document.createElement("button");
+      signOutButton.id = "signOut";
+      signOutButton.className = "topButton";
+      signOutButton.innerHTML = "Sign Out";
+      signOutButton.addEventListener('click', function(event) {
+        firebase.auth().signOut();
+      });
+      authDiv.appendChild(signOutButton);
 
     });
   }

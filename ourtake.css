@@ -104,11 +104,11 @@ h4 {
 
 .topButton {
     font-family: Georgia, serif;
-    /*font-size: 18px;*/
+    font-size: 18px;
     display: inline-block;
     background: white;
     color: black;
-    width: 8%;
+    /*width: 8%;*/
     border-radius: 5px;
     box-shadow: 1px 1px 1px grey;
     white-space: nowrap;

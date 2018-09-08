@@ -64,14 +64,15 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 </head>
 <body>
 
+<div id="topleft">
+    <button type="button" class="topButton" onclick="location.href='https://sliced.us/howto'">How To Slice</button>
+</div>
+
 <a href="https://sliced.us">
-  <img src="sliced_logo.jpg" style="width:150px;height:100px;border:0;">
+  <img src="sliced_logo.jpg" id="logo">
 </a>
 
 <div id="topcontainer">
-  <div id="howTo">
-    <button type="button" class="topButton" onclick="location.href='https://sliced.us/howto'">How To Slice</button>
-  </div>
   <div id="topright">
   </div>
 </div>

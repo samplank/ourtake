@@ -21,39 +21,48 @@ function updateUser(userUpdate) {
   user = userUpdate;
 
   if (user) {
-    firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
-      credits = snapshot.val();
+    firebase.database().ref('users/' + user.uid + '/clout').once('value').then(function(snapshot) {
+      // credits = snapshot.val();
 
       var authDiv = document.getElementById("topright");
-      while (authDiv.firstChild) {
-        authDiv.removeChild(authDiv.firstChild);
-      }
+      // while (authDiv.firstChild) {
+      //   authDiv.removeChild(authDiv.firstChild);
+      // }
 
-      var creditButton = document.createElement("p");
-      // creditButton.className = "topButton";
-      var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
-      creditRef.on('value', function(snapshot) {
-        creditButton.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
-      });
-      authDiv.appendChild(creditButton);
+      // var creditCount = document.createElement("p");
+      // // creditButton.className = "topButton";
+      // creditCount.id = "creditCount";
+      // var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
+      // creditRef.on('value', function(snapshot) {
+      //   creditCount.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
+      // });
+      // authDiv.appendChild(creditCount);
 
-      var increaseCreditButton = document.createElement("button");
-      increaseCreditButton.setAttribute('onclick','increaseCredits()');
-      increaseCreditButton.innerHTML = '+';
-      increaseCreditsButton.id = "increaseCreditButton";
+      // var increaseCreditButton = document.createElement("button");
+      // increaseCreditButton.setAttribute('onclick','increaseCredits()');
+      // increaseCreditButton.innerHTML = '+';
+      // increaseCreditButton.id = "increaseCreditButton";
+      // authDiv.appendChild(increaseCreditButton);
+
+      // var cloutCount = document.createElement("p");
+      // // creditButton.className = "topButton";
+      // cloutCount.id = "cloutCount";
+      // var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
+      // cloutRef.on('value', function(snapshot) {
+      //   cloutCount.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+      // });
+      // authDiv.appendChild(cloutCount);
+
 
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";
-      var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
-      cloutRef.on('value', function(snapshot) {
-        cloutButton.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
-      });
+      cloutButton.innerHTML = "Leaderboard";
       authDiv.appendChild(cloutButton);
 
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = "Sign Out";
+      signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });

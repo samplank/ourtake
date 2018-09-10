@@ -8,9 +8,9 @@ function updateUser(userUpdate) {
       // credits = snapshot.val();
 
       var authDiv = document.getElementById("topright");
-      // while (authDiv.firstChild) {
-      //   authDiv.removeChild(authDiv.firstChild);
-      // }
+      while (authDiv.firstChild) {
+        authDiv.removeChild(authDiv.firstChild);
+      }
 
       // var creditCount = document.createElement("p");
       // // creditButton.className = "topButton";

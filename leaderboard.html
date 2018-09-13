@@ -83,4 +83,33 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 
   </body>
+  
+  <script>
+  firebase.auth().onAuthStateChanged(function(fbuser) {
+    if (fbuser) {
+      console.log(fbuser)
+      writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
+      updateUser(fbuser);
+      loadText(article);
+      console.log("logged in");
+
+    } else {
+      updateUser(null);
+      loadText(article);
+      console.log("logged out");
+
+      var authDiv = document.getElementById("topright");
+
+      while (authDiv.firstChild) {
+        authDiv.removeChild(authDiv.firstChild);
+        }
+
+      var signInButton = document.createElement("div");
+      signInButton.id = "firebaseui-auth-container";
+      authDiv.appendChild(signInButton);
+      ui.start('#firebaseui-auth-container', uiConfig);
+
+    }
+  });
+  </script>
 </html>

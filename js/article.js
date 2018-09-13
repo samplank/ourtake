@@ -22,41 +22,17 @@ function updateUser(userUpdate) {
 
   if (user) {
     firebase.database().ref('users/' + user.uid + '/clout').once('value').then(function(snapshot) {
-      // credits = snapshot.val();
 
       var authDiv = document.getElementById("topright");
-      // while (authDiv.firstChild) {
-      //   authDiv.removeChild(authDiv.firstChild);
-      // }
-
-      // var creditCount = document.createElement("p");
-      // // creditButton.className = "topButton";
-      // creditCount.id = "creditCount";
-      // var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
-      // creditRef.on('value', function(snapshot) {
-      //   creditCount.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
-      // });
-      // authDiv.appendChild(creditCount);
-
-      // var increaseCreditButton = document.createElement("button");
-      // increaseCreditButton.setAttribute('onclick','increaseCredits()');
-      // increaseCreditButton.innerHTML = '+';
-      // increaseCreditButton.id = "increaseCreditButton";
-      // authDiv.appendChild(increaseCreditButton);
-
-      // var cloutCount = document.createElement("p");
-      // // creditButton.className = "topButton";
-      // cloutCount.id = "cloutCount";
-      // var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
-      // cloutRef.on('value', function(snapshot) {
-      //   cloutCount.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
-      // });
-      // authDiv.appendChild(cloutCount);
+      while (authDiv.firstChild) {
+        authDiv.removeChild(authDiv.firstChild);
+      }
 
 
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";
       cloutButton.innerHTML = "Leaderboard";
+      cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
       authDiv.appendChild(cloutButton);
 
       var signOutButton = document.createElement("button");

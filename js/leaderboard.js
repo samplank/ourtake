@@ -50,8 +50,10 @@ function updateUser(userUpdate) {
 
 function getLeaders() {
   var tableArray = [];
+  var n = 0;
   firebase.database().ref('users').orderByChild('clout').limitToLast(10).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
+      n++;
       user = child.val();
       username = user.username;
       clout = user.clout;
@@ -70,16 +72,26 @@ function getLeaders() {
     });
   });
 
-  var table = document.getElementById("leaderTable");
+  waitforRows();
 
-  console.log(tableArray);
+  function waitforRows() {
+      if (tableArray.length == n && n !== 0) {
+        var table = document.getElementById("leaderTable");
+        while (table.firstChild) {
+            table.removeChild(table.firstChild);
+        }
 
-  var arrayLength = tableArray.length;
-  for (var i = 0; i < arrayLength; i++) {
+        var arrayLength = tableArray.length;
+        for (var i = 0; i < arrayLength; i++) {
 
-      var row = tableArray.pop();
+            var row = tableArray.pop();
 
-      table.appendChild(row);
+            table.appendChild(row);
+        }
+      }
+      else {
+          setTimeout(waitforRows, 250);
+      }
   }
 
 }

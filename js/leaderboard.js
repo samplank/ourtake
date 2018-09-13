@@ -77,9 +77,6 @@ function getLeaders() {
   function waitforRows() {
       if (tableArray.length == n && n !== 0) {
         var table = document.getElementById("leaderTable");
-        while (table.firstChild) {
-            table.removeChild(table.firstChild);
-        }
 
         var arrayLength = tableArray.length;
         for (var i = 0; i < arrayLength; i++) {

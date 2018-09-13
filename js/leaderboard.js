@@ -72,6 +72,8 @@ function getLeaders() {
 
   var table = document.getElementById("leaderTable");
 
+  console.log(tableArray);
+
   var arrayLength = tableArray.length;
   for (var i = 0; i < arrayLength; i++) {
 

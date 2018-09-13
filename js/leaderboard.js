@@ -83,7 +83,7 @@ function getLeaders() {
 
             var row = tableArray.pop();
 
-            table.appendChild(row);
+            // table.appendChild(row);
         }
       }
       else {

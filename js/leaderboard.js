@@ -50,7 +50,24 @@ function updateUser(userUpdate) {
 
 function getLeaders() {
   firebase.database().ref('users').orderByChild('clout').once('value').then(function(snapshot) {
-    rankings = snapshot.val();
-    console.log(rankings);
+    snapshot.forEach(function(child) {
+      user = child.val();
+      username = user.username;
+      clout = user.clout;
+
+      var tableRow = document.createElement("tr");
+
+      var userRow = document.createElement("td");
+      userRow.innerHTML = username;
+      var userClout = document.createElement("td");
+      userClout.innerHTML = clout;
+
+      var table = document.getElementById("leaderTable");
+
+      tableRow.appendChild(userRow);
+      tableRow.appendChild(userClout);
+      table.appendChild(tableRow);
+
+    }
   });
 }

@@ -40,6 +40,7 @@ function updateUser(userUpdate) {
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";
       cloutButton.innerHTML = "Leaderboard";
+      cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
       authDiv.appendChild(cloutButton);
 
       var signOutButton = document.createElement("button");

@@ -49,7 +49,8 @@ function updateUser(userUpdate) {
 }
 
 function getLeaders() {
-  firebase.database().ref('users').orderByChild('clout').once('value').then(function(snapshot) {
+  var tableArray = [];
+  firebase.database().ref('users').orderByChild('clout').limitToLast(10).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       user = child.val();
       username = user.username;
@@ -62,12 +63,21 @@ function getLeaders() {
       var userClout = document.createElement("td");
       userClout.innerHTML = clout;
 
-      var table = document.getElementById("leaderTable");
-
       tableRow.appendChild(userRow);
       tableRow.appendChild(userClout);
-      table.appendChild(tableRow);
+      tableArray.appendChild(tableRow);
 
     });
   });
+
+  var table = document.getElementById("leaderTable");
+
+  var arrayLength = tableArray.length;
+  for (var i = 0; i < arrayLength; i++) {
+
+      var row = tableArray.pop();
+
+      table.appendChild(row);
+  }
+
 }

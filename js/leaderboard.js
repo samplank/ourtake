@@ -49,6 +49,8 @@ function updateUser(userUpdate) {
 }
 
 function getLeaders() {
-  dRef = firebase.database().ref('users').orderByChild('clout')
-  console.log(dRef);
+  firebase.database().ref('users').orderByChild('clout').once.value().then(function(snapshot) {
+    rankings = snapshot.val();
+    console.log(rankings);
+  });
 }

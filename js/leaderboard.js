@@ -65,7 +65,7 @@ function getLeaders() {
 
       tableRow.appendChild(userRow);
       tableRow.appendChild(userClout);
-      tableArray.appendChild(tableRow);
+      tableArray.push(tableRow);
 
     });
   });

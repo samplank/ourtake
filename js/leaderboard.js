@@ -68,6 +68,6 @@ function getLeaders() {
       tableRow.appendChild(userClout);
       table.appendChild(tableRow);
 
-    }
+    });
   });
 }

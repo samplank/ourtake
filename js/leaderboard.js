@@ -47,3 +47,8 @@ function updateUser(userUpdate) {
     });
   }
 }
+
+function getLeaders() {
+  dRef = firebase.database().ref('users').orderByChild('clout')
+  console.log(dRef);
+}

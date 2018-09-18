@@ -33,10 +33,10 @@ th {
 .arrow-right {
   width: 0; 
   height: 0; 
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   
-  border-left: 60px solid green;
+  border-left: 10px solid black;
 }
 
 /* Style the tab */

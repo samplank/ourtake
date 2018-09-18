@@ -57,13 +57,17 @@ function updateUser(userUpdate) {
       voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(voteButton);
 
-      var rightArrow = document.createElement("div");
-      rightArrow.className = "arrow-right";
-      flowDiv.appendChild(rightArrow);
+      // var rightArrow = document.createElement("div");
+      // rightArrow.className = "arrow-right";
+      // flowDiv.appendChild(rightArrow);
+
+      var arrowDiv = document.createElement("div");
+      arrowDiv.className = "arrowed"
+      flowDiv.appendChild(arrowDiv);
 
       var skinnyArrow = document.createElement("div");
       skinnyArrow.className = "arrow-1"
-      flowDiv.appendChild(skinnyArrow);
+      arrowDiv.appendChild(skinnyArrow);
 
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";

@@ -33,7 +33,7 @@ function updateUser(userUpdate) {
       howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
       authDiv.appendChild(howToButton);
 
-      var flowDiv = document.getElementById("topright");
+      var flowDiv = document.getElementById("topleft");
       while (flowDiv.firstChild) {
           flowDiv.removeChild(flowDiv.firstChild);
       }

@@ -46,6 +46,7 @@ function updateUser(userUpdate) {
 
       var arrow = document.createElement("img");
       arrow.src = "https://sliced.us/arrow.jpg";
+      arrow.className = "arrow";
       flowDiv.appendChild(arrow);
 
       var neededVotes = 5 - userInfo.votes;

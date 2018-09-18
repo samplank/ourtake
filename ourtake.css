@@ -152,6 +152,14 @@ th {
     font-family: "Trebuchet MS", sans-serif;
 }
 
+.arrow {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 2%;
+    height: 2%;
+}
+
 #login {
     text-align:right;
 }

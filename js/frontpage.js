@@ -61,6 +61,12 @@ function updateUser(userUpdate) {
       rightArrow.className = "arrow-right";
       flowDiv.appendChild(rightArrow);
 
+      var contribButton = document.createElement("button");
+      contribButton.className = "topButton";
+      contribButton.innerHTML = "Contribute";
+      contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      flowDiv.appendChild(votecontribButtonButton);
+
     });
   }
 }

@@ -4,42 +4,18 @@ function updateUser(userUpdate) {
   user = userUpdate;
 
   if (user) {
-    firebase.database().ref('users/' + user.uid + '/clout').once('value').then(function(snapshot) {
-      // credits = snapshot.val();
+    firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
+      userInfo = snapshot.val();
 
       var authDiv = document.getElementById("topright");
       while (authDiv.firstChild) {
         authDiv.removeChild(authDiv.firstChild);
       }
 
-      // var creditCount = document.createElement("p");
-      // // creditButton.className = "topButton";
-      // creditCount.id = "creditCount";
-      // var creditRef = firebase.database().ref('users/' + user.uid + '/credits');
-      // creditRef.on('value', function(snapshot) {
-      //   creditCount.innerHTML = "<span style='color:#fc643f;'>SlicedCredit: </span>" + snapshot.val();
-      // });
-      // authDiv.appendChild(creditCount);
-
-      // var increaseCreditButton = document.createElement("button");
-      // increaseCreditButton.setAttribute('onclick','increaseCredits()');
-      // increaseCreditButton.innerHTML = '+';
-      // increaseCreditButton.id = "increaseCreditButton";
-      // authDiv.appendChild(increaseCreditButton);
-
-      // var cloutCount = document.createElement("p");
-      // // creditButton.className = "topButton";
-      // cloutCount.id = "cloutCount";
-      // var cloutRef = firebase.database().ref('users/' + user.uid + '/clout');
-      // cloutRef.on('value', function(snapshot) {
-      //   cloutCount.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
-      // });
-      // authDiv.appendChild(cloutCount);
-
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+      signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });
@@ -57,11 +33,21 @@ function updateUser(userUpdate) {
       howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
       authDiv.appendChild(howToButton);
 
+      var flowDiv = document.getElementById("topright");
+      while (flowDiv.firstChild) {
+          flowDiv.removeChild(flowDiv.firstChild);
+      }
+
+      var earnButton = document.createElement("button");
+      earnButton.className = "topButton";
+      earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
+      earnButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      flowDiv.appendChild(earnButton);
+
 
     });
   }
 }
-
 function loadArticles() {
 	var articleArray = [];
     var n = 0;

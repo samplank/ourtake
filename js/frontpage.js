@@ -44,13 +44,13 @@ function updateUser(userUpdate) {
       earnButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(earnButton);
 
-      // var arrowDiv = document.createElement("div");
-      // arrowDiv.className = "arrowed"
-      // flowDiv.appendChild(arrowDiv);
+      var arrowDiv = document.createElement("div");
+      arrowDiv.className = "arrowed"
+      flowDiv.appendChild(arrowDiv);
 
       var skinnyArrow = document.createElement("div");
       skinnyArrow.className = "arrow-1"
-      flowDiv.appendChild(skinnyArrow);
+      arrowDiv.appendChild(skinnyArrow);
 
       var neededVotes = 5 - userInfo.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -61,13 +61,13 @@ function updateUser(userUpdate) {
       voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(voteButton);
 
-      // var arrowDiv = document.createElement("div");
-      // arrowDiv.className = "arrowed"
-      // flowDiv.appendChild(arrowDiv);
+      var arrowDiv = document.createElement("div");
+      arrowDiv.className = "arrowed"
+      flowDiv.appendChild(arrowDiv);
 
       var skinnyArrow = document.createElement("div");
       skinnyArrow.className = "arrow-1"
-      flowDiv.appendChild(skinnyArrow);
+      arrowDiv.appendChild(skinnyArrow);
 
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";

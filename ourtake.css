@@ -154,10 +154,10 @@ th {
 
 .arrow {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 5%;
     height: 5%;
+    margin: 4% 0%;
+
 }
 
 #login {

@@ -496,11 +496,14 @@ function integrateText(contributionID, articleID, authorUid) {
 
     firebase.database().ref('posts/' + String(articleID)).once('value').then(function(snapshot) {
       var article = snapshot.val();
+      console.log(article);
       var currentParagraphs = article.paragraph_count;
       var newParagraphCount = currentParagraphs + 1;
 
-      var upvotes = article.contributions[contributionID].upvotes;
-      var downvotes = article.contributions[contributionID].downvotes;
+      console.log(article.contributions)
+
+      var upvotes = article.contributions[String(contributionID)].upvotes;
+      var downvotes = article.contributions[String(contributionID)].downvotes;
 
       console.log(upvotes)
       console.log(downvotes)

@@ -494,7 +494,7 @@ function onClick(direction, contributionID, articleID) {
 
 function integrateText(contributionID, articleID, authorUid) {
 
-    firebase.database().ref('posts/' + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
+    firebase.database().ref('posts/' + String(articleID)).once('value').then(function(snapshot) {
       var article = snapshot.val();
       var currentParagraphs = article.paragraph_count;
       var newParagraphCount = currentParagraphs + 1;

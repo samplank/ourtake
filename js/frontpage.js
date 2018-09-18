@@ -48,6 +48,19 @@ function updateUser(userUpdate) {
       rightArrow.className = "arrow-right";
       flowDiv.appendChild(rightArrow);
 
+      var neededVotes = 5 - userInfo.votes;
+      neededVotes = neededVotes < 0 ? 0 : neededVotes;
+
+      var voteButton = document.createElement("button");
+      voteButton.className = "topButton";
+      voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+      voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      flowDiv.appendChild(voteButton);
+
+      var rightArrow = document.createElement("div");
+      rightArrow.className = "arrow-right";
+      flowDiv.appendChild(rightArrow);
+
     });
   }
 }

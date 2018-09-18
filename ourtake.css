@@ -107,7 +107,7 @@ th {
 }
 
 .topButton {
-    font-family: Georgia, serif;
+    font-family: Arial, sans-serif;
     font-size: 18px;
     display: inline-block;
     background: white;
@@ -247,7 +247,7 @@ th {
 }
 
 #newArticleButton {
-    font-family: Georgia, serif;
+    font-family: Arial, sans-serif;
     font-size: 18px;
     display: inline-block;
     background: white;
@@ -293,6 +293,10 @@ th {
     margin-left: auto;
     margin-right: auto;
     width: 10%;
+}
+
+#reviewDetails {
+    font-family: Arial, sans-serif;
 }
 
 

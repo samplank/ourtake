@@ -152,6 +152,10 @@ th {
     font-family: Georgia, serif;
 }
 
+.reviewDetails {
+    font-family: Arial, sans-serif;
+}
+
 #login {
     text-align:right;
 }
@@ -293,10 +297,6 @@ th {
     margin-left: auto;
     margin-right: auto;
     width: 10%;
-}
-
-#reviewDetails {
-    font-family: Arial, sans-serif;
 }
 
 

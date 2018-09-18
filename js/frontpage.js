@@ -44,10 +44,10 @@ function updateUser(userUpdate) {
       earnButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(earnButton);
 
-      var arrow = document.createElement("img");
-      arrow.src = "https://sliced.us/arrow.jpg";
-      arrow.className = "arrow";
-      flowDiv.appendChild(arrow);
+      var arrow1 = document.createElement("img");
+      arrow1.src = "https://sliced.us/arrow.jpg";
+      arrow1.className = "arrow";
+      flowDiv.appendChild(arrow1);
 
       var neededVotes = 5 - userInfo.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -57,8 +57,11 @@ function updateUser(userUpdate) {
       voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(voteButton);
-      
-      flowDiv.appendChild(arrow);
+
+      var arrow2 = document.createElement("img");
+      arrow2.src = "https://sliced.us/arrow.jpg";
+      arrow2.className = "arrow";
+      flowDiv.appendChild(arrow2);
 
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";

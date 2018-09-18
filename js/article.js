@@ -465,7 +465,7 @@ function onClick(direction, contributionID, articleID) {
 
               if (newValue >= 10) {
                 if (direction == 'upvotes') {
-                    integrateText(contributionID, articleID);
+                    integrateText(contributionID, articleID, authorUid);
                 }
                 else if (direction == 'downvotes') {
                     removeText(contributionID, articleID);
@@ -473,13 +473,6 @@ function onClick(direction, contributionID, articleID) {
               }
               return newValue;
             });
-
-                if (direction == 'upvotes') {
-                  firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
-                    var newClout = (currentClout || 0) + 1;
-                    return newClout;
-                  });
-                }
 
           }
           else {
@@ -499,17 +492,31 @@ function onClick(direction, contributionID, articleID) {
     }
   }
 
-function integrateText(contributionID, articleID) {
+function integrateText(contributionID, articleID, authorUid) {
 
     firebase.database().ref('posts/' + String(articleID) + '/paragraph_count').once('value').then(function(snapshot) {
-      var currentParagraphs = snapshot.val();
+      var article = snapshot.val();
+      var currentParagraphs = article.paragraph_count;
       var newParagraphCount = currentParagraphs + 1;
+
+      var upvotes = article.contributions[contributionID].upvotes;
+      var downvotes = article.contributions[contributionID].downvotes;
+
+      console.log(upvotes)
+      console.log(downvotes)
+
+      var cloutBoost = upvotes - downvotes;
 
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/paragraph_count'] = newParagraphCount;
       firebase.database().ref().update(updates);
+
+      firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
+        var newClout = (currentClout || 0) + cloutBoost;
+        return newClout;
+      });
 
       loadText(articleID);
 

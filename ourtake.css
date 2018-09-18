@@ -38,11 +38,15 @@ th {
   border-right: 2px solid #000;
 }
 
-.arrow-top {
-  transform: rotate(-45deg);
-}
 .right {
   transform: rotate(45deg);
+}
+
+.arrow-1 {
+    height: 15px; width: 15px;
+    border: 1px solid tomato;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
 }
 
 .arrow-right {

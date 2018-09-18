@@ -36,6 +36,12 @@ function updateUser(userUpdate) {
       // });
       // authDiv.appendChild(cloutCount);
 
+      var howToButton = document.createElement("button");
+      howToButton.className = "topButton";
+      howToButton.innerHTML = "How To Slice"
+      howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+      authDiv.appendChild(howToButton);
+
 
       var cloutButton = document.createElement("button");
       cloutButton.className = "topButton";

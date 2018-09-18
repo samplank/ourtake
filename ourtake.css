@@ -30,6 +30,21 @@ th {
     text-align: 
 }
 
+.arrow {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+.arrow-top {
+  transform: rotate(-45deg);
+}
+.right {
+  transform: rotate(45deg);
+}
+
 .arrow-right {
   width: 0; 
   height: 0; 

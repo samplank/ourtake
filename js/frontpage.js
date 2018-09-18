@@ -61,6 +61,10 @@ function updateUser(userUpdate) {
       rightArrow.className = "arrow-right";
       flowDiv.appendChild(rightArrow);
 
+      var skinnyArrow = document.createElement("span");
+      skinnyArrow.className = "arrow right"
+      flowDiv.appendChild(skinnyArrow);
+
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";
       contribButton.innerHTML = "Contribute";

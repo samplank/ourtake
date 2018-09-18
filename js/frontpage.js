@@ -36,12 +36,6 @@ function updateUser(userUpdate) {
       // });
       // authDiv.appendChild(cloutCount);
 
-      var cloutButton = document.createElement("button");
-      cloutButton.className = "topButton";
-      cloutButton.innerHTML = "Leaderboard";
-      cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-      authDiv.appendChild(cloutButton);
-
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
@@ -50,6 +44,12 @@ function updateUser(userUpdate) {
         firebase.auth().signOut();
       });
       authDiv.appendChild(signOutButton);
+
+      var cloutButton = document.createElement("button");
+      cloutButton.className = "topButton";
+      cloutButton.innerHTML = "Leaderboard";
+      cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
+      authDiv.appendChild(cloutButton);
 
       var howToButton = document.createElement("button");
       howToButton.className = "topButton";

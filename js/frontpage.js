@@ -65,7 +65,7 @@ function updateUser(userUpdate) {
       contribButton.className = "topButton";
       contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
-      flowDiv.appendChild(votecontribButtonButton);
+      flowDiv.appendChild(contribButton);
 
     });
   }

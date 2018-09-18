@@ -57,9 +57,7 @@ function updateUser(userUpdate) {
       voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(voteButton);
-
-      var arrow = document.createElement("img");
-      arrow.src = "https://sliced.us/arrow.jpg";
+      
       flowDiv.appendChild(arrow);
 
       var contribButton = document.createElement("button");

@@ -30,16 +30,13 @@ th {
     text-align: 
 }
 
-i {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
-
-.arrowright {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  
+  border-left: 60px solid green;
 }
 
 /* Style the tab */

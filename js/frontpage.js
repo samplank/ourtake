@@ -44,8 +44,8 @@ function updateUser(userUpdate) {
       earnButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(earnButton);
 
-      var rightArrow = document.createElement("i");
-      rightArrow.className = "arrowright";
+      var rightArrow = document.createElement("div");
+      rightArrow.className = "arrow-right";
       flowDiv.appendChild(rightArrow);
 
     });

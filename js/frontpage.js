@@ -47,8 +47,6 @@ function updateUser(userUpdate) {
       var rightArrow = document.createElement("i");
       rightArrow.className = "arrowright";
       flowDiv.appendChild(rightArrow);
-      <p>Right arrow: <i class="arrow right"></i></p>
-
 
     });
   }

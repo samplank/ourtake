@@ -30,13 +30,6 @@ th {
     text-align: 
 }
 
-.arrow-1 {
-    height: 15px; width: 15px;
-    border: 1px;
-    border-width: 2px 2px 0 0;
-    transform: rotate(45deg);
-}
-
 /* Style the tab */
 .tab {
     font-size: 18px;

@@ -30,32 +30,18 @@ th {
     text-align: 
 }
 
-.arrow {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-top: 2px solid #000;
-  border-right: 2px solid #000;
-}
-
-.right {
-  transform: rotate(45deg);
+.arrowed div {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
 }
 
 .arrow-1 {
     height: 15px; width: 15px;
-    border: 1px solid tomato;
+    border: 1px;
     border-width: 2px 2px 0 0;
     transform: rotate(45deg);
-}
-
-.arrow-right {
-  width: 0; 
-  height: 0; 
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
-  border-left: 25px solid black;
-  margin: 5px;
+    margin: 20px 5px;
 }
 
 /* Style the tab */

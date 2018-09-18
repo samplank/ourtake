@@ -499,8 +499,8 @@ function integrateText(contributionID, articleID, authorUid) {
       var currentParagraphs = article.paragraph_count;
       var newParagraphCount = currentParagraphs + 1;
 
-      var upvotes = article.contributions[contributionID]upvotes;
-      var downvotes = article.contributions[contributionID]downvotes;
+      var upvotes = article.contributions[contributionID].upvotes;
+      var downvotes = article.contributions[contributionID].downvotes;
 
       console.log(upvotes)
       console.log(downvotes)

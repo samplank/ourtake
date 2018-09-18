@@ -107,7 +107,7 @@ th {
 }
 
 .topButton {
-    font-family: Verdana, sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
     font-size: 18px;
     display: inline-block;
     background: white;
@@ -153,7 +153,7 @@ th {
 }
 
 .reviewDetails {
-    font-family: Verdana, sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 #login {
@@ -251,7 +251,7 @@ th {
 }
 
 #newArticleButton {
-    font-family: Verdana, sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
     font-size: 18px;
     display: inline-block;
     background: white;

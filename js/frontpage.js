@@ -128,19 +128,28 @@ function loadArticles() {
 }
 
 function addButton(name) {
-    var contributeButton = document.createElement("button");
 
-    contributeButton.innerHTML = "Add a new article!";
-    contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
-    contributeButton.id = "newArticleButton";
+    if (user) {
+        var userRef = firebase.database().ref('users/' + user.userId);
+        userRef.once("value").then((snapshot) => {
+            userProf = snapshot.val();
+            if (userProf.editor == true) {
+                var contributeButton = document.createElement("button");
 
-    var textDiv = document.getElementById("addArticle");
+                contributeButton.innerHTML = "Add a new article!";
+                contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
+                contributeButton.id = "newArticleButton";
 
-    if (textDiv) {
-    	while (textDiv.firstChild) {
-        textDiv.removeChild(textDiv.firstChild);
-    }
-    textDiv.appendChild(contributeButton);
+                var textDiv = document.getElementById("addArticle");
+
+                if (textDiv) {
+                    while (textDiv.firstChild) {
+                    textDiv.removeChild(textDiv.firstChild);
+                }
+                textDiv.appendChild(contributeButton);
+                }
+            }
+        });
     }
 }
 
@@ -167,7 +176,6 @@ function addTextBox(name) {
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
-    console.log(typeof(name));
     undoButton.setAttribute('onclick','addButton(' + '"' +  name + '"' + ')');
 
     var submitButton = document.createElement("button");

@@ -128,6 +128,7 @@ function loadArticles() {
 }
 
 function addButton(name) {
+    console.log(user);
 
     if (user) {
         var userRef = firebase.database().ref('users/' + user.userId);

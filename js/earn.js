@@ -127,7 +127,6 @@ function loadReview() {
     var urlRef = rootRef.child("posts");
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {
-        n++;
         var contribution = child.val();
         var key = child.key;
         var val = '';
@@ -145,6 +144,7 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
                 contributionArray.push(val);
+                n++
                 console.log(val);
             }
             else {
@@ -159,7 +159,6 @@ function loadReview() {
     waitforArrayLoad();
 
     function waitforArrayLoad() {
-        console.log(contributionArray.length);
         if (contributionArray.length == n && n !== 0) {
 
             var arrayLength = contributionArray.length;

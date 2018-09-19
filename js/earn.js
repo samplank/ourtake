@@ -158,18 +158,18 @@ function loadReview() {
     waitforArrayLoad();
 
     function waitforArrayLoad() {
-        if (articleArray.length == n && n !== 0) {
+        if (contributionArray.length == n && n !== 0) {
 
-            var arrayLength = articleArray.length;
+            var arrayLength = contributionArray.length;
             for (var i = 0; i < arrayLength; i++) {
 
-                var val = articleArray.pop();
+                var val = contributionArray.pop();
 
                 console.log(val);
             }
         }
         else {
-            setTimeout(waitforTitleLoad, 250);
+            setTimeout(waitforArrayLoad, 250);
         }
     }
 }

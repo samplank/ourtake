@@ -136,7 +136,7 @@ function loadReview() {
 
         postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
             val = snapshot.val();
-            // console.log(val);
+            console.log(val);
         });
 
 
@@ -145,6 +145,7 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
                 contributionArray.push(val);
+                console.log(val);
             }
             else {
                 setTimeout(waitForBody, 250);

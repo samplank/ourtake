@@ -101,23 +101,26 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
   </div>
   <h4>
     <p id="contrib0"></p>
-    <form name="form0" action="">
+    <form name="form0" onsubmit="return false">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
+      <input type="submit" value="Submit" onclick="alert('click')">
     </form>
   </h4>
     <h4>
     <p id="contrib1"></p>
-    <form name="form1" action="">
+    <form name="form1" onsubmit="return false">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
+      <input type="submit" value="Submit" onclick="alert('click')">
     </form>
   </h4>
     <h4>
     <p id="contrib2"></p>
-    <form name="form2" action="">
+    <form name="form2" onsubmit="return false">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
+      <input type="submit" value="Submit" onclick="alert('click')">
     </form>
   </h4>
 </div>

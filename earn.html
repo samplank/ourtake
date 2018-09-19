@@ -101,7 +101,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
   </div>
   <h4>
     <p id="contrib0"></p>
-    <form name="form0" onsubmit="alert(value)">
+    <select name="form0" id="form0" onsubmit="getRadioValue('form0')">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
       <input type="submit">
@@ -109,7 +109,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
   </h4>
     <h4>
     <p id="contrib1"></p>
-    <form name="form1" onsubmit="return false">
+    <form name="form1" id="form1" onsubmit="getRadioValue('form1')">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
       <input type="submit" value="Submit" onclick="alert('click')">
@@ -117,12 +117,18 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
   </h4>
     <h4>
     <p id="contrib2"></p>
-    <form name="form2" onsubmit="return false">
+    <form name="form2" id="form2" onsubmit="getRadioValue('form2')">
       <input type="radio" name="quality" value="Ok"> Ok<br>
       <input type="radio" name="quality" value="Toxic"> Toxic<br>
       <input type="submit" value="Submit" onclick="alert('click')">
     </form>
   </h4>
+
+  <div id="rates">
+    <input type="radio" id="r1" name="rate" value="Fixed Rate"> Fixed Rate
+    <input type="radio" id="r2" name="rate" value="Variable Rate"> Variable Rate
+    <input type="radio" id="r3" name="rate" value="Multi Rate" checked="checked"> Multi Rate  
+</div>
 </div>
 
 <script>

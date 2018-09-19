@@ -143,7 +143,7 @@ function loadReview() {
         waitForBody();
 
         function waitForBody() {
-            if (val != '') {
+            if (val != '' && val !== null) {
                 contributionArray.push(val);
             }
             else {

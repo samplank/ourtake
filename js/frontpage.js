@@ -45,7 +45,7 @@ function updateUser(userUpdate) {
       flowDiv.appendChild(earnButton);
 
       var arrow1 = document.createElement("img");
-      arrow1.src = "https://sliced.us/arrow.jpg";
+      // arrow1.src = "https://sliced.us/arrow.jpg";
       arrow1.className = "arrow";
       flowDiv.appendChild(arrow1);
 
@@ -54,20 +54,45 @@ function updateUser(userUpdate) {
 
       var voteButton = document.createElement("button");
       voteButton.className = "topButton";
-      voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+      // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(voteButton);
 
       var arrow2 = document.createElement("img");
-      arrow2.src = "https://sliced.us/arrow.jpg";
+      // arrow2.src = "https://sliced.us/arrow.jpg";
       arrow2.className = "arrow";
       flowDiv.appendChild(arrow2);
 
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";
-      contribButton.innerHTML = "Contribute";
+      // contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
       flowDiv.appendChild(contribButton);
+
+      if (userInfo.credits == 0 && userInfo.votes < 5) {
+        arrow1.src = "https://sliced.us/arrow.jpg"
+        arrow2.src = "https://sliced.us/arrow.jpg"
+        voteButton.disabled = true;
+        contribButton.disabled = true;
+        voteButton.innerHTML = "Vote" + "<br><span style='color:#D3D3D3'>Votes Needed: </span>" + neededVotes;
+        contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+      }
+      else if (userInfo.credits > 0 && userInfo.votes < 5) {
+        arrow1.src = "https://sliced.us/arrow2.jpg"
+        arrow2.src = "https://sliced.us/arrow.jpg"
+        voteButton.disabled = false;
+        contribButton.disabled = true;
+        voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+        contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+      }
+      else if (userInfo.votes >= 5) {
+        arrow1.src = "https://sliced.us/arrow2.jpg"
+        arrow2.src = "https://sliced.us/arrow2.jpg"
+        voteButton.disabled = false;
+        contribButton.disabled = false;
+        voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+        contribButton.innerHTML = "Contribute";
+      }
 
     });
   }

@@ -86,11 +86,12 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
+    loadReview();
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
 
   } else {
-    removeButton();
+    loadReview()
     updateUser(null);
 
     var authDiv = document.getElementById("topright");

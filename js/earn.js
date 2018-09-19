@@ -143,9 +143,11 @@ function loadReview() {
 
         function waitForBody() {
             if (val != '' && val !== null) {
-                contributionArray.push(val);
-                n++
-                console.log(val);
+              for (x in val) {
+                console.log(val[x].body);
+              }
+              contributionArray.push(val);
+              n++
             }
             else {
                 setTimeout(waitForBody, 250);
@@ -166,7 +168,6 @@ function loadReview() {
 
                 var val = contributionArray.pop();
 
-                console.log(val);
             }
         }
         else {

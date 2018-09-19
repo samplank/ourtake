@@ -159,6 +159,7 @@ function loadReview() {
     waitforArrayLoad();
 
     function waitforArrayLoad() {
+        console.log(contributionArray.length);
         if (contributionArray.length == n && n !== 0) {
 
             var arrayLength = contributionArray.length;

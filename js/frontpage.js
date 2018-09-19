@@ -82,7 +82,7 @@ function updateUser(userUpdate) {
         arrow2.src = "https://sliced.us/arrow.jpg"
         voteButton.disabled = false;
         contribButton.disabled = true;
-        voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+        voteButton.innerHTML = "Vote<br>Votes Needed: " + neededVotes;
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
       }
       else if (userInfo.votes >= 5) {

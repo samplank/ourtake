@@ -86,7 +86,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
-    addButton();
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
 

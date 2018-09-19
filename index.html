@@ -101,20 +101,6 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
     updateUser(fbuser);
 
-    // var authDiv = document.getElementById("topright");
-    // while (authDiv.firstChild) {
-    //   authDiv.removeChild(authDiv.firstChild);
-    // }
-
-    // var signOutButton = document.createElement("button");
-    // signOutButton.id = "signOut";
-    // signOutButton.className = "topButton";
-    // signOutButton.innerHTML = fbuser.displayName;
-    // signOutButton.addEventListener('click', function(event) {
-    //   firebase.auth().signOut();
-    // });
-    // authDiv.appendChild(signOutButton);
-
   } else {
     removeButton();
     loadArticles();

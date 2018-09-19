@@ -41,7 +41,7 @@ function updateUser(userUpdate) {
       var earnButton = document.createElement("button");
       earnButton.className = "topButton";
       earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
-      earnButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
       flowDiv.appendChild(earnButton);
 
       var arrow1 = document.createElement("img");

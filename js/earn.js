@@ -136,7 +136,7 @@ function loadReview() {
 
         postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
             val = snapshot.val();
-            console.log(val);
+            // console.log(val);
         });
 
 
@@ -155,7 +155,7 @@ function loadReview() {
 
     });
 
-    waitforTitleLoad();
+    waitforArrayLoad();
 
     function waitforArrayLoad() {
         if (articleArray.length == n && n !== 0) {

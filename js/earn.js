@@ -145,7 +145,6 @@ function loadReview() {
         function waitForBody() {
             if (val != '') {
                 contributionArray.push(val);
-                console.log(val);
             }
             else {
                 setTimeout(waitForBody, 250);
@@ -155,5 +154,23 @@ function loadReview() {
       });
 
     });
+
+    waitforTitleLoad();
+
+    function waitforArrayLoad() {
+        if (articleArray.length == n && n !== 0) {
+
+            var arrayLength = articleArray.length;
+            for (var i = 0; i < arrayLength; i++) {
+
+                var val = articleArray.pop();
+
+                console.log(val);
+            }
+        }
+        else {
+            setTimeout(waitforTitleLoad, 250);
+        }
+    }
 }
 

@@ -169,6 +169,8 @@ function loadReview() {
             for (var i = 0; i < 3; i++) {
 
                 var contrib = shuffledArray.pop();
+                console.log(contrib);
+                console.log(i);
 
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;

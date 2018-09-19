@@ -170,20 +170,8 @@ function loadReview() {
 
                 var contrib = shuffledArray.pop();
 
-                var reviewContainer = document.createElement("h4");
+                var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;
-                readSpace.appendChild(reviewContainer);
-
-                var qualityButton = document.createElement("input");
-                qualityButton.setAttribute("type", "radio");
-                qualityButton.setAttribute("name", "Ok");
-
-                var notQualityButton = document.createElement("input");
-                notQualityButton.setAttribute("type", "radio");
-                notQualityButton.setAttribute("name", "Toxic");
-
-                reviewContainer.appendChild(qualityButton);
-                reviewContainer.appendChild(notQualityButton);
 
             }
         }

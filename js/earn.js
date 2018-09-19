@@ -144,10 +144,9 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                console.log(val[x].body);
+                contributionArray.push(val[x]);
+                n++
               }
-              contributionArray.push(val);
-              n++
             }
             else {
                 setTimeout(waitForBody, 250);
@@ -163,10 +162,16 @@ function loadReview() {
     function waitforArrayLoad() {
         if (contributionArray.length == n && n !== 0) {
 
+            var readSpace = document.getElementById("readcontainer");
+
             var arrayLength = contributionArray.length;
             for (var i = 0; i < arrayLength; i++) {
 
-                var val = contributionArray.pop();
+                var contrib = contributionArray.pop();
+
+                var reviewContainer = document.createElement("h4");
+                reviewContainer.innerHTML = contrib.body;
+                readSpace.appendChild(reviewContainer);
 
             }
         }

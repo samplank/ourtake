@@ -136,6 +136,7 @@ function loadReview() {
 
         postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
             val = snapshot.val();
+            console.log(val);
         });
 
 

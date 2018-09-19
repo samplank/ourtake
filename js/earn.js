@@ -130,6 +130,7 @@ function loadReview() {
         n++;
         var contribution = child.val();
         var key = child.key;
+        var val;
 
         postRef = urlRef.child(String(key));
 

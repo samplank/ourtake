@@ -164,10 +164,11 @@ function loadReview() {
 
             var readSpace = document.getElementById("readcontainer");
 
-            var arrayLength = contributionArray.length;
-            for (var i = 0; i < arrayLength; i++) {
+            var shuffledArray = shuffle(contributionArray);
 
-                var contrib = contributionArray.pop();
+            for (var i = 0; i <= 3; i++) {
+
+                var contrib = shuffledArray.pop();
 
                 var reviewContainer = document.createElement("h4");
                 reviewContainer.innerHTML = contrib.body;
@@ -179,5 +180,24 @@ function loadReview() {
             setTimeout(waitforArrayLoad, 250);
         }
     }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 

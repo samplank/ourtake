@@ -144,7 +144,7 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                contributionArray.push([x, val[x]]);
+                contributionArray.push([key, x, val[x]]);
                 n++
               }
             }
@@ -170,7 +170,7 @@ function loadReview() {
 
                 var pair = shuffledArray.pop();
                 console.log(pair);
-                var contrib = pair[1];
+                var contrib = pair[2];
                 console.log(contrib);
 
                 var reviewContainer = document.getElementById("contrib" + String(i))
@@ -182,7 +182,7 @@ function loadReview() {
                 Array.from(radioButtons).forEach(
                   function(currentValue, currentIndex, listObj) { 
                     console.log(currentValue);
-                    currentValue.name = pair[0]; 
+                    currentValue.name = [pair[0],pair[1]]; 
                   }
                 )
 
@@ -251,11 +251,8 @@ function getRadioValues() {
     alert("You must review all contributions");
   }
 
-  console.log(checkedValue0);
-  console.log(key0);
-  console.log(checkedValue1);
-  console.log(key1);
-  console.log(checkedValue2);
-  console.log(key2);
+  firebase.database().ref('posts/' + user.uid).once('value').then(function(snapshot) {
+
+  });
 }
 

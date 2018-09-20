@@ -180,6 +180,7 @@ function loadReview() {
                 console.log(radioButtons);
                 radioButtons.forEach(
                   function(currentValue, currentIndex, listObj) { 
+                    console.log(currentValue);
                     currentValue.name = pair[0]; 
                   }
                 )

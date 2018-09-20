@@ -297,12 +297,12 @@ function getRadioValues() {
     }
 
 
-    updates['posts/' + article0 + '/' + contrib0 + '/reviewct'] = newReviewct0;
-    updates['posts/' + article0 + '/' + contrib0 + '/toxicct'] = newToxicct0;
-    updates['posts/' + article1 + '/' + contrib1 + '/reviewct'] = newReviewct1;
-    updates['posts/' + article1 + '/' + contrib1 + '/toxicct'] = newToxicct1;
-    updates['posts/' + article2 + '/' + contrib2 + '/reviewct'] = newReviewct2;
-    updates['posts/' + article2 + '/' + contrib2 + '/toxicct'] = newToxicct2;
+    updates['posts/' + article0 + '/contributions/' + contrib0 + '/reviewct'] = newReviewct0;
+    updates['posts/' + article0 + '/contributions/' + contrib0 + '/toxicct'] = newToxicct0;
+    updates['posts/' + article1 + '/contributions/' + contrib1 + '/reviewct'] = newReviewct1;
+    updates['posts/' + article1 + '/contributions/' + contrib1 + '/toxicct'] = newToxicct1;
+    updates['posts/' + article2 + '/contributions/' + contrib2 + '/reviewct'] = newReviewct2;
+    updates['posts/' + article2 + '/contributions/' + contrib2 + '/toxicct'] = newToxicct2;
 
     firebase.database().ref().update(updates);
   });

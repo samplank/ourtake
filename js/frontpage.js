@@ -11,6 +11,7 @@ function updateUser(userUpdate) {
       var userInfo;
       firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
         userInfo = snapshot.val();
+        console.log(userInfo);
       });
 
       if (userInfo) {

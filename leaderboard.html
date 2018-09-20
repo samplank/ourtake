@@ -115,6 +115,12 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
         authDiv.removeChild(authDiv.firstChild);
         }
 
+      var leftDiv = document.getElementById("topleft");
+
+      while (leftDiv.firstChild) {
+        leftDiv.removeChild(leftDiv.firstChild);
+      }
+
       var signInButton = document.createElement("div");
       signInButton.id = "firebaseui-auth-container";
       authDiv.appendChild(signInButton);

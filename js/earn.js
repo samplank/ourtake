@@ -215,11 +215,19 @@ function shuffle(array) {
 
 function getRadioValues() {
   var checkedValue0;
-  var key0 = document.getElementById('contribreview0r0').name;
+  var key0 = document.getElementById('contribreview0r0').name.split(",");
+  var article0 = key0[0];
+  var contrib0 = key0[1];
+  console.log(article0);
+  console.log(contrib0);
   var checkedValue1;
-  var key1 = document.getElementById('contribreview1r0').name;
+  var key1 = document.getElementById('contribreview1r0').name.split(",");
+  var article1 = key1[0];
+  var contrib1 = key1[1];
   var checkedValue2;
-  var key2 = document.getElementById('contribreview2r0').name;
+  var key2 = document.getElementById('contribreview2r0').name.split(",");
+  var article2 = key2[0];
+  var contrib2 = key2[1];
 
   if (document.getElementById('contribreview0r0').checked) {
     checkedValue0 = document.getElementById('contribreview0r0').value;

@@ -221,10 +221,7 @@ function loadText(articleID) {
                 var reviewInfoName = document.createElement("p");
                 reviewInfoName.className = "reviewDetails";
                 reviewInfoName.innerHTML = "<i>Author</i>: " + contribution.author + " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes;;
-                // var reviewInfoDateVotes = document.createElement("p");
-                // reviewInfoDateVotes.innerHTML = " <i>Upvotes</i>: " + contribution.upvotes + " <i>Downvotes</i>: " + contribution.downvotes; 
                 newReviewPara.appendChild(reviewInfoName);
-                // newReviewPara.appendChild(reviewInfoDateVotes);
                 review.appendChild(newReviewPara);
 
                 //only show the last three paragraphs.

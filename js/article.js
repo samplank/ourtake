@@ -240,22 +240,8 @@ function loadText(articleID) {
                     existingContributions.appendChild(newlineDiv);
 
                   }
-
-                i++;
             }
           });
-          if (!user){
-            var contributeAlert = document.createElement("p");
-            contributeAlert.innerHTML = "Sign In to Contribute!"
-            contribute.appendChild(contributeAlert);
-          }
-          else {
-            var instructions = document.createElement("p");
-            console.log(i);
-            instructions.innerHTML = "Vote on existing contributions to the article. If something is missing, write your own!";
-            instructions.id = "instructions";
-            instructionsSpace.appendChild(instructions);
-          }
         });
 
         var rootRef = firebase.database().ref();
@@ -293,6 +279,25 @@ function loadText(articleID) {
                 i++;
             }
           });
+          if (!user){
+            var contributeAlert = document.createElement("p");
+            contributeAlert.innerHTML = "Sign In to Contribute!"
+            contribute.appendChild(contributeAlert);
+          }
+          else {
+            var instructions = document.createElement("p");
+            console.log(i);
+            if (i > 0){
+              instructions.innerHTML = "Vote on existing contributions to the article. If something is missing, write your own!";
+            }
+            else if (i == 0) {
+              instructions.innerHTML = "There are no active contributions. Write your own!";
+            }
+            instructions.id = "instructions";
+            instructionsSpace.appendChild(instructions);
+          }
+
+          }
           if (user) {
             addButton(i,articleID);
           }

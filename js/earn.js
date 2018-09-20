@@ -296,6 +296,7 @@ function getRadioValues() {
       var newToxicct2 = contribution2toxicct;
     }
 
+    var updates = {};
 
     updates['posts/' + article0 + '/contributions/' + contrib0 + '/reviewct'] = newReviewct0;
     updates['posts/' + article0 + '/contributions/' + contrib0 + '/toxicct'] = newToxicct0;

@@ -208,24 +208,24 @@ function getRadioValues() {
   var checkedValue2;
 
   if (document.getElementById('contribreview0r0').checked) {
-    checkedValue = document.getElementById('contribreview0r0').value;
+    checkedValue0 = document.getElementById('contribreview0r0').value;
   }
   else if (document.getElementById('contribreview0r1').checked) {
-    checkedValue = document.getElementById('contribreview0r1').value;
+    checkedValue0 = document.getElementById('contribreview0r1').value;
   }
 
   if (document.getElementById('contribreview1r0').checked) {
-    checkedValue = document.getElementById('contribreview1r0').value;
+    checkedValue1 = document.getElementById('contribreview1r0').value;
   }
   else if (document.getElementById('contribreview1r1').checked) {
-    checkedValue = document.getElementById('contribreview1r1').value;
+    checkedValue1 = document.getElementById('contribreview1r1').value;
   }
 
   if (document.getElementById('contribreview2r0').checked) {
-    checkedValue = document.getElementById('contribreview2r0').value;
+    checkedValue2 = document.getElementById('contribreview2r0').value;
   }
   else if (document.getElementById('contribreview2r1').checked) {
-    checkedValue = document.getElementById('contribreview2r1').value;
+    checkedValue2 = document.getElementById('contribreview2r1').value;
   }
 
   console.log(checkedValue0);

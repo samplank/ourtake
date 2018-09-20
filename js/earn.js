@@ -206,6 +206,9 @@ function shuffle(array) {
 }
 
 function getRadioValues() {
+  var postUpdateComplete = false;
+  var creditUpdateComplete = false;
+
   var checkedValue0;
   var key0 = document.getElementById('contribreview0r0').name.split(",");
   var article0 = key0[0];

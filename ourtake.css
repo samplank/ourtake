@@ -26,8 +26,8 @@ h4 {
     /*margin: 25px;*/
 }
 
-th {
-    text-align: 
+thead {
+    text-align: left; 
 }
 
 /* Style the tab */

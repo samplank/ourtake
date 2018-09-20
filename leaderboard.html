@@ -126,6 +126,13 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
       authDiv.appendChild(signInButton);
       ui.start('#firebaseui-auth-container', uiConfig);
 
+      var howToButton = document.createElement("button");
+      howToButton.className = "topButton";
+      howToButton.innerHTML = "How To Slice"
+      howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+      leftDiv.appendChild(leftDiv);
+
+
     }
   });
   </script>

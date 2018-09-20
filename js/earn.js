@@ -178,7 +178,7 @@ function loadReview() {
 
                 var radioButtonDiv = document.getElementById("contribreview" + String(i));
                 for (radioButton in radioButtonDiv.childNodes) {
-                  radioButton.setAttribute("name", pair[0]);
+                  radioButton.name = pair[0];
                 }
 
             }

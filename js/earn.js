@@ -178,10 +178,11 @@ function loadReview() {
 
                 var radioButtons = document.getElementsByName("contribreview" + String(i) + "s");
                 console.log(radioButtons);
-                for (radioButton in radioButtons) {
-                  console.log(radioButton);
-                  radioButton.name = pair[0];
-                }
+                radioButtons.forEach(
+                  function(currentValue, currentIndex, listObj) { 
+                    currentValue.name = pair[0]; 
+                  }
+                )
 
             }
         }

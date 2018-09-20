@@ -208,7 +208,7 @@ function loadText(articleID) {
             var key = child.key;
 
             var dateTimestamp = new Date(contribution.timestamp);
-            var countDownDate = dateTimestamp.addHours(3).getTime();
+            var countDownDate = dateTimestamp.addHours(24).getTime();
             var subtext = document.createElement("div");
 
             var now = new Date().getTime();

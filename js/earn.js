@@ -304,16 +304,14 @@ function getRadioValues() {
 
       firebase.database().ref().update(updates);
 
-      var postUpdateComplete = true;
-      console.log("postDone");
+      postUpdateComplete = true;
 
     });
 
     firebase.database().ref('users/' + user.uid + '/credits').transaction(function(currentCredits) {
       var newValue = (currentCredits || 0) + 5;
 
-      var creditUpdateComplete = true;
-      console.log("creditDone");
+      creditUpdateComplete = true;
       return newValue;
     });
 

@@ -5,16 +5,21 @@ function writeUserData(userId, name, email) {
 
   userRef.once("value").then((snapshot) => {
     if (snapshot.exists()) { 
+      
+      console.log("exists");
     } else {
+      console.log("new user");
       firebase.database().ref('users/' + userId).set({
       username: name,
       email: email,
-      clout: 0,
-      credits: 5,
-      votes: 0
+        clout: 0,
+        credits: 5,
+        votes: 0,
+        editor: false
     });
     }
   });
+  console.log("update received");
 }
 
 function updateUser(userUpdate) {

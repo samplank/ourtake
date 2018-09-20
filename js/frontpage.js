@@ -287,7 +287,8 @@ function writeUserData(userId, name, email) {
 	    email: email,
         clout: 0,
         credits: 5,
-        votes: 0
+        votes: 0,
+        editor: false
 		});
 	  }
 	});

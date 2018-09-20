@@ -366,7 +366,7 @@ function submitText(i,articleID) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0);
 
             loadText(articleID);
             var updates = {};
@@ -600,7 +600,7 @@ function removeText(contributionID, articleID) {
 }
 
 
-function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID) {
+function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct) {
   // A post entry.
   var contributionData = {
     body: body,
@@ -609,7 +609,9 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
     accepted: accepted,
     author: author,
     uid: uid,
-    timestamp: timestamp
+    timestamp: timestamp,
+    reviewct: reviewct,
+    toxicct: toxicct
   };
 
   // Get a key for a new Post.

@@ -213,6 +213,9 @@ function getRadioValues() {
   else if (document.getElementById('contribreview0r1').checked) {
     checkedValue0 = document.getElementById('contribreview0r1').value;
   }
+  else {
+    alert("You must review all contributions");
+  }
 
   if (document.getElementById('contribreview1r0').checked) {
     checkedValue1 = document.getElementById('contribreview1r0').value;
@@ -220,12 +223,18 @@ function getRadioValues() {
   else if (document.getElementById('contribreview1r1').checked) {
     checkedValue1 = document.getElementById('contribreview1r1').value;
   }
+  else {
+    alert("You must review all contributions");
+  }
 
   if (document.getElementById('contribreview2r0').checked) {
     checkedValue2 = document.getElementById('contribreview2r0').value;
   }
   else if (document.getElementById('contribreview2r1').checked) {
     checkedValue2 = document.getElementById('contribreview2r1').value;
+  }
+  else {
+    alert("You must review all contributions");
   }
 
   console.log(checkedValue0);

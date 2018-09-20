@@ -170,31 +170,37 @@ function loadArticles() {
 }
 
 function addButton(name) {
-    console.log(user);
 
-    if (user) {
-        var userRef = firebase.database().ref('users/' + user.uid);
-        console.log(userRef);
-        userRef.once("value").then((snapshot) => {
-            userProf = snapshot.val();
-            console.log(userProf);
-            if (userProf.editor == true) {
-                var contributeButton = document.createElement("button");
+    waitForRef();
 
-                contributeButton.innerHTML = "Add a new article!";
-                contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
-                contributeButton.id = "newArticleButton";
+    function waitForRef() {
+        if (firebase.database().ref('users/' + user.uid)) {
+            var userRef = firebase.database().ref('users/' + user.uid);
+            console.log(userRef);
+            userRef.once("value").then((snapshot) => {
+                userProf = snapshot.val();
+                console.log(userProf);
+                if (userProf.editor == true) {
+                    var contributeButton = document.createElement("button");
 
-                var textDiv = document.getElementById("addArticle");
+                    contributeButton.innerHTML = "Add a new article!";
+                    contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
+                    contributeButton.id = "newArticleButton";
 
-                if (textDiv) {
-                    while (textDiv.firstChild) {
-                    textDiv.removeChild(textDiv.firstChild);
+                    var textDiv = document.getElementById("addArticle");
+
+                    if (textDiv) {
+                        while (textDiv.firstChild) {
+                        textDiv.removeChild(textDiv.firstChild);
+                    }
+                    textDiv.appendChild(contributeButton);
+                    }
                 }
-                textDiv.appendChild(contributeButton);
-                }
-            }
-        });
+            });
+        }
+        else {
+            setTimeout(waitForRef, 250);
+        }
     }
 }
 

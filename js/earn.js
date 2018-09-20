@@ -176,6 +176,11 @@ function loadReview() {
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;
 
+                var radioButtonDiv = document.getElementById("contribreview" + String(i));
+                for (radioButton in radioButtonDiv.childNodes) {
+                  radioButton.setAttribute("name", pair[0]);
+                }
+
             }
         }
         else {
@@ -205,8 +210,11 @@ function shuffle(array) {
 
 function getRadioValues() {
   var checkedValue0;
+  var key0 = document.getElementById('contribreview0r0').name;
   var checkedValue1;
+  var key1 = document.getElementById('contribreview1r0').name;
   var checkedValue2;
+  var key2 = document.getElementById('contribreview2r0').name;
 
   if (document.getElementById('contribreview0r0').checked) {
     checkedValue0 = document.getElementById('contribreview0r0').value;

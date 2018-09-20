@@ -6,6 +6,7 @@ function updateUser(userUpdate) {
     waitForRef();
 
     function waitForRef() {
+      console.log('HIT');
 
       var userInfo;
       firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {

@@ -207,5 +207,3 @@ function getRadioValue(formname) {
   console.log(checkedButton);
 }
 
-}
-

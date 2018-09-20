@@ -305,6 +305,7 @@ function getRadioValues() {
       firebase.database().ref().update(updates);
 
       var postUpdateComplete = true;
+      console.log("postDone");
 
     });
 
@@ -312,14 +313,13 @@ function getRadioValues() {
       var newValue = (currentCredits || 0) + 5;
 
       var creditUpdateComplete = true;
+      console.log("creditDone");
       return newValue;
     });
 
     waitForUpdates();
 
     function waitForUpdates () {
-      console.log(postUpdateComplete);
-      console.log(creditUpdateComplete);
       if (postUpdateComplete && creditUpdateComplete) {
         window.location.replace("https://sliced.us");
       }

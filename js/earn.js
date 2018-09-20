@@ -301,17 +301,27 @@ function getRadioValues() {
 
       firebase.database().ref().update(updates);
 
+      var postUpdateComplete = true;
+
     });
 
     firebase.database().ref('users/' + user.uid + '/credits').transaction(function(currentCredits) {
       var newValue = (currentCredits || 0) + 5;
+
+      var creditUpdateComplete = true;
       return newValue;
     });
 
-    window.location.replace("https://sliced.us");
+    waitForUpdates();
 
-
-
+    function waitForUpdates () {
+      if (postUpdateComplete && creditUpdateComplete) {
+        window.location.replace("https://sliced.us");
+      }
+      else {
+        setTimeout(waitForUpdates, 250);
+      }
+    }
   }
 }
 

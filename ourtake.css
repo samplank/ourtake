@@ -30,6 +30,14 @@ thead {
     text-align: left; 
 }
 
+th {
+    padding:0 15px 0 15px;
+}
+
+tr {
+    padding:0 15px 0 15px;
+}
+
 /* Style the tab */
 .tab {
     font-size: 18px;

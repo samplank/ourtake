@@ -99,36 +99,31 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
       </p>
     </div>
   </div>
-<!--   <h4>
+  <h4>
     <p id="contrib0"></p>
-    <select name="form0" id="form0" onsubmit="getRadioValue('form0')">
-      <input type="radio" name="quality" value="Ok"> Ok<br>
-      <input type="radio" name="quality" value="Toxic"> Toxic<br>
-      <input type="submit">
-    </form>
+    <div id="contribreview0">
+      <input type="radio" id="r1" name="Ok" value="Ok"> Ok
+      <input type="radio" id="r2" name="Toxic" value="Toxic"> Toxic
+      <input type="submit" onclick="getRadioValue('contribreview0')">
+    </div>
   </h4>
     <h4>
     <p id="contrib1"></p>
-    <form name="form1" id="form1" onsubmit="getRadioValue('form1')">
-      <input type="radio" name="quality" value="Ok"> Ok<br>
-      <input type="radio" name="quality" value="Toxic"> Toxic<br>
-      <input type="submit" value="Submit" onclick="alert('click')">
-    </form>
+    <div id="contribreview1">
+      <input type="radio" id="r1" name="Ok" value="Ok"> Ok
+      <input type="radio" id="r2" name="Toxic" value="Toxic"> Toxic
+      <input type="submit" onclick="getRadioValue('contribreview1')"> 
+    </div>
   </h4>
     <h4>
     <p id="contrib2"></p>
-    <form name="form2" id="form2" onsubmit="getRadioValue('form2')">
-      <input type="radio" name="quality" value="Ok"> Ok<br>
-      <input type="radio" name="quality" value="Toxic"> Toxic<br>
-      <input type="submit" value="Submit" onclick="alert('click')">
-    </form>
-  </h4> -->
+    <div id="contribreview2">
+      <input type="radio" id="r1" name="Ok" value="Ok"> Ok
+      <input type="radio" id="r2" name="Toxic" value="Toxic"> Toxic
+      <input type="submit" onclick="getRadioValue('contribreview2')">
+    </div>
+  </h4>
 
-  <div id="rates">
-    <input type="radio" id="r1" name="rate" value="Fixed Rate"> Fixed Rate
-    <input type="radio" id="r2" name="rate" value="Variable Rate"> Variable Rate
-    <input type="radio" id="r3" name="rate" value="Multi Rate" checked="checked"> Multi Rate  
-</div>
 </div>
 
 <script>

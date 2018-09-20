@@ -202,11 +202,10 @@ function shuffle(array) {
   return array;
 }
 
-// function getRadioValue(formname) {
-//   var form = document.getElementById(formname);
-//   if (document.getElementById('r1').checked) {
-//   rate_value = document.getElementById('r1').value;
-// }
+function getRadioValue(formname) {
+  var checkedButton = document.querySelector('input[name=' + formname + '][checked]')
+  console.log(checkedButton);
+}
 
 }
 

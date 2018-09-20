@@ -144,7 +144,7 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                contributionArray.push(val[x]);
+                contributionArray.push([x, val[x]]);
                 n++
               }
             }
@@ -168,9 +168,10 @@ function loadReview() {
 
             for (var i = 0; i < 3; i++) {
 
-                var contrib = shuffledArray.pop();
+                var pair = shuffledArray.pop();
+                console.log(pair);
+                var contrib = pair[1];
                 console.log(contrib);
-                console.log(i);
 
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;

@@ -175,6 +175,7 @@ function addButton(name) {
         var userRef = firebase.database().ref('users/' + user.uid);
         userRef.once("value").then((snapshot) => {
             userProf = snapshot.val();
+            console.log(userProf);
             if (userProf.editor == true) {
                 var contributeButton = document.createElement("button");
 

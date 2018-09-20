@@ -30,13 +30,13 @@ thead {
     text-align: left; 
 }
 
-th {
+/*th {
     padding:0 15px 0 15px;
 }
 
 tr {
     padding:0 15px 0 15px;
-}
+}*/
 
 /* Style the tab */
 .tab {

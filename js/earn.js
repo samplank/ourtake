@@ -251,6 +251,7 @@ function getRadioValues() {
     alert("You must review all contributions");
   }
 
+  console.log(key0);
   firebase.database().ref('posts/' + user.uid).once('value').then(function(snapshot) {
 
   });

@@ -247,7 +247,10 @@ function getRadioValues() {
   }
 
   console.log(checkedValue0);
+  console.log(key0);
   console.log(checkedValue1);
+  console.log(key1);
   console.log(checkedValue2);
+  console.log(key2);
 }
 

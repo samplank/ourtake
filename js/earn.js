@@ -176,10 +176,8 @@ function loadReview() {
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;
 
-                var radioButtonDiv = document.getElementById("contribreview" + String(i));
-                console.log(radioButtonDiv.getElementsByTagName("input"));
-                console.log(radioButtonDiv);
-                for (radioButton in radioButtonDiv.children) {
+                var radioButtons = document.getElementsByName("contribreview" + String(i) + "s");
+                for (radioButton in radioButtons) {
                   console.log(radioButton);
                   radioButton.name = pair[0];
                 }

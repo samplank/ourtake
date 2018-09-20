@@ -3,12 +3,12 @@ var user = null;
 function updateUser(userUpdate) {
     user = userUpdate;
     console.log(user);
+    var userInfo;
 
     waitForRef();
 
     function waitForRef() {
 
-      var userInfo;
       firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
         userInfo = snapshot.val();
         console.log(userInfo);

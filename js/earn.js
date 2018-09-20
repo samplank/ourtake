@@ -104,9 +104,7 @@ function writeUserData(userId, name, email) {
   userRef.once("value").then((snapshot) => {
     if (snapshot.exists()) { 
       
-      console.log("exists");
     } else {
-      console.log("new user");
       firebase.database().ref('users/' + userId).set({
       username: name,
       email: email,
@@ -116,7 +114,6 @@ function writeUserData(userId, name, email) {
     });
     }
   });
-  console.log("update received");
 }
 
 function loadReview() {
@@ -135,7 +132,6 @@ function loadReview() {
 
         postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
             val = snapshot.val();
-            console.log(val);
         });
 
 
@@ -169,19 +165,15 @@ function loadReview() {
             for (var i = 0; i < 3; i++) {
 
                 var pair = shuffledArray.pop();
-                console.log(pair);
                 var contrib = pair[2];
-                console.log(contrib);
 
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;
 
 
                 var radioButtons = document.getElementsByName("contribreview" + String(i) + "s");
-                console.log(Array.from(radioButtons));
                 Array.from(radioButtons).forEach(
                   function(currentValue, currentIndex, listObj) { 
-                    console.log(currentValue);
                     currentValue.name = [pair[0],pair[1]]; 
                   }
                 )

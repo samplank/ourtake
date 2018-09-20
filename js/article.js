@@ -297,7 +297,7 @@ function loadText(articleID) {
             instructionsSpace.appendChild(instructions);
           }
 
-          }
+          
           if (user) {
             addButton(i,articleID);
           }

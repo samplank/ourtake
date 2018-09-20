@@ -224,7 +224,7 @@ function loadText(articleID) {
                 newReviewPara.appendChild(reviewInfoName);
                 review.appendChild(newReviewPara);
 
-                //only show the last three paragraphs.
+                //only show the last paragraph.
                 if (user && contribution.paragraph_number > (paragraph_count - 1)){
 
                     var newContributePara = document.createElement("p");
@@ -251,6 +251,7 @@ function loadText(articleID) {
           }
           else {
             var instructions = document.createElement("p");
+            console.log(i);
             instructions.innerHTML = "Vote on existing contributions to the article. If something is missing, write your own!";
             instructions.id = "instructions";
             instructionsSpace.appendChild(instructions);

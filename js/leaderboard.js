@@ -21,18 +21,18 @@ function updateUser(userUpdate) {
   user = userUpdate;
 
   if (user) {
-    firebase.database().ref('users/' + user.uid + '/clout').once('value').then(function(snapshot) {
+    firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
+      userInfo = snapshot.val();
 
       var authDiv = document.getElementById("topright");
       while (authDiv.firstChild) {
         authDiv.removeChild(authDiv.firstChild);
       }
 
-
       var signOutButton = document.createElement("button");
       signOutButton.id = "signOut";
       signOutButton.className = "topButton";
-      signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + snapshot.val();
+      signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
       signOutButton.addEventListener('click', function(event) {
         firebase.auth().signOut();
       });
@@ -49,6 +49,67 @@ function updateUser(userUpdate) {
       howToButton.innerHTML = "How To Slice"
       howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
       authDiv.appendChild(howToButton);
+
+      var flowDiv = document.getElementById("topleft");
+      while (flowDiv.firstChild) {
+          flowDiv.removeChild(flowDiv.firstChild);
+      }
+
+      var earnButton = document.createElement("button");
+      earnButton.className = "topButton";
+      earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
+      earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
+      flowDiv.appendChild(earnButton);
+
+      var arrow1 = document.createElement("img");
+      // arrow1.src = "https://sliced.us/arrow.jpg";
+      arrow1.className = "arrow";
+      flowDiv.appendChild(arrow1);
+
+      var neededVotes = 5 - userInfo.votes;
+      neededVotes = neededVotes < 0 ? 0 : neededVotes;
+
+      var voteButton = document.createElement("button");
+      voteButton.className = "topButton";
+      // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+      voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      flowDiv.appendChild(voteButton);
+
+      var arrow2 = document.createElement("img");
+      // arrow2.src = "https://sliced.us/arrow.jpg";
+      arrow2.className = "arrow";
+      flowDiv.appendChild(arrow2);
+
+      var contribButton = document.createElement("button");
+      contribButton.className = "topButton";
+      // contribButton.innerHTML = "Contribute";
+      contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      flowDiv.appendChild(contribButton);
+
+      if (userInfo.credits == 0 && userInfo.votes < 5) {
+        arrow1.src = "https://sliced.us/arrow.jpg"
+        arrow2.src = "https://sliced.us/arrow.jpg"
+        voteButton.disabled = true;
+        contribButton.disabled = true;
+        voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote<br>Votes Needed: " + neededVotes + "</span>";
+        contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+      }
+      else if (userInfo.credits > 0 && userInfo.votes < 5) {
+        arrow1.src = "https://sliced.us/arrow2.jpg"
+        arrow2.src = "https://sliced.us/arrow.jpg"
+        voteButton.disabled = false;
+        contribButton.disabled = true;
+        voteButton.innerHTML = "Vote <br> Votes Needed: " + neededVotes;
+        contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+      }
+      else if (userInfo.votes >= 5) {
+        arrow1.src = "https://sliced.us/arrow2.jpg"
+        arrow2.src = "https://sliced.us/arrow2.jpg"
+        voteButton.disabled = false;
+        contribButton.disabled = false;
+        voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
+        contribButton.innerHTML = "Contribute";
+      }
 
     });
   }

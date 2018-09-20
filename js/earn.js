@@ -178,6 +178,7 @@ function loadReview() {
 
                 var radioButtonDiv = document.getElementById("contribreview" + String(i));
                 for (radioButton in radioButtonDiv.childNodes) {
+                  console.log(radioButton);
                   radioButton.name = pair[0];
                 }
 

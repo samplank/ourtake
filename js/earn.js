@@ -264,11 +264,11 @@ function getRadioValues() {
     contribution0reviewct = contribution0.reviewct;
     contribution0toxicct = contribution0.toxicct;
 
-    contribution1 = val[article1].contributions[contribution1];
+    contribution1 = val[article1].contributions[contrib1];
     contribution1reviewct = contribution1.reviewct;
     contribution1toxicct = contribution1.toxicct;
 
-    contribution2 = val[article2].contributions[contribution2];
+    contribution2 = val[article2].contributions[contrib2];
     contribution2reviewct = contribution2.reviewct;
     contribution2toxicct = contribution2.toxicct;
 

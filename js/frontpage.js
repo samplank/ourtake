@@ -166,6 +166,7 @@ function loadArticles() {
             setTimeout(waitforTitleLoad, 250);
         }
     }
+    addButton();
 }
 
 function addButton(name) {

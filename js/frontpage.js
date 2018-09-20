@@ -171,7 +171,9 @@ function loadArticles() {
 
 function addButton(name) {
 
-    waitForRef();
+    if (user) {
+        waitForRef();
+    }
 
     function waitForRef() {
         if (firebase.database().ref('users/' + user.uid)) {

@@ -257,55 +257,69 @@ function getRadioValues() {
     alert("You must review all contributions");
   }
 
-  firebase.database().ref('posts').once('value').then(function(snapshot) {
-    val = snapshot.val();
+  if (checkedValue0 && checkedValue1 && checkedValue2) {
+    firebase.database().ref('posts').once('value').then(function(snapshot) {
 
-    contribution0 = val[article0].contributions[contrib0];
-    contribution0reviewct = contribution0.reviewct;
-    contribution0toxicct = contribution0.toxicct;
+      val = snapshot.val();
 
-    contribution1 = val[article1].contributions[contrib1];
-    contribution1reviewct = contribution1.reviewct;
-    contribution1toxicct = contribution1.toxicct;
+      contribution0 = val[article0].contributions[contrib0];
+      contribution0reviewct = contribution0.reviewct;
+      contribution0toxicct = contribution0.toxicct;
 
-    contribution2 = val[article2].contributions[contrib2];
-    contribution2reviewct = contribution2.reviewct;
-    contribution2toxicct = contribution2.toxicct;
+      contribution1 = val[article1].contributions[contrib1];
+      contribution1reviewct = contribution1.reviewct;
+      contribution1toxicct = contribution1.toxicct;
 
-    var newReviewct0 = contribution0reviewct + 1;
-    if (checkedValue0 == "Toxic") {
-      var newToxicct0 = contribution0toxicct + 1;
-    }
-    else {
-      var newToxicct0 = contribution0toxicct;
-    }
+      contribution2 = val[article2].contributions[contrib2];
+      contribution2reviewct = contribution2.reviewct;
+      contribution2toxicct = contribution2.toxicct;
 
-    var newReviewct1 = contribution1reviewct + 1;
-    if (checkedValue1 == "Toxic") {
-      var newToxicct1 = contribution1toxicct + 1;
-    }
-    else {
-      var newToxicct1 = contribution1toxicct;
-    }
+      var newReviewct0 = contribution0reviewct + 1;
+      if (checkedValue0 == "Toxic") {
+        var newToxicct0 = contribution0toxicct + 1;
+      }
+      else {
+        var newToxicct0 = contribution0toxicct;
+      }
 
-    var newReviewct2 = contribution2reviewct + 1;
-    if (checkedValue2 == "Toxic") {
-      var newToxicct2 = contribution2toxicct + 1;
-    }
-    else {
-      var newToxicct2 = contribution2toxicct;
-    }
+      var newReviewct1 = contribution1reviewct + 1;
+      if (checkedValue1 == "Toxic") {
+        var newToxicct1 = contribution1toxicct + 1;
+      }
+      else {
+        var newToxicct1 = contribution1toxicct;
+      }
 
-    var updates = {};
+      var newReviewct2 = contribution2reviewct + 1;
+      if (checkedValue2 == "Toxic") {
+        var newToxicct2 = contribution2toxicct + 1;
+      }
+      else {
+        var newToxicct2 = contribution2toxicct;
+      }
 
-    updates['posts/' + article0 + '/contributions/' + contrib0 + '/reviewct'] = newReviewct0;
-    updates['posts/' + article0 + '/contributions/' + contrib0 + '/toxicct'] = newToxicct0;
-    updates['posts/' + article1 + '/contributions/' + contrib1 + '/reviewct'] = newReviewct1;
-    updates['posts/' + article1 + '/contributions/' + contrib1 + '/toxicct'] = newToxicct1;
-    updates['posts/' + article2 + '/contributions/' + contrib2 + '/reviewct'] = newReviewct2;
-    updates['posts/' + article2 + '/contributions/' + contrib2 + '/toxicct'] = newToxicct2;
+      var updates = {};
 
-    firebase.database().ref().update(updates);
-  });
+      updates['posts/' + article0 + '/contributions/' + contrib0 + '/reviewct'] = newReviewct0;
+      updates['posts/' + article0 + '/contributions/' + contrib0 + '/toxicct'] = newToxicct0;
+      updates['posts/' + article1 + '/contributions/' + contrib1 + '/reviewct'] = newReviewct1;
+      updates['posts/' + article1 + '/contributions/' + contrib1 + '/toxicct'] = newToxicct1;
+      updates['posts/' + article2 + '/contributions/' + contrib2 + '/reviewct'] = newReviewct2;
+      updates['posts/' + article2 + '/contributions/' + contrib2 + '/toxicct'] = newToxicct2;
+
+      firebase.database().ref().update(updates);
+
+    });
+
+    firebase.database().ref('users/' + user.uid + '/credits').transaction(function(currentCredits) {
+      var newValue = (currentCredits || 0) + 5;
+      return newValue;
+    });
+
+    window.location.replace("https://sliced.us");
+
+
+
+  }
 }
 

@@ -172,7 +172,7 @@ function addButton(name) {
     console.log(user);
 
     if (user) {
-        var userRef = firebase.database().ref('users/' + user.userId);
+        var userRef = firebase.database().ref('users/' + user.uid);
         userRef.once("value").then((snapshot) => {
             userProf = snapshot.val();
             if (userProf.editor == true) {

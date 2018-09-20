@@ -100,9 +100,10 @@ function updateUser(userUpdate) {
             voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
             contribButton.innerHTML = "Contribute";
           }
-    }
-    else {
-        setTimeout(waitForRef, 250);
+        }
+        else {
+            setTimeout(waitForRef, 250);
+        }
     }
 }
 function loadArticles() {

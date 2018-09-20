@@ -318,6 +318,8 @@ function getRadioValues() {
     waitForUpdates();
 
     function waitForUpdates () {
+      console.log(postUpdateComplete);
+      console.log(creditUpdateComplete);
       if (postUpdateComplete && creditUpdateComplete) {
         window.location.replace("https://sliced.us");
       }

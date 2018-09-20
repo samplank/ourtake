@@ -2,11 +2,11 @@ var user = null;
 
 function updateUser(userUpdate) {
     user = userUpdate;
+    console.log(user);
 
     waitForRef();
 
     function waitForRef() {
-      console.log('HIT');
 
       var userInfo;
       firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {

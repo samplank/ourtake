@@ -133,31 +133,33 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     updateUser(fbuser);
 
   } else {
-    loadReview()
-    updateUser(null);
+    // loadReview()
+    // updateUser(null);
 
-    var authDiv = document.getElementById("topright");
+    // var authDiv = document.getElementById("topright");
 
-    while (authDiv.firstChild) {
-      authDiv.removeChild(authDiv.firstChild);
-      }
+    // while (authDiv.firstChild) {
+    //   authDiv.removeChild(authDiv.firstChild);
+    //   }
 
-    var leftDiv = document.getElementById("topleft");
+    // var leftDiv = document.getElementById("topleft");
 
-    while (leftDiv.firstChild) {
-      leftDiv.removeChild(leftDiv.firstChild);
-    }
+    // while (leftDiv.firstChild) {
+    //   leftDiv.removeChild(leftDiv.firstChild);
+    // }
 
-    var howToButton = document.createElement("button");
-    howToButton.className = "topButton";
-    howToButton.innerHTML = "How To Slice"
-    howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-    authDiv.appendChild(howToButton);
+    // var howToButton = document.createElement("button");
+    // howToButton.className = "topButton";
+    // howToButton.innerHTML = "How To Slice"
+    // howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+    // authDiv.appendChild(howToButton);
 
-    var signInButton = document.createElement("div");
-    signInButton.id = "firebaseui-auth-container";
-    authDiv.appendChild(signInButton);
-    ui.start('#firebaseui-auth-container', uiConfig);
+    // var signInButton = document.createElement("div");
+    // signInButton.id = "firebaseui-auth-container";
+    // authDiv.appendChild(signInButton);
+    // ui.start('#firebaseui-auth-container', uiConfig);
+
+    window.location.replace("https://sliced.us");
 
   }
 });

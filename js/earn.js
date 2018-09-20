@@ -260,15 +260,15 @@ function getRadioValues() {
   firebase.database().ref('posts').once('value').then(function(snapshot) {
     val = snapshot.val();
 
-    contribution0 = val[article0][contrib0];
+    contribution0 = val[article0].contributions[contrib0];
     contribution0reviewct = contribution0.reviewct;
     contribution0toxicct = contribution0.toxicct;
 
-    contribution1 = val[article1][contribution1];
+    contribution1 = val[article1].contributions[contribution1];
     contribution1reviewct = contribution1.reviewct;
     contribution1toxicct = contribution1.toxicct;
 
-    contribution2 = val[article2][contribution2];
+    contribution2 = val[article2].contributions[contribution2];
     contribution2reviewct = contribution2.reviewct;
     contribution2toxicct = contribution2.toxicct;
 

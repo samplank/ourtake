@@ -203,7 +203,15 @@ function shuffle(array) {
 }
 
 function getRadioValue(formname) {
-  var checkedButton = document.querySelector('input[name=' + formname + '][checked]')
-  console.log(checkedButton);
+  var checkedValue;
+
+  if (document.getElementById(formname + 'r0').checked) {
+    checkedValue = document.getElementById(formname + 'r0').value;
+    console.log(checkedValue);
+  }
+  else if (document.getElementById(formname + 'r1').checked) {
+    checkedValue = document.getElementById(formname + 'r1').value;
+    console.log(checkedValue);
+  }
 }
 

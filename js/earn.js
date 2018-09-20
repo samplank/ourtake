@@ -176,8 +176,9 @@ function loadReview() {
                 var reviewContainer = document.getElementById("contrib" + String(i))
                 reviewContainer.innerHTML = contrib.body;
 
+
                 var radioButtons = document.getElementsByName("contribreview" + String(i) + "s");
-                console.log(radioButtons);
+                console.log(Array.from(radioButtons));
                 radioButtons.forEach(
                   function(currentValue, currentIndex, listObj) { 
                     console.log(currentValue);

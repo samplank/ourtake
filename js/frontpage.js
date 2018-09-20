@@ -176,29 +176,28 @@ function addButton(name) {
     }
 
     function waitForRef() {
-        if (firebase.database().ref('users/' + user.uid)) {
-            var userRef = firebase.database().ref('users/' + user.uid);
-            console.log(userRef);
-            userRef.once("value").then((snapshot) => {
-                userProf = snapshot.val();
-                console.log(userProf);
-                if (userProf.editor == true) {
-                    var contributeButton = document.createElement("button");
+        var userProf;
+        var userRef = firebase.database().ref('users/' + user.uid);
+        userRef.once("value").then((snapshot) => {
+            userProf = snapshot.val();
+        });
+        if (userProf) {
+            if (userProf.editor == true) {
+                var contributeButton = document.createElement("button");
 
-                    contributeButton.innerHTML = "Add a new article!";
-                    contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
-                    contributeButton.id = "newArticleButton";
+                contributeButton.innerHTML = "Add a new article!";
+                contributeButton.setAttribute('onclick','addTextBox(' + '"' +  name + '"' + ')');
+                contributeButton.id = "newArticleButton";
 
-                    var textDiv = document.getElementById("addArticle");
+                var textDiv = document.getElementById("addArticle");
 
-                    if (textDiv) {
-                        while (textDiv.firstChild) {
-                        textDiv.removeChild(textDiv.firstChild);
-                    }
-                    textDiv.appendChild(contributeButton);
-                    }
+                if (textDiv) {
+                    while (textDiv.firstChild) {
+                    textDiv.removeChild(textDiv.firstChild);
                 }
-            });
+                textDiv.appendChild(contributeButton);
+                }
+            }
         }
         else {
             setTimeout(waitForRef, 250);

@@ -264,7 +264,7 @@ function loadText(articleID) {
 
             // Find the distance between now an the count down date
             var distance = countDownDate - now;
-            if (contribution.accepted == false && user && distance > 0) {
+            if (contribution.accepted == false && user && distance > 0 && contribution.active == true) {
                 var containerDiv = document.createElement("div");
                 var para = document.createElement("div");
                 para.id = "leftjustify" + String(key);
@@ -282,6 +282,16 @@ function loadText(articleID) {
                 addCountdown(submitInfo, contribution.timestamp, contribution.author);
                 addCounter(submitInfo, key, articleID);
                 i++;
+            }
+            else if (contribution.accepted == false && user && distance <= 0 && contribution.active == true) {
+              firebase.database().ref('posts/' + String(articleID)).once('value').then(function(snapshot) {
+                post = snapshot.val();
+                var newActivect = post.activect - 1;
+                updates = {};
+                updates['posts/' + String(articleID) + "/contributions/" + key + '/active'] = false;
+                updates['posts/' + String(articleID) + '/activect'] = newActivect;
+                firebase.database().ref().update(updates);
+              });
             }
           });
           if (!user){
@@ -377,7 +387,7 @@ function submitText(i,articleID) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0,true);
 
             loadText(articleID);
             var updates = {};
@@ -608,13 +618,17 @@ function integrateText(contributionID, articleID, authorUid) {
 
 function removeText(contributionID, articleID) {
     //this should be updated at some point so that the content is logged.
-    var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID);
-    ref.remove();
+    // var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID);
+    // ref.remove();
+    updates = {};
+    updates['posts/' + String(contributionID) + '/' + String(articleID) + '/active'] = false
+    firebase.database().ref().update(updates);
+
     loadText(articleID);
 }
 
 
-function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct) {
+function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct, active) {
   // A post entry.
   var contributionData = {
     body: body,
@@ -625,7 +639,8 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
     uid: uid,
     timestamp: timestamp,
     reviewct: reviewct,
-    toxicct: toxicct
+    toxicct: toxicct,
+    active: active
   };
 
   // Get a key for a new Post.

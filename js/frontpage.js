@@ -334,8 +334,19 @@ function voteButtonActions() {
       key = child.key;
       location.href = 'https://sliced.us/article.html?article=' + String(key);
 
-        });
-      });
+    });
+  });
+
+  function waitForContrib() {
+    var contribTab = document.getElementById("contribTab");
+    if (contribTab) {
+        contribTab.className = "tablinks active";
+    }
+    else {
+        setTimeout(waitForContrib, 250);
+    }
+  }
+
 
     // location.href='https://sliced.us';
     alert("Go to the contribute section of any article to find contributions to vote on!");

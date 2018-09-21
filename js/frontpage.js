@@ -337,6 +337,8 @@ function voteButtonActions() {
     });
   });
 
+  waitForContrib();
+
   function waitForContrib() {
     var contribTab = document.getElementById("contribTab");
     if (contribTab) {

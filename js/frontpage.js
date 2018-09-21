@@ -67,11 +67,6 @@ function updateUser(userUpdate) {
               voteButton.setAttribute('onclick', "voteButtonActions()");
               flowDiv.appendChild(voteButton);
 
-              function voteButtonActions() {
-                location.href='https://sliced.us';
-                alert("You hit the vote button!");
-              }
-
               var arrow2 = document.createElement("img");
               // arrow2.src = "https://sliced.us/arrow.jpg";
               arrow2.className = "arrow";
@@ -330,6 +325,11 @@ function increaseCredits() {
 
     return newValue;
   });
+}
+
+function voteButtonActions() {
+    location.href='https://sliced.us';
+    alert("You hit the vote button!");
 }
 
 

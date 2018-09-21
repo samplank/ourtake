@@ -331,11 +331,11 @@ function voteButtonActions() {
 
   firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
-      val = child.val();
-      console.log(val);
+      key = child.key;
+      location.href = 'https://sliced.us/article.html?article=' + String(key);
 
-    });
-  });
+        });
+      });
 
     // location.href='https://sliced.us';
     alert("Go to the contribute section of any article to find contributions to vote on!");

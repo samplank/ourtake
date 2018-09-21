@@ -685,3 +685,6 @@ function pageLoad() {
     }
 }
 
+window.onload = function() {
+  pageLoad();
+};

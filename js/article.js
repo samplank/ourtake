@@ -586,10 +586,13 @@ function integrateText(contributionID, articleID, authorUid) {
 
       var cloutBoost = upvotes - downvotes;
 
+      var now = new Date().getTime();
+
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/paragraph_count'] = newParagraphCount;
+      updates['posts/' + String(articleID) + '/timestamp'] = now;
       firebase.database().ref().update(updates);
 
       firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {

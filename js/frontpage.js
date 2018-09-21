@@ -64,8 +64,13 @@ function updateUser(userUpdate) {
               var voteButton = document.createElement("button");
               voteButton.className = "topButton";
               // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
-              voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
+              voteButton.setAttribute('onclick', "voteButtonActions()");
               flowDiv.appendChild(voteButton);
+
+              function voteButtonActions() {
+                location.href='https://sliced.us';
+                alert("You hit the vote button!");
+              }
 
               var arrow2 = document.createElement("img");
               // arrow2.src = "https://sliced.us/arrow.jpg";

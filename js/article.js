@@ -678,3 +678,10 @@ function contributeButtonActions() {
     alert("Go to the contribute section of any article to write your own contributions!");
 }
 
+function pageLoad() {
+    if (window.location.hash === "#contribution") {
+      contribTab.className = "tablinks active";
+      alert("Go to the contribute section of any article to find contributions to vote on!");
+    }
+}
+

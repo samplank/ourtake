@@ -332,25 +332,10 @@ function voteButtonActions() {
   firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       key = child.key;
-      location.href = 'https://sliced.us/article.html?article=' + String(key);
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribution';
 
     });
   });
-
-  waitForContrib();
-
-  function waitForContrib() {
-    var contribTab = document.getElementById("contribTab");
-    if (contribTab) {
-        contribTab.className = "tablinks active";
-        alert("Go to the contribute section of any article to find contributions to vote on!");
-    }
-    else {
-        setTimeout(waitForContrib, 250);
-    }
-  }
-
-
     // location.href='https://sliced.us';
 }
 

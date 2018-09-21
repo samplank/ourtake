@@ -680,7 +680,14 @@ function contributeButtonActions() {
 
 function pageLoad() {
     if (window.location.hash === "#contribution") {
+      var contribTab = document.getElementById("contribTab");
+      var readTab = document.getElementById("defaultOpen");
+      var contribDiv = document.getElementById("Contribute");
+      var readDiv = document.getElementById("Read");
       contribTab.className = "tablinks active";
+      readTab.className = "tablinks";
+      contribDiv.style = "display: block;";
+      readDiv.style = "display: none";
       alert("Go to the contribute section of any article to find contributions to vote on!");
     }
 }

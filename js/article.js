@@ -77,7 +77,7 @@ function updateUser(userUpdate) {
       var voteButton = document.createElement("button");
       voteButton.className = "topButton";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
-      voteButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      voteButton.setAttribute('onclick', "voteButtonActions()");
       flowDiv.appendChild(voteButton);
 
       var arrow2 = document.createElement("img");
@@ -88,7 +88,7 @@ function updateUser(userUpdate) {
       var contribButton = document.createElement("button");
       contribButton.className = "topButton";
       // contribButton.innerHTML = "Contribute";
-      contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
+      contribButton.setAttribute('onclick', "contributeButtonActions()");
       flowDiv.appendChild(contribButton);
 
       if (userInfo.credits == 0 && userInfo.votes < 5) {
@@ -651,5 +651,15 @@ function increaseCredits() {
 
     return newValue;
   });
+}
+
+function voteButtonActions() {
+    location.href='https://sliced.us';
+    alert("Go to the contribute section of any article to find contributions to vote on!");
+}
+
+function contributeButtonActions() {
+    location.href='https://sliced.us';
+    alert("Go to the contribute section of any article to write your own contributions!");
 }
 

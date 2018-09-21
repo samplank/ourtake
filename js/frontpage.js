@@ -75,7 +75,7 @@ function updateUser(userUpdate) {
               var contribButton = document.createElement("button");
               contribButton.className = "topButton";
               // contribButton.innerHTML = "Contribute";
-              contribButton.setAttribute('onclick', "location.href='https://sliced.us'");
+              contribButton.setAttribute('onclick', "contributeButtonActions()");
               flowDiv.appendChild(contribButton);
 
               if (userInfo.credits == 0 && userInfo.votes < 5) {
@@ -329,7 +329,12 @@ function increaseCredits() {
 
 function voteButtonActions() {
     location.href='https://sliced.us';
-    alert("You hit the vote button!");
+    alert("Go to the contribute section of any article to find contributions to vote on!");
+}
+
+function contributeButtonActions() {
+    location.href='https://sliced.us';
+    alert("Go to the contribute section of any article to write your own contributions!");
 }
 
 

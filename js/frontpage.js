@@ -341,6 +341,7 @@ function voteButtonActions() {
     var contribTab = document.getElementById("contribTab");
     if (contribTab) {
         contribTab.className = "tablinks active";
+        alert("Go to the contribute section of any article to find contributions to vote on!");
     }
     else {
         setTimeout(waitForContrib, 250);
@@ -349,7 +350,6 @@ function voteButtonActions() {
 
 
     // location.href='https://sliced.us';
-    alert("Go to the contribute section of any article to find contributions to vote on!");
 }
 
 function contributeButtonActions() {

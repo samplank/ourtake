@@ -199,32 +199,32 @@ tr {
     position: relative;
 }
 
-#topcontainer {
+/*#topcontainer {
     width: 40%;
     position:absolute;
     top: 4%;
     right: 2%;
     padding: 6px 12px;
     display: flex;
-}
+}*/
 
-#topleft {
+/*#topleft {
     width: 30%;
     position:absolute;
     top: 4%;
     right: 66%;
     padding: 6px 12px;
     display: flex;
-}
+}*/
 
 /*#readcontainer {
     padding: 0% 15%;
 }*/
 
-#topright {
+/*#topright {
     flex-grow: 1;
 }
-
+*/
 #addCredits {
     width: 300px;
 }

@@ -346,15 +346,12 @@ function contributeButtonActions() {
 }
 
 function checkMobile() {
-  if (is_mobile !== null) {
     if (!is_mobile) {
       console.log("desktop");
+
     }
     else if (is_mobile) {
         console.log("mobile");
+        console.log(document.styleSheets);
     }
-  }
-  else {
-    console.log("null");
-  }
 }

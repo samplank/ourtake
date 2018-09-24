@@ -199,6 +199,15 @@ tr {
     position: relative;
 }
 
+#topcontainer {
+    width: 40%;
+    position:absolute;
+    top: 4%;
+    right: 2%;
+    padding: 6px 12px;
+    display: flex;
+}
+
 #topleft {
     width: 30%;
     position:absolute;
@@ -213,12 +222,7 @@ tr {
 }*/
 
 #topright {
-    width: 40%;
-    position:absolute;
-    top: 4%;
-    right: 2%;
-    padding: 6px 12px;
-    display: flex;
+    flex-grow: 1;
 }
 
 #addCredits {

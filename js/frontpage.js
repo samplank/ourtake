@@ -346,12 +346,14 @@ function contributeButtonActions() {
 }
 
 function checkMobile() {
+    ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
-      console.log("desktop");
+        console.log("desktop");
+        ourtakeSheet.insertRule("#readcontainer { padding: 0% 15%; }", 0)
 
     }
     else if (is_mobile) {
         console.log("mobile");
-        console.log(document.styleSheets);
+        ourtakeSheet.insertRule("#readcontainer { padding: 0% 2%; }", 0)
     }
 }

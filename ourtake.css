@@ -217,9 +217,9 @@ tr {
     display: flex;
 }
 
-#readcontainer {
+/*#readcontainer {
     padding: 0% 15%;
-}
+}*/
 
 #topright {
     flex-grow: 1;

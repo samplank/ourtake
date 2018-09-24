@@ -349,11 +349,13 @@ function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
         console.log("desktop");
-        ourtakeSheet.insertRule("#readcontainer { padding: 0% 15%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { padding: 0% 15%; }", 0);
+        ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 15%; }", 0);
 
     }
     else if (is_mobile) {
         console.log("mobile");
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 2%; }", 0)
+        ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 50%; }", 0);
     }
 }

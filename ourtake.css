@@ -300,13 +300,13 @@ tr {
     display: inline-block;
 }
 
-#logo {
+/*#logo {
 
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 10%;
-}
+}*/
 
 #rules {
     padding: 0% 0% 0% 5%

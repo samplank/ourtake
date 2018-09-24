@@ -214,6 +214,7 @@ function addButton(name) {
             }
         }
         else {
+            console.log("waiting");
             setTimeout(waitForRef, 250);
         }
     }

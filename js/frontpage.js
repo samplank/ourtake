@@ -1,4 +1,5 @@
 var user = null;
+var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
 
 function updateUser(userUpdate) {
     user = userUpdate;
@@ -344,3 +345,16 @@ function contributeButtonActions() {
     alert("Go to the contribute section of any article to write your own contributions!");
 }
 
+function checkMobile() {
+  if (is_mobile !== null) {
+    if (!is_mobile) {
+      console.log("desktop");
+    }
+    else (is_mobile) {
+        console.log("mobile");
+    }
+  }
+  else {
+    console.log("null");
+  }
+}

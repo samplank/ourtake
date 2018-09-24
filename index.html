@@ -138,7 +138,7 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     ui.start('#firebaseui-auth-container', uiConfig);
 
     var howToButton = document.createElement("button");
-    howToButton.className = "topButtonRight";
+    howToButton.className = "topButton";
     howToButton.innerHTML = "How To Slice"
     howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
     leftDivFixed.appendChild(howToButton);

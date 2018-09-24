@@ -195,6 +195,7 @@ function addButton(name) {
             userProf = snapshot.val();
         });
         if (userProf) {
+            console.log(userProf);
             if (userProf.editor == true) {
                 var contributeButton = document.createElement("button");
 

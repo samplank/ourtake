@@ -126,7 +126,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
       ui.start('#firebaseui-auth-container', uiConfig);
 
       var howToButton = document.createElement("button");
-      howToButton.className = "topButton";
+      howToButton.className = "topButtonRight";
       howToButton.innerHTML = "How To Slice"
       howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
       leftDiv.appendChild(howToButton);
@@ -138,5 +138,9 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
   <script>
     getLeaders();
+  </script>
+
+  <script>
+    checkMobile();
   </script>
 </html>

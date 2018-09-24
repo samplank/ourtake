@@ -666,6 +666,12 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
   var datRef = firebase.database().ref();
   datRef.update(updates);
 
+  firebase.database().ref().child('posts' + String(articleID) + '/activect').transaction(function(currentActive) {
+    var newValue = (currentActive || 0) + 1;
+
+    return newValue;
+  });
+
   return newContributionKey;
 
 }

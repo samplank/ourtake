@@ -129,7 +129,7 @@ function loadArticles() {
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
 
-        var activect = "<i>Active Contributions" + contribution.activect + "<i>";
+        var activect = "<i>Active Contributions</i>: " + contribution.activect;
 
         updatedTimestamp = contribution.updatedTimestamp
 

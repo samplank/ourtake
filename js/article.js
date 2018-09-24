@@ -667,7 +667,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
   datRef.update(updates);
 
   console.log(articleID);
-  firebase.database().ref().child('posts' + String(articleID) + '/activect').transaction(function(currentActive) {
+  firebase.database().ref().child('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
     var newValue = (currentActive || 0) + 1;
     console.log(newValue);
 

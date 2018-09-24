@@ -184,12 +184,13 @@ function loadArticles() {
 
 function addButton(name) {
 
+    var userProf;
+
     if (user) {
         waitForRef();
     }
 
     function waitForRef() {
-        var userProf;
         var userRef = firebase.database().ref('users/' + user.uid);
         userRef.once("value").then((snapshot) => {
             userProf = snapshot.val();

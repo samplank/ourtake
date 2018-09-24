@@ -114,28 +114,39 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
       updateUser(null);
       console.log("logged out");
 
-      var authDiv = document.getElementById("topright");
 
-      while (authDiv.firstChild) {
-        authDiv.removeChild(authDiv.firstChild);
-        }
+      var authDivFixed = document.getElementById("topRightFixed");
+      var authDivMove = document.getElementById("topright");
 
-      var leftDiv = document.getElementById("topleft");
+      while (authDivFixed.firstChild) {
+        authDivFixed.removeChild(authDivFixed.firstChild);
+      }
 
-      while (leftDiv.firstChild) {
-        leftDiv.removeChild(leftDiv.firstChild);
+      while (authDivMove.firstChild) {
+        authDivMove.removeChild(authDivMove.firstChild);
+      }
+
+      var leftDivFixed = document.getElementById("topLeftFixed");
+      var leftDivMove = document.getElementById("topleft")
+
+      while (leftDivFixed.firstChild) {
+        leftDivFixed.removeChild(leftDivFixed.firstChild);
+      }
+
+      while (leftDivMove.firstChild) {
+        leftDivMove.removeChild(leftDivMove.firstChild);
       }
 
       var signInButton = document.createElement("div");
       signInButton.id = "firebaseui-auth-container";
-      authDiv.appendChild(signInButton);
+      authDivFixed.appendChild(signInButton);
       ui.start('#firebaseui-auth-container', uiConfig);
 
       var howToButton = document.createElement("button");
-      howToButton.className = "topButtonRight";
+      howToButton.className = "topButton";
       howToButton.innerHTML = "How To Slice"
       howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-      leftDiv.appendChild(howToButton);
+      leftDivFixed.appendChild(howToButton);
 
 
     }

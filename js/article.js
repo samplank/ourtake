@@ -47,7 +47,7 @@ function updateUser(userUpdate) {
               var signOutButton = document.createElement("button");
               signOutButton.id = "signOut";
               signOutButton.className = "topButtonRight";
-              signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+              signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
               signOutButton.addEventListener('click', function(event) {
                 firebase.auth().signOut();
               });

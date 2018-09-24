@@ -350,7 +350,7 @@ function checkMobile() {
     if (!is_mobile) {
       console.log("desktop");
     }
-    else (is_mobile) {
+    else if (is_mobile) {
         console.log("mobile");
     }
   }

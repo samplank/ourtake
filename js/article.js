@@ -624,8 +624,10 @@ function integrateText(contributionID, articleID, authorUid) {
       });
 
       firebase.database().ref('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
+        console.log('posts/' + String(articleID) + '/activect');
         var newValue = currentActive - 1;
         console.log(newValue);
+        return newValue;
       });
 
       loadText(articleID);

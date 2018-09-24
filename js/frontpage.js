@@ -154,7 +154,7 @@ function loadArticles() {
             var timeago = "<i>Last Update</i>: " + minutes + "m ago";
         }
 
-        var articleDetails = activect + " " + timeago;
+        var articleDetails = activect + "<br>" + timeago;
 
 
 

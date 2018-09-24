@@ -1,4 +1,5 @@
 var user = null;
+var is_mobile = !!navigator.userAgent.match(/iphone|android|blackberry/ig) || false;
 
 function writeUserData(userId, name, email) {
   var userRef = firebase.database().ref('users/' + userId);

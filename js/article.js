@@ -623,6 +623,11 @@ function integrateText(contributionID, articleID, authorUid) {
         return newClout;
       });
 
+      firebase.database().ref().child('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
+        var newValue = currentActive - 1;
+        console.log(newValue);
+      });
+
       loadText(articleID);
 
 

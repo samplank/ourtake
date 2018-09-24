@@ -129,6 +129,8 @@ function loadArticles() {
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
 
+        var activect = "<i>Active Contributions" + contribution.activect + "<i>";
+
         updatedTimestamp = contribution.updatedTimestamp
 
         // Get todays date and time
@@ -152,6 +154,8 @@ function loadArticles() {
             var timeago = "<i>Last Update</i>: " + minutes + "m ago";
         }
 
+        var articleDetails = activect + " " + timeago;
+
 
 
 
@@ -170,7 +174,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + timeago + '</p>';
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p>';
 
                 articleArray.push(link);
                 console.log(link);

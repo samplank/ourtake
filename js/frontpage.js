@@ -158,7 +158,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<br style="line-height: 40px" /><span style="font-family: "Trebuchet MS", sans-serif; font-size: 28px">' + timeago + '</span>';
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<br style="line-height: 40px" /><span style="font-family: "Trebuchet MS", sans-serif;">' + timeago + '</span>';
 
                 articleArray.push(link);
                 console.log(link);

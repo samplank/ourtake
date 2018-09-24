@@ -24,7 +24,7 @@ function updateUser(userUpdate) {
 
               var signOutButton = document.createElement("button");
               signOutButton.id = "signOut";
-              signOutButton.className = "topButton";
+              signOutButton.className = "topButtonRight";
               signOutButton.innerHTML = user.displayName + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
               signOutButton.addEventListener('click', function(event) {
                 firebase.auth().signOut();
@@ -32,13 +32,13 @@ function updateUser(userUpdate) {
               authDiv.appendChild(signOutButton);
 
               var cloutButton = document.createElement("button");
-              cloutButton.className = "topButton";
+              cloutButton.className = "topButtonRight";
               cloutButton.innerHTML = "Leaderboard";
               cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
               authDiv.appendChild(cloutButton);
 
               var howToButton = document.createElement("button");
-              howToButton.className = "topButton";
+              howToButton.className = "topButtonRight";
               howToButton.innerHTML = "How To Slice"
               howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
               authDiv.appendChild(howToButton);
@@ -49,7 +49,7 @@ function updateUser(userUpdate) {
               }
 
               var earnButton = document.createElement("button");
-              earnButton.className = "topButton";
+              earnButton.className = "topButtonLeft";
               earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
               earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
               flowDiv.appendChild(earnButton);
@@ -63,7 +63,7 @@ function updateUser(userUpdate) {
               neededVotes = neededVotes < 0 ? 0 : neededVotes;
 
               var voteButton = document.createElement("button");
-              voteButton.className = "topButton";
+              voteButton.className = "topButtonLeft";
               // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
               voteButton.setAttribute('onclick', "voteButtonActions()");
               flowDiv.appendChild(voteButton);
@@ -74,7 +74,7 @@ function updateUser(userUpdate) {
               flowDiv.appendChild(arrow2);
 
               var contribButton = document.createElement("button");
-              contribButton.className = "topButton";
+              contribButton.className = "topButtonLeft";
               // contribButton.innerHTML = "Contribute";
               contribButton.setAttribute('onclick', "contributeButtonActions()");
               flowDiv.appendChild(contribButton);
@@ -355,6 +355,8 @@ function checkMobile() {
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
         ourtakeSheet.insertRule("#topleft { width: 30%; position:absolute; top: 4%; right: 66%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 4% 0%; }", 0);
+        ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; width: 8%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
+        ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; width: 8%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
 
     }
     else if (is_mobile) {
@@ -365,6 +367,8 @@ function checkMobile() {
         ourtakeSheet.insertRule("#topleft { width: 100%; padding: 6px 12px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topright { width: 100%; padding: 6px 12px; display: flex; }", 0);
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 1% 0%; }", 0);
+        ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; width: 30%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
+        ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; width: 26%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
 
     }
 }

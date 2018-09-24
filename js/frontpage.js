@@ -143,7 +143,7 @@ function loadArticles() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
         if (days > 0) {
-            var timeago = "<i>Last Update</i>: " + days + "d" + hours + "h " + minutes + "m ago";
+            var timeago = "<i>Last Update</i>: " + days + "d " + hours + "h " + minutes + "m ago";
         }
         else if (hours > 0) {
             var timeago = "<i>Last Update</i>: " + hours + "h " + minutes + "m ago";
@@ -151,6 +151,8 @@ function loadArticles() {
         else {
             var timeago = "<i>Last Update</i>: " + minutes + "m ago";
         }
+
+
 
 
         postRef = urlRef.child(String(key));
@@ -168,7 +170,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<br style="line-height: 40px" /><p class="reviewDetails">' + timeago + '</p>';
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + timeago + '</p>';
 
                 articleArray.push(link);
                 console.log(link);

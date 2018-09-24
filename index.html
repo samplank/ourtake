@@ -69,6 +69,12 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 <body>
 
+<div id="topRightMobile">
+</div>
+
+<div id="topLeftMobile">
+</div>
+
 <a href="https://sliced.us">
   <img src="sliced_logo.jpg" id="logo">
 </a>
@@ -104,16 +110,26 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     loadArticles();
     updateUser(null);
 
-    var authDiv = document.getElementById("topright");
+    var authDivFixed = document.getElementById("topRightFixed");
+    var authDivMove = document.getElementById("topright");
 
-    while (authDiv.firstChild) {
-      authDiv.removeChild(authDiv.firstChild);
+    while (authDivFixed.firstChild) {
+      authDivFixed.removeChild(authDivFixed.firstChild);
     }
 
-    var leftDiv = document.getElementById("topleft");
+    while (authDivMove.firstChild) {
+      authDivMove.removeChild(authDivMove.firstChild);
+    }
 
-    while (leftDiv.firstChild) {
-      leftDiv.removeChild(leftDiv.firstChild);
+    var leftDivFixed = document.getElementById("topLeftFixed");
+    var leftDivMove = document.getElementById("topleft")
+
+    while (leftDivFixed.firstChild) {
+      leftDivFixed.removeChild(leftDivFixed.firstChild);
+    }
+
+    while (leftDivMove.firstChild) {
+      leftDivMove.removeChild(leftDivMove.firstChild);
     }
 
     var signInButton = document.createElement("div");

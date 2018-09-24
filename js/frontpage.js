@@ -17,10 +17,27 @@ function updateUser(userUpdate) {
 
           if (userInfo) {
 
-              var authDiv = document.getElementById("topright");
-              while (authDiv.firstChild) {
-                authDiv.removeChild(authDiv.firstChild);
-              }
+            var authDivFixed = document.getElementById("topRightFixed");
+            var authDivMove = document.getElementById("topright");
+
+            while (authDivFixed.firstChild) {
+              authDivFixed.removeChild(authDivFixed.firstChild);
+            }
+
+            while (authDivMove.firstChild) {
+              authDivMove.removeChild(authDivMove.firstChild);
+            }
+
+            var leftDivFixed = document.getElementById("topLeftFixed");
+            var leftDivMove = document.getElementById("topleft")
+
+            while (leftDivFixed.firstChild) {
+              leftDivFixed.removeChild(leftDivFixed.firstChild);
+            }
+
+            while (leftDivMove.firstChild) {
+              leftDivMove.removeChild(leftDivMove.firstChild);
+            }
 
               var signOutButton = document.createElement("button");
               signOutButton.id = "signOut";
@@ -29,35 +46,30 @@ function updateUser(userUpdate) {
               signOutButton.addEventListener('click', function(event) {
                 firebase.auth().signOut();
               });
-              authDiv.appendChild(signOutButton);
+              authDivMove.appendChild(signOutButton);
 
               var cloutButton = document.createElement("button");
               cloutButton.className = "topButtonRight";
               cloutButton.innerHTML = "Leaderboard";
               cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-              authDiv.appendChild(cloutButton);
+              authDivMove.appendChild(cloutButton);
 
               var howToButton = document.createElement("button");
               howToButton.className = "topButtonRight";
               howToButton.innerHTML = "How To Slice"
               howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-              authDiv.appendChild(howToButton);
-
-              var flowDiv = document.getElementById("topleft");
-              while (flowDiv.firstChild) {
-                  flowDiv.removeChild(flowDiv.firstChild);
-              }
+              authDivMove.appendChild(howToButton);
 
               var earnButton = document.createElement("button");
               earnButton.className = "topButtonLeft";
               earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
               earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
-              flowDiv.appendChild(earnButton);
+              leftDivMove.appendChild(earnButton);
 
               var arrow1 = document.createElement("img");
               // arrow1.src = "https://sliced.us/arrow.jpg";
               arrow1.className = "arrow";
-              flowDiv.appendChild(arrow1);
+              leftDivMove.appendChild(arrow1);
 
               var neededVotes = 5 - userInfo.votes;
               neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -66,18 +78,18 @@ function updateUser(userUpdate) {
               voteButton.className = "topButtonLeft";
               // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
               voteButton.setAttribute('onclick', "voteButtonActions()");
-              flowDiv.appendChild(voteButton);
+              leftDivMove.appendChild(voteButton);
 
               var arrow2 = document.createElement("img");
               // arrow2.src = "https://sliced.us/arrow.jpg";
               arrow2.className = "arrow";
-              flowDiv.appendChild(arrow2);
+              leftDivMove.appendChild(arrow2);
 
               var contribButton = document.createElement("button");
               contribButton.className = "topButtonLeft";
               // contribButton.innerHTML = "Contribute";
               contribButton.setAttribute('onclick', "contributeButtonActions()");
-              flowDiv.appendChild(contribButton);
+              leftDivMove.appendChild(contribButton);
 
               if (userInfo.credits == 0 && userInfo.votes < 5) {
                 arrow1.src = "https://sliced.us/arrow.jpg"

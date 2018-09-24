@@ -198,6 +198,23 @@ tr {
     position: relative;
 }
 
+#topRightMobile {
+    width: 20%;
+    position:absolute;
+    top: 4%;
+    right: 2%;
+    padding: 6px 12px; 
+}
+
+#topLeftMobile {
+    width: 20%;
+    position:absolute;
+    top: 4%;
+    right: 66%;
+    padding: 6px 12px;
+    display: flex;
+}
+
 /*#topcontainer {
     width: 40%;
     position:absolute;

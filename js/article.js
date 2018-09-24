@@ -595,17 +595,11 @@ function integrateText(contributionID, articleID, authorUid) {
 
     firebase.database().ref('posts/' + String(articleID)).once('value').then(function(snapshot) {
       var article = snapshot.val();
-      console.log(article);
       var currentParagraphs = article.paragraph_count;
       var newParagraphCount = currentParagraphs + 1;
 
-      console.log(article.contributions)
-
       var upvotes = article.contributions[String(contributionID)].upvotes;
       var downvotes = article.contributions[String(contributionID)].downvotes;
-
-      console.log(upvotes)
-      console.log(downvotes)
 
       var cloutBoost = upvotes - downvotes;
 
@@ -624,9 +618,7 @@ function integrateText(contributionID, articleID, authorUid) {
       });
 
       firebase.database().ref('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
-        console.log('posts/' + String(articleID) + '/activect');
         var newValue = currentActive - 1;
-        console.log(newValue);
         return newValue;
       });
 

@@ -615,7 +615,7 @@ function integrateText(contributionID, articleID, authorUid) {
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/paragraph_count'] = newParagraphCount;
-      updates['posts/' + String(articleID) + '/timestamp'] = now;
+      updates['posts/' + String(articleID) + '/updatedTimestamp'] = now;
       firebase.database().ref().update(updates);
 
       firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {
@@ -699,7 +699,7 @@ function contributeButtonActions() {
 }
 
 function pageLoad() {
-    if (window.location.hash === "#contribution") {
+    if (window.location.hash === "#vote") {
       var contribTab = document.getElementById("contribTab");
       var readTab = document.getElementById("defaultOpen");
       var contribDiv = document.getElementById("Contribute");
@@ -708,7 +708,7 @@ function pageLoad() {
       readTab.className = "tablinks";
       contribDiv.style = "display: block;";
       readDiv.style = "display: none";
-      alert("Go to the contribute section of any article to find contributions to vote on!");
+      alert("Here is the current article with the most active contributions for you to vote on! Find the active contributions in the contribute tab of any article.");
     }
 }
 

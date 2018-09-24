@@ -129,6 +129,20 @@ function loadArticles() {
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
 
+        updatedTimestamp = contribution.updatedTimestamp
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = now - updatedTimestamp;
+
+        // Time calculations for days, hours, minutes and seconds
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        var timeago = "Last Update: " + hours + "h " + minutes + "m ago";
+
         postRef = urlRef.child(String(key));
 
         var body = '';
@@ -144,7 +158,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body;
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<br style="line-height: 40px" /><span style="font-family: "Trebuchet MS", sans-serif; font-size: 28px">' + timeago + '</span>';
 
                 articleArray.push(link);
                 console.log(link);
@@ -277,7 +291,8 @@ function writeNewPost(title,author,timestamp) {
 	var postData = {
 	    title: title,
 	    author: author,
-	    timestamp: timestamp,
+	    createdTimestamp: timestamp,
+        updatedTimestamp: timestamp,
 	    paragraph_count: 0
 	 };
 
@@ -336,7 +351,7 @@ function voteButtonActions() {
   firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       key = child.key;
-      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribution';
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#vote';
 
     });
   });

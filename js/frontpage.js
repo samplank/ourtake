@@ -355,7 +355,7 @@ function checkMobile() {
     }
     else if (is_mobile) {
         console.log("mobile");
-        ourtakeSheet.insertRule("#readcontainer { padding: 0% 1%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 25%; }", 0);
     }
 }

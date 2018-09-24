@@ -233,7 +233,7 @@ function loadText(articleID) {
             var key = child.key;
 
             var dateTimestamp = new Date(contribution.timestamp);
-            var countDownDate = dateTimestamp.addHours(24).getTime();
+            var countDownDate = dateTimestamp.addHours(48).getTime();
             var subtext = document.createElement("div");
 
             var now = new Date().getTime();
@@ -282,7 +282,7 @@ function loadText(articleID) {
             var key = child.key;
 
             var dateTimestamp = new Date(contribution.timestamp);
-            var countDownDate = dateTimestamp.addHours(24).getTime();
+            var countDownDate = dateTimestamp.addHours(48).getTime();
             var subtext = document.createElement("div");
 
             var now = new Date().getTime();
@@ -441,7 +441,7 @@ Date.prototype.addHours = function(h) {
 function addCountdown(subinfo, timestamp, justname) {
 
     var dateTimestamp = new Date(timestamp);
-    var countDownDate = dateTimestamp.addHours(24).getTime();
+    var countDownDate = dateTimestamp.addHours(48).getTime();
     var subtext = document.createElement("div");
     subinfo.appendChild(subtext);
 

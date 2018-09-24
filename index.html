@@ -140,8 +140,8 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     var howToButton = document.createElement("button");
     howToButton.className = "topButtonRight";
     howToButton.innerHTML = "How To Slice"
-    leftDivFixed.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-    leftDiv.appendChild(howToButton);
+    howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+    leftDivFixed.appendChild(howToButton);
 
   }
 });

@@ -38,6 +38,10 @@ tr {
     font-size: 28px;
 }
 
+a {
+    font-size: 22px;
+}
+
 /* Style the tab */
 .tab {
     font-size: 18px;

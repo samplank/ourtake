@@ -623,7 +623,7 @@ function integrateText(contributionID, articleID, authorUid) {
         return newClout;
       });
 
-      firebase.database().ref().child('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
+      firebase.database().ref('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
         var newValue = currentActive - 1;
         console.log(newValue);
       });
@@ -672,7 +672,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
   datRef.update(updates);
 
   console.log(articleID);
-  firebase.database().ref().child('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
+  firebase.database().ref('posts/' + String(articleID) + '/activect').transaction(function(currentActive) {
     var newValue = (currentActive || 0) + 1;
     console.log(newValue);
 

@@ -38,10 +38,6 @@ tr {
     font-size: 28px;
 }
 
-a {
-    font-size: 22px;
-}
-
 /* Style the tab */
 .tab {
     font-size: 18px;
@@ -101,7 +97,7 @@ a {
 
 .front {
     font-family: Georgia, serif;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 34px;
     color: black;
     text-decoration: none;

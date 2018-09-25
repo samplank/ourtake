@@ -199,10 +199,12 @@ function loadArticles() {
 
         postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
             val = snapshot.val();
-            val = val[Object.keys(val)[0]];
-            body = val.body;
-            if (!body) {
+            if (!val) {
                 body = "   ";
+            }
+            else {
+                val = val[Object.keys(val)[0]];
+                body = val.body;
             }
         });
 

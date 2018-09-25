@@ -201,6 +201,9 @@ function loadArticles() {
             val = snapshot.val();
             val = val[Object.keys(val)[0]];
             body = val.body;
+            if (!body) {
+                body = "   ";
+            }
         });
 
 

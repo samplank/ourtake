@@ -157,8 +157,7 @@ function loadArticles() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
         var t = new Date(updatedTimestamp);
-        var formatted = t.format("dd.mm.yyyy");
-        console.log(formatted);
+        console.log(t);
 
 
         if (days > 0) {

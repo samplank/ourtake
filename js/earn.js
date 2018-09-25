@@ -169,7 +169,7 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                if val.active == true {
+                if (val.active == true) {
                   contributionArray.push([key, x, val[x], contribution.title]);
                   n++;
                 }

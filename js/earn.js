@@ -169,8 +169,10 @@ function loadReview() {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                contributionArray.push([key, x, val[x], contribution.title]);
-                n++
+                if val.active == true {
+                  contributionArray.push([key, x, val[x], contribution.title]);
+                  n++;
+                }
               }
             }
             else {

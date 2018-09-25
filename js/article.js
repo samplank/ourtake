@@ -462,7 +462,7 @@ function addCountdown(subinfo, timestamp, justname) {
 
       var name = document.createTextNode("Submitted by: " + justname);
       var b = document.createElement("br");
-      var timeleft = document.createTextNode("Time left: " + hours + "h " + minutes + "m ");
+      var timeleft = document.createTextNode("Time left: " + days + "d " + hours + "h " + minutes + "m ");
 
       while (subtext.firstChild) {
           subtext.removeChild(subtext.firstChild);

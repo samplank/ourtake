@@ -157,9 +157,27 @@ function loadArticles() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
         var t = new Date(updatedTimestamp);
-        console.log(t);
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var m = month[t.getMonth()];
+        var d = t.getDate();
+        var y = t.getFullYear();
 
 
+        if (days > 3) {
+            var timeago = "<i>Last Update</i>: " + m + " " + d + ", " + y;
+        }
         if (days > 0) {
             var timeago = "<i>Last Update</i>: " + days + "d " + hours + "h " + minutes + "m ago";
         }

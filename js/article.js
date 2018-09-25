@@ -619,6 +619,7 @@ function integrateText(contributionID, articleID, authorUid) {
 
       var updates = {};
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/accepted'] = true;
+      updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/active'] = false;
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/paragraph_count'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/updatedTimestamp'] = now;

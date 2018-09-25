@@ -178,7 +178,7 @@ function loadArticles() {
         if (days > 3) {
             var timeago = "<i>Last Update</i>: " + m + " " + d + ", " + y;
         }
-        if (days > 0) {
+        else if (days > 0) {
             var timeago = "<i>Last Update</i>: " + days + "d " + hours + "h " + minutes + "m ago";
         }
         else if (hours > 0) {

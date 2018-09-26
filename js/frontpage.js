@@ -213,7 +213,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p><button class="addToArticle" onclick="location.href="' + aref.href + '#contribute"">Contribute to this Article</button>';
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p><button class="addToArticle" onclick="location.href="https://sliced.us/' + String(key) +'#contribute"">Contribute to this Article</button>';
 
                 articleArray.push(link);
                 console.log(link);

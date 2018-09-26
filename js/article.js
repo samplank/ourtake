@@ -730,6 +730,16 @@ function pageLoad() {
       readDiv.style = "display: none";
       alert("Here is the current article with the most active contributions for you to vote on! Find the active contributions in the contribute tab of any article.");
     }
+    if (window.location.hash === "#contribute") {
+      var contribTab = document.getElementById("contribTab");
+      var readTab = document.getElementById("defaultOpen");
+      var contribDiv = document.getElementById("Contribute");
+      var readDiv = document.getElementById("Read");
+      contribTab.className = "tablinks active";
+      readTab.className = "tablinks";
+      contribDiv.style = "display: block;";
+      readDiv.style = "display: none";
+    }
 }
 
 window.onload = function() {

@@ -213,8 +213,11 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p><button class="addToArticle" onclick="location.href="article.html?article=' + String(key) +'#contribute"">Contribute to this Article</button>';
-
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p>';
+                addToButton = document.createElement("button");
+                addToButton.className = "addToArticle";
+                addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"')
+                link.appendChild(addToButton);
                 articleArray.push(link);
                 console.log(link);
             }

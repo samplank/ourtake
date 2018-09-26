@@ -216,7 +216,8 @@ function loadArticles() {
                 aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p>';
                 addToButton = document.createElement("button");
                 addToButton.className = "addToArticle";
-                addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"')
+                addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
+                addToButton.innerHTML = "Contribute to this Article";
                 link.appendChild(addToButton);
                 articleArray.push(link);
                 console.log(link);
@@ -384,7 +385,7 @@ function writeUserData(userId, name, email) {
 	    username: name,
 	    email: email,
         clout: 0,
-        credits: 5,
+        credits: 0,
         votes: 0,
         editor: false
 		});

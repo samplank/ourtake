@@ -166,6 +166,21 @@ tr {
     margin: 4% 0%;
 }
 */
+
+.addToArticle {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    display: inline-block;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+    margin: 5px;
+    height: 50px;
+    vertical-align: top;
+}
+
 #login {
     text-align:right;
 }
@@ -326,11 +341,6 @@ tr {
 #rules {
     padding: 0% 0% 0% 5%
 }
-
-#google.com {
-    width: 31%;
-}
-
 
 
 

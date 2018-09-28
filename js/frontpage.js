@@ -440,8 +440,7 @@ function checkMobile() {
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 4% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
-        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 22px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top;}', 0);
-        ourtakeSheet.insertRule(".buttonDiv { padding: 0% 0%; float: left; border-bottom: 5px solid black; width: 100%;}", 0);
+        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 22px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; width: 25%; vertical-align: top;}', 0);
 
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 0%; }", 0)
@@ -452,7 +451,6 @@ function checkMobile() {
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 3% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 31%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
-        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top;}', 0);
-        ourtakeSheet.insertRule(".buttonDiv { padding: 0% 0%; float: left; border-bottom: 5px solid black;}", 0);
+        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; width: 25%; vertical-align: top;}', 0);
     }
 }

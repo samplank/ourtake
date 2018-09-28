@@ -228,7 +228,7 @@ function loadArticles() {
                 addToButton = document.createElement("button");
                 addToButton.className = "addToArticle";
                 addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
-                addToButton.innerHTML = "Contribute to this Article";
+                addToButton.innerHTML = "Add your own thoughts";
                 buttonDiv.appendChild(readButton);
                 buttonDiv.appendChild(addToButton);
                 link.appendChild(buttonDiv);

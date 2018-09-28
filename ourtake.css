@@ -163,7 +163,7 @@ tr {
 .buttonDiv { 
     padding: 0% 0%; 
     float: left; 
-    border-bottom: 5px solid black; 
+    border-bottom: 1px solid darkgrey; 
     width: 100%;
     padding: 3% 0%;
 }

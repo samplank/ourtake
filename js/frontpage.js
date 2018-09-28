@@ -220,7 +220,10 @@ function loadArticles() {
                 addToButton.className = "addToArticle";
                 addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
                 addToButton.innerHTML = "Contribute to this Article";
+                otherButton = document.createElement("button");
+                otherButton.innerHTML = "other button!";
                 buttonDiv.appendChild(addToButton);
+                buttonDiv.appendChild(otherButton);
                 link.appendChild(buttonDiv);
                 articleArray.push(link);
                 console.log(link);

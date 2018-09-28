@@ -104,12 +104,10 @@ tr {
     text-decoration: none;
 }
 
-.frontHolder {
+/*.frontHolder {
     padding: 24px;
-    /*background-color: #fff9ea;*/
     margin: 10% 0% 0% 0%;
-/*    border-bottom: 5px solid black;*/
-}
+}*/
 
 .topButton {
     font-family: "Trebuchet MS", sans-serif;

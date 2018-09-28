@@ -255,21 +255,21 @@ function loadText(articleID) {
                 review.appendChild(newReviewPara);
 
                 //only show the last paragraph.
-                if (user && contribution.paragraph_number > (paragraph_count - 1)){
+                // if (user && contribution.paragraph_number > (paragraph_count - 1)){
 
-                    var newContributePara = document.createElement("p");
-                    newContributePara.innerHTML = contribution.body;
-                    existingContributions.appendChild(newContributePara);
+                //     var newContributePara = document.createElement("p");
+                //     newContributePara.innerHTML = contribution.body;
+                //     existingContributions.appendChild(newContributePara);
 
-                    var replaceDiv = document.createElement("div");
-                    replaceDiv.id = "div" + String(i);
-                    existingContributions.appendChild(replaceDiv);
+                //     var replaceDiv = document.createElement("div");
+                //     replaceDiv.id = "div" + String(i);
+                //     existingContributions.appendChild(replaceDiv);
 
-                    var newlineDiv = document.createElement("div");
-                    newlineDiv.id = "newline";
-                    existingContributions.appendChild(newlineDiv);
+                //     var newlineDiv = document.createElement("div");
+                //     newlineDiv.id = "newline";
+                //     existingContributions.appendChild(newlineDiv);
 
-                  }
+                //   }
             }
           });
         });

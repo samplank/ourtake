@@ -159,6 +159,7 @@ tr {
 .reviewDetails {
     font-family: "Trebuchet MS", sans-serif;
     line-height: 22px;
+    margin: 2% 0% 4% 0%;
 }
 
 .buttonDiv { 

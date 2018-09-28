@@ -160,6 +160,10 @@ tr {
     font-family: "Trebuchet MS", sans-serif;
 }
 
+.buttonDiv {
+    float: left;
+}
+
 /*.arrow {
     display: block;
     width: 5%;

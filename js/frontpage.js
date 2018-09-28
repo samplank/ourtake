@@ -179,10 +179,10 @@ function loadArticles() {
             var timeago = "<i>Last Update</i>: " + m + " " + d + ", " + y;
         }
         else if (days > 0) {
-            var timeago = "<i>Last Update</i>: " + days + "d " + hours + "h " + minutes + "m ago";
+            var timeago = "<i>Last Update</i>: " + days + "d ago";
         }
         else if (hours > 0) {
-            var timeago = "<i>Last Update</i>: " + hours + "h " + minutes + "m ago";
+            var timeago = "<i>Last Update</i>: " + hours + "h ago";
         }
         else {
             var timeago = "<i>Last Update</i>: " + minutes + "m ago";
@@ -214,11 +214,14 @@ function loadArticles() {
         function waitForBody() {
             if (body != '') {
                 aref.innerHTML = "<span style='font-weight:bold; font-size: 28px'>" + contribution.title + '</span><br style="line-height: 40px" />' + body + '<p class="reviewDetails">' + articleDetails + '</p>';
+                buttonDiv = document.createElement("div");
+                buttonDiv.className = "buttonDiv";
                 addToButton = document.createElement("button");
                 addToButton.className = "addToArticle";
                 addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
                 addToButton.innerHTML = "Contribute to this Article";
-                link.appendChild(addToButton);
+                buttonDiv.appendChild(addToButton);
+                link.appendChild(buttonDiv);
                 articleArray.push(link);
                 console.log(link);
             }
@@ -425,7 +428,6 @@ function contributeButtonActions() {
 function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
-        console.log("desktop");
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 15%; }", 0);
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 12%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
@@ -436,7 +438,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 22px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top;}', 0);
     } else if (is_mobile) {
-        console.log("mobile");
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 25%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);

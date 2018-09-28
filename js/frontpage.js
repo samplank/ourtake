@@ -217,7 +217,12 @@ function loadArticles() {
                 buttonDiv = document.createElement("div");
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
-                readButton.innerHTML = "Read " + contribution.paragraph_count + " Accepted Contributions";
+                if (contribution.paragraph_count == 1) {
+                  readButton.innerHTML = "Read " + contribution.paragraph_count + " Accepted Contribution";
+                }
+                else {
+                  readButton.innerHTML = "Read " + contribution.paragraph_count + " Accepted Contributions";
+                }
                 readButton.className = "addToArticle";
                 readButton.setAttribute('onclick','location.href="article.html?article=' + String(key) + '"');
                 addToButton = document.createElement("button");

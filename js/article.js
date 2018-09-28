@@ -291,6 +291,7 @@ function loadText(articleID) {
             var distance = countDownDate - now;
             if (contribution.accepted == false && user && distance > 0 && contribution.active == true) {
                 var containerDiv = document.createElement("div");
+                containerDiv.className = "containerDiv";
                 var para = document.createElement("div");
                 para.id = "leftjustify" + String(key);
                 para.className = "conditional";

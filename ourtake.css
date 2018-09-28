@@ -167,7 +167,13 @@ tr {
     float: left; 
     border-bottom: 1px solid #484848; 
     width: 100%;
-    padding: 3% 0%;
+}
+
+.containerDiv {
+    padding: 0% 0%; 
+    float: left; 
+    border-bottom: 1px solid #484848; 
+    width: 100%;
 }
 
 /*.arrow {

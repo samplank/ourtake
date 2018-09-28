@@ -176,16 +176,16 @@ function loadArticles() {
 
 
         if (days > 3) {
-            var timeago = "<i>Last Update</i>: " + m + " " + d + ", " + y;
+            var timeago = "Last Update: " + m + " " + d + ", " + y;
         }
         else if (days > 0) {
-            var timeago = "<i>Last Update</i>: " + days + "d ago";
+            var timeago = "Last Update: " + days + "d ago";
         }
         else if (hours > 0) {
-            var timeago = "<i>Last Update</i>: " + hours + "h ago";
+            var timeago = "Last Update: " + hours + "h ago";
         }
         else {
-            var timeago = "<i>Last Update</i>: " + minutes + "m ago";
+            var timeago = "Last Update: " + minutes + "m ago";
         }
 
         var articleDetails = timeago;
@@ -451,7 +451,7 @@ function checkMobile() {
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 3% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 31%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
-        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top;}', 0);
+        ourtakeSheet.insertRule('.addToArticle { font-family: "Trebuchet MS", sans-serif; font-size: 30px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0)
     }
 }

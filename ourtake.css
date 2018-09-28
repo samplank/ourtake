@@ -122,6 +122,7 @@ tr {
     height: 50px;
     vertical-align: top;
     float: right;
+    cursor: pointer;
 }
 
 .undoSubmit {

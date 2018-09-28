@@ -222,6 +222,7 @@ function loadArticles() {
                 addToButton.innerHTML = "Contribute to this Article";
                 otherButton = document.createElement("button");
                 otherButton.innerHTML = "other button!";
+                otherButton.className = "addToArticle";
                 buttonDiv.appendChild(addToButton);
                 buttonDiv.appendChild(otherButton);
                 link.appendChild(buttonDiv);

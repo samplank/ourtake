@@ -329,7 +329,7 @@ function loadText(articleID) {
             var instructions = document.createElement("p");
             console.log(i);
             if (i > 0){
-              instructions.innerHTML = "Vote on existing contributions to the article. If something is missing, write your own!";
+              instructions.innerHTML = "Vote on existing contributions to the article below. If something is missing, write your own!";
             }
             else if (i == 0) {
               instructions.innerHTML = "There are no active contributions. Write your own!";

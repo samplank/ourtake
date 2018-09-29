@@ -85,17 +85,14 @@ tr {
     border-top: none;
 }
 
-.conditional {
+/*.conditional {
     float: left;
-    /*position: relative;*/
-    /*border: 5px solid pink;*/
-    /*background-color: #fff9ea;*/
     padding: 3%;
     width: 60%;
     margin: 10px 0px;
     font-size: 24px;
     line-height: 34px;
-}
+}*/
 
 .front {
     font-family: Georgia, serif;
@@ -210,17 +207,14 @@ tr {
     clear: left;
 }
 
-#rightjustify {
+/*#rightjustify {
     float: right;
-    /*position: relative;*/
-    /*border: 5px solid pink;*/
-    /*background-color: #fff9ea;*/
     padding: 3%;
     width: 25%;
     margin: 10px 0px;
     font-size: 24px;
     line-height: 34px;
-}
+}*/
 
 #upper {
     float: left;

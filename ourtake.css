@@ -41,7 +41,7 @@ tr {
 /* Style the tab */
 .tab {
     font-size: 18px;
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Helvetica, sans-serif;
     overflow: hidden;
     /*border: 1px solid #ccc;*/
     background-color: #fff9ea;
@@ -49,7 +49,7 @@ tr {
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 30px;
     background-color: inherit;
     float: left;
@@ -62,14 +62,14 @@ tr {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 30px;
     background-color: #fff4db;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 30px;
     background-color: #ffeeb7;
 
@@ -78,7 +78,7 @@ tr {
 /* Style the tab content */
 .tabcontent {
     font-size: 30px;
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: Helvetica, sans-serif;
     display: none;
     padding: 6px 12px;
     /*border: 1px solid #ccc;*/

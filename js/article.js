@@ -463,10 +463,6 @@ function addCountdown(subinfo, timestamp, justname) {
       var b = '<br>';
       var timeleft = "Time left: " + days + "d " + hours + "h " + minutes + "m ";
 
-      while (subinfo.firstChild) {
-          subinfo.removeChild(subinfo.firstChild);
-      }
-
       subinfo.innerHTML = name + b + timeleft;
 
       // If the count down is finished, write some text 

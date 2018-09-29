@@ -292,7 +292,7 @@ function loadText(articleID) {
             if (contribution.accepted == false && user && distance > 0 && contribution.active == true) {
                 var containerDiv = document.createElement("div");
                 containerDiv.className = "containerDiv";
-                var para = document.createElement("div");
+                var para = document.createElement("p");
                 para.id = "leftjustify" + String(key);
                 para.className = "conditional";
                 var t = document.createTextNode(contribution.body);

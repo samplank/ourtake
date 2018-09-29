@@ -443,6 +443,8 @@ function addCountdown(subinfo, timestamp, justname) {
 
     var dateTimestamp = new Date(timestamp);
     var countDownDate = dateTimestamp.addHours(48).getTime();
+    var subtext = document.createElement("p");
+    subinfo.appendChild(subtext);
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -463,12 +465,12 @@ function addCountdown(subinfo, timestamp, justname) {
       var b = '<br>';
       var timeleft = "Time left: " + days + "d " + hours + "h " + minutes + "m ";
 
-      subinfo.innerHTML = name + b + timeleft;
+      subtext.innerHTML = name + b + timeleft;
 
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);
-        subinfo.innerHTML = "EXPIRED";
+        subtext.innerHTML = "EXPIRED";
 
       }
     }, 1000);

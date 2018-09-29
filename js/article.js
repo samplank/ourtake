@@ -290,20 +290,19 @@ function loadText(articleID) {
             // Find the distance between now an the count down date
             var distance = countDownDate - now;
             if (contribution.accepted == false && user && distance > 0 && contribution.active == true) {
-                var containerDiv = document.createElement("div");
-                containerDiv.className = "containerDiv";
-                var para = document.createElement("p");
+                var para = document.createElement("div");
+                // containerDiv.className = "containerDiv";
+                // var para = document.createElement("p");
                 para.id = "leftjustify" + String(key);
                 para.className = "conditional";
-                var t = document.createTextNode(contribution.body);
-                para.appendChild(t);
+                para.innerHTML = contribution.body;
 
                 var submitInfo = document.createElement("div");
                 submitInfo.id = "rightjustify"
 
-                containerDiv.appendChild(para);
+                // containerDiv.appendChild(para);
                 // containerDiv.appendChild(submitInfo);
-                candidateContributions.appendChild(containerDiv);
+                candidateContributions.appendChild(para);
                 candidateContributions.appendChild(submitInfo);
 
                 addCountdown(submitInfo, contribution.timestamp, contribution.author);
@@ -444,8 +443,6 @@ function addCountdown(subinfo, timestamp, justname) {
 
     var dateTimestamp = new Date(timestamp);
     var countDownDate = dateTimestamp.addHours(48).getTime();
-    var subtext = document.createElement("div");
-    subinfo.appendChild(subtext);
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -462,22 +459,20 @@ function addCountdown(subinfo, timestamp, justname) {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      var name = document.createTextNode("Submitted by: " + justname);
-      var b = document.createElement("br");
-      var timeleft = document.createTextNode("Time left: " + days + "d " + hours + "h " + minutes + "m ");
+      var name = "Submitted by: " + justname;
+      var b = '<br>';
+      var timeleft = "Time left: " + days + "d " + hours + "h " + minutes + "m ";
 
-      while (subtext.firstChild) {
-          subtext.removeChild(subtext.firstChild);
+      while (subinfo.firstChild) {
+          subinfo.removeChild(subinfo.firstChild);
       }
 
-      subtext.appendChild(name);
-      subtext.appendChild(b);
-      subtext.appendChild(timeleft);
+      subinfo.innerHTML = name + b + timeleft;
 
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);
-        subtext.innerHTML = "EXPIRED";
+        subinfo.innerHTML = "EXPIRED";
 
       }
     }, 1000);    

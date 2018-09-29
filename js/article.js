@@ -473,6 +473,8 @@ function addCountdown(subinfo, timestamp, justname) {
       subtext.appendChild(b);
       subtext.appendChild(timeleft);
 
+      subtext.color = "#484848";
+
       // If the count down is finished, write some text 
       if (distance < 0) {
         clearInterval(x);

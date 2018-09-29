@@ -172,7 +172,7 @@ tr {
 .containerDiv {
     padding: 0% 0%; 
     float: left; 
-    border-bottom: 1px solid #484848; 
+    /*border-bottom: 1px solid #484848; */
     width: 100%;
 }
 

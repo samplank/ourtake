@@ -302,8 +302,9 @@ function loadText(articleID) {
                 submitInfo.id = "rightjustify"
 
                 containerDiv.appendChild(para);
-                containerDiv.appendChild(submitInfo);
+                // containerDiv.appendChild(submitInfo);
                 candidateContributions.appendChild(containerDiv);
+                candidateContributions.appendChild(submitInfo);
 
                 addCountdown(submitInfo, contribution.timestamp, contribution.author);
                 addCounter(submitInfo, key, articleID);
@@ -760,7 +761,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 60%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
-        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
+        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; border-bottom: 1px solid #484848; }');
     }
     else if (is_mobile) {
         console.log("mobile");
@@ -773,6 +774,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 31%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 100%; margin: 10px 0px; font-size: 24px; line-height: 48px;}');
-        ourtakeSheet.insertRule('#rightjustify { padding: 3%; width: 90%; margin: 10px 0px; font-size: 36px; line-height: 100px;}');
+        ourtakeSheet.insertRule('#rightjustify { padding: 3%; width: 90%; margin: 10px 0px; font-size: 36px; line-height: 100px; border-bottom: 1px solid #484848; }');
     }
 }

@@ -146,13 +146,14 @@ tr {
 .voteButton {
     background-color: #fff4db;
     font-family: Georgia, serif;
-    font-size: 34px;
+    font-size: 30px;
     width: 50%;
     height: 50%;
 }
 
 .voteText {
     font-family: Georgia, serif;
+    font-size: 30px;
 }
 
 .reviewDetails {

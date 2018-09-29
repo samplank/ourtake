@@ -290,20 +290,20 @@ function loadText(articleID) {
             // Find the distance between now an the count down date
             var distance = countDownDate - now;
             if (contribution.accepted == false && user && distance > 0 && contribution.active == true) {
+                var containerDiv = document.createElement("div");
+                containerDiv.className = "containerDiv";
                 var para = document.createElement("div");
-                // containerDiv.className = "containerDiv";
-                // var para = document.createElement("p");
                 para.id = "leftjustify" + String(key);
                 para.className = "conditional";
-                para.innerHTML = contribution.body;
+                var t = document.createTextNode(contribution.body);
+                para.appendChild(t);
 
                 var submitInfo = document.createElement("div");
                 submitInfo.id = "rightjustify"
 
-                // containerDiv.appendChild(para);
-                // containerDiv.appendChild(submitInfo);
-                candidateContributions.appendChild(para);
-                candidateContributions.appendChild(submitInfo);
+                containerDiv.appendChild(para);
+                containerDiv.appendChild(submitInfo);
+                candidateContributions.appendChild(containerDiv);
 
                 addCountdown(submitInfo, contribution.timestamp, contribution.author);
                 addCounter(submitInfo, key, articleID);
@@ -443,7 +443,7 @@ function addCountdown(subinfo, timestamp, justname) {
 
     var dateTimestamp = new Date(timestamp);
     var countDownDate = dateTimestamp.addHours(48).getTime();
-    var subtext = document.createElement("p");
+    var subtext = document.createElement("div");
     subinfo.appendChild(subtext);
 
     // Update the count down every 1 second
@@ -461,11 +461,17 @@ function addCountdown(subinfo, timestamp, justname) {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      var name = "Submitted by: " + justname;
-      var b = '<br>';
-      var timeleft = "Time left: " + days + "d " + hours + "h " + minutes + "m ";
+      var name = document.createTextNode("Submitted by: " + justname);
+      var b = document.createElement("br");
+      var timeleft = document.createTextNode("Time left: " + days + "d " + hours + "h " + minutes + "m ");
 
-      subtext.innerHTML = name + b + timeleft;
+      while (subtext.firstChild) {
+          subtext.removeChild(subtext.firstChild);
+      }
+
+      subtext.appendChild(name);
+      subtext.appendChild(b);
+      subtext.appendChild(timeleft);
 
       // If the count down is finished, write some text 
       if (distance < 0) {
@@ -473,7 +479,12 @@ function addCountdown(subinfo, timestamp, justname) {
         subtext.innerHTML = "EXPIRED";
 
       }
-    }, 1000);
+    }, 1000);    
+
+}
+
+function addCounter(subinfo, contributionID, articleID) {
+
 
     updown = document.createElement('div');
     upcounter = document.createElement('button');
@@ -515,7 +526,8 @@ function addCountdown(subinfo, timestamp, justname) {
     downvoteRef.on('value', function(snapshot) {
         votes = document.getElementById("down" + String(contributionID))
         votes.innerHTML = String(snapshot.val());
-    });    
+    });
+
 
 }
 
@@ -748,7 +760,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 60%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
-        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; border-bottom: 1px solid #484848; }');
+        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
     }
     else if (is_mobile) {
         console.log("mobile");
@@ -760,7 +772,7 @@ function checkMobile() {
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 3% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 31%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
-        ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 100%; margin: 10px 0px; font-size: 24px; line-height: 48px;}');
-        ourtakeSheet.insertRule('#rightjustify { padding: 3%; width: 90%; margin: 10px 0px; font-size: 36px; line-height: 100px; border-bottom: 1px solid #484848; }');
+        ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 100%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
+        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 90%; margin: 10px 0px; font-size: 24px; line-height: 48px;}');
     }
 }

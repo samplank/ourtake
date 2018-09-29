@@ -147,6 +147,8 @@ tr {
     background-color: #fff4db;
     font-family: Georgia, serif;
     font-size: 18px;
+    width: 10%;
+    height: 10%;
 }
 
 .voteText {

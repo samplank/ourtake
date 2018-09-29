@@ -218,12 +218,6 @@ function loadText(articleID) {
     function waitForParaCount() {
       if (paragraph_count !== -1){
 
-        if (paragraph_count > 1) {
-            var dotSpace = document.createElement("p");
-            dotSpace.innerHTML = "...";
-            existingContributions.appendChild(dotSpace);
-        }
-
         var i = 0;
         var rootRef = firebase.database().ref();
         var urlRef = rootRef.child("posts/" + String(articleID) + "/contributions").orderByChild("paragraph_number");

@@ -471,12 +471,7 @@ function addCountdown(subinfo, timestamp, justname) {
         subinfo.innerHTML = "EXPIRED";
 
       }
-    }, 1000);    
-
-}
-
-function addCounter(subinfo, contributionID, articleID) {
-
+    }, 1000);
 
     updown = document.createElement('div');
     upcounter = document.createElement('button');
@@ -518,8 +513,7 @@ function addCounter(subinfo, contributionID, articleID) {
     downvoteRef.on('value', function(snapshot) {
         votes = document.getElementById("down" + String(contributionID))
         votes.innerHTML = String(snapshot.val());
-    });
-
+    });    
 
 }
 

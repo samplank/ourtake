@@ -762,7 +762,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 60%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
-        ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; color: #484848; }');
+        ourtakeSheet.insertRule('#rightjustify { float: right; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; color: #484848; }');
         ourtakeSheet.insertRule('.voteButton { background-color: #fff4db; font-family: Georgia, serif; font-size: 18px; width: 40%; height: 50%; margin: 0% 3% 0% 0%;}')
     }
     else if (is_mobile) {
@@ -776,7 +776,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 31%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Trebuchet MS", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 95%; margin: 10px 0px; font-size: 24px; line-height: 34px;}');
-        ourtakeSheet.insertRule('#rightjustify { float: right; width: 92%; padding: 3%; margin: 10px 0px; font-size: 34px; line-height: 48px; color: #484848;}');
+        ourtakeSheet.insertRule('#rightjustify { float: right; width: 92%; margin: 10px 0px; font-size: 34px; line-height: 48px; color: #484848;}');
         ourtakeSheet.insertRule('.voteButton { background-color: #fff4db; font-family: Georgia, serif; font-size: 30px; width: 40%; height: 50%; margin: 0% 3% 0% 0%;}');
     }
 }

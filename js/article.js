@@ -196,6 +196,8 @@ function loadText(articleID) {
     contribute.appendChild(candidateContributions);
     contribute.appendChild(buttonSpace);
 
+    var title;
+
     firebase.database().ref('posts/'  + String(articleID) + '/title').once('value').then(function(snapshot) {
       title = snapshot.val();
       var titleSlot = document.createElement("h2");
@@ -334,7 +336,7 @@ function loadText(articleID) {
 
           
           if (user) {
-            addButton(i,articleID);
+            addButton(i,articleID,title);
           }
         });
       }
@@ -344,7 +346,7 @@ function loadText(articleID) {
     }
 }
 
-function addTextBox(i,articleID) {
+function addTextBox(i,articleID,title) {
 
     var buttonSpace = document.getElementById("buttonSpace");
     console.log(buttonSpace);
@@ -366,7 +368,7 @@ function addTextBox(i,articleID) {
 
     var submitButton = document.createElement("button");
     submitButton.innerHTML = "Submit";
-    submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+')');
+    submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+'"'+String(title)+'"'+')');
     submitButton.className = "undoSubmit";
 
     var txtDiv = document.createElement("div")
@@ -377,11 +379,11 @@ function addTextBox(i,articleID) {
     buttonSpace.appendChild(txtDiv);
 }
 
-function addButton(i,articleID) {
+function addButton(i,articleID,title) {
 
     var contributeButton = document.createElement("button");
     contributeButton.innerHTML = "Write your own!";
-    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+')');
+    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+'"'+String(title)+'"'+')');
     contributeButton.id = "contributeButton";
 
     var buttonSpace = document.getElementById("buttonSpace");
@@ -397,7 +399,7 @@ function addPrompt(i,articleID) {
 
 }
 
-function submitText(i,articleID) {
+function submitText(i,articleID,title) {
 
     var votes = 0
     firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
@@ -407,7 +409,7 @@ function submitText(i,articleID) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0,true);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0,true,title);
 
             loadText(articleID);
             var updates = {};
@@ -662,7 +664,7 @@ function removeText(contributionID, articleID) {
 }
 
 
-function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct, active) {
+function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct, active, title) {
   // A post entry.
   var contributionData = {
     body: body,
@@ -675,7 +677,8 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
     articleID: articleID,
     reviewct: reviewct,
     toxicct: toxicct,
-    active: active
+    active: active,
+    title: title
   };
 
   // Get a key for a new Post.

@@ -786,10 +786,10 @@ function checkMobile() {
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3%; width: 95%; margin: 10px 0px; font-size: 24px; line-height: 34px; font-family: Georgia, serif;}');
         ourtakeSheet.insertRule('#rightjustify { float: right; width: 92%; padding: 3%; margin: 10px 0px; font-size: 34px; line-height: 48px; color: #484848; font-family: "Lato", sans-serif;}');
         ourtakeSheet.insertRule('.voteButton { background-color: #fff4db; font-size: 30px; width: 40%; height: 50%; margin: 0% 3% 0% 0%;}');
-        ourtakeSheet.insertRule('.tab { font-size: 18px; font-family: "Lato", sans-serif; overflow: hidden; background-color: #fff9ea; }');
-        ourtakeSheet.insertRule('.tab button { font-family: "Lato", sans-serif; font-size: 30px; background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }');
-        ourtakeSheet.insertRule('.tab button:hover { font-family: "Lato", sans-serif; font-size: 30px; background-color: #fff4db; }');
-        ourtakeSheet.insertRule('.tab button.active { font-family: "Lato", sans-serif; font-size: 30px; background-color: #ffeeb7; }');
-        ourtakeSheet.insertRule('.tabcontent { font-size: 30px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }');
+        ourtakeSheet.insertRule('.tab { font-size: 34px; font-family: "Lato", sans-serif; overflow: hidden; background-color: #fff9ea; }');
+        ourtakeSheet.insertRule('.tab button { font-family: "Lato", sans-serif; font-size: 34px; background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }');
+        ourtakeSheet.insertRule('.tab button:hover { font-family: "Lato", sans-serif; font-size: 34px; background-color: #fff4db; }');
+        ourtakeSheet.insertRule('.tab button.active { font-family: "Lato", sans-serif; font-size: 34px; background-color: #ffeeb7; }');
+        ourtakeSheet.insertRule('.tabcontent { font-size: 34px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }');
     }
 }

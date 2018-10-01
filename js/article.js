@@ -793,7 +793,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tab button:hover { font-family: "Lato", sans-serif; font-size: 34px; background-color: #fff4db; }', 0);
         ourtakeSheet.insertRule('.tab button.active { font-family: "Lato", sans-serif; font-size: 34px; background-color: #ffeeb7; }', 0);
         ourtakeSheet.insertRule('.tabcontent { font-size: 34px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
-        ourtakeSheet.insertRule('h2 { font-family: Georgia, serif; font-weight: bold; font-size: 30px; }', 0)
+        ourtakeSheet.insertRule('h2 { font-family: Georgia, serif; font-weight: bold; font-size: 40px; }', 0)
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 48px; }', 0);
 
     }

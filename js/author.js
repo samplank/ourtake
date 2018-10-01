@@ -153,7 +153,12 @@ function loadAuthor(author) {
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
     authorName = val.username;
-    authorDiv.innerHTML = authorName;
+    var contributions = val.contributions;
+    if (contributions) {
+      for (var key in contributions) {
+        
+      }
+    }
   });
 }
 

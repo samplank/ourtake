@@ -368,7 +368,7 @@ function addTextBox(i,articleID,title) {
 
     var submitButton = document.createElement("button");
     submitButton.innerHTML = "Submit";
-    submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+'"'+String(title)+'"'+')');
+    submitButton.setAttribute('onclick','submitText('+String(i)+','+'"'+String(articleID)+'"'+','+'"'+String(title)+'"'+')');
     submitButton.className = "undoSubmit";
 
     var txtDiv = document.createElement("div")
@@ -383,7 +383,7 @@ function addButton(i,articleID,title) {
 
     var contributeButton = document.createElement("button");
     contributeButton.innerHTML = "Write your own!";
-    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+'"'+String(title)+'"'+')');
+    contributeButton.setAttribute('onclick','addTextBox('+String(i)+','+'"'+String(articleID)+'"'+','+'"'+String(title)+'"'+')');
     contributeButton.id = "contributeButton";
 
     var buttonSpace = document.getElementById("buttonSpace");

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<meta name="google-signin-client_id" content="130022120774-65r3j5ausqf2q02ng7ac4moe335oboh5.apps.googleusercontent.com">
+<script type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/article.js"></script>
+<link rel="stylesheet" type="text/css" href="ourtake.css">
+<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Lato|Merriweather|Lora" rel="stylesheet">
+<link rel="shortcut icon" href="#" />
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAOCrsdOewIQmGh0XDS1wYGqTbrJKGVwY0",
+    authDomain: "ourtake-9cc32.firebaseapp.com",
+    databaseURL: "https://ourtake-9cc32.firebaseio.com",
+    projectId: "ourtake-9cc32",
+    storageBucket: "ourtake-9cc32.appspot.com",
+    messagingSenderId: "130022120774"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  // var database = firebase.database();
+
+</script>
+
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+<script>
+
+var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: 'popup',
+  signInSuccessUrl: '#',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ]
+};
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+</script>
+
+</head>
+<body>
+
+<div id="topRightFixed">
+</div>
+
+<div id="topLeftFixed">
+</div>
+
+<a href="https://sliced.us">
+  <img src="sliced_logo.jpg" id="logo">
+</a>
+
+<div id="topcontainer">
+  <div id="topright">
+  </div>
+</div>
+
+<div id="topleft">
+</div>
+
+<div id="authorDiv">
+</div>
+
+
+<script>
+  var url_string = document.location.href;
+  var url = new URL(url_string);
+  var article = url.searchParams.get("author");
+</script>
+
+<script>
+  document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+firebase.auth().onAuthStateChanged(function(fbuser) {
+  if (fbuser) {
+    console.log(fbuser)
+    writeUserData(fbuser.uid, fbuser.displayName, fbuser.email);
+    updateUser(fbuser);
+    loadAuthor(author);
+    console.log("logged in");
+
+  } else {
+    updateUser(null);
+    loadText(article);
+    console.log("logged out");
+
+
+    var authDivFixed = document.getElementById("topRightFixed");
+    var authDivMove = document.getElementById("topright");
+
+    while (authDivFixed.firstChild) {
+      authDivFixed.removeChild(authDivFixed.firstChild);
+    }
+
+    while (authDivMove.firstChild) {
+      authDivMove.removeChild(authDivMove.firstChild);
+    }
+
+    var leftDivFixed = document.getElementById("topLeftFixed");
+    var leftDivMove = document.getElementById("topleft")
+
+    while (leftDivFixed.firstChild) {
+      leftDivFixed.removeChild(leftDivFixed.firstChild);
+    }
+
+    while (leftDivMove.firstChild) {
+      leftDivMove.removeChild(leftDivMove.firstChild);
+    }
+
+    var signInButton = document.createElement("div");
+    signInButton.id = "firebaseui-auth-container";
+    authDivFixed.appendChild(signInButton);
+    ui.start('#firebaseui-auth-container', uiConfig);
+
+    var howToButton = document.createElement("button");
+    howToButton.className = "topButton";
+    howToButton.innerHTML = "How To Slice"
+    howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+    leftDivFixed.appendChild(howToButton);
+
+
+  }
+});
+</script>
+
+<script>
+  checkMobile();
+</script>
+
+</body>
+</html>

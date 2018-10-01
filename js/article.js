@@ -672,6 +672,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
     author: author,
     uid: uid,
     timestamp: timestamp,
+    articleID: articleID,
     reviewct: reviewct,
     toxicct: toxicct,
     active: active
@@ -683,6 +684,7 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
   // Write the new post's data simultaneously in the posts list and the user's post list.
   var updates = {};
   updates['posts/' + String(articleID) + '/contributions/' + newContributionKey] = contributionData;
+  updates['users/' + String(uid) + '/contributions/' + newContributionKey] = contributionData;
 
   var datRef = firebase.database().ref();
   datRef.update(updates);

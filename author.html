@@ -94,10 +94,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 </script>
 
 <script>
-  document.getElementById("defaultOpen").click();
-</script>
-
-<script>
 firebase.auth().onAuthStateChanged(function(fbuser) {
   if (fbuser) {
     console.log(fbuser)

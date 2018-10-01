@@ -153,12 +153,13 @@ function getLeaders() {
       n++;
       user = child.val();
       username = user.username;
+      uid = child.key;
       clout = user.clout;
 
       var tableRow = document.createElement("tr");
 
       var userRow = document.createElement("td");
-      userRow.innerHTML = username;
+      userRow.innerHTML = '<a href="author.html?author=' + uid + '">' + user + "</a>"
       var userClout = document.createElement("td");
       userClout.innerHTML = clout;
 

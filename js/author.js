@@ -149,7 +149,7 @@ function loadAuthor(author) {
   var authorDiv = document.getElementById("authorDiv");
 
   var authorName;
-  var authorRef = firebase.database().ref('users/' + userId);
+  var authorRef = firebase.database().ref('users/' + author);
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
     authorName = val.username;

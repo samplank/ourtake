@@ -768,10 +768,10 @@ function checkMobile() {
         ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3% 0%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; color: #484848; font-family: "Lato", sans-serif;}', 0);
         ourtakeSheet.insertRule('.voteButton { background-color: #fff4db; font-size: 18px; width: 40%; height: 50%; margin: 0% 3% 0% 0%;}', 0);
         ourtakeSheet.insertRule('.tab { font-size: 18px; font-family: "Lato", sans-serif; overflow: hidden; background-color: #fff9ea; }', 0);
-        ourtakeSheet.insertRule('.tab button { font-family: "Lato", sans-serif; font-size: 24px; background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }', 0);
-        ourtakeSheet.insertRule('.tab button:hover { font-family: "Lato", sans-serif; font-size: 24px; background-color: #fff4db; }', 0);
-        ourtakeSheet.insertRule('.tab button.active { font-family: "Lato", sans-serif; font-size: 24px; background-color: #ffeeb7; }', 0);
-        ourtakeSheet.insertRule('.tabcontent { font-size: 24px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
+        ourtakeSheet.insertRule('.tab button { font-family: "Lato", sans-serif; font-size: 22px; background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }', 0);
+        ourtakeSheet.insertRule('.tab button:hover { font-family: "Lato", sans-serif; font-size: 22px; background-color: #fff4db; }', 0);
+        ourtakeSheet.insertRule('.tab button.active { font-family: "Lato", sans-serif; font-size: 22px; background-color: #ffeeb7; }', 0);
+        ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: Georgia, serif; font-weight: bold; font-size: 30px; }', 0);
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 34px; }', 0);
     }

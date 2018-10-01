@@ -218,10 +218,10 @@ function loadArticles() {
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
                 if (contribution.paragraph_count == 1) {
-                  readButton.innerHTML = "Read " + contribution.paragraph_count + " Accepted Contribution";
+                  readButton.innerHTML = "Read " + contribution.paragraph_count + " accepted contribution";
                 }
                 else {
-                  readButton.innerHTML = "Read " + contribution.paragraph_count + " Accepted Contributions";
+                  readButton.innerHTML = "Read " + contribution.paragraph_count + " accepted contributions";
                 }
                 readButton.className = "addToArticle";
                 readButton.setAttribute('onclick','location.href="article.html?article=' + String(key) + '"');

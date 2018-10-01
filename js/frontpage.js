@@ -448,6 +448,8 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 22px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 50px; width: 45%; vertical-align: top; white-space: normal; cursor: pointer;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 10% 0% 0% 0%; }', 0);
+        ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 34px; }', 0);
+
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 25%; }", 0);
@@ -459,5 +461,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Lato", sans-serif; font-size: 24px; display: inline-block; background: white; color: black; width: 26.75%; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 30px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top; white-space: normal;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0);
+        ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 48px; }', 0);
+
     }
 }

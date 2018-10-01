@@ -213,7 +213,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px' line-height: 40px>" + contribution.title + '</span><p class="reviewDetails">' + articleDetails + '</p>' + body;
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px; line-height: 40px;'>" + contribution.title + '</span><p class="reviewDetails">' + articleDetails + '</p>' + body;
                 buttonDiv = document.createElement("div");
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");

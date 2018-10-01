@@ -244,7 +244,7 @@ function loadText(articleID) {
                 newReviewPara.innerHTML = contribution.body;
                 var reviewInfoName = document.createElement("p");
                 reviewInfoName.className = "reviewDetails";
-                reviewInfoName.innerHTML = "Author: " + contribution.author + "<br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
+                reviewInfoName.innerHTML = 'Author: <a href="' + contribution.uid + '>"' + contribution.author + "</a><br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
                 newReviewPara.appendChild(reviewInfoName);
                 review.appendChild(newReviewPara);
 
@@ -299,7 +299,7 @@ function loadText(articleID) {
                 containerDiv.appendChild(submitInfo);
                 candidateContributions.appendChild(containerDiv);
 
-                addCountdown(submitInfo, contribution.timestamp, contribution.author);
+                addCountdown(submitInfo, contribution);
                 addCounter(submitInfo, key, articleID);
                 i++;
             }
@@ -433,8 +433,11 @@ Date.prototype.addHours = function(h) {
 }
 
 
-function addCountdown(subinfo, timestamp, justname) {
+function addCountdown(subinfo, contribution) {
 
+    var timestamp = contribution.timestamp;
+    var justname = contribution.author;
+    var uid = contribution.uid;
     var dateTimestamp = new Date(timestamp);
     var countDownDate = dateTimestamp.addHours(48).getTime();
     var subtext = document.createElement("div");
@@ -455,7 +458,7 @@ function addCountdown(subinfo, timestamp, justname) {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      var name = document.createTextNode("Submitted by: " + justname);
+      var name = document.createTextNode('Submitted by: <a href="' + uid + '">' + justname + '</a>');
       var b = document.createElement("br");
 
       if (days > 0) {

@@ -39,16 +39,15 @@ tr {
 }
 
 /* Style the tab */
-.tab {
+/*.tab {
     font-size: 18px;
     font-family: "Lato", sans-serif;
     overflow: hidden;
-    /*border: 1px solid #ccc;*/
     background-color: #fff9ea;
-}
+}*/
 
 /* Style the buttons that are used to open the tab content */
-.tab button {
+/*.tab button {
     font-family: "Lato", sans-serif;
     font-size: 30px;
     background-color: inherit;
@@ -58,32 +57,31 @@ tr {
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.3s;
-}
+}*/
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+/*.tab button:hover {
     font-family: "Lato", sans-serif;
     font-size: 30px;
     background-color: #fff4db;
-}
+}*/
 
 /* Create an active/current tablink class */
-.tab button.active {
+/*.tab button.active {
     font-family: "Lato", sans-serif;
     font-size: 30px;
     background-color: #ffeeb7;
 
-}
+}*/
 
 /* Style the tab content */
-.tabcontent {
+/*.tabcontent {
     font-size: 30px;
     font-family: "Lato", sans-serif;
     display: none;
     padding: 6px 12px;
-    /*border: 1px solid #ccc;*/
     border-top: none;
-}
+}*/
 
 /*.conditional {
     float: left;

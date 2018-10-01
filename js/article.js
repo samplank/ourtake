@@ -458,7 +458,7 @@ function addCountdown(subinfo, contribution) {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      var name = document.createTextNode('Submitted by: <a href="author.html?author=' + uid + '">' + justname + '</a>');
+      var name = 'Submitted by: <a href="author.html?author=' + uid + '">' + justname + '</a>';
       var b = document.createElement("br");
 
       if (days > 0) {
@@ -475,7 +475,7 @@ function addCountdown(subinfo, contribution) {
           subtext.removeChild(subtext.firstChild);
       }
 
-      subtext.appendChild(name);
+      subtext.innerHTML = name;
       subtext.appendChild(b);
       subtext.appendChild(timeleft);
 

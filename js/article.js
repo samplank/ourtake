@@ -244,7 +244,7 @@ function loadText(articleID) {
                 newReviewPara.innerHTML = contribution.body;
                 var reviewInfoName = document.createElement("p");
                 reviewInfoName.className = "reviewDetails";
-                reviewInfoName.innerHTML = 'Author: <a href="author.html?author=' + contribution.uid + '>"' + contribution.author + "</a><br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
+                reviewInfoName.innerHTML = 'Author: <a href="author.html?author=' + contribution.uid + '">' + contribution.author + "</a><br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
                 newReviewPara.appendChild(reviewInfoName);
                 review.appendChild(newReviewPara);
 

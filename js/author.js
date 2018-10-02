@@ -146,7 +146,8 @@ function writeUserData(userId, name, email) {
 }
 
 function loadAuthor(author) {
-  var authorDiv = document.getElementById("authorDiv");
+  var activeDiv = document.getElementById("active");
+  var acceptedDiv = document.getElementById("accepted");
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);
@@ -156,7 +157,15 @@ function loadAuthor(author) {
     var contributions = val.contributions;
     if (contributions) {
       for (var key in contributions) {
-        
+        if (contributions[key].active == true) {
+          var title = document.createElement("h2");
+          var body = document.createElement("p");
+          title.innerHTML = contributions[key].title;
+          body.innerHTML = contributions[key].body;
+          activeDiv.appendChild(title);
+          activeDiv.appendChild(body);
+        }
+
       }
     }
   });

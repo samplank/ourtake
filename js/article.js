@@ -744,10 +744,9 @@ function pageLoad() {
       readTab.className = "tablinks";
       contribDiv.style = "display: block;";
       readDiv.style = "display: none";
-      alert("Here is the current article with the most active contributions for you to vote on! Find the active contributions in the contribute tab of any article.");
       var x = document.getElementById("snackbar");
       x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 10000);
       }
     if (window.location.hash === "#contribute") {
       var contribTab = document.getElementById("contribTab");

@@ -157,7 +157,7 @@ function loadAuthor(author) {
 
     if (snapshot.key == user.uid) {
       var processDiv = document.getElementById("processDiv");
-      processDiv.innerHTML = '<span style="font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato";">The Process</span>';
+      processDiv.innerHTML = '<span style="font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; text-align: center;">The Process</span>';
     }
 
     authorName = val.username;

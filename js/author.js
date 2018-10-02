@@ -168,6 +168,17 @@ function loadAuthor(author) {
           container.appendChild(body);
           activeDiv.appendChild(container);
         }
+        if (contributions[key].accepted == true) {
+          var container = document.createElement("div");
+          container.className = "containerDiv"
+          var title = document.createElement("h2");
+          var body = document.createElement("p");
+          title.innerHTML = contributions[key].title;
+          body.innerHTML = contributions[key].body;
+          container.appendChild(title);
+          container.appendChild(body);
+          acceptedDiv.appendChild(container);
+        }
 
       }
     }

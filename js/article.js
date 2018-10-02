@@ -507,8 +507,8 @@ function addCounter(subinfo, contributionID, articleID) {
     upcounter.innerHTML = "Upvote";
     downcounter.innerHTML = "Downvote";
 
-    upcounter.setAttribute('onclick','onClick(' + '"upvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"' +')');
-    downcounter.setAttribute('onclick','onClick(' + '"downvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"'+')');
+    upcounter.setAttribute('onclick','voteClick(' + '"upvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"' +')');
+    downcounter.setAttribute('onclick','voteClick(' + '"downvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"'+')');
 
 
     upcount = document.createElement("p");
@@ -541,10 +541,10 @@ function addCounter(subinfo, contributionID, articleID) {
 
 }
 
-function onClick(direction, contributionID, articleID) {
+function voteClick(direction, contributionID, articleID) {
 
     var authorUid = '';
-    firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + 'uid').once('value').then(function(snapshot) {
+    firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/uid').once('value').then(function(snapshot) {
       authorUid = snapshot.val();
     });
 
@@ -634,6 +634,8 @@ function integrateText(contributionID, articleID, authorUid) {
       updates['posts/' + String(articleID) + '/contributions/' + contributionID + '/paragraph_number'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/paragraph_count'] = newParagraphCount;
       updates['posts/' + String(articleID) + '/updatedTimestamp'] = now;
+      updates['users/' + String(authorUid) + '/contributions/' + contributionID + '/accepted'] = true;
+      updates['users/' + String(authorUid) + '/contributions/' + contributionID + '/active'] = false;
       firebase.database().ref().update(updates);
 
       firebase.database().ref('users/' + String(authorUid) + '/clout').transaction(function(currentClout) {

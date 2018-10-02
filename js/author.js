@@ -202,6 +202,8 @@ function loadAuthor(author) {
         contribButton.disabled = true;
         voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote</span>";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+
+        processInstructions.innerHTML = "Earn more credits to vote!";
       }
       else if (val.credits > 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
@@ -210,6 +212,11 @@ function loadAuthor(author) {
         contribButton.disabled = true;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+
+        var neededVotes = 5 - val.votes;
+        neededVotes = neededVotes < 0 ? 0 : neededVotes;
+
+        processInstructions.innerHTML = "Vote " + neededVotes + " more times to be able to contribute!";
       }
       else if (val.votes >= 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
@@ -218,6 +225,8 @@ function loadAuthor(author) {
         contribButton.disabled = false;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "Contribute";
+
+        processInstructions.innerHTML = "Add your voice by contributing!";
       }
     }
 

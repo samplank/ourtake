@@ -747,7 +747,8 @@ function pageLoad() {
       alert("Here is the current article with the most active contributions for you to vote on! Find the active contributions in the contribute tab of any article.");
       var x = document.getElementById("snackbar");
       x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", "");
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      }
     if (window.location.hash === "#contribute") {
       var contribTab = document.getElementById("contribTab");
       var readTab = document.getElementById("defaultOpen");

@@ -748,7 +748,6 @@ function pageLoad() {
       var x = document.getElementById("snackbar");
       x.className = "show";
       setTimeout(function(){ x.className = x.className.replace("show", "");
-    }
     if (window.location.hash === "#contribute") {
       var contribTab = document.getElementById("contribTab");
       var readTab = document.getElementById("defaultOpen");

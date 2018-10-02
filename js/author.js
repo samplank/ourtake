@@ -154,6 +154,12 @@ function loadAuthor(author) {
   var authorRef = firebase.database().ref('users/' + author);
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
+
+    if (snapshot.key == user.uid) {
+      var processDiv = document.getElementById("processDiv");
+      processDiv.innerHTML = "The Process";
+    }
+    
     authorName = val.username;
 
     infoDiv.innerHTML = authorName + '<br>Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information.';
@@ -163,7 +169,7 @@ function loadAuthor(author) {
       for (var key in contributions) {
         if (contributions[key].active == true) {
           var container = document.createElement("div");
-          container.className = "containerDiv"
+          container.className = "containerDiv";
           var title = document.createElement("h2");
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;

@@ -270,7 +270,7 @@ function voteButtonActions() {
   firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       key = child.key;
-      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribution';
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#vote';
 
     });
   });

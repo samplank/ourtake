@@ -149,6 +149,7 @@ function loadAuthor(author) {
   var infoDiv = document.getElementById("infoDiv");
   var activeDiv = document.getElementById("active");
   var acceptedDiv = document.getElementById("accepted");
+  var nameSpot = document.getElementById("nameSpot");
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);
@@ -162,7 +163,7 @@ function loadAuthor(author) {
 
     authorName = val.username;
 
-    infoDiv.innerHTML = '<div id="authorPage">' + authorName + '</div>';
+    infoDiv.innerHTML = authorName;
 
     var contributions = val.contributions;
     if (contributions) {
@@ -203,7 +204,7 @@ function checkMobile() {
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 12%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
-        ourtakeSheet.insertRule("#topleft { width: 30%; position:absolute; top: 4%; right: 66%; padding: 6px 12px; display: flex;}", 0);
+        ourtakeSheet.insertRule("#topleft { padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 4% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.topButtonLeft { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);

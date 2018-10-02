@@ -158,12 +158,15 @@ function loadAuthor(author) {
     if (contributions) {
       for (var key in contributions) {
         if (contributions[key].active == true) {
+          var container = document.createElement("div");
+          container.className = "containverDiv"
           var title = document.createElement("h2");
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;
           body.innerHTML = contributions[key].body;
-          activeDiv.appendChild(title);
-          activeDiv.appendChild(body);
+          containerDiv.appendChild(title);
+          containerDiv.appendChild(body);
+          activeDiv.appendChild(containerDiv);
         }
 
       }

@@ -164,9 +164,9 @@ function loadAuthor(author) {
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;
           body.innerHTML = contributions[key].body;
-          containerDiv.appendChild(title);
-          containerDiv.appendChild(body);
-          activeDiv.appendChild(containerDiv);
+          container.appendChild(title);
+          container.appendChild(body);
+          activeDiv.appendChild(container);
         }
 
       }

@@ -359,7 +359,7 @@ tr {
 #snackbar {
     visibility: hidden;
     width: 50%;
-    margin-left: -125px;
+    /*margin-left: -125px;*/
     background-color: #333;
     color: #fff;
     text-align: center;

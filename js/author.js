@@ -160,6 +160,8 @@ function loadAuthor(author) {
       var theProcess = document.getElementById("theProcess");
       theProcess.innerHTML = 'The Process';
 
+      var processInstructions = document.getElementById("processInstructions");
+
       var leftDivMove = document.getElementById("topleft");
 
       var earnButton = document.createElement("button");
@@ -252,6 +254,23 @@ function loadAuthor(author) {
       }
     }
   });
+}
+
+function voteButtonActions() {
+
+  firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
+    snapshot.forEach(function(child) {
+      key = child.key;
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribution';
+
+    });
+  });
+    // location.href='https://sliced.us';
+}
+
+function contributeButtonActions() {
+    location.href='https://sliced.us';
+    alert("Go to the contribute section of any article to write your own contributions!");
 }
 
 function checkMobile() {

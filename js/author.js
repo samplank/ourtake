@@ -159,7 +159,7 @@ function loadAuthor(author) {
       var processDiv = document.getElementById("processDiv");
       processDiv.innerHTML = "The Process";
     }
-    
+
     authorName = val.username;
 
     infoDiv.innerHTML = authorName + '<br>Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information.';

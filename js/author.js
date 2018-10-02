@@ -146,6 +146,7 @@ function writeUserData(userId, name, email) {
 }
 
 function loadAuthor(author) {
+  var infoDiv = document.getElementById("infoDiv");
   var activeDiv = document.getElementById("active");
   var acceptedDiv = document.getElementById("accepted");
 
@@ -154,6 +155,9 @@ function loadAuthor(author) {
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
     authorName = val.username;
+
+    infoDiv.innerHTML = authorName;
+
     var contributions = val.contributions;
     if (contributions) {
       for (var key in contributions) {

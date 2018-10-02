@@ -164,7 +164,7 @@ function loadAuthor(author) {
 
       var earnButton = document.createElement("button");
       earnButton.className = "topButtonLeft";
-      earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
+      earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + val.credits;
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
       leftDivMove.appendChild(earnButton);
 
@@ -173,7 +173,7 @@ function loadAuthor(author) {
       arrow1.className = "arrow";
       leftDivMove.appendChild(arrow1);
 
-      var neededVotes = 5 - userInfo.votes;
+      var neededVotes = 5 - val.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
 
       var voteButton = document.createElement("button");
@@ -193,7 +193,7 @@ function loadAuthor(author) {
       contribButton.setAttribute('onclick', "contributeButtonActions()");
       leftDivMove.appendChild(contribButton);
 
-      if (userInfo.credits == 0 && userInfo.votes < 5) {
+      if (val.credits == 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow.jpg"
         arrow2.src = "https://sliced.us/arrow.jpg"
         voteButton.disabled = true;
@@ -201,7 +201,7 @@ function loadAuthor(author) {
         voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote<br>Votes Needed: " + neededVotes + "</span>";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
       }
-      else if (userInfo.credits > 0 && userInfo.votes < 5) {
+      else if (val.credits > 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
         arrow2.src = "https://sliced.us/arrow.jpg"
         voteButton.disabled = false;
@@ -209,7 +209,7 @@ function loadAuthor(author) {
         voteButton.innerHTML = "Vote <br> Votes Needed: " + neededVotes;
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
       }
-      else if (userInfo.votes >= 5) {
+      else if (val.votes >= 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
         arrow2.src = "https://sliced.us/arrow2.jpg"
         voteButton.disabled = false;

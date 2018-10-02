@@ -157,8 +157,8 @@ function loadAuthor(author) {
     val = snapshot.val();
 
     if (snapshot.key == user.uid) {
-      var processDiv = document.getElementById("processDiv");
-      processDiv.innerHTML = '<div class="authorPage">The Process</div>';
+      var theProcess = document.getElementById("theProcess");
+      theProcess.innerHTML = 'The Process';
     }
 
     authorName = val.username;

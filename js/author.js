@@ -157,7 +157,7 @@ function loadAuthor(author) {
 
     if (snapshot.key == user.uid) {
       var processDiv = document.getElementById("processDiv");
-      processDiv.innerHTML = '<span style="font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; text-align: center;">The Process</span>';
+      processDiv.innerHTML = '<div class="authorPage">The Process</div>';
     }
 
     authorName = val.username;
@@ -217,6 +217,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 30px; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; }', 0);
+        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; text-align: center;}', 0);
     }
     else if (is_mobile) {
         console.log("mobile");

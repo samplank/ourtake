@@ -162,7 +162,7 @@ function loadAuthor(author) {
 
     authorName = val.username;
 
-    infoDiv.innerHTML = authorName + '<br>Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information.';
+    infoDiv.innerHTML = '<div id="authorPage">' + authorName + '</div>';
 
     var contributions = val.contributions;
     if (contributions) {

@@ -369,6 +369,7 @@ tr {
     left: 25%;
     top: 30px;
     font-size: 24px;
+    font-family: "Lato";
 }
 
 #snackbar.show {

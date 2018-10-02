@@ -206,7 +206,7 @@ function loadAuthor(author) {
         arrow2.src = "https://sliced.us/arrow.jpg"
         voteButton.disabled = false;
         contribButton.disabled = true;
-        voteButton.innerHTML = "Vote <br> Votes Needed: " + neededVotes;
+        voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
       }
       else if (val.votes >= 5) {
@@ -276,7 +276,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 30px; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; }', 0);
-        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; text-align: center; padding: 3% 0%;}', 0);
+        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; text-align: center; padding: 3% 0% 1% 0%;}', 0);
     }
     else if (is_mobile) {
         console.log("mobile");

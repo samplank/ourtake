@@ -328,7 +328,7 @@ function loadText(articleID) {
               instructions.innerHTML = "Vote on existing contributions to the article below. If something is missing, write your own!";
             }
             else if (i == 0) {
-              instructions.innerHTML = "There are no active contributions. Write your own!";
+              instructions.innerHTML = "There are no active contributions.";
             }
             instructions.id = "instructions";
             instructionsSpace.appendChild(instructions);

@@ -156,7 +156,7 @@ function loadAuthor(author) {
     val = snapshot.val();
     authorName = val.username;
 
-    infoDiv.innerHTML = authorName;
+    infoDiv.innerHTML = authorName + '<br>Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information. Here is a whole bunch more information.';
 
     var contributions = val.contributions;
     if (contributions) {

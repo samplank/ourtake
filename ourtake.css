@@ -107,7 +107,7 @@ tr {
 
 .topButton {
     font-family: "Lato", sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     display: inline-block;
     background: white;
     color: black;
@@ -120,7 +120,6 @@ tr {
     float: right;
     cursor: pointer;
     width: 100%;
-    height: 100px;
 }
 
 .undoSubmit {

@@ -168,6 +168,9 @@ function loadAuthor(author) {
       earnButton.className = "topButtonLeft";
       earnButton.innerHTML = "Earn Votes";
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
+      earnButton.background = "#fff4db";
+      voteButton.background = "white";
+      contribButton.background = "white";
       leftDivMove.appendChild(earnButton);
 
       var arrow1 = document.createElement("img");
@@ -212,6 +215,9 @@ function loadAuthor(author) {
         contribButton.disabled = true;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
+        voteButton.background = "#fff4db";
+        earnButton.background = "white";
+        contribButton.background = "white";
 
         var neededVotes = 5 - val.votes;
         neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -225,6 +231,9 @@ function loadAuthor(author) {
         contribButton.disabled = false;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "Contribute";
+        contribButton.background = "#fff4db"
+        earnButton.background = "white";
+        voteButton.background = "white";
 
         processInstructions.innerHTML = "Add your voice by contributing!";
       }

@@ -744,9 +744,10 @@ function pageLoad() {
       readTab.className = "tablinks";
       contribDiv.style = "display: block;";
       readDiv.style = "display: none";
-      var x = document.getElementById("snackbar");
-      x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 10000);
+      var snackbar = document.getElementById("snackbar");
+      snackbar.innerHTML = "Here is the article with the most active contributions for you to vote on!"
+      snackbar.className = "show";
+      setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 10000);
       }
     if (window.location.hash === "#contribute") {
       var contribTab = document.getElementById("contribTab");
@@ -757,6 +758,10 @@ function pageLoad() {
       readTab.className = "tablinks";
       contribDiv.style = "display: block;";
       readDiv.style = "display: none";
+      var snackbar = document.getElementById("snackbar");
+      snackbar.innerHTML = "Here is the most recently created article for you to contribute to!"
+      snackbar.className = "show";
+      setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 10000);
     }
 }
 

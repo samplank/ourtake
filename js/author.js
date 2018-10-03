@@ -203,7 +203,7 @@ function loadAuthor(author) {
         voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote</span>";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
 
-        processInstructions.innerHTML = "Earn more credits to vote!";
+        processInstructions.innerHTML = "Earn credits to vote!";
       }
       else if (val.credits > 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
@@ -271,15 +271,18 @@ function voteButtonActions() {
     snapshot.forEach(function(child) {
       key = child.key;
       location.href = 'https://sliced.us/article.html?article=' + String(key) + '#vote';
-
     });
   });
     // location.href='https://sliced.us';
 }
 
 function contributeButtonActions() {
-    location.href='https://sliced.us';
-    alert("Go to the contribute section of any article to write your own contributions!");
+  firebase.database().ref('posts').orderByChild('createdTimestamp').limitToLast(1).once('value').then(function(snapshot) {
+    snapshot.forEach(function(child) {
+      key = child.key;
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribute';
+    });
+  });
 }
 
 function checkMobile() {

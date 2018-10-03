@@ -150,7 +150,7 @@ function loadAuthor(author) {
   var activeDiv = document.getElementById("active");
   var acceptedDiv = document.getElementById("accepted");
   var nameSpot = document.getElementById("nameSpot");
-  vat cloutSpot = document.getElementById("cloutSpot");
+  var cloutSpot = document.getElementById("cloutSpot");
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);

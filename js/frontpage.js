@@ -28,25 +28,42 @@ function updateUser(userUpdate) {
               authDivMove.removeChild(authDivMove.firstChild);
             }
 
-              var signOutButton = document.createElement("button");
-              signOutButton.id = "signOut";
-              signOutButton.className = "topButtonRight";
-              signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
-              signOutButton.addEventListener('click', function(event) {
-                firebase.auth().signOut();
-              });
-              authDivMove.appendChild(signOutButton);
+            var leftDivFixed = document.getElementById("topLeftFixed");
+            var leftDivMove = document.getElementById("topleft")
 
-              var cloutButton = document.createElement("button");
-              cloutButton.className = "topButtonRight";
-              cloutButton.innerHTML = "Leaderboard";
-              cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-              authDivMove.appendChild(cloutButton);
+            while (leftDivFixed.firstChild) {
+              leftDivFixed.removeChild(leftDivFixed.firstChild);
+            }
 
+            while (leftDivMove.firstChild) {
+              leftDivMove.removeChild(leftDivMove.firstChild);
             }
-            else {
-                setTimeout(waitForRef, 250);
-            }
+
+            var signOutButton = document.createElement("button");
+            signOutButton.id = "signOut";
+            signOutButton.className = "topButtonRight";
+            signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+            signOutButton.addEventListener('click', function(event) {
+              firebase.auth().signOut();
+            });
+            authDivMove.appendChild(signOutButton);
+
+            var cloutButton = document.createElement("button");
+            cloutButton.className = "topButtonRight";
+            cloutButton.innerHTML = "Leaderboard";
+            cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
+            authDivMove.appendChild(cloutButton);
+
+            var howToButton = document.createElement("button");
+            howToButton.className = "topButton";
+            howToButton.innerHTML = "How To Slice"
+            howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+            leftDivFixed.appendChild(howToButton);
+
+          }
+          else {
+              setTimeout(waitForRef, 250);
+          }
         }
     }
 }

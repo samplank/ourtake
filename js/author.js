@@ -291,7 +291,7 @@ function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
         console.log("desktop");
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 20%; padding: 0% 15%; }", 0);
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 15%; }", 0);
         ourtakeSheet.insertRule("#logo { position: absolute; top: 0%; left: 40%; display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
@@ -309,7 +309,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 30px; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; }', 0);
-        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: "#484848"; text-align: center; padding: 3% 0% 1% 0%;}', 0);
+        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: #484848; text-align: center; padding: 3% 0% 1% 0%;}', 0);
     }
     else if (is_mobile) {
         console.log("mobile");

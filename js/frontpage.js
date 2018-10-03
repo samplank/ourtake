@@ -392,7 +392,7 @@ function contributeButtonActions() {
 function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 20%; padding: 0% 10%; }", 0);
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 10%; }", 0);
         ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
@@ -406,7 +406,7 @@ function checkMobile() {
 
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 0%; }", 0)
-        ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 25%; }", 0);
+        ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 40%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topleft { width: 100%; padding: 6px 12px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topright { width: 100%; padding: 6px 12px; display: flex; }", 0);

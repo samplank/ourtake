@@ -231,8 +231,10 @@ function loadAuthor(author) {
     }
 
     authorName = val.username;
+    var nameH2 = document.createElement("h2");
+    nameH2.innerHTML = authorName;
 
-    infoDiv.innerHTML = authorName;
+    infoDiv.appendChild(nameH2);
 
     var contributions = val.contributions;
     if (contributions) {

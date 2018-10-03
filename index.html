@@ -122,6 +122,9 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
       authDivMove.removeChild(authDivMove.firstChild);
     }
 
+    var leftDivFixed = document.getElementById("topLeftFixed");
+    var leftDivMove = document.getElementById("topleft")
+
     var signInButton = document.createElement("div");
     signInButton.id = "firebaseui-auth-container";
     authDivFixed.appendChild(signInButton);

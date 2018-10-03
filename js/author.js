@@ -163,6 +163,8 @@ function loadAuthor(author) {
       var processInstructions = document.getElementById("processInstructions");
 
       var leftDivMove = document.getElementById("topleft");
+      var voteButton = document.createElement("button");
+      var contribButton = document.createElement("button");
 
       var earnButton = document.createElement("button");
       earnButton.className = "topButtonLeft";
@@ -181,7 +183,6 @@ function loadAuthor(author) {
       var neededVotes = 5 - val.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
 
-      var voteButton = document.createElement("button");
       voteButton.className = "topButtonLeft";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "voteButtonActions()");
@@ -192,7 +193,6 @@ function loadAuthor(author) {
       arrow2.className = "arrow";
       leftDivMove.appendChild(arrow2);
 
-      var contribButton = document.createElement("button");
       contribButton.className = "topButtonLeft";
       // contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "contributeButtonActions()");

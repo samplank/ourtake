@@ -165,7 +165,7 @@ function loadAuthor(author) {
       // var theProcess = document.getElementById("theProcess");
       // theProcess.innerHTML = 'The Process';
 
-      creditsSpot.innerHTML = val.credits;
+      creditsSpot.innerHTML = "Vote Credits: " + val.credits;
 
       var processInstructions = document.getElementById("processInstructions");
 
@@ -186,7 +186,7 @@ function loadAuthor(author) {
 
       var neededVotes = 5 - val.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
-      votesSpot.innerHTML = neededVotes;
+      votesSpot.innerHTML = "Votes needed to contribute: " + neededVotes;
 
       voteButton.className = "topButtonLeft";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;

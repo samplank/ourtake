@@ -150,13 +150,14 @@ function loadAuthor(author) {
   var activeDiv = document.getElementById("active");
   var acceptedDiv = document.getElementById("accepted");
   var nameSpot = document.getElementById("nameSpot");
+  vat cloutSpot = document.getElementById("cloutSpot");
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
 
-    infoDiv.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + val.clout;
+    cloutSpot.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + val.clout;
 
     if (snapshot.key == user.uid) {
       // var theProcess = document.getElementById("theProcess");

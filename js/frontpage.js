@@ -6,6 +6,7 @@ function updateUser(userUpdate) {
     if (user) {
 
         var userInfo;
+        var userUid;
 
         waitForRef();
 
@@ -13,6 +14,7 @@ function updateUser(userUpdate) {
 
           firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
             userInfo = snapshot.val();
+            userUid = snapshot.key;
           });
 
           if (userInfo) {
@@ -39,14 +41,20 @@ function updateUser(userUpdate) {
               leftDivMove.removeChild(leftDivMove.firstChild);
             }
 
-            var signOutButton = document.createElement("button");
-            signOutButton.id = "signOut";
-            signOutButton.className = "topButtonRight";
-            signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
-            signOutButton.addEventListener('click', function(event) {
-              firebase.auth().signOut();
-            });
-            authDivMove.appendChild(signOutButton);
+            // var signOutButton = document.createElement("button");
+            // signOutButton.id = "signOut";
+            // signOutButton.className = "topButtonRight";
+            // signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+            // signOutButton.addEventListener('click', function(event) {
+            //   firebase.auth().signOut();
+            // });
+            // authDivMove.appendChild(signOutButton);
+
+            var myProfile = document.createElement("button");
+            myProfile.className = "topButtonRight";
+            myProfile.innerHTML = "My Profile<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+            var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
+            myProfile.setAttribute('onclick', 'location.href=' + href);
 
             var cloutButton = document.createElement("button");
             cloutButton.className = "topButtonRight";

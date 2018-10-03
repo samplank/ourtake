@@ -392,7 +392,7 @@ function contributeButtonActions() {
 function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 10%; }", 0);
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 20%; padding: 0% 10%; }", 0);
         ourtakeSheet.insertRule("#logo { position: absolute; top: 0%; left: 40%; display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);

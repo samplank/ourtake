@@ -170,9 +170,6 @@ function loadAuthor(author) {
       earnButton.className = "topButtonLeft";
       earnButton.innerHTML = "Earn Votes";
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
-      earnButton.background = "#fff4db";
-      voteButton.background = "white";
-      contribButton.background = "white";
       leftDivMove.appendChild(earnButton);
 
       var arrow1 = document.createElement("img");
@@ -215,9 +212,6 @@ function loadAuthor(author) {
         contribButton.disabled = true;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
-        voteButton.background = "#fff4db";
-        earnButton.background = "white";
-        contribButton.background = "white";
 
         var neededVotes = 5 - val.votes;
         neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -231,9 +225,6 @@ function loadAuthor(author) {
         contribButton.disabled = false;
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "Contribute";
-        contribButton.background = "#fff4db"
-        earnButton.background = "white";
-        voteButton.background = "white";
 
         processInstructions.innerHTML = "Add your voice by contributing!";
       }
@@ -305,7 +296,7 @@ function checkMobile() {
         ourtakeSheet.insertRule("#topleft { padding: 6px 12px; display: flex; align-items: center; justify-content: center;}", 0);
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 4% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; height: 50px; vertical-align: top; float: right }', 0);
-        ourtakeSheet.insertRule('.topButtonLeft { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; width: 25%; height: 100px; vertical-align: top; float: right }', 0);
+        ourtakeSheet.insertRule('.topButtonLeft { font-family: "Lato", sans-serif; font-size: 18px; display: inline-block; background: white; color: black; border-radius: 5px; box-shadow: 1px 1px 1px grey; white-space: nowrap; margin: 5px; width: 25%; height: 100px; vertical-align: top; float: right }', 0);
         ourtakeSheet.insertRule('.conditional { float: left; padding: 3% 0%; width: 60%; margin: 10px 0px; font-size: 24px; line-height: 34px; font-family: "Lora", serif;}', 0);
         ourtakeSheet.insertRule('#rightjustify { float: right; padding: 3% 0%; width: 25%; margin: 10px 0px; font-size: 24px; line-height: 34px; color: black; font-family: "Lato", sans-serif;}', 0);
         ourtakeSheet.insertRule('.voteButton { background-color: #fff4db; font-size: 18px; width: 40%; height: 50%; margin: 0% 3% 0% 0%;}', 0);

@@ -151,6 +151,8 @@ function loadAuthor(author) {
   var acceptedDiv = document.getElementById("accepted");
   var nameSpot = document.getElementById("nameSpot");
   var cloutSpot = document.getElementById("cloutSpot");
+  var creditsSpot = document.getElementById("creditsSpot");
+  var votesSpot = document.getElementById("votesSpot");
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);
@@ -162,6 +164,8 @@ function loadAuthor(author) {
     if (snapshot.key == user.uid) {
       // var theProcess = document.getElementById("theProcess");
       // theProcess.innerHTML = 'The Process';
+
+      creditsSpot.innerHTML = val.credits;
 
       var processInstructions = document.getElementById("processInstructions");
 
@@ -182,6 +186,7 @@ function loadAuthor(author) {
 
       var neededVotes = 5 - val.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
+      votesSpot.innerHTML = neededVotes;
 
       voteButton.className = "topButtonLeft";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
@@ -235,7 +240,7 @@ function loadAuthor(author) {
 
     authorName = val.username;
     nameSpot.innerHTML = '<h2>' + authorName + '</h2>';
-    
+
     var contributions = val.contributions;
     if (contributions) {
       for (var key in contributions) {

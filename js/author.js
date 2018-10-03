@@ -156,6 +156,8 @@ function loadAuthor(author) {
   authorRef.once("value").then((snapshot) => {
     val = snapshot.val();
 
+    infoDiv.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + val.clout;
+
     if (snapshot.key == user.uid) {
       // var theProcess = document.getElementById("theProcess");
       // theProcess.innerHTML = 'The Process';

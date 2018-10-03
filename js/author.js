@@ -234,8 +234,7 @@ function loadAuthor(author) {
     }
 
     authorName = val.username;
-    var nameH2 = document.createElement("h2");
-    nameH2.innerHTML = authorName;
+    namespot.innerHTML = '<h2>' + authorName + '</h2>';
 
     infoDiv.appendChild(nameH2);
 

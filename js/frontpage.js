@@ -28,17 +28,6 @@ function updateUser(userUpdate) {
               authDivMove.removeChild(authDivMove.firstChild);
             }
 
-            var leftDivFixed = document.getElementById("topLeftFixed");
-            var leftDivMove = document.getElementById("topleft")
-
-            while (leftDivFixed.firstChild) {
-              leftDivFixed.removeChild(leftDivFixed.firstChild);
-            }
-
-            while (leftDivMove.firstChild) {
-              leftDivMove.removeChild(leftDivMove.firstChild);
-            }
-
               var signOutButton = document.createElement("button");
               signOutButton.id = "signOut";
               signOutButton.className = "topButtonRight";
@@ -54,67 +43,6 @@ function updateUser(userUpdate) {
               cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
               authDivMove.appendChild(cloutButton);
 
-              var howToButton = document.createElement("button");
-              howToButton.className = "topButtonRight";
-              howToButton.innerHTML = "How To Slice"
-              howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-              authDivMove.appendChild(howToButton);
-
-              var earnButton = document.createElement("button");
-              earnButton.className = "topButtonLeft";
-              earnButton.innerHTML = "Earn Votes" + "<br><span>Vote Credits: </span>" + userInfo.credits;
-              earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
-              leftDivMove.appendChild(earnButton);
-
-              var arrow1 = document.createElement("img");
-              // arrow1.src = "https://sliced.us/arrow.jpg";
-              arrow1.className = "arrow";
-              leftDivMove.appendChild(arrow1);
-
-              var neededVotes = 5 - userInfo.votes;
-              neededVotes = neededVotes < 0 ? 0 : neededVotes;
-
-              var voteButton = document.createElement("button");
-              voteButton.className = "topButtonLeft";
-              // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
-              voteButton.setAttribute('onclick', "voteButtonActions()");
-              leftDivMove.appendChild(voteButton);
-
-              var arrow2 = document.createElement("img");
-              // arrow2.src = "https://sliced.us/arrow.jpg";
-              arrow2.className = "arrow";
-              leftDivMove.appendChild(arrow2);
-
-              var contribButton = document.createElement("button");
-              contribButton.className = "topButtonLeft";
-              // contribButton.innerHTML = "Contribute";
-              contribButton.setAttribute('onclick', "contributeButtonActions()");
-              leftDivMove.appendChild(contribButton);
-
-              if (userInfo.credits == 0 && userInfo.votes < 5) {
-                arrow1.src = "https://sliced.us/arrow.jpg"
-                arrow2.src = "https://sliced.us/arrow.jpg"
-                voteButton.disabled = true;
-                contribButton.disabled = true;
-                voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote<br>Votes Needed: " + neededVotes + "</span>";
-                contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
-              }
-              else if (userInfo.credits > 0 && userInfo.votes < 5) {
-                arrow1.src = "https://sliced.us/arrow2.jpg"
-                arrow2.src = "https://sliced.us/arrow.jpg"
-                voteButton.disabled = false;
-                contribButton.disabled = true;
-                voteButton.innerHTML = "Vote <br> Votes Needed: " + neededVotes;
-                contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
-              }
-              else if (userInfo.votes >= 5) {
-                arrow1.src = "https://sliced.us/arrow2.jpg"
-                arrow2.src = "https://sliced.us/arrow2.jpg"
-                voteButton.disabled = false;
-                contribButton.disabled = false;
-                voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
-                contribButton.innerHTML = "Contribute";
-              }
             }
             else {
                 setTimeout(waitForRef, 250);

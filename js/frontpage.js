@@ -55,6 +55,7 @@ function updateUser(userUpdate) {
             myProfile.innerHTML = "My Profile<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
+            authDivMove.appendChild(myProfile);
 
             var cloutButton = document.createElement("button");
             cloutButton.className = "topButtonRight";

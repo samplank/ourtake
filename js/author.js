@@ -239,7 +239,7 @@ function loadAuthor(author) {
     }
 
     authorName = val.username;
-    nameSpot.innerHTML = '<span style="font-family: "Lora"; font-size: 30px;">'' + authorName + '</span>';
+    nameSpot.innerHTML = authorName;
 
     var contributions = val.contributions;
     if (contributions) {

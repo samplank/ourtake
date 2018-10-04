@@ -406,6 +406,7 @@ tr {
 #author {
     float:left;
     margin: 10% 0%;
+    vertical-align: top;
 }
 
 #authorPicture {

@@ -403,10 +403,11 @@ tr {
     to {top: 0; opacity: 0;}
 }
 
+#author {
+    float:left;
+}
+
 #authorPicture {
-    position: relative;
-    left: 0;
-    top: 0;
     width: 30%;
 }
 
@@ -416,9 +417,6 @@ tr {
 }
 
 #infoDiv {
-    position: relative;
-    left: 35%;
-    top: 0;
     width: 60%;
 }
 

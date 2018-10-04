@@ -409,17 +409,17 @@ tr {
 
 #authorPicture {
     display: inline-block;
-    width: 20%;
+    width: 30%;
 }
 
 #pizzaSlice {
     border-radius: 50%;
-    width: 15%;
+    width: 25%;
 }
 
 #infoDiv {
     display: inline-block;
-    width: 50%;
+    width: 60%;
 }
 
 

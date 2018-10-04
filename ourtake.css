@@ -403,6 +403,24 @@ tr {
     to {top: 0; opacity: 0;}
 }
 
+#authorPicture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+}
+
+#pizzaSlice {
+    border-radius: 50%;
+}
+
+#infoDiv {
+    position: absolute;
+    left: 35%;
+    top: 0;
+    width: 60%;
+}
+
 
 
 

@@ -405,6 +405,7 @@ tr {
 
 #author {
     float:left;
+    margin: 10% 0%;
 }
 
 #authorPicture {
@@ -414,7 +415,8 @@ tr {
 
 #pizzaSlice {
     border-radius: 50%;
-    width: 100%;
+    width: 80%;
+    height: 80%;
 }
 
 #infoDiv {

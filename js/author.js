@@ -204,7 +204,7 @@ function loadAuthor(author) {
         if (contributions[key].active == true) {
           var container = document.createElement("a");
           container.className = "containerDiv";
-          a.href = 'https://sliced.us/article.html?article=' + String(contributions[key].articleID) + '#vote';
+          container.href = 'https://sliced.us/article.html?article=' + String(contributions[key].articleID) + '#vote';
           var title = document.createElement("h2");
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;
@@ -216,7 +216,8 @@ function loadAuthor(author) {
         }
         if (contributions[key].accepted == true) {
           var container = document.createElement("div");
-          container.className = "containerDiv"
+          container.className = "containerDiv";
+          container.href = 'https://sliced.us/article.html?article=' + String(contributions[key].articleID);
           var title = document.createElement("h2");
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;

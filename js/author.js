@@ -121,11 +121,14 @@ function loadAuthor(author) {
 
       creditsSpot.innerHTML = "Vote credits: " + val.credits;
 
+      var theProcess = document.getElementById("theProcess");
       var processInstructions = document.getElementById("processInstructions");
 
       var leftDivMove = document.getElementById("topleft");
       var voteButton = document.createElement("button");
       var contribButton = document.createElement("button");
+
+      theProcess.innerHTML = "The Sliced Process"
 
       var earnButton = document.createElement("button");
       earnButton.className = "topButton";

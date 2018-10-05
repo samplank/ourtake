@@ -119,7 +119,7 @@ function loadAuthor(author) {
       // var theProcess = document.getElementById("theProcess");
       // theProcess.innerHTML = 'The Process';
 
-      creditsSpot.innerHTML = "Vote Credits: " + val.credits;
+      creditsSpot.innerHTML = "Vote credits: " + val.credits;
 
       var processInstructions = document.getElementById("processInstructions");
 

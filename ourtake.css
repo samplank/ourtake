@@ -119,7 +119,7 @@ tr {
     vertical-align: top;
     float: right;
     cursor: pointer;
-    width: 100%;
+    width: 40%;
 }
 
 .undoSubmit {
@@ -236,6 +236,7 @@ tr {
 #topLeftFixed {
     position:absolute;
     top: 4%;
+    width: 35%;
     padding: 6px 12px;
     display: flex;
 }

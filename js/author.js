@@ -37,9 +37,9 @@ function updateUser(userUpdate) {
               leftDivFixed.removeChild(leftDivFixed.firstChild);
             }
 
-            while (leftDivMove.firstChild) {
-              leftDivMove.removeChild(leftDivMove.firstChild);
-            }
+            // while (leftDivMove.firstChild) {
+            //   leftDivMove.removeChild(leftDivMove.firstChild);
+            // }
 
             var signOutButton = document.createElement("button");
             signOutButton.id = "signOut";

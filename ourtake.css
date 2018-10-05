@@ -420,6 +420,12 @@ tr {
     height: 80%;
 }
 
+#buttonPizza {
+    border-radius: 50%;
+    width: 40%;
+    height: 80%;
+}
+
 #infoDiv {
     display: inline-block;
     width: 60%;

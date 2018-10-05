@@ -712,6 +712,7 @@ function pageLoad() {
       contribTab.className = "tablinks active";
       readTab.className = "tablinks";
       contribDiv.style = "display: block;";
+      
       readDiv.style = "display: none";
       var snackbar = document.getElementById("snackbar");
       snackbar.innerHTML = "Here is the most recently created article for you to contribute to!"

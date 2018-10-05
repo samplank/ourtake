@@ -166,6 +166,7 @@ tr {
     float: left; 
     border-bottom: 1px solid #484848; 
     width: 100%;
+    text-decoration: none;
 }
 
 .authorInfo {

@@ -200,7 +200,7 @@ function loadText(articleID) {
                 newReviewPara.innerHTML = contribution.body;
                 var reviewInfoName = document.createElement("p");
                 reviewInfoName.className = "reviewDetails";
-                reviewInfoName.innerHTML = 'Author: <a href="author.html?author=' + contribution.uid + '">' + contribution.author + "</a><br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
+                reviewInfoName.innerHTML = 'Author: <a href="author.html?author=' + contribution.uid + '" style="text-decoration: none;">' + contribution.author + "</a><br>Upvotes: " + contribution.upvotes + " Downvotes: " + contribution.downvotes;;
                 newReviewPara.appendChild(reviewInfoName);
                 review.appendChild(newReviewPara);
 
@@ -414,7 +414,7 @@ function addCountdown(subinfo, contribution) {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      var name = 'Submitted by: <a href="author.html?author=' + uid + '">' + justname + '</a>';
+      var name = 'Submitted by: <a href="author.html?author=' + uid + '" style="text-decoration: none;">' + justname + '</a>';
       var b = document.createElement("br");
 
       if (days > 0) {

@@ -52,7 +52,7 @@ function updateUser(userUpdate) {
 
             var myProfile = document.createElement("button");
             myProfile.className = "topButtonRight";
-            myProfile.innerHTML = "My Profile<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+            myProfile.innerHTML = 'My Profile<img src="pizzaslice.jpg" id="pizzaSlice">';
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
             authDivMove.appendChild(myProfile);

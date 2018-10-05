@@ -228,14 +228,14 @@ function loadAuthor(author) {
 
       }
       if (numActive == 0) {
-        var noActive = document.createElement("p");
-        noActive.innerHTML = "This user has not authored any active contributions.";
-        activeDiv.appendChild(noActive);
+        while (activeDiv.firstChild) {
+          activeDiv.removeChild(activeDiv.firstChild);
+        }
       }
       if (numAccepted == 0) {
-        var noAccepted = document.createElement("p");
-        noAccepted.innerHTML = "This user has not authored any accepted contributions.";
-        acceptedDiv.appendChild(noAccepted);
+        while (acceptedDiv.firstChild) {
+          acceptedDiv.removeChild(acceptedDiv.firstChild);
+        }
       }
     }
   });

@@ -128,7 +128,7 @@ function loadAuthor(author) {
       var contribButton = document.createElement("button");
 
       var earnButton = document.createElement("button");
-      earnButton.className = "topButtonLeft";
+      earnButton.className = "topButton";
       earnButton.innerHTML = "Earn Votes";
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
       leftDivMove.appendChild(earnButton);
@@ -142,7 +142,7 @@ function loadAuthor(author) {
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
       votesSpot.innerHTML = "Votes needed to contribute: " + neededVotes;
 
-      voteButton.className = "topButtonLeft";
+      voteButton.className = "topButton";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "voteButtonActions()");
       leftDivMove.appendChild(voteButton);
@@ -152,7 +152,7 @@ function loadAuthor(author) {
       arrow2.className = "arrow";
       leftDivMove.appendChild(arrow2);
 
-      contribButton.className = "topButtonLeft";
+      contribButton.className = "topButton";
       // contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "contributeButtonActions()");
       leftDivMove.appendChild(contribButton);

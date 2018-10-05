@@ -340,7 +340,7 @@ function checkMobile() {
     if (!is_mobile) {
         console.log("desktop");
         ourtakeSheet.insertRule("#readcontainer { padding: 0% 15%; }", 0);
-        ourtakeSheet.insertRule("#logo { display: block; margin-left: auto; margin-right: auto; width: 12%; }", 0);
+        ourtakeSheet.insertRule("#logo { position: absolute; top: 0%; left: 40%; display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
         ourtakeSheet.insertRule("#topleft { width: 30%; position:absolute; top: 4%; right: 66%; padding: 6px 12px; display: flex;}", 0);

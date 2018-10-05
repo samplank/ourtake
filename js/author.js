@@ -166,7 +166,7 @@ function loadAuthor(author) {
         voteButton.innerHTML = "<span style='color:#D3D3D3'>Vote</span>";
         contribButton.innerHTML = "<span style='color:#D3D3D3'>Contribute</span>";
 
-        processInstructions.innerHTML = "Earn credits to vote!";
+        processInstructions.innerHTML = "Your next step: <span style='color:black'>Earn credits to vote!</span>";
       }
       else if (val.credits > 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
@@ -179,7 +179,7 @@ function loadAuthor(author) {
         var neededVotes = 5 - val.votes;
         neededVotes = neededVotes < 0 ? 0 : neededVotes;
 
-        processInstructions.innerHTML = "Vote " + neededVotes + " more times to be able to contribute!";
+        processInstructions.innerHTML = "Your next step: <span style='color:black'>Vote " + neededVotes + " more times to be able to contribute!</span>";
       }
       else if (val.votes >= 5) {
         arrow1.src = "https://sliced.us/arrow2.jpg"
@@ -189,7 +189,7 @@ function loadAuthor(author) {
         voteButton.innerHTML = "Vote";
         contribButton.innerHTML = "Contribute";
 
-        processInstructions.innerHTML = "Add your voice by contributing!";
+        processInstructions.innerHTML = "Your next step: <span style='color:black'>Add your voice by contributing!</span>";
       }
     }
 

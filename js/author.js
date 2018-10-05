@@ -116,8 +116,6 @@ function loadAuthor(author) {
     cloutSpot.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + val.clout;
 
     if (snapshot.key == user.uid) {
-      // var theProcess = document.getElementById("theProcess");
-      // theProcess.innerHTML = 'The Process';
 
       creditsSpot.innerHTML = "Vote credits: " + val.credits;
 
@@ -271,7 +269,7 @@ function checkMobile() {
     if (!is_mobile) {
         console.log("desktop");
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 15% 5% 15%; }", 0);
-        
+
         ourtakeSheet.insertRule("#logo { position: absolute; top: 0%; left: 40%; display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 40%; position:absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
@@ -289,7 +287,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 30px; text-decoration: none; color: black;}', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; text-decoration: none; color: black;}', 0);
-        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: #484848; padding: 3% 0% 2% 0%;}', 0);
+        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: #484848; padding: 3% 0% 1% 0%;}', 0);
     }
     else if (is_mobile) {
         console.log("mobile");

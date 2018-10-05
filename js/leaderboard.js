@@ -63,27 +63,27 @@ function updateUser(userUpdate) {
               leftDivMove.removeChild(leftDivMove.firstChild);
             }
 
-            // var signOutButton = document.createElement("button");
-            // signOutButton.id = "signOut";
-            // signOutButton.className = "topButtonRight";
-            // signOutButton.innerHTML = userInfo.username + "<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
-            // signOutButton.addEventListener('click', function(event) {
-            //   firebase.auth().signOut();
-            // });
-            // authDivMove.appendChild(signOutButton);
+            var signOutButton = document.createElement("button");
+            signOutButton.id = "signOut";
+            signOutButton.className = "topButtonRight";
+            signOutButton.innerHTML = "Log Out";
+            signOutButton.addEventListener('click', function(event) {
+              firebase.auth().signOut();
+            });
+            authDivMove.appendChild(signOutButton);
 
             var myProfile = document.createElement("button");
             myProfile.className = "topButtonRight";
-            myProfile.innerHTML = "My Profile<br><span style='color:#fc643f;'>SlicedClout: </span>" + userInfo.clout;
+            myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile</span><img src="pizzaslice.jpg" id="buttonPizza">';
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
             authDivMove.appendChild(myProfile);
 
             var cloutButton = document.createElement("button");
-            cloutButton.className = "topButtonRight";
+            cloutButton.className = "topButton";
             cloutButton.innerHTML = "Leaderboard";
             cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-            authDivMove.appendChild(cloutButton);
+            leftDivFixed.appendChild(cloutButton);
 
             var howToButton = document.createElement("button");
             howToButton.className = "topButton";

@@ -161,6 +161,12 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     authDivFixed.appendChild(signInButton);
     ui.start('#firebaseui-auth-container', uiConfig);
 
+    var cloutButton = document.createElement("button");
+    cloutButton.className = "topButton";
+    cloutButton.innerHTML = "Leaderboard";
+    cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
+    leftDivFixed.appendChild(cloutButton);
+    
     var howToButton = document.createElement("button");
     howToButton.className = "topButton";
     howToButton.innerHTML = "How To Slice"

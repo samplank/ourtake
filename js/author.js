@@ -202,8 +202,9 @@ function loadAuthor(author) {
     if (contributions) {
       for (var key in contributions) {
         if (contributions[key].active == true) {
-          var container = document.createElement("div");
+          var container = document.createElement("a");
           container.className = "containerDiv";
+          a.href = 'https://sliced.us/article.html?article=' + String(contributions[key].articleID) + '#vote';
           var title = document.createElement("h2");
           var body = document.createElement("p");
           title.innerHTML = contributions[key].title;

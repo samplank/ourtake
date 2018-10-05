@@ -229,12 +229,12 @@ function loadAuthor(author) {
       }
       if (numActive == 0) {
         var noActive = document.createElement("p");
-        noActive.innerHTML = "This user does has not authored any active contributions";
+        noActive.innerHTML = "This user has not authored any active contributions.";
         activeDiv.appendChild(noActive);
       }
       if (numAccepted == 0) {
         var noAccepted = document.createElement("p");
-        noAccepted.innerHTML = "This user has not authored any accepted contributions";
+        noAccepted.innerHTML = "This user has not authored any accepted contributions.";
         acceptedDiv.appendChild(noAccepted);
       }
     }

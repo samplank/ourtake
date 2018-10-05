@@ -17,6 +17,8 @@ body {
 h4 {
     font-family: "Lora";
     font-weight: normal;
+    font-size: 22px;
+    line-height: 34px;
     padding: 0% 0%; 
     float: left; 
     border-bottom: 1px solid #484848; 

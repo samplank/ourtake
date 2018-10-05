@@ -288,7 +288,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.tabcontent { font-size: 22px; font-family: "Lato", sans-serif; display: none; padding: 6px 12px; border-top: none; }', 0);
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 30px; text-decoration: none; color: black;}', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; text-decoration: none; color: black;}', 0);
-        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: #484848; padding: 3% 0% 1% 0%;}', 0);
+        ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 28px; line-height: 40px; font-family: "Lato"; color: #484848; padding: 3% 0% 2% 0%;}', 0);
     }
     else if (is_mobile) {
         console.log("mobile");

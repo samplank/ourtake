@@ -195,6 +195,9 @@ function loadAuthor(author) {
     authorName = val.username;
     nameSpot.innerHTML = authorName;
 
+
+    var numActive = 0;
+    var numAccepted = 0;
     var contributions = val.contributions;
     if (contributions) {
       for (var key in contributions) {
@@ -208,6 +211,7 @@ function loadAuthor(author) {
           container.appendChild(title);
           container.appendChild(body);
           activeDiv.appendChild(container);
+          numActive++;
         }
         if (contributions[key].accepted == true) {
           var container = document.createElement("div");
@@ -219,8 +223,19 @@ function loadAuthor(author) {
           container.appendChild(title);
           container.appendChild(body);
           acceptedDiv.appendChild(container);
+          numAccepted++;
         }
 
+      }
+      if (numActive == 0) {
+        var noActive = document.createElement("p");
+        noActive.innerHTML = "This user does has not authored any active contributions";
+        activeDiv.appendChild(noActive);
+      }
+      if (numAccepted == 0) {
+        var noAccepted = document.createElement("p");
+        noAccepted.innerHTML = "This user has not authored any accepted contributions";
+        acceptedDiv.appendChild(noAccepted);
       }
     }
   });

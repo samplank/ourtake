@@ -614,6 +614,7 @@ function removeText(contributionID, articleID) {
     // ref.remove();
     updates = {};
     updates['posts/' + String(contributionID) + '/' + String(articleID) + '/active'] = false
+    updates['users/' + String(authorUid) + '/contributions/' + contributionID + '/active'] = false;
     firebase.database().ref().update(updates);
 
     loadText(articleID);

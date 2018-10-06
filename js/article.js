@@ -690,7 +690,7 @@ function contributeButtonActions() {
 }
 
 function pageLoad() {
-    if (window.location.hash === "#vote") {
+    if (window.location.hash === "#mostvote") {
       var contribTab = document.getElementById("contribTab");
       var readTab = document.getElementById("defaultOpen");
       var contribDiv = document.getElementById("Contribute");
@@ -703,8 +703,18 @@ function pageLoad() {
       snackbar.innerHTML = "Here is the article with the most active contributions for you to vote on!"
       snackbar.className = "show";
       setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 10000);
-      }
-    if (window.location.hash === "#contribute") {
+    }
+    if (window.location.hash === "#vote") {
+      var contribTab = document.getElementById("contribTab");
+      var readTab = document.getElementById("defaultOpen");
+      var contribDiv = document.getElementById("Contribute");
+      var readDiv = document.getElementById("Read");
+      contribTab.className = "tablinks active";
+      readTab.className = "tablinks";
+      contribDiv.style = "display: block;";
+      readDiv.style = "display: none";
+    }
+    if (window.location.hash === "#recentcontribute") {
       var contribTab = document.getElementById("contribTab");
       var readTab = document.getElementById("defaultOpen");
       var contribDiv = document.getElementById("Contribute");
@@ -717,6 +727,16 @@ function pageLoad() {
       snackbar.innerHTML = "Here is the most recently created article for you to contribute to!"
       snackbar.className = "show";
       setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 10000);
+    }
+    if (window.location.hash === "#contribute") {
+      var contribTab = document.getElementById("contribTab");
+      var readTab = document.getElementById("defaultOpen");
+      var contribDiv = document.getElementById("Contribute");
+      var readDiv = document.getElementById("Read");
+      contribTab.className = "tablinks active";
+      readTab.className = "tablinks";
+      contribDiv.style = "display: block;";
+      readDiv.style = "display: none";
     }
 }
 

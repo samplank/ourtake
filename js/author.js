@@ -249,7 +249,7 @@ function voteButtonActions() {
   firebase.database().ref('posts').orderByChild('activect').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       key = child.key;
-      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#vote';
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#mostvote';
     });
   });
     // location.href='https://sliced.us';
@@ -259,7 +259,7 @@ function contributeButtonActions() {
   firebase.database().ref('posts').orderByChild('createdTimestamp').limitToLast(1).once('value').then(function(snapshot) {
     snapshot.forEach(function(child) {
       key = child.key;
-      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#contribute';
+      location.href = 'https://sliced.us/article.html?article=' + String(key) + '#recentcontribute';
     });
   });
 }

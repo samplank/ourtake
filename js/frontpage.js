@@ -147,7 +147,7 @@ function loadArticles() {
 
         for (contribution in article.contributions) {
           if (article.contributions[contribution].accepted == true) {
-            console.log("woohoo!")
+            console.log(article.contributions[contribution].author!)
             authors.push(article.contributions[contribution].author);
           }
         }

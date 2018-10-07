@@ -155,10 +155,10 @@ function loadReview() {
                 var contrib = pair[2];
 
                 var titleContainer = document.getElementById("contrib" + String(i) + "title");
-                titleContainer.innerHTML = title;
+                titleContainer.innerHTML = "<span style='color:#484848;'> Contributed to article: </span>" + title;
 
                 var reviewContainer = document.getElementById("contrib" + String(i))
-                reviewContainer.innerHTML = contrib.body;
+                reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" contrib.body;
 
 
                 var radioButtons = document.getElementsByName("contribreview" + String(i) + "s");

@@ -107,10 +107,20 @@ function loadAuthor(author) {
   var cloutSpot = document.getElementById("cloutSpot");
   var creditsSpot = document.getElementById("creditsSpot");
   var votesSpot = document.getElementById("votesSpot");
-  var processDiv = document.getElementById("processDiv");
-  
-  while (processDiv.firstChild) {
-    processDiv.removeChild(processDiv.firstChild);
+  var theProcess = document.getElementById("theProcess");
+  var processInstructions = document.getElementById("processInstructions");
+  var leftDivMove = document.getElementById("topleft");
+
+  while (theProcess.firstChild) {
+    theProcess.removeChild(theProcess.firstChild);
+  }
+
+  while (processInstructions.firstChild) {
+    processInstructions.removeChild(processInstructions.firstChild);
+  }
+
+  while (leftDivMove.firstChild) {
+    leftDivMove.removeChild(leftDivMove.firstChild);
   }
 
   var authorName;

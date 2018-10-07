@@ -429,7 +429,7 @@ a {
     border-radius: 50%;
     width: 80%;
     height: 80%;
-    border: 1px;
+    border: 1px solid black;
 }
 
 #buttonPizza {
@@ -438,7 +438,7 @@ a {
     height: 80%;
     display: inline-block;
     vertical-align: middle;
-    border: 1px;
+    border: 1px solid black;
 }
 
 #infoDiv {

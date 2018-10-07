@@ -357,6 +357,10 @@ a {
 }*/
 
 #rules {
+    font-family: "Lato", sans-serif;;
+    font-size: 22px;
+    color: #484848;
+    margin: 0% 0% 0.5% 0%;
     padding: 0% 0% 0% 5%
 }
 
@@ -365,7 +369,6 @@ a {
     font-size: 22px;
     color: #484848;
     margin: 0% 0% 0.5% 0%;
-    /*text-align: center;*/
 }
 
 #snackbar {

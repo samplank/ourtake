@@ -446,7 +446,7 @@ a {
 }
 
 #nameSpot {
-    font-family: "Lora"; 
+    font-family: "Lora", serif; 
     font-weight: bold;
     font-size: 34px;
     margin: 0% 0% 3% 0%;
@@ -456,7 +456,7 @@ a {
     font-weight:bold; 
     font-size: 30px; 
     line-height: 40px; 
-    font-family: "Lato"; 
+    font-family: "Lato", sans-serif; 
     color: #484848; 
     padding: 3% 0% 2% 0%;
 }

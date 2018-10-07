@@ -85,7 +85,7 @@ function loadArticles() {
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {
         n++;
-        var contribution = child.val();
+        var article = child.val();
         var key = child.key;
         
         var link = document.createElement("div");
@@ -95,9 +95,9 @@ function loadArticles() {
         link.appendChild(aref);
         aref.href = "article.html?article=" + String(key);
 
-        var activect = "<i>Active Contributions</i>: " + contribution.activect;
+        var activect = "<i>Active Contributions</i>: " + article.activect;
 
-        updatedTimestamp = contribution.updatedTimestamp
+        updatedTimestamp = article.updatedTimestamp
 
         // Get todays date and time
         var now = new Date().getTime();
@@ -142,7 +142,25 @@ function loadArticles() {
             var timeago = "Last Update: " + minutes + "m ago";
         }
 
-        var articleDetails = timeago;
+        var authors = [];
+
+        for (contribution in article.contributions) {
+          if (contribution.accepted == true) {
+            authors.push(contribution.author);
+          }
+        }
+
+        var uniqueAuthors = authors.filter(onlyUnique);
+
+        var authorHTML = '';
+
+        for (each in uniqueAuthors) {
+          authorHTML = authorHTML + String(each) + ', ';
+        }
+
+        authorHTML = authorHTML.slice(0, -2);
+
+        var articleDetails = timeago + "<br>" + authorHTML;
 
 
 
@@ -167,15 +185,15 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px; line-height: 40px;'>" + contribution.title + '</span><p class="reviewDetails">' + articleDetails + '</p>' + body;
+                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px; line-height: 40px;'>" + article.title + '</span><p class="reviewDetails">' + articleDetails + '</p>' + body;
                 buttonDiv = document.createElement("div");
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
-                if (contribution.paragraph_count == 1) {
-                  readButton.innerHTML = "Read " + contribution.paragraph_count + " accepted contribution";
+                if (article.paragraph_count == 1) {
+                  readButton.innerHTML = "Read " + article.paragraph_count + " accepted contribution";
                 }
                 else {
-                  readButton.innerHTML = "Read " + contribution.paragraph_count + " accepted contributions";
+                  readButton.innerHTML = "Read " + article.paragraph_count + " accepted contributions";
                 }
                 readButton.className = "addToArticle";
                 readButton.setAttribute('onclick','location.href="article.html?article=' + String(key) + '"');
@@ -364,6 +382,10 @@ function writeUserData(userId, name, email) {
 	  }
 	});
 	console.log("update received");
+}
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
 }
 
 function increaseCredits() {

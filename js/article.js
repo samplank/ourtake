@@ -63,11 +63,6 @@ function updateUser(userUpdate) {
               leftDivMove.removeChild(leftDivMove.firstChild);
             }
 
-            var processDiv = document.getElementById("processDiv");
-            while (processDiv.firstChild) {
-              processDiv.removeChild(processDiv.firstChild);
-            }
-
 
             var signOutButton = document.createElement("button");
             signOutButton.id = "signOut";

@@ -107,6 +107,11 @@ function loadAuthor(author) {
   var cloutSpot = document.getElementById("cloutSpot");
   var creditsSpot = document.getElementById("creditsSpot");
   var votesSpot = document.getElementById("votesSpot");
+  var processDiv = document.getElementById("processDiv");
+  
+  while (processDiv.firstChild) {
+    processDiv.removeChild(processDiv.firstChild);
+  }
 
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);

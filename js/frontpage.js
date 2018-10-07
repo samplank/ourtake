@@ -144,9 +144,9 @@ function loadArticles() {
 
         var authors = [];
 
-        console.log(article.contributions);
 
         for (contribution in article.contributions) {
+          console.log(contribution);
           if (contribution.accepted == true) {
             console.log("woohoo!")
             authors.push(contribution.author);

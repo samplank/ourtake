@@ -115,7 +115,8 @@ function loadAuthor(author) {
 
     cloutSpot.innerHTML = "<span style='color:#fc643f;'>SlicedClout: </span>" + val.clout;
 
-    if (snapshot.key == user.uid) {
+    if (user) {
+      if (snapshot.key == user.uid) {
 
       creditsSpot.innerHTML = "Vote credits: " + val.credits;
 
@@ -191,6 +192,8 @@ function loadAuthor(author) {
 
         processInstructions.innerHTML = "Your next step: <span style='color:black'>Add your voice by contributing!</span>";
       }
+    }
+
     }
 
     authorName = val.username;

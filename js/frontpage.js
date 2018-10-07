@@ -155,10 +155,10 @@ function loadArticles() {
         var uniqueAuthors = authors.filter(onlyUnique);
         console.log(uniqueAuthors);
 
-        var authorHTML = '';
+        var authorHTML = 'Authors: ';
 
         for (each in uniqueAuthors) {
-          authorHTML = authorHTML + String(each) + ', ';
+          authorHTML = authorHTML + String(uniqueAuthors[each]) + ', ';
         }
 
         authorHTML = authorHTML.slice(0, -2);

@@ -52,7 +52,7 @@ function updateUser(userUpdate) {
 
             var myProfile = document.createElement("button");
             myProfile.className = "topButtonRight";
-            myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile</span><img src="pizzaslice.jpg" id="buttonPizza">';
+            myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile</span><img src="' + userInfo.plane + '.jpg" id="buttonPizza">';
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
             authDivMove.appendChild(myProfile);
@@ -103,6 +103,7 @@ function loadAuthor(author) {
   var infoDiv = document.getElementById("infoDiv");
   var activeDiv = document.getElementById("active");
   var acceptedDiv = document.getElementById("accepted");
+  var authorPicture = document.getElementById("authorPicture");
   var nameSpot = document.getElementById("nameSpot");
   var cloutSpot = document.getElementById("cloutSpot");
   var creditsSpot = document.getElementById("creditsSpot");
@@ -211,8 +212,14 @@ function loadAuthor(author) {
 
     }
 
-    authorName = val.username;
+    var authorName = val.username;
     nameSpot.innerHTML = authorName;
+
+    var profilePicture = document.createElement("img");
+    profilePicture.src = val.plane + ".jpg";
+    profilePicture.id = "profilePicture";
+    authorPicture.appendChild(profilePicture);
+
 
 
     var numActive = 0;

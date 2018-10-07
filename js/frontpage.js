@@ -52,7 +52,7 @@ function updateUser(userUpdate) {
 
             var myProfile = document.createElement("button");
             myProfile.className = "topButtonRight";
-            myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile</span><img src="pizzaslice.jpg" id="buttonPizza">';
+            myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile</span><img src="' + userInfo.plane + '.jpg" id="buttonPizza">';
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
             authDivMove.appendChild(myProfile);
@@ -342,6 +342,10 @@ function writeNewPost(title,author,timestamp) {
 function writeUserData(userId, name, email) {
 	var userRef = firebase.database().ref('users/' + userId);
 
+  var planes = ["plane_upright", "plane_downright", "plane_upleft", "plane_downleft"];
+
+  var plane = planes[Math.floor(Math.random() * planes.length)];
+
 	userRef.once("value").then((snapshot) => {
 	  if (snapshot.exists()) { 
 	  	
@@ -354,7 +358,8 @@ function writeUserData(userId, name, email) {
         clout: 0,
         credits: 0,
         votes: 0,
-        editor: false
+        editor: false,
+        plane: plane
 		});
 	  }
 	});

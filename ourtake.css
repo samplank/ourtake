@@ -24,6 +24,8 @@ h4 {
     border-bottom: 1px solid #484848; 
     width: 100%;
     text-decoration: none;
+    -webkit-margin-before: 1.00em;
+    -webkit-margin-after: 1.00em;
 }
 
 thead {

@@ -113,7 +113,7 @@ function getLeaders() {
       var tableRow = document.createElement("tr");
 
       var userRow = document.createElement("td");
-      userRow.innerHTML = '<a href="author.html?author=' + uid + '">' + username + "</a>"
+      userRow.innerHTML = '<a href="author.html?author=' + uid + '" style="color:black;">' + username + "</a>"
       var userClout = document.createElement("td");
       userClout.innerHTML = clout;
 

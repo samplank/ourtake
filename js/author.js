@@ -260,10 +260,16 @@ function loadAuthor(author) {
           activeDiv.removeChild(activeDiv.firstChild);
         }
       }
+      else {
+        activeDiv.innerHTML = 'Active Contributions';
+      }
       if (numAccepted == 0) {
         while (acceptedDiv.firstChild) {
           acceptedDiv.removeChild(acceptedDiv.firstChild);
         }
+      }
+      else {
+        acceptedDiv.innerHTML = 'Accepted Contributions';
       }
     }
   });

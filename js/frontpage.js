@@ -37,8 +37,8 @@ function updateUser(userUpdate) {
               topLeftOut.removeChild(topLeftOut.firstChild);
             }
 
-            while (leftDivMove.firstChild) {
-              leftDivMove.removeChild(leftDivMove.firstChild);
+            while (topLeftIn.firstChild) {
+              topLeftIn.removeChild(topLeftIn.firstChild);
             }
 
             var cloutButton = document.createElement("button");

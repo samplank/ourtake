@@ -90,9 +90,7 @@ function writeUserData(userId, name, email) {
   userRef.once("value").then((snapshot) => {
     if (snapshot.exists()) { 
       
-      console.log("exists");
     } else {
-      console.log("new user");
       firebase.database().ref('users/' + userId).set({
       username: name,
       email: email,
@@ -103,7 +101,6 @@ function writeUserData(userId, name, email) {
     });
     }
   });
-  console.log("update received");
 }
 
 function loadAuthor(author) {
@@ -305,7 +302,6 @@ function contributeButtonActions() {
 function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
-        console.log("desktop");
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 20%; padding: 0% 10%; }", 0);
         ourtakeSheet.insertRule("#logo { position: absolute; top: 5%; left: 42.5%; display: block; margin-left: auto; margin-right: auto; width: 15%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 35%; position: absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex; text-align:center;}", 0);
@@ -330,7 +326,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 16%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
     }
     else if (is_mobile) {
-        console.log("mobile");
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 18%; padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { position: absolute; top: 12%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
@@ -352,7 +347,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 40px; text-decoration: none;}', 0)
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 48px; text-decoration: none;}', 0);
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 35%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
-
+        ourtakeSheet.insertRule('#processDiv { position: absolute; top: 18%; padding: 0% 0%; }', 0);
     }
 }
 

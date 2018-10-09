@@ -178,15 +178,15 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
       authDivMove.removeChild(authDivMove.firstChild);
     }
 
-    var leftDivFixed = document.getElementById("topLeftFixed");
-    var leftDivMove = document.getElementById("topleft")
+    var topLeftOut = document.getElementById("topLeftOut");
+    var topLeftIn = document.getElementById("topLeftIn")
 
-    while (leftDivFixed.firstChild) {
-      leftDivFixed.removeChild(leftDivFixed.firstChild);
+    while (topLeftOut.firstChild) {
+      topLeftOut.removeChild(topLeftOut.firstChild);
     }
 
-    while (leftDivMove.firstChild) {
-      leftDivMove.removeChild(leftDivMove.firstChild);
+    while (topLeftIn.firstChild) {
+      topLeftIn.removeChild(topLeftIn.firstChild);
     }
 
     var signInButton = document.createElement("div");
@@ -194,11 +194,17 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     authDivFixed.appendChild(signInButton);
     ui.start('#firebaseui-auth-container', uiConfig);
 
+    var cloutButton = document.createElement("button");
+    cloutButton.className = "topButtonOut";
+    cloutButton.innerHTML = "Leaderboard";
+    cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
+    topLeftOut.appendChild(cloutButton);
+
     var howToButton = document.createElement("button");
-    howToButton.className = "topButton";
+    howToButton.className = "topButtonOut";
     howToButton.innerHTML = "How To Slice"
     howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-    leftDivFixed.appendChild(howToButton);
+    topLeftOut.appendChild(howToButton);
 
   }
 });

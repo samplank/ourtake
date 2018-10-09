@@ -117,7 +117,7 @@ function loadAuthor(author) {
   var votesSpot = document.getElementById("votesSpot");
   var theProcess = document.getElementById("theProcess");
   var processInstructions = document.getElementById("processInstructions");
-  var leftDivMove = document.getElementById("topleft");
+  var processSpace = document.getElementById("topleft");
 
   while (theProcess.firstChild) {
     theProcess.removeChild(theProcess.firstChild);
@@ -127,8 +127,8 @@ function loadAuthor(author) {
     processInstructions.removeChild(processInstructions.firstChild);
   }
 
-  while (leftDivMove.firstChild) {
-    leftDivMove.removeChild(leftDivMove.firstChild);
+  while (processSpace.firstChild) {
+    processSpace.removeChild(processSpace.firstChild);
   }
 
   var authorName;
@@ -146,7 +146,7 @@ function loadAuthor(author) {
       var theProcess = document.getElementById("theProcess");
       var processInstructions = document.getElementById("processInstructions");
 
-      var leftDivMove = document.getElementById("topleft");
+      var processSpace = document.getElementById("processSpace");
       var voteButton = document.createElement("button");
       var contribButton = document.createElement("button");
 
@@ -156,12 +156,12 @@ function loadAuthor(author) {
       earnButton.className = "topButton";
       earnButton.innerHTML = "Earn Votes";
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
-      leftDivMove.appendChild(earnButton);
+      processSpace.appendChild(earnButton);
 
       var arrow1 = document.createElement("img");
       // arrow1.src = "https://sliced.us/arrow.jpg";
       arrow1.className = "arrow";
-      leftDivMove.appendChild(arrow1);
+      processSpace.appendChild(arrow1);
 
       var neededVotes = 5 - val.votes;
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
@@ -170,17 +170,17 @@ function loadAuthor(author) {
       voteButton.className = "topButton";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "voteButtonActions()");
-      leftDivMove.appendChild(voteButton);
+      processSpace.appendChild(voteButton);
 
       var arrow2 = document.createElement("img");
       // arrow2.src = "https://sliced.us/arrow.jpg";
       arrow2.className = "arrow";
-      leftDivMove.appendChild(arrow2);
+      processSpace.appendChild(arrow2);
 
       contribButton.className = "topButton";
       // contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "contributeButtonActions()");
-      leftDivMove.appendChild(contribButton);
+      processSpace.appendChild(contribButton);
 
       if (val.credits == 0 && val.votes < 5) {
         arrow1.src = "https://sliced.us/arrow.jpg"

@@ -445,6 +445,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 30px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top; white-space: normal;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 48px; }', 0);
-
+        ourtakeSheet.insertRule('.firebaseui-idp-button { direction: ltr; font-weight: 500; height: auto; line-height: normal; max-width: 220px; min-height: 40px;padding: 8px 16px;text-align: left;width: 100%; height: 100px; }', 0);
     }
 }

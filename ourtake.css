@@ -111,7 +111,7 @@ a {
     margin: 10% 0% 0% 0%;
 }*/
 
-.topButton {
+/*.topButton {
     font-family: "Lato", sans-serif;
     font-size: 22px;
     display: inline-block;
@@ -126,7 +126,7 @@ a {
     float: right;
     cursor: pointer;
     width: 40%;
-}
+}*/
 
 .undoSubmit {
     font-family: "Lato", sans-serif;

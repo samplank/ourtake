@@ -434,14 +434,14 @@ a {
     border: 1px solid #484848;
 }
 
-#buttonPizza {
+/*#buttonPizza {
     border-radius: 50%;
     width: 16%;
     height: 75%;
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #484848;
-}
+}*/
 
 #infoDiv {
     display: inline-block;

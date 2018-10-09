@@ -445,7 +445,7 @@ function checkMobile() {
 
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 15%; padding: 0% 0%; }", 0)
-        ourtakeSheet.insertRule("#logo { position: absolute; top: 7%; left: 30%; display: block; margin-left: auto; margin-right: auto; width: 40%; }", 0);
+        ourtakeSheet.insertRule("#logo { position: absolute; top: 7%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topleft { width: 100%; padding: 6px 12px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftFixed { position: absolute; top: 4%; width: 100%; padding: 6px 12px; display: flex;}", 0);

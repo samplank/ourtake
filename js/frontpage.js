@@ -154,13 +154,11 @@ function loadArticles() {
 
         for (contribution in article.contributions) {
           if (article.contributions[contribution].accepted == true) {
-            console.log(article.contributions[contribution].author)
             authors.push(article.contributions[contribution].author);
           }
         }
 
         var uniqueAuthors = authors.filter(onlyUnique);
-        console.log(uniqueAuthors);
 
         var authorHTML = 'Authors: ';
 
@@ -215,7 +213,6 @@ function loadArticles() {
                 buttonDiv.appendChild(addToButton);
                 link.appendChild(buttonDiv);
                 articleArray.push(link);
-                console.log(link);
             }
             else {
                 setTimeout(waitForBody, 250);
@@ -264,7 +261,6 @@ function addButton(name) {
             userProf = snapshot.val();
         });
         if (userProf) {
-            console.log(userProf);
             if (userProf.editor == true) {
                 var contributeButton = document.createElement("button");
 
@@ -283,7 +279,6 @@ function addButton(name) {
             }
         }
         else {
-            console.log("waiting");
             setTimeout(waitForRef, 250);
         }
     }
@@ -331,7 +326,6 @@ function addTextBox(name) {
 function submitText(name) {
 
     var title = document.getElementById("txtbox").value;
-    console.log(title);
 
     var now = new Date().getTime();
 
@@ -349,8 +343,6 @@ function writeNewPost(title,author,timestamp) {
         updatedTimestamp: timestamp,
 	    paragraph_count: 0
 	 };
-
-	 console.log(postData);
 
 	// Get a key for a new Post.
 	var newPostKey = firebase.database().ref().child('posts').push().key;
@@ -377,9 +369,7 @@ function writeUserData(userId, name, email) {
 	userRef.once("value").then((snapshot) => {
 	  if (snapshot.exists()) { 
 	  	
-	    console.log("exists");
 	  } else {
-	    console.log("new user");
 	  	firebase.database().ref('users/' + userId).set({
 	    username: name,
 	    email: email,
@@ -391,7 +381,6 @@ function writeUserData(userId, name, email) {
 		});
 	  }
 	});
-	console.log("update received");
 }
 
 function onlyUnique(value, index, self) { 
@@ -401,7 +390,6 @@ function onlyUnique(value, index, self) {
 function increaseCredits() {
   var ref = firebase.database().ref('users/' + user.uid + '/credits');
   ref.transaction(function(currentCredits) {
-    console.log(currentCredits);
   // If node/clicks has never been set, currentRank will be `null`.
     var newValue = (currentCredits || 0) + 5;
 

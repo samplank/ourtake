@@ -117,7 +117,7 @@ function loadAuthor(author) {
   var votesSpot = document.getElementById("votesSpot");
   var theProcess = document.getElementById("theProcess");
   var processInstructions = document.getElementById("processInstructions");
-  var processSpace = document.getElementById("topleft");
+  var processSpace = document.getElementById("processSpace");
 
   while (theProcess.firstChild) {
     theProcess.removeChild(theProcess.firstChild);

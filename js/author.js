@@ -327,7 +327,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('#processSpace {display: flex;}', 0);
     }
     else if (is_mobile) {
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 18%; padding: 0% 0%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { position: absolute; top: 12%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);
@@ -348,7 +348,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('h2 { font-family: "Lora", serif; font-weight: bold; font-size: 40px; text-decoration: none;}', 0)
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 48px; text-decoration: none;}', 0);
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 35%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
-        ourtakeSheet.insertRule('#processDiv { position: absolute; top: 35%; padding: 0% 0%; }', 0);
         ourtakeSheet.insertRule('#processSpace {display: flex;}', 0);
 
     }

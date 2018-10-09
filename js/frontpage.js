@@ -30,11 +30,11 @@ function updateUser(userUpdate) {
               authDivMove.removeChild(authDivMove.firstChild);
             }
 
-            var leftDivFixed = document.getElementById("topLeftFixed");
-            var leftDivMove = document.getElementById("topleft")
+            var topLeftOut = document.getElementById("topLeftOut");
+            var topLeftIn = document.getElementById("topLeftIn")
 
-            while (leftDivFixed.firstChild) {
-              leftDivFixed.removeChild(leftDivFixed.firstChild);
+            while (topLeftOut.firstChild) {
+              topLeftOut.removeChild(topLeftOut.firstChild);
             }
 
             while (leftDivMove.firstChild) {
@@ -45,13 +45,13 @@ function updateUser(userUpdate) {
             cloutButton.className = "topButtonIn";
             cloutButton.innerHTML = "Leaderboard";
             cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-            leftDivFixed.appendChild(cloutButton);
+            topLeftIn.appendChild(cloutButton);
 
             var howToButton = document.createElement("button");
             howToButton.className = "topButtonIn";
             howToButton.innerHTML = "How To Slice"
             howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-            leftDivFixed.appendChild(howToButton);
+            topLeftIn.appendChild(howToButton);
 
             var signOutButton = document.createElement("button");
             signOutButton.id = "signOut";
@@ -68,8 +68,8 @@ function updateUser(userUpdate) {
             myProfile.setAttribute('onclick', 'location.href=' + href);
 
             if (is_mobile) {
-              leftDivFixed.appendChild(myProfile);
-              leftDivFixed.appendChild(signOutButton);
+              topLeftIn.appendChild(myProfile);
+              topLeftIn.appendChild(signOutButton);
             }
             else if (!is_mobile) {
               authDivMove.appendChild(signOutButton);
@@ -430,7 +430,7 @@ function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 20%; padding: 0% 10%; }", 0);
-        ourtakeSheet.insertRule("#logo { position: absolute; top: 0%; left: 40%; display: block; margin-left: auto; margin-right: auto; width: 20%; }", 0);
+        ourtakeSheet.insertRule("#logo { position: absolute; top: 5%; left: 45%; display: block; margin-left: auto; margin-right: auto; width: 10%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 35%; position: absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex; text-align:center;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
         ourtakeSheet.insertRule("#topleftOut { width: 30%; position:absolute; top: 4%; right: 66%; padding: 6px 12px; display: flex;}", 0);
@@ -445,7 +445,7 @@ function checkMobile() {
 
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 15%; padding: 0% 0%; }", 0)
-        ourtakeSheet.insertRule("#logo { position: absolute; top: 7%; left: 30%; display: block; margin-left: auto; margin-right: auto; width: 40%; }", 0);
+        ourtakeSheet.insertRule("#logo { position: absolute; top: 10%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topLeftIn { position: absolute; top: 4%; width: 100%; padding: 6px 12px; display: flex; }", 0);

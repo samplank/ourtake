@@ -324,7 +324,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.authorPage { font-weight:bold; font-size: 30px; line-height: 40px; font-family: "Lato"; color: #484848; padding: 3% 0% 0% 0%;}', 0);
         ourtakeSheet.insertRule('.title { font-weight: bold; font-size: 28px; line-height: 40px; margin: 0%;}', 0);
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 16%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
-        ourtakeSheet.insertRule('#processSpace {display: inline-block;}', 0);
+        ourtakeSheet.insertRule('#processSpace {display: flex;}', 0);
     }
     else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 18%; padding: 0% 0%; }", 0)
@@ -349,7 +349,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 48px; text-decoration: none;}', 0);
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 35%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
         ourtakeSheet.insertRule('#processDiv { position: absolute; top: 35%; padding: 0% 0%; }', 0);
-        ourtakeSheet.insertRule('#processSpace {display: inline-block;}', 0);
+        ourtakeSheet.insertRule('#processSpace {display: flex;}', 0);
 
     }
 }

@@ -430,9 +430,10 @@ function checkMobile() {
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 22px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 50px; width: 45%; vertical-align: top; white-space: normal; cursor: pointer;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 10% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 34px; }', 0);
+        ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 22px; line-height: 34px; color: black; text-decoration: none; }', 0);
 
     } else if (is_mobile) {
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 17%; padding: 0% 0%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 18%; padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { position: absolute; top: 12%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);
@@ -445,5 +446,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 30px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top; white-space: normal;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 48px; }', 0);
+        ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 32px; line-height: 40px; color: black; text-decoration: none; }', 0);
+
     }
 }

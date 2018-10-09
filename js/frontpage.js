@@ -193,7 +193,7 @@ function loadArticles() {
 
         function waitForBody() {
             if (body != '') {
-                aref.innerHTML = "<span style='font-weight:bold; font-size: 28px; line-height: 40px;'>" + article.title + '</span><p class="reviewDetails">' + articleDetails + '</p>' + body;
+                aref.innerHTML = '<p class="title">'' + article.title + '</p></span><p class="reviewDetails">' + articleDetails + '</p>' + body;
                 buttonDiv = document.createElement("div");
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
@@ -431,6 +431,7 @@ function checkMobile() {
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 10% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 22px; line-height: 34px; }', 0);
         ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 22px; line-height: 34px; color: black; text-decoration: none; }', 0);
+        ourtakeSheet.insertRule('.title { font-weight: bold; font-size: 28px; line-height: 40px; }', 0);
 
     } else if (is_mobile) {
         ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 18%; padding: 0% 0%; }", 0)
@@ -447,6 +448,6 @@ function checkMobile() {
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 32px; line-height: 48px; }', 0);
         ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 32px; line-height: 40px; color: black; text-decoration: none; }', 0);
-
+        ourtakeSheet.insertRule('.title { font-weight: bold; font-size: 40px; line-height: 40px; }', 0);
     }
 }

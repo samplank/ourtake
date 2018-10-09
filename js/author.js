@@ -150,7 +150,7 @@ function loadAuthor(author) {
       theProcess.innerHTML = "The Sliced Process"
 
       var earnButton = document.createElement("button");
-      earnButton.className = "topButton";
+      earnButton.className = "topButtonIn";
       earnButton.innerHTML = "Earn Votes";
       earnButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
       processSpace.appendChild(earnButton);
@@ -164,7 +164,7 @@ function loadAuthor(author) {
       neededVotes = neededVotes < 0 ? 0 : neededVotes;
       votesSpot.innerHTML = "Votes needed to contribute: " + neededVotes;
 
-      voteButton.className = "topButton";
+      voteButton.className = "topButtonIn";
       // voteButton.innerHTML = "Vote" + "<br><span>Votes Needed: </span>" + neededVotes;
       voteButton.setAttribute('onclick', "voteButtonActions()");
       processSpace.appendChild(voteButton);
@@ -174,7 +174,7 @@ function loadAuthor(author) {
       arrow2.className = "arrow";
       processSpace.appendChild(arrow2);
 
-      contribButton.className = "topButton";
+      contribButton.className = "topButtonIn";
       // contribButton.innerHTML = "Contribute";
       contribButton.setAttribute('onclick', "contributeButtonActions()");
       processSpace.appendChild(contribButton);

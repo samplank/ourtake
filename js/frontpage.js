@@ -432,8 +432,8 @@ function checkMobile() {
         ourtakeSheet.insertRule('p { font-family: Georgia, serif; font-size: 22px; line-height: 34px; }', 0);
 
     } else if (is_mobile) {
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 15%; padding: 0% 0%; }", 0)
-        ourtakeSheet.insertRule("#logo { position: absolute; top: 10%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 17%; padding: 0% 0%; }", 0)
+        ourtakeSheet.insertRule("#logo { position: absolute; top: 13%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topLeftIn { position: absolute; top: 4%; width: 100%; padding: 6px 12px; display: flex; }", 0);

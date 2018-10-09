@@ -421,7 +421,7 @@ function checkMobile() {
         ourtakeSheet.insertRule("#logo { position: absolute; top: 5%; left: 45%; display: block; margin-left: auto; margin-right: auto; width: 10%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 35%; position: absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex; text-align:center;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
-        ourtakeSheet.insertRule("#topleftOut { width: 30%; position:absolute; top: 4%; right: 66%; padding: 6px 12px; display: flex;}", 0);
+        ourtakeSheet.insertRule("#topleftOut { position: absolute; top: 4%; width: 35%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule("#topLeftIn { position: absolute; top: 4%; width: 35%; padding: 6px 12px; display: flex;}", 0);
         ourtakeSheet.insertRule(".arrow { display: block; width: 5%; height: 5%; margin: 4% 0%; }", 0);
         ourtakeSheet.insertRule('.topButtonRight { font-family: "Lato", sans-serif; font-size: 22px; display: inline-block; background: white; color: black; border-radius: 3px; box-shadow: 0px 0px 0px grey; white-space: nowrap; margin: 5px; width: 40%; height: 50px; vertical-align: middle; float: right; cursor: pointer;}', 0);

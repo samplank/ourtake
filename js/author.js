@@ -30,16 +30,28 @@ function updateUser(userUpdate) {
               authDivMove.removeChild(authDivMove.firstChild);
             }
 
-            var leftDivFixed = document.getElementById("topLeftFixed");
-            var leftDivMove = document.getElementById("topleft")
+            var topLeftOut = document.getElementById("topLeftOut");
+            var topLeftIn = document.getElementById("topLeftIn")
 
-            while (leftDivFixed.firstChild) {
-              leftDivFixed.removeChild(leftDivFixed.firstChild);
+            while (topLeftOut.firstChild) {
+              topLeftOut.removeChild(topLeftOut.firstChild);
             }
 
-            // while (leftDivMove.firstChild) {
-            //   leftDivMove.removeChild(leftDivMove.firstChild);
-            // }
+            while (topLeftIn.firstChild) {
+              topLeftIn.removeChild(topLeftIn.firstChild);
+            }
+
+            var cloutButton = document.createElement("button");
+            cloutButton.className = "topButtonIn";
+            cloutButton.innerHTML = "Leaderboard";
+            cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
+            topLeftIn.appendChild(cloutButton);
+
+            var howToButton = document.createElement("button");
+            howToButton.className = "topButtonIn";
+            howToButton.innerHTML = "How To Slice"
+            howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
+            topLeftIn.appendChild(howToButton);
 
             var signOutButton = document.createElement("button");
             signOutButton.id = "signOut";
@@ -48,26 +60,21 @@ function updateUser(userUpdate) {
             signOutButton.addEventListener('click', function(event) {
               firebase.auth().signOut();
             });
-            authDivMove.appendChild(signOutButton);
 
             var myProfile = document.createElement("button");
             myProfile.className = "topButtonRight";
             myProfile.innerHTML = '<span style="vertical-align:middle;">My Profile </span><img src="' + userInfo.plane + '.jpg" id="buttonPizza">';
             var href = '"https://sliced.us/author.html?author=' + userUid + '"'; 
             myProfile.setAttribute('onclick', 'location.href=' + href);
-            authDivMove.appendChild(myProfile);
 
-            var cloutButton = document.createElement("button");
-            cloutButton.className = "topButton";
-            cloutButton.innerHTML = "Leaderboard";
-            cloutButton.setAttribute('onclick', "location.href='https://sliced.us/leaderboard'");
-            leftDivFixed.appendChild(cloutButton);
-
-            var howToButton = document.createElement("button");
-            howToButton.className = "topButton";
-            howToButton.innerHTML = "How To Slice"
-            howToButton.setAttribute('onclick', "location.href='https://sliced.us/howto'");
-            leftDivFixed.appendChild(howToButton);
+            if (is_mobile) {
+              topLeftIn.appendChild(myProfile);
+              topLeftIn.appendChild(signOutButton);
+            }
+            else if (!is_mobile) {
+              authDivMove.appendChild(signOutButton);
+              authDivMove.appendChild(myProfile);
+            }
 
           }
           else {

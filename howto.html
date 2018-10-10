@@ -163,8 +163,6 @@ firebase.auth().onAuthStateChanged(function(fbuser) {
     console.log("logged in");
 
   } else {
-    removeButton();
-    loadArticles();
     updateUser(null);
 
     var authDivFixed = document.getElementById("topRightFixed");

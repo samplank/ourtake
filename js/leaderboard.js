@@ -194,7 +194,7 @@ function checkMobile() {
     }
     else if (is_mobile) {
         console.log("mobile");
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 0%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 30%; padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { position: absolute; top: 12%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);

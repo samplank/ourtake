@@ -755,7 +755,7 @@ function checkMobile() {
     ourtakeSheet = document.styleSheets[0];
     if (!is_mobile) {
         console.log("desktop");
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 10%; }", 0);
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 35%; padding: 0% 10%; }", 0);
         ourtakeSheet.insertRule("#logo { position: absolute; top: 5%; left: 42.5%; display: block; margin-left: auto; margin-right: auto; width: 15%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 35%; position: absolute; top: 4%; right: 2%; padding: 6px 12px; display: flex; text-align:center;}", 0);
         ourtakeSheet.insertRule("#topright { flex-grow: 1; }", 0);
@@ -777,7 +777,7 @@ function checkMobile() {
     }
     else if (is_mobile) {
         console.log("mobile");
-        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 25%; padding: 0% 0%; }", 0)
+        ourtakeSheet.insertRule("#readcontainer { position: absolute; top: 28%; padding: 0% 0%; }", 0)
         ourtakeSheet.insertRule("#logo { position: absolute; top: 12%; left: 35%; display: block; margin-left: auto; margin-right: auto; width: 30%; }", 0);
         ourtakeSheet.insertRule("#topcontainer { width: 100%; padding: 0px 0px; display: flex; }", 0);
         ourtakeSheet.insertRule("#topLeftOut { position: absolute; top: 4%; width: 50%; padding: 6px 12px; display: flex;}", 0);

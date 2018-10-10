@@ -128,6 +128,10 @@ function loadAuthor(author) {
     processSpace.removeChild(processSpace.firstChild);
   }
 
+  while (authorPicture.firstChild) {
+    authorPicture.removeChild(authorPicture.firstChild);
+  }
+
   var authorName;
   var authorRef = firebase.database().ref('users/' + author);
   authorRef.once("value").then((snapshot) => {

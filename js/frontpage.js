@@ -448,8 +448,8 @@ function checkMobile() {
         ourtakeSheet.insertRule('.addToArticle { font-family: "Lato", sans-serif; font-size: 30px; display: inline-block; background: #fff4db; color: black; border-radius: 3px; white-space: nowrap; margin: 5px; height: 100px; width: 45%; vertical-align: top; white-space: normal;}', 0);
         ourtakeSheet.insertRule('.frontHolder { padding: 24px; margin: 15% 0% 0% 0%; }', 0);
         ourtakeSheet.insertRule('p { font-family: "Lora", serif; font-size: 32px; line-height: 48px; }', 0);
-        ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 32px; line-height: 40px; color: black; text-decoration: none; }', 0);
-        ourtakeSheet.insertRule('.title { font-weight: bold; font-size: 40px; line-height: 40px; }', 0);
+        ourtakeSheet.insertRule('.front { font-family: "Lora", serif; font-size: 36px; line-height: 48px; color: black; text-decoration: none; }', 0);
+        ourtakeSheet.insertRule('.title { font-weight: bold; font-size: 40px; line-height: 56px; }', 0);
         ourtakeSheet.insertRule('#buttonPizza { border-radius: 50%; width: 35%; height: 75%; display: inline-block; vertical-align: middle; border: 1px solid #484848; }', 0);
     }
 }

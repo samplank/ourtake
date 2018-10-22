@@ -564,6 +564,9 @@ function voteClick(direction, contributionID, articleID) {
 
             upvoteButton.innerHTML = "Earn more votes";
             downvoteButton.innerHTML = "Earn more votes";
+
+            upvoteButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
+            downvoteButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
         }
       });
 

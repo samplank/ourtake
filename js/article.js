@@ -559,7 +559,11 @@ function voteClick(direction, contributionID, articleID) {
 
           }
           else {
-            alert("Add credits to vote on contributions");
+            var upvoteButton = document.getElementById("upper" + String(contributionID));
+            var downvoteButton = document.getElementById("downer" + String(contributionID));
+
+            upvoteButton.innerHTML = "Earn more votes";
+            downvoteButton.innerHTML = "Earn more votes";
         }
       });
 

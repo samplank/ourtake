@@ -592,6 +592,7 @@ function voteClick(direction, contributionID, articleID) {
 }
 
 function addEarn(content, direction) {
+  console.log("addEarn");
   var indefArticle;
   if (direction == "upvote") {
     indefArticle = "an";

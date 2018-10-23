@@ -264,6 +264,12 @@ function loadText(articleID) {
 
                 addCountdown(submitInfo, contribution);
                 addCounter(submitInfo, key, articleID);
+
+                var earn = document.createElement("div");
+                earn.className = "earnContent";
+                earn.id = "earn" + String(key);
+
+
                 i++;
             }
             else if (contribution.accepted == false && user && distance <= 0 && contribution.active == true) {
@@ -522,6 +528,13 @@ function voteClick(direction, contributionID, articleID) {
           if (currentCredits){
             console.log(currentCredits);
             var newCredits = currentCredits - 1;
+
+            var content = document.getElementById("earn" + String(contributionID));
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
 
             firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
 

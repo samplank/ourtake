@@ -425,7 +425,7 @@ function addCountdown(subinfo, contribution) {
       var b = document.createElement("br");
 
       if (days > 0) {
-        var timeleft = document.createTextNode("Time left: " + days + "d ");
+        var timeleft = document.createTextNode("Time left: " + days + "d " + hours + " h");
       }
       else if (hours > 0) {
         var timeleft = document.createTextNode("Time left: " + hours + "h ");
@@ -559,14 +559,7 @@ function voteClick(direction, contributionID, articleID) {
 
           }
           else {
-            var upvoteButton = document.getElementById("upper" + String(contributionID));
-            var downvoteButton = document.getElementById("downer" + String(contributionID));
-
-            upvoteButton.innerHTML = "Earn more votes";
-            downvoteButton.innerHTML = "Earn more votes";
-
-            upvoteButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
-            downvoteButton.setAttribute('onclick', "location.href='https://sliced.us/earn'");
+            alert("Earn more credits");
         }
       });
 

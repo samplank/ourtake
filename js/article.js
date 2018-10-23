@@ -533,6 +533,7 @@ function voteClick(direction, contributionID, articleID) {
 
             var content = document.getElementById("earn" + String(contributionID));
             if (content.style.maxHeight){
+              addEarn(content, direction);
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
@@ -589,7 +590,20 @@ function voteClick(direction, contributionID, articleID) {
       }
 
     }
+}
+
+function addEarn(content, direction) {
+  var indefArticle;
+  if (direction == "upvote") {
+    indefArticle = "an";
   }
+  else if (direction == "downvote") {
+    indefArticle = "a";
+  }
+  content.innerHTML = "To earn " + indefArticle + " " + direction + ", help the Sliced community by making sure the recent contributions shown below meets these community standards:<br>\
+  1. No false claims. All claims of fact should be easily verifiable.<br>2. No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
+  based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.<br>3. No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article."
+}
 
 function integrateText(contributionID, articleID, authorUid) {
 

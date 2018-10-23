@@ -268,7 +268,6 @@ function loadText(articleID) {
                 var earn = document.createElement("div");
                 earn.className = "earnContent";
                 earn.id = "earn" + String(key);
-                earn.innerHTML = "Testing Testing Testing";
                 candidateContributions.appendChild(earn);
 
 
@@ -552,7 +551,7 @@ function voteClick(direction, contributionID, articleID) {
                 else {
                   updates['users/' + user.uid + '/votes'] = 1;
                 }
-                updates['users/' + user.uid + '/credits'] = newCredits;
+                // updates['users/' + user.uid + '/credits'] = newCredits;
 
                 firebase.database().ref().update(updates);
 

@@ -524,12 +524,12 @@ function voteClick(direction, contributionID, articleID) {
 
         if (authorUid !== user.uid) {
 
-          firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
-          var currentCredits = snapshot.val();
-          console.log(currentCredits);
-          if (currentCredits){
-            console.log(currentCredits);
-            var newCredits = currentCredits - 1;
+          // firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
+          // var currentCredits = snapshot.val();
+          // console.log(currentCredits);
+          // if (currentCredits){
+          //   console.log(currentCredits);
+          //   var newCredits = currentCredits - 1;
 
             var content = document.getElementById("earn" + String(contributionID));
             if (content.style.maxHeight){
@@ -574,11 +574,11 @@ function voteClick(direction, contributionID, articleID) {
               return newValue;
             });
 
-          }
-          else {
-            alert("Earn more credits");
-        }
-      });
+        //   }
+        //   else {
+        //     alert("Earn more credits");
+        // }
+      // });
 
         }
         else {

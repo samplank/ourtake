@@ -465,8 +465,8 @@ function addCounter(subinfo, contributionID, articleID) {
     downcounter.id = "downer" + String(contributionID);
     downcounter.className = "voteButton";
 
-    upcounter.innerHTML = "Upvote";
-    downcounter.innerHTML = "Downvote";
+    upcounter.innerHTML = "Earn Upvote";
+    downcounter.innerHTML = "Earn Downvote";
 
     upcounter.setAttribute('onclick','voteClick(' + '"upvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"' +')');
     downcounter.setAttribute('onclick','voteClick(' + '"downvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"'+')');

@@ -268,6 +268,7 @@ function loadText(articleID) {
                 var earn = document.createElement("div");
                 earn.className = "earnContent";
                 earn.id = "earn" + String(key);
+                earn.innerHTML = "Testing Testing Testing";
                 candidateContributions.appendChild(earn);
 
 

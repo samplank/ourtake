@@ -536,6 +536,7 @@ function voteClick(direction, contributionID, articleID) {
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
+              content.focus();
             } 
 
             firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {

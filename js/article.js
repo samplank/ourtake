@@ -532,9 +532,9 @@ function voteClick(direction, contributionID, articleID) {
 
             var content = document.getElementById("earn" + String(contributionID));
             if (content.style.maxHeight){
-              addEarn(content, direction);
               content.style.maxHeight = null;
             } else {
+              addEarn(content, direction);
               content.style.maxHeight = content.scrollHeight + "px";
               content.focus();
             } 

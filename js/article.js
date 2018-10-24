@@ -606,7 +606,7 @@ function addEarn(content, direction, articleID) {
   var contributionArray = [];
   var n = 0;
 
-  var rootRef = database.ref();
+  var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("posts");
     urlRef.once("value", function(snapshot) {
       snapshot.forEach(function(child) {

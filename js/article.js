@@ -652,6 +652,7 @@ function addEarn(content, direction, articleID) {
             var shuffledArray = shuffle(contributionArray);
 
             var pair = shuffledArray.pop();
+            console.log(pair);
             var title = pair[3];
             var contrib = pair[2];
 

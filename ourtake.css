@@ -182,11 +182,12 @@ a {
 }
 
 .earnContent {
-  padding: 0 18px;
+  padding: 2% 4%;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #fff9ea;;
+  background-color: #fff9ea;
+
 }
 
 /*.arrow {

@@ -652,7 +652,6 @@ function addEarn(content, direction, articleID) {
             var shuffledArray = shuffle(contributionArray);
 
             var pair = shuffledArray.pop();
-            console.log(pair);
             var title = pair[3];
             var contrib = pair[2];
 
@@ -661,6 +660,8 @@ function addEarn(content, direction, articleID) {
 
             var reviewContainer = document.createElement("p")
             reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body;
+
+            console.log(content);
 
             content.appendChild(titleContainer);
             content.appendChild(reviewContainer);

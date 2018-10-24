@@ -752,6 +752,7 @@ function getRadioValues(ok, toxic, articleID, contributionID) {
       postUpdateComplete = true;
 
     });
+  }
 }
 
 function integrateText(contributionID, articleID, authorUid) {

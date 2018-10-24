@@ -186,7 +186,7 @@ a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #484848;
+  background-color: #fff9ea;;
 }
 
 /*.arrow {

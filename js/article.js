@@ -531,12 +531,7 @@ function voteClick(direction, contributionID, articleID) {
           //   var newCredits = currentCredits - 1;
 
             var content = document.getElementById("earn" + String(contributionID));
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
-            } else {
-              addEarn(content, direction, articleID);
-              content.style.maxHeight = content.scrollHeight + "px";
-            } 
+            addEarn(content, direction, articleID);
 
             firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
 
@@ -696,6 +691,12 @@ function addEarn(content, direction, articleID) {
             setTimeout(waitforArrayLoad, 250);
         }
     }
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+
 }
 
 function shuffle(array) {

@@ -656,7 +656,6 @@ function addEarn(content, direction, articleID, contributionID) {
             var reviewContainer = document.createElement("p")
             reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body;
 
-            console.log(content);
 
             content.appendChild(titleContainer);
             content.appendChild(reviewContainer);
@@ -690,7 +689,6 @@ function addEarn(content, direction, articleID, contributionID) {
             form.appendChild(toxicLabel);
             form.appendChild(submit);
             content = document.getElementById("earn" + String(contributionID))
-            console.log(content.scrollHeight);
             if (content.style.maxHeight){
               content.style.maxHeight = null;
             } else {
@@ -735,7 +733,7 @@ function getRadioValues(ok, toxic, articleID, contributionID) {
     checkValue = toxic.value;
   }
 
-  if (checkedValue) {
+  if (checkValue) {
     firebase.database().ref('posts/' + articleID + '/contributions/' + contributionID).once('value').then(function(snapshot) {
 
       contribution0 = snapshot.val();

@@ -669,14 +669,14 @@ function addEarn(content, direction, articleID, contributionID) {
             ok.class = "radioButtons";
             ok.value = "ok";
             ok.id = "ok";
-            ok.innerHTML = "SlicedWorthy"
+            ok.innerHTML = " SlicedWorthy "
             var toxic = document.createElement("input");
             toxic.type = "radio";
             toxic.name = "choices";
             toxic.class = "radioButtons";
             toxic.value = "toxic";
             toxic.id = "toxic";
-            toxic.innerHTML = "Toxic"
+            toxic.innerHTML = " Toxic "
 
             var submit = document.createElement("input");
             submit.type = "submit";

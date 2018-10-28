@@ -669,14 +669,15 @@ function addEarn(content, direction, articleID, contributionID) {
             ok.class = "radioButtons";
             ok.value = "ok";
             ok.id = "ok";
-            ok.innerHTML = " SlicedWorthy "
+            var slicedworthyLabel = document.createTextNode("SlicedWorthy");
+
             var toxic = document.createElement("input");
             toxic.type = "radio";
             toxic.name = "choices";
             toxic.class = "radioButtons";
             toxic.value = "toxic";
             toxic.id = "toxic";
-            toxic.innerHTML = " Toxic "
+            var toxicLabel = document.createTextNode("Toxic")
 
             var submit = document.createElement("input");
             submit.type = "submit";
@@ -684,7 +685,9 @@ function addEarn(content, direction, articleID, contributionID) {
 
             content.appendChild(form);
             form.appendChild(ok);
+            form.appendChild(slicedworthyLabel);
             form.appendChild(toxic);
+            form.appendChild(toxicLabel);
             form.appendChild(submit);
             content = document.getElementById("earn" + String(contributionID))
             console.log(content.scrollHeight);

@@ -681,7 +681,7 @@ function addEarn(content, direction, articleID, contributionID) {
             var submit = document.createElement("input");
             submit.type = "submit";
 
-            form.setAttribute("onSubmit", "getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
+            form.setAttribute("onSubmit", "return getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
 
             content.appendChild(form);
             form.appendChild(ok);

@@ -723,6 +723,7 @@ function shuffle(array) {
 }
 
 function getRadioValues(ok, toxic, articleID, contributionID) {
+  console.log("getRadioValues");
   var postUpdateComplete;
   var checkValue;
 

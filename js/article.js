@@ -685,6 +685,7 @@ function addEarn(content, direction, articleID, contributionID) {
             content.appendChild(form);
             form.appendChild(ok);
             form.appendChild(toxic);
+            console.log("finished");
 
         }
         else {

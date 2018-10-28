@@ -594,7 +594,7 @@ function addEarn(content, direction, articleID, contributionID) {
   else if (direction == "downvotes") {
     indefArticle = "a downvote";
   }
-  content.innerHTML = "To earn " + indefArticle + ", help the Sliced community by making sure the recent contribution shown below meets these community standards:<br>\
+  content.innerHTML = "To earn " + indefArticle + ", help the Sliced community by making sure the recent contribution shown below meets these community standards:<br><br>\
   1. No false claims. All claims of fact should be easily verifiable.<br>2. No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
   based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.<br>3. No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article."
 
@@ -685,6 +685,7 @@ function addEarn(content, direction, articleID, contributionID) {
             content.appendChild(form);
             form.appendChild(ok);
             form.appendChild(toxic);
+            form.appendChild(submit);
             content = document.getElementById("earn" + String(contributionID))
             console.log(content.scrollHeight);
             if (content.style.maxHeight){

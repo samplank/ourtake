@@ -692,6 +692,7 @@ function addEarn(content, direction, articleID, contributionID) {
         }
     }
     content = document.getElementById("earn" + String(contributionID))
+    console.log(content.scrollHeight);
     if (content.style.maxHeight){
       content.style.maxHeight = null;
     } else {

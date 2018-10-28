@@ -685,20 +685,19 @@ function addEarn(content, direction, articleID, contributionID) {
             content.appendChild(form);
             form.appendChild(ok);
             form.appendChild(toxic);
-            console.log("finished");
+            content = document.getElementById("earn" + String(contributionID))
+            console.log(content.scrollHeight);
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
 
         }
         else {
             setTimeout(waitforArrayLoad, 250);
         }
     }
-    content = document.getElementById("earn" + String(contributionID))
-    console.log(content.scrollHeight);
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
 
 }
 

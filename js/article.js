@@ -734,6 +734,7 @@ function getRadioValues(ok, toxic, articleID, contributionID) {
   }
 
   if (checkValue) {
+    console.log(checkValue);
     firebase.database().ref('posts/' + articleID + '/contributions/' + contributionID).once('value').then(function(snapshot) {
 
       contribution0 = snapshot.val();

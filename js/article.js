@@ -621,7 +621,6 @@ function addEarn(content, direction, articleID, contributionID) {
         function waitForBody() {
             if (val != '' && val !== null) {
               for (x in val) {
-                console.log(val[x].active);
                 if (val[x].active == true) {
                   contributionArray.push([key, x, val[x], contribution.title]);
                   n++;
@@ -682,7 +681,7 @@ function addEarn(content, direction, articleID, contributionID) {
             submit.type = "submit";
 
             form.setAttribute("onSubmit", "return getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
-            form.setAttribute("action", "");
+            form.setAttribute("action", "#");
 
             content.appendChild(form);
             form.appendChild(ok);

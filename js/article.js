@@ -761,7 +761,12 @@ function getRadioValues(articleID, contributionID) {
 
     });
   }
-  return false;
+  var content = document.getElementById("earn" + String(contributionID));
+  while (content.firstChild) {
+      content.removeChild(content.firstChild);
+  }
+  content.style.maxHeight = null;
+
 }
 
 function integrateText(contributionID, articleID, authorUid) {

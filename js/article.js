@@ -761,11 +761,11 @@ function getRadioValues(articleID, contributionID) {
 
     });
   }
+  content.style.maxHeight = null;
   var content = document.getElementById("earn" + String(contributionID));
   while (content.firstChild) {
       content.removeChild(content.firstChild);
   }
-  content.style.maxHeight = null;
 
 }
 

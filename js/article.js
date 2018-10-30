@@ -510,7 +510,7 @@ function addCounter(subinfo, contributionID, articleID) {
 }
 
 function addEarn(direction, articleID, contributionID) {
-  var content = document.getElementById("earn" + String(contributionID));
+  content = document.getElementById("earn" + String(contributionID));
   var indefArticle;
   if (direction == "upvotes") {
     indefArticle = "an upvote";

@@ -743,7 +743,7 @@ function getRadioValues(articleID, contributionID) {
       contribution0toxicct = contribution0.toxicct;
 
       var newReviewct0 = contribution0reviewct + 1;
-      if (checkedValue == "toxic") {
+      if (checkValue == "toxic") {
         var newToxicct0 = contribution0toxicct + 1;
       }
       else {

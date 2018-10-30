@@ -659,8 +659,6 @@ function addEarn(content, direction, articleID, contributionID) {
             content.appendChild(titleContainer);
             content.appendChild(reviewContainer);
 
-            var form = document.createElement("form");
-
             var ok = document.createElement("input");
             ok.type = "radio";
             ok.name = "choices";
@@ -679,16 +677,13 @@ function addEarn(content, direction, articleID, contributionID) {
 
             var submit = document.createElement("input");
             submit.type = "submit";
+            submit.setAttribute("onclick", "getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
 
-            form.setAttribute("onSubmit", "return getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
-            form.setAttribute("action", "#");
-
-            content.appendChild(form);
-            form.appendChild(ok);
-            form.appendChild(slicedworthyLabel);
-            form.appendChild(toxic);
-            form.appendChild(toxicLabel);
-            form.appendChild(submit);
+            content.appendChild(ok);
+            content.appendChild(slicedworthyLabel);
+            content.appendChild(toxic);
+            content.appendChild(toxicLabel);
+            content.appendChild(submit);
             content = document.getElementById("earn" + String(contributionID))
             if (content.style.maxHeight){
               content.style.maxHeight = null;

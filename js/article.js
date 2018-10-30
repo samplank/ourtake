@@ -677,7 +677,7 @@ function addEarn(content, direction, articleID, contributionID) {
 
             var submit = document.createElement("input");
             submit.type = "submit";
-            submit.setAttribute("onclick", "getRadioValues(" + String(articleID) + "," + String(pair[1]) + ")");
+            submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "')");
 
             content.appendChild(ok);
             content.appendChild(slicedworthyLabel);

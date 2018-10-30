@@ -475,8 +475,8 @@ function addCounter(subinfo, contributionID, articleID) {
     upcounter.innerHTML = "Earn Upvote";
     downcounter.innerHTML = "Earn Downvote";
 
-    upcounter.setAttribute('onclick','voteClick(' + '"upvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"' +')');
-    downcounter.setAttribute('onclick','voteClick(' + '"downvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"'+')');
+    upcounter.setAttribute('onclick','addEarn(' + '"upvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"' +')');
+    downcounter.setAttribute('onclick','addEarn(' + '"downvotes",' + '"' + String(contributionID) + '"' + ',' + '"' + String(articleID) + '"'+')');
 
 
     upcount = document.createElement("p");
@@ -509,84 +509,8 @@ function addCounter(subinfo, contributionID, articleID) {
 
 }
 
-function voteClick(direction, contributionID, articleID) {
-
-    var authorUid = '';
-    firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/uid').once('value').then(function(snapshot) {
-      authorUid = snapshot.val();
-    });
-
-    waitforUid();
-
-    function waitforUid() {
-      if (authorUid !== ''){
-
-        if (authorUid !== user.uid) {
-
-          // firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
-          // var currentCredits = snapshot.val();
-          // console.log(currentCredits);
-          // if (currentCredits){
-          //   console.log(currentCredits);
-          //   var newCredits = currentCredits - 1;
-
-            var content = document.getElementById("earn" + String(contributionID));
-            addEarn(content, direction, articleID, contributionID);
-
-            firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
-
-                var updates = {};
-
-                var currentVotes = snapshot.val();
-                if (currentVotes != null) {
-                  var newVotes = currentVotes + 1;
-                  updates['users/' + user.uid + '/votes'] = newVotes;
-                }
-                else {
-                  updates['users/' + user.uid + '/votes'] = 1;
-                }
-                // updates['users/' + user.uid + '/credits'] = newCredits;
-
-                firebase.database().ref().update(updates);
-
-            });
-
-            var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-            ref.transaction(function(currentClicks) {
-            // If node/clicks has never been set, currentRank will be `null`.
-              var newValue = (currentClicks || 0) + 1;
-
-              if (newValue >= 10) {
-                if (direction == 'upvotes') {
-                    integrateText(contributionID, articleID, authorUid);
-                }
-                else if (direction == 'downvotes') {
-                    removeText(contributionID, articleID);
-                }
-              }
-              return newValue;
-            });
-
-        //   }
-        //   else {
-        //     alert("Earn more credits");
-        // }
-      // });
-
-        }
-        else {
-          alert("You can't vote on your own contributions. Check out what others have written!");
-        }
-      }
-      else {
-        setTimeout(waitforUid, 250);
-      }
-
-    }
-}
-
-function addEarn(content, direction, articleID, contributionID) {
-  console.log("addEarn");
+function addEarn(direction, articleID, contributionID) {
+  var content = document.getElementById("earn" + String(contributionID));
   var indefArticle;
   if (direction == "upvotes") {
     indefArticle = "an upvote";
@@ -765,6 +689,76 @@ function getRadioValues(articleID, contributionID) {
   content.style.maxHeight = null;
   while (content.firstChild) {
       content.removeChild(content.firstChild);
+  }
+
+  var authorUid = '';
+  firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/uid').once('value').then(function(snapshot) {
+    authorUid = snapshot.val();
+  });
+
+  waitforUid();
+
+  function waitforUid() {
+    if (authorUid !== ''){
+
+      if (authorUid !== user.uid) {
+
+        // firebase.database().ref('users/' + user.uid + '/credits').once('value').then(function(snapshot) {
+        // var currentCredits = snapshot.val();
+        // console.log(currentCredits);
+        // if (currentCredits){
+        //   console.log(currentCredits);
+        //   var newCredits = currentCredits - 1;
+
+          firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+
+              var updates = {};
+
+              var currentVotes = snapshot.val();
+              if (currentVotes != null) {
+                var newVotes = currentVotes + 1;
+                updates['users/' + user.uid + '/votes'] = newVotes;
+              }
+              else {
+                updates['users/' + user.uid + '/votes'] = 1;
+              }
+              // updates['users/' + user.uid + '/credits'] = newCredits;
+
+              firebase.database().ref().update(updates);
+
+          });
+
+          var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+          ref.transaction(function(currentClicks) {
+          // If node/clicks has never been set, currentRank will be `null`.
+            var newValue = (currentClicks || 0) + 1;
+
+            if (newValue >= 10) {
+              if (direction == 'upvotes') {
+                  integrateText(contributionID, articleID, authorUid);
+              }
+              else if (direction == 'downvotes') {
+                  removeText(contributionID, articleID);
+              }
+            }
+            return newValue;
+          });
+
+      //   }
+      //   else {
+      //     alert("Earn more credits");
+      // }
+    // });
+
+      }
+      else {
+        alert("You can't vote on your own contributions. Check out what others have written!");
+      }
+    }
+    else {
+      setTimeout(waitforUid, 250);
+    }
+
   }
 
 }

@@ -664,7 +664,7 @@ function addEarn(content, direction, articleID, contributionID) {
             ok.name = "choices";
             ok.class = "radioButtons";
             ok.value = "ok";
-            ok.id = "ok";
+            ok.id = "ok" + String(contributionID);
             var slicedworthyLabel = document.createTextNode("SlicedWorthy");
 
             var toxic = document.createElement("input");
@@ -672,12 +672,12 @@ function addEarn(content, direction, articleID, contributionID) {
             toxic.name = "choices";
             toxic.class = "radioButtons";
             toxic.value = "toxic";
-            toxic.id = "toxic";
+            toxic.id = "toxic" + String(contributionID);
             var toxicLabel = document.createTextNode("Toxic")
 
             var submit = document.createElement("input");
             submit.type = "submit";
-            submit.setAttribute("onclick", "getRadioValues(" + ok + "," + toxic + "," + String(articleID) + "," + String(pair[1]) + ")");
+            submit.setAttribute("onclick", "getRadioValues(" + String(articleID) + "," + String(pair[1]) + ")");
 
             content.appendChild(ok);
             content.appendChild(slicedworthyLabel);
@@ -718,10 +718,13 @@ function shuffle(array) {
   return array;
 }
 
-function getRadioValues(ok, toxic, articleID, contributionID) {
+function getRadioValues(articleID, contributionID) {
   console.log("getRadioValues");
   var postUpdateComplete;
   var checkValue;
+
+  var ok = document.getElementById("ok"  + String(contributionID));
+  var toxic = document.getElementById("toxic" + String(contributionID));
 
   if (ok.checked) {
     checkValue = ok.value;

@@ -761,8 +761,8 @@ function getRadioValues(articleID, contributionID) {
 
     });
   }
-  content.style.maxHeight = null;
   var content = document.getElementById("earn" + String(contributionID));
+  content.style.maxHeight = null;
   while (content.firstChild) {
       content.removeChild(content.firstChild);
   }

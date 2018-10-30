@@ -509,9 +509,8 @@ function addCounter(subinfo, contributionID, articleID) {
 
 }
 
-function addEarn(direction, articleID, contributionID) {
+function addEarn(direction, contributionID, articleID) {
   content = document.getElementById("earn" + String(contributionID));
-  console.log(content);
   var indefArticle;
   if (direction == "upvotes") {
     indefArticle = "an upvote";

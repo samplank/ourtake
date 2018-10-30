@@ -601,7 +601,7 @@ function addEarn(direction, contributionID, articleID) {
 
             var submit = document.createElement("input");
             submit.type = "submit";
-            submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "')");
+            submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
             content.appendChild(ok);
             content.appendChild(slicedworthyLabel);
@@ -642,7 +642,7 @@ function shuffle(array) {
   return array;
 }
 
-function getRadioValues(articleID, contributionID) {
+function getRadioValues(articleID, contributionID, direction) {
   console.log("getRadioValues");
   var postUpdateComplete;
   var checkValue;

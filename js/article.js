@@ -742,8 +742,8 @@ function getRadioValues(articleID, contributionID) {
       contribution0reviewct = contribution0.reviewct;
       contribution0toxicct = contribution0.toxicct;
 
-      var newReviewct = contribution0reviewct + 1;
-      if (checkedValue0 == "Toxic") {
+      var newReviewct0 = contribution0reviewct + 1;
+      if (checkedValue == "toxic") {
         var newToxicct0 = contribution0toxicct + 1;
       }
       else {
@@ -753,7 +753,7 @@ function getRadioValues(articleID, contributionID) {
       var updates = {};
 
       updates['posts/' + articleID + '/contributions/' + contributionID + '/reviewct'] = newReviewct0;
-      updates['posts/' + article0 + '/contributions/' + contrib0 + '/toxicct'] = newToxicct0;
+      updates['posts/' + articleID + '/contributions/' + contributionID + '/toxicct'] = newToxicct0;
 
       firebase.database().ref().update(updates);
 

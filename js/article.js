@@ -621,6 +621,7 @@ function addEarn(direction, contributionID, articleID) {
                 content.scrollIntoView();
               }
               else {
+                console.log("wait");
                 setTimeout(waitForMaxScroll, 250);
               }
 

@@ -619,6 +619,7 @@ function addEarn(direction, contributionID, articleID) {
             function waitForMaxScroll(){
               if (content.style.maxHeight !== null) {
                 content.scrollIntoView();
+                console.log("good");
               }
               else {
                 console.log("wait");

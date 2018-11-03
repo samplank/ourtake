@@ -613,8 +613,7 @@ function addEarn(direction, contributionID, articleID) {
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
-              contribution = document.getElementById("leftjustify" + String(contributionID));
-              contribution.scrollIntoView();
+              content.scrollIntoView(false);
             }
 
         }

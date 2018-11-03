@@ -613,9 +613,18 @@ function addEarn(direction, contributionID, articleID) {
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
-              content.scrollIntoView(false);
+              waitForMaxScroll();
             }
 
+            function waitForMaxScroll(){
+              if (content.style.maxHeight !== null) {
+                content.scrollIntoView();
+              }
+              else {
+                setTimeout(waitForMaxScroll, 250);
+              }
+
+            }
         }
         else {
             setTimeout(waitforArrayLoad, 250);

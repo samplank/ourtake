@@ -613,7 +613,7 @@ function addEarn(direction, contributionID, articleID) {
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
-              content.scrollTop = content.scrollHeight;
+              content.scrollIntoview();
             }
 
         }

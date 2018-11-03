@@ -510,6 +510,8 @@ function addCounter(subinfo, contributionID, articleID) {
 }
 
 function addEarn(direction, contributionID, articleID) {
+  contribution = document.getElementById("leftjustify" + String(contributionID));
+  contribution.scrollIntoView();
   content = document.getElementById("earn" + String(contributionID));
   var indefArticle;
   if (direction == "upvotes") {

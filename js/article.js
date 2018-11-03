@@ -510,8 +510,6 @@ function addCounter(subinfo, contributionID, articleID) {
 }
 
 function addEarn(direction, contributionID, articleID) {
-  contribution = document.getElementById("leftjustify" + String(contributionID));
-  contribution.scrollIntoView();
   content = document.getElementById("earn" + String(contributionID));
   var indefArticle;
   if (direction == "upvotes") {
@@ -615,7 +613,9 @@ function addEarn(direction, contributionID, articleID) {
               content.style.maxHeight = null;
             } else {
               content.style.maxHeight = content.scrollHeight + "px";
-            } 
+            }
+            contribution = document.getElementById("leftjustify" + String(contributionID));
+            contribution.scrollIntoView();
 
         }
         else {

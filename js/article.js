@@ -618,9 +618,7 @@ function addEarn(direction, contributionID, articleID) {
 
             function waitForMaxScroll(){
               if (content.style.maxHeight !== null) {
-                submit.scrollIntoView(false);
-
-                console.log(submit.scrollHeight);
+                window.scroll(0,findPos(content));
               }
               else {
                 console.log("wait");
@@ -634,6 +632,16 @@ function addEarn(direction, contributionID, articleID) {
         }
     }
 
+}
+
+function findPos(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+    return [curtop];
+    }
 }
 
 function shuffle(array) {

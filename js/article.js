@@ -518,7 +518,7 @@ function addEarn(direction, contributionID, articleID) {
   else if (direction == "downvotes") {
     indefArticle = "a downvote";
   }
-  content.innerHTML = "<span style='color:#484848;'>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Check that the contribution shown below meets our community standards:<br><br>\
+  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Check that the contribution shown below meets our community standards:<br><br>\
   1. No false claims. All claims of fact should be easily verifiable.<br>2. No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
   based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.<br>3. No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.</span>"
   var contributionArray = [];
@@ -576,7 +576,7 @@ function addEarn(direction, contributionID, articleID) {
             titleContainer.innerHTML = "<span style='color:#484848; font-weight: normal;'> From: </span>" + title;
 
             var reviewContainer = document.createElement("p")
-            reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body;
+            reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body + '<br>'
 
 
             content.appendChild(titleContainer);

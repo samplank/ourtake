@@ -618,7 +618,7 @@ function addEarn(direction, contributionID, articleID) {
 
             function waitForMaxScroll(){
               if (content.style.maxHeight !== null) {
-                window.scroll({left: 0, top: findPos(document.getElementById("earn" + String(contributionID))),behavior: 'smooth'});
+                window.scroll({left: 0, top: findPos(document.getElementById("leftjustify" + String(contributionID))),behavior: 'smooth'});
               }
               else {
                 console.log("wait");

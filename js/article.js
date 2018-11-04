@@ -640,6 +640,7 @@ function findPos(obj) {
         do {
             curtop += obj.offsetTop;
         } while (obj = obj.offsetParent);
+    console.log(curtop);
     return [curtop];
     }
 }

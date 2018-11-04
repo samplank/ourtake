@@ -602,11 +602,14 @@ function addEarn(direction, contributionID, articleID) {
             submit.type = "submit";
             submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
+            var brtag = document.createElement("br")
+
             content.appendChild(ok);
             content.appendChild(slicedworthyLabel);
             content.appendChild(toxic);
             content.appendChild(toxicLabel);
             content.appendChild(submit);
+            content.appendChild(brtag);
             content = document.getElementById("earn" + String(contributionID))
             if (content.style.maxHeight){
               content.style.maxHeight = null;

@@ -623,7 +623,7 @@ function addEarn(direction, contributionID, articleID) {
                   var cancel = document.createElement("button");
                   cancel.setAttribute("onclick", "clearEarn('" + String(contributionID) + "')");
 
-                  var brtag = document.createElement("br")
+                  var brtag = document.createElement("p")
 
                   content.appendChild(ok);
                   content.appendChild(slicedworthyLabel);

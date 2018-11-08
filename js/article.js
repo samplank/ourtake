@@ -617,11 +617,12 @@ function addEarn(direction, contributionID, articleID) {
 
                   var submit = document.createElement("input");
                   submit.type = "submit";
-                  submit.class = "undoSubmit";
+                  submit.className = "undoSubmit";
                   submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
                   var cancel = document.createElement("button");
                   cancel.innerHTML = "Cancel";
+                  cancel.className = "undoSubmit";
                   cancel.setAttribute("onclick", "clearEarn('" + String(contributionID) + "')");
 
                   var brtag = document.createElement("p")
@@ -719,6 +720,7 @@ function getRadioValues(articleID, contributionID, direction) {
 
       contribution0 = snapshot.val();
 
+      // Make this figure out which community standard is being reviewed and send the right thing to DB.
       contribution0reviewct = contribution0.reviewct;
       contribution0toxicct = contribution0.toxicct;
 

@@ -377,7 +377,7 @@ function submitText(i,articleID,title) {
 
             var now = new Date().getTime();
 
-            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0,true,title);
+            var contributionID = writeNewContribution(textInput,0,0,false,user.displayName,user.uid,now,articleID,0,0,0,0,true,title);
 
             loadText(articleID);
             var updates = {};
@@ -518,9 +518,14 @@ function addEarn(direction, contributionID, articleID) {
   else if (direction == "downvotes") {
     indefArticle = "a downvote";
   }
-  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Check that the contribution shown below meets our community standards:<br><br>\
-  1. No false claims. All claims of fact should be easily verifiable.<br>2. No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
-  based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.<br>3. No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.</span>"
+
+  // choose one of the community standards randomly
+  communityStandards = ['No false claims. All claims of fact should be easily verifiable.', 'No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
+  based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.', 'No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.']
+
+  randomStandard = shuffle(communityStandards).pop();
+
+  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Decide if the contribution shown below meets the following community standard:<br><br>" + randomStandards;
   var contributionArray = [];
   var n = 0;
 
@@ -840,7 +845,7 @@ function removeText(contributionID, articleID) {
 }
 
 
-function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, toxicct, active, title) {
+function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, timestamp, articleID, reviewct, communitystandard0, communitystandard1, communitystandard2, active, title) {
   // A post entry.
   var contributionData = {
     body: body,
@@ -852,7 +857,9 @@ function writeNewContribution(body, upvotes, downvotes, accepted, author, uid, t
     timestamp: timestamp,
     articleID: articleID,
     reviewct: reviewct,
-    toxicct: toxicct,
+    communitystandard0: communitystandard0,
+    communitystandard1: communitystandard1,
+    communitystandard2: communitystandard2,
     active: active,
     title: title
   };

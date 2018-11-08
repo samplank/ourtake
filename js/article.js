@@ -785,9 +785,9 @@ function getRadioValues(articleID, contributionID, direction) {
 function clearEarn(contributionID) {
   var content = document.getElementById("earn" + String(contributionID));
   content.style.maxHeight = 0;
-  while (content.firstChild) {
-      content.removeChild(content.firstChild);
-  }
+  // while (content.firstChild) {
+  //     content.removeChild(content.firstChild);
+  // }
 }
 
 function integrateText(contributionID, articleID, authorUid) {

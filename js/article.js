@@ -342,8 +342,8 @@ function addTextBox(i,articleID,title) {
     var txtDiv = document.createElement("div")
     txtDiv.id = "addContribution";
     txtDiv.appendChild(txtBox);
-    txtDiv.appendChild(undoButton);
     txtDiv.appendChild(submitButton);
+    txtDiv.appendChild(undoButton);
     buttonSpace.appendChild(txtDiv);
 }
 
@@ -523,9 +523,9 @@ function addEarn(direction, contributionID, articleID) {
   communityStandards = ['No false claims. All claims of fact should be easily verifiable.', 'No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
   based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.', 'No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.']
 
-  randomStandard = shuffle(communityStandards).pop();
+  var randomStandard = shuffle(communityStandards).pop();
 
-  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Decide if the contribution shown below meets the following community standard:<br><br>" + randomStandards;
+  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Decide if the contribution shown below meets the following community standard:<br><br>" + randomStandard;
   var contributionArray = [];
   var n = 0;
 

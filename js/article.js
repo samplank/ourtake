@@ -510,134 +510,197 @@ function addCounter(subinfo, contributionID, articleID) {
 }
 
 function addEarn(direction, contributionID, articleID) {
-  content = document.getElementById("earn" + String(contributionID));
-  var indefArticle;
-  if (direction == "upvotes") {
-    indefArticle = "an upvote";
-  }
-  else if (direction == "downvotes") {
-    indefArticle = "a downvote";
-  }
+  var authorUid = '';
+  firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/uid').once('value').then(function(snapshot) {
+    authorUid = snapshot.val();
+  });
 
-  // choose one of the community standards randomly
-  communityStandards = ['No false claims. All claims of fact should be easily verifiable.', 'No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
-  based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.', 'No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.']
+  waitforUid();
 
-  var randomStandard = shuffle(communityStandards).pop();
+  function waitforUid() {
+    if (authorUid !== ''){
 
-  content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Decide if the contribution shown below meets the following community standard:<br><br>" + randomStandard;
-  var contributionArray = [];
-  var n = 0;
+      if (authorUid !== user.uid) {
+        console.log(authorUid);
+        console.log(user.uid);
 
-  var rootRef = firebase.database().ref();
-    var urlRef = rootRef.child("posts");
-    urlRef.once("value", function(snapshot) {
-      snapshot.forEach(function(child) {
-        var contribution = child.val();
-        var key = child.key;
-        var val = '';
 
-        postRef = urlRef.child(String(key));
 
-        postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
-            val = snapshot.val();
+        firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+
+            var updates = {};
+
+            var currentVotes = snapshot.val();
+            if (currentVotes != null) {
+              var newVotes = currentVotes + 1;
+              updates['users/' + user.uid + '/votes'] = newVotes;
+            }
+            else {
+              updates['users/' + user.uid + '/votes'] = 1;
+            }
+            // updates['users/' + user.uid + '/credits'] = newCredits;
+
+            firebase.database().ref().update(updates);
+
+        });
+
+        var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+        ref.transaction(function(currentClicks) {
+        // If node/clicks has never been set, currentRank will be `null`.
+          var newValue = (currentClicks || 0) + 1;
+
+          if (newValue >= 10) {
+            if (direction == 'upvotes') {
+                integrateText(contributionID, articleID, authorUid);
+            }
+            else if (direction == 'downvotes') {
+                removeText(contributionID, articleID);
+            }
+          }
+          return newValue;
         });
 
 
-        waitForBody();
-
-        function waitForBody() {
-            if (val != '' && val !== null) {
-              for (x in val) {
-                if (val[x].active == true) {
-                  contributionArray.push([key, x, val[x], contribution.title]);
-                  n++;
-                }
-              }
-            }
-            else {
-                setTimeout(waitForBody, 250);
-            }
+        content = document.getElementById("earn" + String(contributionID));
+        var indefArticle;
+        if (direction == "upvotes") {
+          indefArticle = "an upvote";
+        }
+        else if (direction == "downvotes") {
+          indefArticle = "a downvote";
         }
 
-      });
+        // choose one of the community standards randomly
+        communityStandards = ['No false claims. All claims of fact should be easily verifiable.', 'No hate speech. The contribution should make no statement attacking or discriminating against a person or group \
+        based on race, religion, ethnic origin, national origin, sex, disability, sexual orientiation, or gender identity.', 'No spam. The contribution should be an earnest thought and not an attempt at vandalizing the article.']
 
-    });
+        var randomStandard = shuffle(communityStandards).pop();
 
-    waitforArrayLoad();
+        content.innerHTML = "<span style='color:#484848;'><br>To earn " + indefArticle + " on the contribution above, help Sliced maintain its quality. Decide if the contribution shown below meets the following community standard:<br><br>" + randomStandard;
+        var contributionArray = [];
+        var n = 0;
 
-    function waitforArrayLoad() {
-        if (contributionArray.length == n && n !== 0) {
+        var rootRef = firebase.database().ref();
+          var urlRef = rootRef.child("posts");
+          urlRef.once("value", function(snapshot) {
+            snapshot.forEach(function(child) {
+              var contribution = child.val();
+              var key = child.key;
+              var val = '';
 
-            var readSpace = document.getElementById("readcontainer");
+              postRef = urlRef.child(String(key));
 
-            var shuffledArray = shuffle(contributionArray);
-
-            var pair = shuffledArray.pop();
-            var title = pair[3];
-            var contrib = pair[2];
-
-            var titleContainer = document.createElement("p");
-            titleContainer.innerHTML = "<span style='color:#484848; font-weight: normal;'> From: </span>" + title;
-
-            var reviewContainer = document.createElement("p")
-            reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body + '<br>'
+              postRef.child('contributions').orderByChild('accepted').equalTo(false).on("value", function(snapshot) {
+                  val = snapshot.val();
+              });
 
 
-            content.appendChild(titleContainer);
-            content.appendChild(reviewContainer);
+              waitForBody();
 
-            var ok = document.createElement("input");
-            ok.type = "radio";
-            ok.name = "choices";
-            ok.class = "radioButtons";
-            ok.value = "ok";
-            ok.id = "ok" + String(contributionID);
-            var slicedworthyLabel = document.createTextNode("SlicedWorthy");
+              function waitForBody() {
+                  if (val != '' && val !== null) {
+                    for (x in val) {
+                      if (val[x].active == true) {
+                        contributionArray.push([key, x, val[x], contribution.title]);
+                        n++;
+                      }
+                    }
+                  }
+                  else {
+                      setTimeout(waitForBody, 250);
+                  }
+              }
 
-            var toxic = document.createElement("input");
-            toxic.type = "radio";
-            toxic.name = "choices";
-            toxic.class = "radioButtons";
-            toxic.value = "toxic";
-            toxic.id = "toxic" + String(contributionID);
-            var toxicLabel = document.createTextNode("Toxic")
+            });
 
-            var submit = document.createElement("input");
-            submit.type = "submit";
-            submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
+          });
 
-            var brtag = document.createElement("br")
+          waitforArrayLoad();
 
-            content.appendChild(ok);
-            content.appendChild(slicedworthyLabel);
-            content.appendChild(toxic);
-            content.appendChild(toxicLabel);
-            content.appendChild(submit);
-            content.appendChild(brtag);
-            content = document.getElementById("earn" + String(contributionID))
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-              waitForMaxScroll();
-            }
+          function waitforArrayLoad() {
+              if (contributionArray.length == n && n !== 0) {
 
-            function waitForMaxScroll(){
-              if (content.style.maxHeight !== null) {
-                setTimeout(window.scroll({left: 0, top: findPos(document.getElementById("leftjustify" + String(contributionID))),behavior: 'smooth'}),100);
+                  var readSpace = document.getElementById("readcontainer");
+
+                  var shuffledArray = shuffle(contributionArray);
+
+                  var pair = shuffledArray.pop();
+                  var title = pair[3];
+                  var contrib = pair[2];
+
+                  var titleContainer = document.createElement("p");
+                  titleContainer.innerHTML = "<span style='color:#484848; font-weight: normal;'> From: </span>" + title;
+
+                  var reviewContainer = document.createElement("p")
+                  reviewContainer.innerHTML = "<span style='color:#484848;'> Contribution: </span>" + contrib.body + '<br>'
+
+
+                  content.appendChild(titleContainer);
+                  content.appendChild(reviewContainer);
+
+                  var ok = document.createElement("input");
+                  ok.type = "radio";
+                  ok.name = "choices";
+                  ok.class = "radioButtons";
+                  ok.value = "ok";
+                  ok.id = "ok" + String(contributionID);
+                  var slicedworthyLabel = document.createTextNode("SlicedWorthy");
+
+                  var toxic = document.createElement("input");
+                  toxic.type = "radio";
+                  toxic.name = "choices";
+                  toxic.class = "radioButtons";
+                  toxic.value = "toxic";
+                  toxic.id = "toxic" + String(contributionID);
+                  var toxicLabel = document.createTextNode("Toxic")
+
+                  var submit = document.createElement("input");
+                  submit.type = "submit";
+                  submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
+
+                  var brtag = document.createElement("br")
+
+                  content.appendChild(ok);
+                  content.appendChild(slicedworthyLabel);
+                  content.appendChild(toxic);
+                  content.appendChild(toxicLabel);
+                  content.appendChild(submit);
+                  content.appendChild(brtag);
+                  content = document.getElementById("earn" + String(contributionID))
+                  if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                  } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    waitForMaxScroll();
+                  }
+
+                  function waitForMaxScroll(){
+                    if (content.style.maxHeight !== null) {
+                      setTimeout(window.scroll({left: 0, top: findPos(document.getElementById("leftjustify" + String(contributionID))),behavior: 'smooth'}),100);
+                    }
+                    else {
+                      console.log("wait");
+                      setTimeout(waitForMaxScroll, 250);
+                    }
+
+                  }
               }
               else {
-                console.log("wait");
-                setTimeout(waitForMaxScroll, 250);
+                  setTimeout(waitforArrayLoad, 250);
               }
-
-            }
-        }
-        else {
-            setTimeout(waitforArrayLoad, 250);
-        }
+          }
+      }
+      else {
+        alert("You can't vote on your own contributions. Check out what others have written!");
+      }
     }
+    else {
+      setTimeout(waitforUid, 250);
+    }
+
+  }
+
+  
 
 }
 
@@ -718,67 +781,6 @@ function getRadioValues(articleID, contributionID, direction) {
   content.style.maxHeight = null;
   while (content.firstChild) {
       content.removeChild(content.firstChild);
-  }
-
-  var authorUid = '';
-  firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/uid').once('value').then(function(snapshot) {
-    authorUid = snapshot.val();
-  });
-
-  waitforUid();
-
-  function waitforUid() {
-    if (authorUid !== ''){
-
-      if (authorUid !== user.uid) {
-        console.log(authorUid);
-        console.log(user.uid);
-
-
-
-        firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
-
-            var updates = {};
-
-            var currentVotes = snapshot.val();
-            if (currentVotes != null) {
-              var newVotes = currentVotes + 1;
-              updates['users/' + user.uid + '/votes'] = newVotes;
-            }
-            else {
-              updates['users/' + user.uid + '/votes'] = 1;
-            }
-            // updates['users/' + user.uid + '/credits'] = newCredits;
-
-            firebase.database().ref().update(updates);
-
-        });
-
-        var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-        ref.transaction(function(currentClicks) {
-        // If node/clicks has never been set, currentRank will be `null`.
-          var newValue = (currentClicks || 0) + 1;
-
-          if (newValue >= 10) {
-            if (direction == 'upvotes') {
-                integrateText(contributionID, articleID, authorUid);
-            }
-            else if (direction == 'downvotes') {
-                removeText(contributionID, articleID);
-            }
-          }
-          return newValue;
-        });
-
-      }
-      else {
-        alert("You can't vote on your own contributions. Check out what others have written!");
-      }
-    }
-    else {
-      setTimeout(waitforUid, 250);
-    }
-
   }
 
 }

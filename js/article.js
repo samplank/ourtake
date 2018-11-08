@@ -620,6 +620,9 @@ function addEarn(direction, contributionID, articleID) {
                   submit.class = "undoSubmit";
                   submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
+                  var cancel = document.createElement("button");
+                  cancel.setAttribute("onclick", "clearEarn('" + String(contributionID) + "')");
+
                   var brtag = document.createElement("br")
 
                   content.appendChild(ok);
@@ -627,6 +630,7 @@ function addEarn(direction, contributionID, articleID) {
                   content.appendChild(toxic);
                   content.appendChild(toxicLabel);
                   content.appendChild(submit);
+                  content.appendChild(cancel);
                   content.appendChild(brtag);
                   content = document.getElementById("earn" + String(contributionID))
                   if (content.style.maxHeight){
@@ -739,11 +743,8 @@ function getRadioValues(articleID, contributionID, direction) {
 
     });
   }
-  var content = document.getElementById("earn" + String(contributionID));
-  content.style.maxHeight = null;
-  while (content.firstChild) {
-      content.removeChild(content.firstChild);
-  }
+
+  clearEarn(contributionID);
 
   firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
 
@@ -779,6 +780,14 @@ ref.transaction(function(currentClicks) {
   return newValue;
 });
 
+}
+
+function clearEarn(contributionID) {
+  var content = document.getElementById("earn" + String(contributionID));
+  content.style.maxHeight = null;
+  while (content.firstChild) {
+      content.removeChild(content.firstChild);
+  }
 }
 
 function integrateText(contributionID, articleID, authorUid) {

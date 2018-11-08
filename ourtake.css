@@ -185,7 +185,7 @@ a {
   padding: 0% 4%;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-in-out;
   background-color: #fff9ea;
   border-bottom: 1px solid #484848; 
 }

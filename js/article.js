@@ -521,45 +521,6 @@ function addEarn(direction, contributionID, articleID) {
     if (authorUid !== ''){
 
       if (authorUid !== user.uid) {
-        console.log(authorUid);
-        console.log(user.uid);
-
-
-
-        firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
-
-            var updates = {};
-
-            var currentVotes = snapshot.val();
-            if (currentVotes != null) {
-              var newVotes = currentVotes + 1;
-              updates['users/' + user.uid + '/votes'] = newVotes;
-            }
-            else {
-              updates['users/' + user.uid + '/votes'] = 1;
-            }
-            // updates['users/' + user.uid + '/credits'] = newCredits;
-
-            firebase.database().ref().update(updates);
-
-        });
-
-        var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
-        ref.transaction(function(currentClicks) {
-        // If node/clicks has never been set, currentRank will be `null`.
-          var newValue = (currentClicks || 0) + 1;
-
-          if (newValue >= 10) {
-            if (direction == 'upvotes') {
-                integrateText(contributionID, articleID, authorUid);
-            }
-            else if (direction == 'downvotes') {
-                removeText(contributionID, articleID);
-            }
-          }
-          return newValue;
-        });
-
 
         content = document.getElementById("earn" + String(contributionID));
         var indefArticle;
@@ -782,6 +743,40 @@ function getRadioValues(articleID, contributionID, direction) {
   while (content.firstChild) {
       content.removeChild(content.firstChild);
   }
+
+  firebase.database().ref('users/' + user.uid + '/votes').once('value').then(function(snapshot) {
+
+    var updates = {};
+
+    var currentVotes = snapshot.val();
+    if (currentVotes != null) {
+      var newVotes = currentVotes + 1;
+      updates['users/' + user.uid + '/votes'] = newVotes;
+    }
+    else {
+      updates['users/' + user.uid + '/votes'] = 1;
+    }
+    // updates['users/' + user.uid + '/credits'] = newCredits;
+
+    firebase.database().ref().update(updates);
+
+});
+
+var ref = firebase.database().ref('posts/' + String(articleID) + '/contributions/' + contributionID + '/' + direction);
+ref.transaction(function(currentClicks) {
+// If node/clicks has never been set, currentRank will be `null`.
+  var newValue = (currentClicks || 0) + 1;
+
+  if (newValue >= 10) {
+    if (direction == 'upvotes') {
+        integrateText(contributionID, articleID, authorUid);
+    }
+    else if (direction == 'downvotes') {
+        removeText(contributionID, articleID);
+    }
+  }
+  return newValue;
+});
 
 }
 

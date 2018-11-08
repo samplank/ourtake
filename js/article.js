@@ -621,6 +621,7 @@ function addEarn(direction, contributionID, articleID) {
                   submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
                   var cancel = document.createElement("button");
+                  cancel.innerHTML = "Cancel";
                   cancel.setAttribute("onclick", "clearEarn('" + String(contributionID) + "')");
 
                   var brtag = document.createElement("p")
@@ -633,12 +634,9 @@ function addEarn(direction, contributionID, articleID) {
                   content.appendChild(cancel);
                   content.appendChild(brtag);
                   content = document.getElementById("earn" + String(contributionID))
-                  if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                  } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    waitForMaxScroll();
-                  }
+
+                  content.style.maxHeight = content.scrollHeight + "px";
+                  waitForMaxScroll();
 
                   function waitForMaxScroll(){
                     if (content.style.maxHeight !== null) {

@@ -617,6 +617,7 @@ function addEarn(direction, contributionID, articleID) {
 
                   var submit = document.createElement("input");
                   submit.type = "submit";
+                  submit.class = "undoSubmit";
                   submit.setAttribute("onclick", "getRadioValues('" + String(articleID) + "','" + String(pair[1]) + "','" + String(direction) + "')");
 
                   var brtag = document.createElement("br")

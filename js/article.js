@@ -640,7 +640,7 @@ function addEarn(direction, contributionID, articleID) {
                   waitForMaxScroll();
 
                   function waitForMaxScroll(){
-                    if (content.style.maxHeight !== null) {
+                    if (content.style.maxHeight !== 0) {
                       setTimeout(window.scroll({left: 0, top: findPos(document.getElementById("leftjustify" + String(contributionID))),behavior: 'smooth'}),100);
                     }
                     else {
@@ -784,7 +784,7 @@ function getRadioValues(articleID, contributionID, direction) {
 
 function clearEarn(contributionID) {
   var content = document.getElementById("earn" + String(contributionID));
-  content.style.maxHeight = null;
+  content.style.maxHeight = 0;
   while (content.firstChild) {
       content.removeChild(content.firstChild);
   }

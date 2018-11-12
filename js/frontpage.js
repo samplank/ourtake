@@ -198,17 +198,17 @@ function loadArticles() {
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
                 if (article.paragraph_count == 1) {
-                  readButton.innerHTML = "Read " + article.paragraph_count + " Accepted Contribution";
+                  readButton.innerHTML = "<span style='color:#484848;'>Read " + article.paragraph_count + " Accepted Contribution</span>";
                 }
                 else {
-                  readButton.innerHTML = "Read " + article.paragraph_count + " Accepted Contributions";
+                  readButton.innerHTML = "<span style='color:#484848;'>Read " + article.paragraph_count + " Accepted Contributions</span>";
                 }
                 readButton.className = "addToArticle";
                 readButton.setAttribute('onclick','location.href="article.html?article=' + String(key) + '"');
                 addToButton = document.createElement("button");
                 addToButton.className = "addToArticle";
                 addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
-                addToButton.innerHTML = "Add Your Own Thoughts";
+                addToButton.innerHTML = "<span style='color:#484848;'>Add Your Own Thoughts</span>";
                 buttonDiv.appendChild(readButton);
                 buttonDiv.appendChild(addToButton);
                 link.appendChild(buttonDiv);

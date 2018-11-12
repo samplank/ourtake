@@ -194,7 +194,7 @@ function loadArticles() {
         function waitForBody() {
             var body = '   ';
             if (body != '') {
-                aref.innerHTML = '<p class="title">' + article.title + '</p></span><p class="reviewDetails">' + articleDetails + '</p>' + body;
+                aref.innerHTML = '<p class="title">' + article.title + '</p></span><p class="reviewDetails">' + articleDetails + body;
                 buttonDiv = document.createElement("div");
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");

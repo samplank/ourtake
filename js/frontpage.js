@@ -198,17 +198,17 @@ function loadArticles() {
                 buttonDiv.className = "buttonDiv";
                 readButton = document.createElement("button");
                 if (article.paragraph_count == 1) {
-                  readButton.innerHTML = "Read " + article.paragraph_count + " accepted contribution";
+                  readButton.innerHTML = "Read " + article.paragraph_count + " Accepted Contribution";
                 }
                 else {
-                  readButton.innerHTML = "Read " + article.paragraph_count + " accepted contributions";
+                  readButton.innerHTML = "Read " + article.paragraph_count + " Accepted Contributions";
                 }
                 readButton.className = "addToArticle";
                 readButton.setAttribute('onclick','location.href="article.html?article=' + String(key) + '"');
                 addToButton = document.createElement("button");
                 addToButton.className = "addToArticle";
                 addToButton.setAttribute('onclick','location.href="article.html?article=' + String(key) +'#contribute"');
-                addToButton.innerHTML = "Add your own thoughts";
+                addToButton.innerHTML = "Add Your Own Thoughts";
                 buttonDiv.appendChild(readButton);
                 buttonDiv.appendChild(addToButton);
                 link.appendChild(buttonDiv);

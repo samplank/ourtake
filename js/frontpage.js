@@ -173,25 +173,26 @@ function loadArticles() {
 
 
 
-        postRef = urlRef.child(String(key));
+        // postRef = urlRef.child(String(key));
 
-        var body = '';
+        // var body = '';
 
-        postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
-            val = snapshot.val();
-            if (!val) {
-                body = "   ";
-            }
-            else {
-                val = val[Object.keys(val)[0]];
-                body = val.body;
-            }
-        });
+        // postRef.child('contributions').orderByChild('paragraph_number').equalTo(1).on("value", function(snapshot) {
+        //     val = snapshot.val();
+        //     if (!val) {
+        //         body = "   ";
+        //     }
+        //     else {
+        //         val = val[Object.keys(val)[0]];
+        //         body = val.body;
+        //     }
+        // });
 
 
         waitForBody();
 
         function waitForBody() {
+            var body = '   ';
             if (body != '') {
                 aref.innerHTML = '<p class="title">' + article.title + '</p></span><p class="reviewDetails">' + articleDetails + '</p>' + body;
                 buttonDiv = document.createElement("div");

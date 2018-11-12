@@ -162,7 +162,7 @@ a {
 }
 
 .buttonDiv { 
-    padding: 3% 0%; 
+    padding: 1% 0% 3% 0%; 
     float: left; 
     border-bottom: 1px solid #484848; 
     width: 100%;

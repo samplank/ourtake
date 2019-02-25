@@ -192,7 +192,7 @@ function loadArticles() {
         waitForBody();
 
         function waitForBody() {
-            var body = '   ';
+            var body = article.description;
             if (body != '') {
                 aref.innerHTML = '<p class="title">' + article.title + '</p></span><p class="reviewDetails">' + articleDetails + body;
                 buttonDiv = document.createElement("div");

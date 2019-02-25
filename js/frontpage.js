@@ -168,7 +168,7 @@ function loadArticles() {
 
         authorHTML = authorHTML.slice(0, -2);
 
-        var articleDetails = timeago + "<br>" + authorHTML;
+        var articleDetails = timeago + "<br>" + authorHTML + "<br>";
 
 
 

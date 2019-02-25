@@ -160,15 +160,21 @@ function loadArticles() {
 
         var uniqueAuthors = authors.filter(onlyUnique);
 
-        var authorHTML = 'Authors: ';
+        if (uniqueAuthors == []) {
+            var articleDetails = timeago + "<br>"
+        } 
+        else {
+            var authorHTML = 'Authors: ';
 
-        for (each in uniqueAuthors) {
-          authorHTML = authorHTML + String(uniqueAuthors[each]) + ', ';
+            for (each in uniqueAuthors) {
+              authorHTML = authorHTML + String(uniqueAuthors[each]) + ', ';
+            }
+
+            authorHTML = authorHTML.slice(0, -2);
+
+            var articleDetails = timeago + "<br>" + authorHTML + "<br>";
         }
 
-        authorHTML = authorHTML.slice(0, -2);
-
-        var articleDetails = timeago + "<br>" + authorHTML + "<br>";
 
 
 

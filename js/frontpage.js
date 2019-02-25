@@ -160,6 +160,8 @@ function loadArticles() {
 
         var uniqueAuthors = authors.filter(onlyUnique);
 
+        console.log(uniqueAuthors);
+
         if (uniqueAuthors == []) {
             var articleDetails = timeago + "<br>"
         } 

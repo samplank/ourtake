@@ -297,14 +297,23 @@ function removeButton() {
 
 function addTextBox(name) {
 
-	var txtBox = document.createElement("input");
+	var title_txtBox = document.createElement("input");
 
 
-    txtBox.setAttribute("type", "text");
-    txtBox.setAttribute("value", "");
-    txtBox.setAttribute("name", "Test Name");
-    txtBox.maxLength = 100;
-    txtBox.id = "txtbox";
+    title_txtBox.setAttribute("type", "text");
+    title_txtBox.setAttribute("value", "");
+    title_txtBox.setAttribute("name", "Test Name");
+    title_txtBox.maxLength = 100;
+    title_txtBox.id = "title_txtbox";
+
+    var descr_txtBox = document.createElement("input");
+
+
+    descr_txtBox.setAttribute("type", "text");
+    descr_txtBox.setAttribute("value", "");
+    descr_txtBox.setAttribute("name", "Test Name");
+    descr_txtBox.maxLength = 100;
+    descr_txtBox.id = "descr_txtbox";
 
     var undoButton = document.createElement("button");
     undoButton.innerHTML = "Cancel";
@@ -318,7 +327,8 @@ function addTextBox(name) {
     while (textDiv.firstChild) {
         textDiv.removeChild(textDiv.firstChild);
     }
-    textDiv.appendChild(txtBox);
+    textDiv.appendChild(title_txtBox);
+    textDiv.appendChild(descr_txtBox);
     textDiv.appendChild(undoButton);
     textDiv.appendChild(submitButton);
 }
@@ -326,20 +336,22 @@ function addTextBox(name) {
 
 function submitText(name) {
 
-    var title = document.getElementById("txtbox").value;
+    var title = document.getElementById("title_txtbox").value;
+    var description = document.getElementById('descr_txtbox').value;
 
     var now = new Date().getTime();
 
-    var contributionID = writeNewPost(title,user.displayName,now);
+    var contributionID = writeNewPost(title,user.displayName,description,now);
 
     location.reload(true);
 
 }
 
-function writeNewPost(title,author,timestamp) {
+function writeNewPost(title,author,description,timestamp) {
 	var postData = {
 	    title: title,
 	    author: author,
+        description: description,
 	    createdTimestamp: timestamp,
         updatedTimestamp: timestamp,
 	    paragraph_count: 0

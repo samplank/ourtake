@@ -312,7 +312,7 @@ function addTextBox(name) {
     descr_txtBox.setAttribute("type", "text");
     descr_txtBox.setAttribute("value", "");
     descr_txtBox.setAttribute("name", "Test Name");
-    descr_txtBox.maxLength = 100;
+    descr_txtBox.maxLength = 1000;
     descr_txtBox.id = "descr_txtbox";
 
     var undoButton = document.createElement("button");

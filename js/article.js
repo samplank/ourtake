@@ -159,6 +159,28 @@ function loadText(articleID) {
 
     var title;
 
+    firebase.database().ref('posts/'  + String(articleID)).once('value').then(function(snapshot) {
+      var article = snaphot.val();
+      var title = article.title;
+      var blurb = article.blurb;
+      var titleSlot = document.createElement("h2");
+      var blurbSlot = document.createElement("p");
+      titleSlot.innerHTML = title;
+      blurbSlot.innerHTML = blurb;
+      var titleSpace = document.getElementById("titleSpace");
+      while (titleSpace.firstChild){
+        titleSpace.removeChild(titleSpace.firstChild);
+      }
+      titleSpace.appendChild(titleSlot);
+
+      var blurbSpace = document.getElementById("blurbSpace");
+      while (blurbSpace.firstChild){
+        blurbSpace.removeChild(blurbSpace.firstChild);
+      }
+      blurbSpace.appendChild(titleSlot);
+
+    });
+
     firebase.database().ref('posts/'  + String(articleID) + '/title').once('value').then(function(snapshot) {
       title = snapshot.val();
       var titleSlot = document.createElement("h2");
@@ -211,22 +233,6 @@ function loadText(articleID) {
                 newReviewPara.appendChild(reviewInfoName);
                 review.appendChild(newReviewPara);
 
-                //only show the last paragraph.
-                // if (user && contribution.paragraph_number > (paragraph_count - 1)){
-
-                //     var newContributePara = document.createElement("p");
-                //     newContributePara.innerHTML = contribution.body;
-                //     existingContributions.appendChild(newContributePara);
-
-                //     var replaceDiv = document.createElement("div");
-                //     replaceDiv.id = "div" + String(i);
-                //     existingContributions.appendChild(replaceDiv);
-
-                //     var newlineDiv = document.createElement("div");
-                //     newlineDiv.id = "newline";
-                //     existingContributions.appendChild(newlineDiv);
-
-                //   }
             }
           });
         });
@@ -721,6 +727,7 @@ function getRadioValues(articleID, contributionID, direction) {
       contribution0 = snapshot.val();
 
       // Make this figure out which community standard is being reviewed and send the right thing to DB.
+      var 
       contribution0reviewct = contribution0.reviewct;
       contribution0toxicct = contribution0.toxicct;
 

@@ -177,7 +177,7 @@ function loadText(articleID) {
       while (blurbSpace.firstChild){
         blurbSpace.removeChild(blurbSpace.firstChild);
       }
-      blurbSpace.appendChild(titleSlot);
+      blurbSpace.appendChild(blurbSlot);
 
     });
 

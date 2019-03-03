@@ -160,7 +160,7 @@ function loadText(articleID) {
     var title;
 
     firebase.database().ref('posts/'  + String(articleID)).once('value').then(function(snapshot) {
-      var article = snaphot.val();
+      var article = snapshot.val();
       var title = article.title;
       var blurb = article.blurb;
       var titleSlot = document.createElement("h2");
